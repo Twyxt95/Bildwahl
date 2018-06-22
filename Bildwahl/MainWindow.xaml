@@ -3,10 +3,84 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:tobii="clr-namespace:Tobii.Interaction.Wpf;assembly=Tobii.Interaction.Net"
         xmlns:local="clr-namespace:Bildwahl"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="MainWindow" Width="1024" Height="720">
+    <Grid Name="grid">
+        <Button Content="Button" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="500" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="100">
+        <Button.Style>
+            <Style TargetType="Button">
+                <Setter Property="Background" Value="Red" />
+                <Setter Property="Content" Value="Button" />
+                <EventSetter Event="tobii:Behaviors.HasGazeChanged" Handler="DoSomething" />
+
+
+                <Style.Triggers>
+                    <Trigger Property="tobii:Behaviors.HasGaze" Value="True">
+                        <Setter Property="Content" Value="Test" />
+
+                        <Setter Property="Background" Value="Yellow" />
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+        </Button.Style>
+        </Button>
+        <Button Content="Button" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="500" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="100" Height="100" Margin="0">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Background" Value="Red" />
+                    <Setter Property="Content" Value="Button" />
+                    <EventSetter Event="tobii:Behaviors.HasGazeChanged" Handler="DoSomething" />
+
+
+                    <Style.Triggers>
+                        <Trigger Property="tobii:Behaviors.HasGaze" Value="True">
+                            <Setter Property="Content" Value="Test" />
+
+                            <Setter Property="Background" Value="Yellow" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+        <Button Content="Button" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="500" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="100" Height="100" Margin="0">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Background" Value="Red" />
+                    <Setter Property="Content" Value="Button" />
+                    <EventSetter Event="tobii:Behaviors.HasGazeChanged" Handler="DoSomething" />
+
+
+                    <Style.Triggers>
+                        <Trigger Property="tobii:Behaviors.HasGaze" Value="True">
+                            <Setter Property="Content" Value="Test" />
+
+                            <Setter Property="Background" Value="Yellow" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+        <Button Content="Button" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="500" HorizontalAlignment="Right" VerticalAlignment="Top" Width="100" Height="100" Margin="0">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Background" Value="Red" />
+                    <Setter Property="Content" Value="Button" />
+                    <EventSetter Event="tobii:Behaviors.HasGazeChanged" Handler="DoSomething" />
+
+
+                    <Style.Triggers>
+                        <Trigger Property="tobii:Behaviors.HasGaze" Value="True">
+                            <Setter Property="Content" Value="Test" />
+
+                            <Setter Property="Background" Value="Yellow" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="100" Margin="270,216,0,0" Stroke="Black" VerticalAlignment="Top" Width="100"/>
+
     </Grid>
 </Window>

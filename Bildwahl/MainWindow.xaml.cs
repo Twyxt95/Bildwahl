@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Tobii.Interaction.Framework;
+using Tobii.Interaction;
+using Tobii.Interaction.Wpf;
 
 namespace Bildwahl
 {
@@ -24,5 +27,10 @@ namespace Bildwahl
         {
             InitializeComponent();
         }
+        private void DoSomething(object sender, HasGazeChangedRoutedEventArgs e)
+        {
+            this.Title = "clicked";
+        }
+
     }
 }
