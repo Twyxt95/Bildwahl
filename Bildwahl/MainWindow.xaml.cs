@@ -1,36 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using Tobii.Interaction.Framework;
-using Tobii.Interaction;
-using Tobii.Interaction.Wpf;
-
-namespace Bildwahl
+﻿namespace Bildwahl
 {
-    /// <summary>
-    /// Interaktionslogik für MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : System.Windows.Window
     {
         public MainWindow()
         {
             InitializeComponent();
         }
-        private void DoSomething(object sender, HasGazeChangedRoutedEventArgs e)
-        {
-            this.Title = "clicked";
-        }
-
     }
 }

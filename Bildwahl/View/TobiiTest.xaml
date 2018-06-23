@@ -1,0 +1,97 @@
+﻿<UserControl 
+    x:Class="Bildwahl.View.TobiiTest"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:tobii="clr-namespace:Tobii.Interaction.Wpf;assembly=Tobii.Interaction.Net"
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+
+    
+    
+    xmlns:vw="clr-namespace:Bildwahl.View"
+    HorizontalAlignment="Center"
+    VerticalAlignment="Center"  
+    Width="400">
+    <UserControl.Resources>
+        <Style x:Key="TobiiButtonStyle" TargetType="{x:Type Button}">
+
+            <Setter Property="Background" Value="Red" />
+            <Setter Property="Content" Value="Button" />
+            <!--<EventSetter Event="tobii:Behaviors.HasGazeChanged" Handler="{Binding Path=DoSomethingCommand}" />-->
+            <!--<EventSetter Event="tobii:Behaviors.HasGazeChanged" Handler="DoSomething"/>-->
+            
+
+
+            <Style.Triggers>
+                
+                <Trigger Property="tobii:Behaviors.HasGaze" Value="True">
+                    <Setter Property="Content" Value="Test" />
+
+                    <Setter Property="Background" Value="Yellow" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="TobiiTestStyle" TargetType="{x:Type Rectangle}">
+
+            <Setter Property="Fill" Value="Red" />
+            
+            
+
+
+            <Style.Triggers>
+
+                <Trigger Property="tobii:Behaviors.HasGaze" Value="True">
+                    <Setter Property="Fill" Value="Yellow" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+    <Grid Name="grid">
+        <Button Name="ButtonTest" Content="Button" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="3000" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="100"  Style="{StaticResource TobiiButtonStyle}">
+            <i:Interaction.Triggers>
+                <!--<i:EventTrigger EventName="tobii:Behaviors.HasGazeChanged">
+                    <i:InvokeCommandAction Command="{Binding DoSomethingCommand}"/>-->
+                <ei:PropertyChangedTrigger Binding="{Binding Background, ElementName=ButtonTest}">
+                    <i:InvokeCommandAction Command="{Binding DoSomethingCommand, Mode=OneWay}"/>
+                </ei:PropertyChangedTrigger>
+                <!--</i:EventTrigger>-->
+            </i:Interaction.Triggers>
+            <!-- <Button.Triggers>
+
+                 Animates the color of the brush used to paint 
+             the second button from red to blue . 
+                <EventTrigger RoutedEvent="tobii:Behaviors.HasGazeChanged">
+                    <BeginStoryboard>
+                        <Storyboard Completed="{Binding Path=DoSomethingCommand}">
+                             <ColorAnimation 
+                  Storyboard.TargetName="myAnimatedBrush"
+                  Storyboard.TargetProperty="Color"
+                  From="Red" To="Blue" Duration="0:0:7"/>
+
+                            <DoubleAnimation Storyboard.TargetName="widthanimation"
+                  Storyboard.TargetProperty="Width"
+                  From="159" To="300" Duration="0:0:3" />
+
+
+                        </Storyboard>
+                    </BeginStoryboard>
+
+                </EventTrigger>
+
+            </Button.Triggers>-->
+        </Button>
+
+        <Rectangle Name="testme" tobii:Behaviors.IsGazeAware="True" HorizontalAlignment="Left" Height="100" Margin="270,216,0,0" Stroke="Black" VerticalAlignment="Top" Width="100" Style="{StaticResource TobiiTestStyle}">
+            <i:Interaction.Triggers>
+                <!--<i:EventTrigger EventName="tobii:Behaviors.HasGazeChanged">
+                    <i:InvokeCommandAction Command="{Binding DoSomethingCommand}"/>-->
+                <ei:PropertyChangedTrigger Binding="{Binding Fill, ElementName=testme}">
+                    <i:InvokeCommandAction Command="{Binding DoSomethingCommand, Mode=OneWay}"/>
+                    </ei:PropertyChangedTrigger>
+                <!--</i:EventTrigger>-->
+            </i:Interaction.Triggers>
+        </Rectangle>
+
+    </Grid>
+    
+</UserControl>
