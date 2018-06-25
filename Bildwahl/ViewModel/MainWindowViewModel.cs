@@ -61,7 +61,7 @@ namespace Bildwahl.ViewModel
             {
                 new CommandViewModel(
                     Strings.MainWindowViewModel_Command_ViewAllCustomers,
-                    new RelayCommand(param => this.ShowAllCustomers())),
+                    new RelayCommand(param => this.ShowTrackingArea())),
 
                 new CommandViewModel(
                     Strings.MainWindowViewModel_Command_CreateNewCustomer,
@@ -120,7 +120,7 @@ namespace Bildwahl.ViewModel
             this.SetActiveWorkspace(workspace);
         }
 
-        void ShowAllCustomers()
+        void ShowTrackingArea()
         {
             TobiiTestViewModel workspace =
                 this.Workspaces.FirstOrDefault(vm => vm is TobiiTestViewModel)

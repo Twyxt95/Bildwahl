@@ -68,7 +68,18 @@ namespace Bildwahl.Properties {
                 return ResourceManager.GetString("AllCustomersViewModel_DisplayName", resourceCulture);
             }
         }
-        
+
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die All Customers ähnelt.
+        /// </summary>
+        public static string TobiiTestViewModel_DisplayName
+        {
+            get
+            {
+                return ResourceManager.GetString("TobiiTestViewModel_DisplayName", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Companies have no last name ähnelt.
         /// </summary>

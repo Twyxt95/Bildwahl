@@ -86,6 +86,7 @@
     <Compile Include="View\AllCustomersView.xaml.cs">
       <DependentUpon>AllCustomersView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\GridLengthAnimation.cs" />
     <Compile Include="View\CustomerView.xaml.cs">
       <DependentUpon>CustomerView.xaml</DependentUpon>
     </Compile>

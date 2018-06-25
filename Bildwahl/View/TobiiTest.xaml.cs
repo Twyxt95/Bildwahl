@@ -9,10 +9,5 @@ namespace Bildwahl.View
         {
             InitializeComponent();
         }
-
-        private void DoSomething(object sender, HasGazeChangedRoutedEventArgs e)
-        {
-            
-        }
     }
 }

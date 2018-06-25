@@ -9,14 +9,21 @@
     
     
     xmlns:vw="clr-namespace:Bildwahl.View"
-    HorizontalAlignment="Center"
-    VerticalAlignment="Center"  
-    Width="400">
+    >
     <UserControl.Resources>
+        <Storyboard x:Key="ColumnAnimation">
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="2*"
+            Storyboard.TargetName="bla"
+            Storyboard.TargetProperty="Width"
+            To="4*" />
+        </Storyboard>
+        
         <Style x:Key="TobiiButtonStyle" TargetType="{x:Type Button}">
 
             <Setter Property="Background" Value="Red" />
-            <Setter Property="Content" Value="Button" />
             <!--<EventSetter Event="tobii:Behaviors.HasGazeChanged" Handler="{Binding Path=DoSomethingCommand}" />-->
             <!--<EventSetter Event="tobii:Behaviors.HasGazeChanged" Handler="DoSomething"/>-->
             
@@ -25,9 +32,11 @@
             <Style.Triggers>
                 
                 <Trigger Property="tobii:Behaviors.HasGaze" Value="True">
-                    <Setter Property="Content" Value="Test" />
+                    <Setter Property="Content" Value=" " />
 
                     <Setter Property="Background" Value="Yellow" />
+                    
+
                 </Trigger>
             </Style.Triggers>
         </Style>
@@ -46,16 +55,35 @@
             </Style.Triggers>
         </Style>
     </UserControl.Resources>
+    
     <Grid Name="grid">
-        <Button Name="ButtonTest" Content="Button" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="3000" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="100"  Style="{StaticResource TobiiButtonStyle}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition x:Name="bla" Width="2*" />
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+
+        <Button Name="UpperLeft" Grid.Row="0" Grid.Column="0" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="3000" Style="{StaticResource TobiiButtonStyle}">
             <i:Interaction.Triggers>
                 <!--<i:EventTrigger EventName="tobii:Behaviors.HasGazeChanged">
                     <i:InvokeCommandAction Command="{Binding DoSomethingCommand}"/>-->
-                <ei:PropertyChangedTrigger Binding="{Binding Background, ElementName=ButtonTest}">
-                    <i:InvokeCommandAction Command="{Binding DoSomethingCommand, Mode=OneWay}"/>
+                <ei:PropertyChangedTrigger Binding="{Binding Content, ElementName=UpperLeft}">
+                    <i:InvokeCommandAction Command="{Binding DoSomethingCommand}"/>
                 </ei:PropertyChangedTrigger>
                 <!--</i:EventTrigger>-->
             </i:Interaction.Triggers>
+
+            <EventTrigger RoutedEvent="tobii:Behaviors.HasGazeChanged">
+                <Storyboard="{StaticResource ColoumnAnimation}" />
+            </EventTrigger>
+
             <!-- <Button.Triggers>
 
                  Animates the color of the brush used to paint 
@@ -81,15 +109,40 @@
             </Button.Triggers>-->
         </Button>
 
-        <Rectangle Name="testme" tobii:Behaviors.IsGazeAware="True" HorizontalAlignment="Left" Height="100" Margin="270,216,0,0" Stroke="Black" VerticalAlignment="Top" Width="100" Style="{StaticResource TobiiTestStyle}">
+        <Button x:Name="LowerLeft" Grid.Row="3" Grid.Column="0" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="3000" Style="{StaticResource TobiiButtonStyle}">
             <i:Interaction.Triggers>
-                <!--<i:EventTrigger EventName="tobii:Behaviors.HasGazeChanged">
-                    <i:InvokeCommandAction Command="{Binding DoSomethingCommand}"/>-->
-                <ei:PropertyChangedTrigger Binding="{Binding Fill, ElementName=testme}">
+                <ei:PropertyChangedTrigger Binding="{Binding Content, ElementName=LowerLeft}">
                     <i:InvokeCommandAction Command="{Binding DoSomethingCommand, Mode=OneWay}"/>
-                    </ei:PropertyChangedTrigger>
-                <!--</i:EventTrigger>-->
+                </ei:PropertyChangedTrigger>
             </i:Interaction.Triggers>
+        </Button>
+
+        <Button x:Name="LowerRight" Grid.Row="3" Grid.Column="3" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="3000" Style="{StaticResource TobiiButtonStyle}">
+            <i:Interaction.Triggers>
+                <ei:PropertyChangedTrigger Binding="{Binding Content, ElementName=LowerRight}">
+                    <i:InvokeCommandAction Command="{Binding DoSomethingCommand, Mode=OneWay}"/>
+                </ei:PropertyChangedTrigger>
+            </i:Interaction.Triggers>
+        </Button>
+
+        <Button x:Name="UpperRight" Grid.Row="0" Grid.Column="3" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="3000" Style="{StaticResource TobiiButtonStyle}">
+            <i:Interaction.Triggers>
+                <ei:PropertyChangedTrigger Binding="{Binding Content, ElementName=UpperRight}">
+                    <i:InvokeCommandAction Command="{Binding DoSomethingCommand, Mode=OneWay}"/>
+                </ei:PropertyChangedTrigger>
+            </i:Interaction.Triggers>
+        </Button>
+
+        <Rectangle Name="testme" Grid.Row="1" Grid.Column="1" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Blue" >
+        </Rectangle>
+        
+        <Rectangle Name="b" Grid.Row="1" Grid.Column="2" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Red">
+        </Rectangle>
+        
+        <Rectangle Name="c" Grid.Row="2" Grid.Column="1" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Green">
+        </Rectangle>
+        
+        <Rectangle Name="d" Grid.Row="2" Grid.Column="2" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Yellow">
         </Rectangle>
 
     </Grid>

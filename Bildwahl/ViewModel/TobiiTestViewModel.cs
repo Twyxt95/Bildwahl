@@ -13,6 +13,12 @@ namespace Bildwahl.ViewModel
     public class TobiiTestViewModel : WorkspaceViewModel
     {
         RelayCommand _doSomething;
+        Boolean hasGaze = false;
+        public TobiiTestViewModel()
+            {
+            base.DisplayName = Strings.TobiiTestViewModel_DisplayName;
+        }
+
         public ICommand DoSomethingCommand
         {
             get
@@ -29,7 +35,11 @@ namespace Bildwahl.ViewModel
 
         private void TestingThis()
         {
-            
+            hasGaze = !hasGaze;
+            if (hasGaze)
+            {
+                Console.WriteLine("Catched");
+            }
         }
 
     }

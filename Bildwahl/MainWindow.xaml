@@ -7,7 +7,8 @@
   FontFamily="Verdana"
   MinWidth="650" MinHeight="420"
   Title="{Binding Path=DisplayName}"
-  Width="650" Height="420"
+  Height="{Binding SystemParameters.PrimaryScreenHeight}" 
+    Width="{Binding SystemParameters.PrimaryScreenWidth}"
   WindowStartupLocation="CenterScreen"
   >
     <Window.Resources>
@@ -32,12 +33,13 @@
                 <ColumnDefinition Width="4" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-
+            <Expander>
             <Border 
         Grid.Column="0" 
         Style="{StaticResource MainBorderStyle}"
         Width="170"
         >
+                
                 <HeaderedContentControl
           Content="{Binding Path=Commands}"
           ContentTemplate="{StaticResource CommandsTemplate}"
@@ -45,7 +47,7 @@
           Style="{StaticResource MainHCCStyle}"
           />
             </Border>
-
+            </Expander>
             <Border
         Grid.Column="2" 
         Style="{StaticResource MainBorderStyle}"
