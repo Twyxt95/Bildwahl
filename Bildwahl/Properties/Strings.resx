@@ -177,7 +177,7 @@
     <value>Bildwahl App</value>
     <comment>Title of the main window</comment>
   </data>
-  <data name="TobiiTestViewModel_DisplayName" xml:space="preserve">
+  <data name="TobiiViewModel_DisplayName" xml:space="preserve">
     <value>Test</value>
   </data>
 </root>

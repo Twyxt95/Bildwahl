@@ -7,8 +7,6 @@
   FontFamily="Verdana"
   MinWidth="650" MinHeight="420"
   Title="{Binding Path=DisplayName}"
-  Height="{Binding SystemParameters.PrimaryScreenHeight}" 
-    Width="{Binding SystemParameters.PrimaryScreenWidth}"
   WindowStartupLocation="CenterScreen"
   >
     <Window.Resources>

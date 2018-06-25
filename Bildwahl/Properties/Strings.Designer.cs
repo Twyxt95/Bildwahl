@@ -72,11 +72,11 @@ namespace Bildwahl.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die All Customers ähnelt.
         /// </summary>
-        public static string TobiiTestViewModel_DisplayName
+        public static string TobiiViewModel_DisplayName
         {
             get
             {
-                return ResourceManager.GetString("TobiiTestViewModel_DisplayName", resourceCulture);
+                return ResourceManager.GetString("TobiiViewModel_DisplayName", resourceCulture);
             }
         }
 

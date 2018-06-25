@@ -37,6 +37,7 @@ namespace Bildwahl
             base.OnStartup(e);
 
             MainWindow window = new MainWindow();
+            Application.Current.MainWindow.WindowState = WindowState.Maximized;
 
             // Create the ViewModel to which 
             // the main window binds.

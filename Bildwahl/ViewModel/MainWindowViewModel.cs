@@ -122,13 +122,13 @@ namespace Bildwahl.ViewModel
 
         void ShowTrackingArea()
         {
-            TobiiTestViewModel workspace =
-                this.Workspaces.FirstOrDefault(vm => vm is TobiiTestViewModel)
-                as TobiiTestViewModel;
+            TobiiViewModel workspace =
+                this.Workspaces.FirstOrDefault(vm => vm is TobiiViewModel)
+                as TobiiViewModel;
 
             if (workspace == null)
             {
-                workspace = new TobiiTestViewModel();
+                workspace = new TobiiViewModel();
                 this.Workspaces.Add(workspace);
             }
 

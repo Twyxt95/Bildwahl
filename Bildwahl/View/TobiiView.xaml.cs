@@ -3,9 +3,9 @@ using Tobii.Interaction;
 using Tobii.Interaction.Wpf;
 namespace Bildwahl.View
 {
-    public partial class TobiiTest : System.Windows.Controls.UserControl
+    public partial class TobiiView : System.Windows.Controls.UserControl
     {
-        public TobiiTest()
+        public TobiiView()
         {
             InitializeComponent();
         }

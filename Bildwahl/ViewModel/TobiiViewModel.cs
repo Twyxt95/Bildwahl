@@ -10,13 +10,13 @@ using Tobii.Interaction.Wpf;
 
 namespace Bildwahl.ViewModel
 {
-    public class TobiiTestViewModel : WorkspaceViewModel
+    public class TobiiViewModel : WorkspaceViewModel
     {
         RelayCommand _doSomething;
         Boolean hasGaze = false;
-        public TobiiTestViewModel()
+        public TobiiViewModel()
             {
-            base.DisplayName = Strings.TobiiTestViewModel_DisplayName;
+            base.DisplayName = Strings.TobiiViewModel_DisplayName;
         }
 
         public ICommand DoSomethingCommand
