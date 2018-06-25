@@ -280,17 +280,121 @@
             </Button.Triggers>
         </Button>
 
-        <Rectangle Name="testme" Grid.Row="1" Grid.Column="1" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Blue" >
-        </Rectangle>
         
-        <Rectangle Name="b" Grid.Row="1" Grid.Column="2" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Red">
+        <Rectangle Name="BlueBig" Grid.Row="1" Grid.Column="1" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Blue" >
+            
         </Rectangle>
+        <Grid Name="BlueGrid" Grid.Row="1" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            <Rectangle Name="BlueSmall" Grid.Row="1" Grid.Column="1" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Blue" >
+            </Rectangle>
+            
+            <Rectangle Name="RedSmall" Grid.Row="1" Grid.Column="2" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Red">
+            </Rectangle>
+
+            <Rectangle Name="GreenSmall" Grid.Row="2" Grid.Column="1" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Green">
+            </Rectangle>
+
+            <Rectangle Name="YellowSmall" Grid.Row="2" Grid.Column="2" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Yellow">
+            </Rectangle>
+        </Grid>
         
-        <Rectangle Name="c" Grid.Row="2" Grid.Column="1" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Green">
+        <Rectangle Name="RedBig" Grid.Row="1" Grid.Column="2" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Red">
         </Rectangle>
-        
-        <Rectangle Name="d" Grid.Row="2" Grid.Column="2" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Yellow">
+        <Grid Name="RedGrid" Grid.Row="1" Grid.Column="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            <Rectangle Name="BlueSmallRed" Grid.Row="1" Grid.Column="1" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Blue" >
+            </Rectangle>
+
+            <Rectangle Name="RedSmallRed" Grid.Row="1" Grid.Column="2" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Red">
+            </Rectangle>
+
+            <Rectangle Name="GreenSmallRed" Grid.Row="2" Grid.Column="1" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Green">
+            </Rectangle>
+
+            <Rectangle Name="YellowSmallRed" Grid.Row="2" Grid.Column="2" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Yellow">
+            </Rectangle>
+        </Grid>
+
+        <Rectangle Name="GreenBig" Grid.Row="2" Grid.Column="1" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Green">
         </Rectangle>
+
+        <Grid Name="GreenGrid" Grid.Row="2" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            <Rectangle Name="BlueSmallGreen" Grid.Row="1" Grid.Column="1" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Blue" >
+            </Rectangle>
+
+            <Rectangle Name="RedSmallGreen" Grid.Row="1" Grid.Column="2" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Red">
+            </Rectangle>
+
+            <Rectangle Name="GreenSmallGreen" Grid.Row="2" Grid.Column="1" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Green">
+            </Rectangle>
+
+            <Rectangle Name="YellowSmallGreen" Grid.Row="2" Grid.Column="2" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Yellow">
+            </Rectangle>
+        </Grid>
+
+        <Rectangle Name="YellowBig" Grid.Row="2" Grid.Column="2" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Yellow">
+        </Rectangle>
+
+        <Grid Name="YellowGrid" Grid.Row="2" Grid.Column="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            <Rectangle Name="BlueSmallYellow" Grid.Row="1" Grid.Column="1" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Blue" >
+            </Rectangle>
+
+            <Rectangle Name="RedSmallYellow" Grid.Row="1" Grid.Column="2" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Red">
+            </Rectangle>
+
+            <Rectangle Name="GreenSmallYellow" Grid.Row="2" Grid.Column="1" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Green">
+            </Rectangle>
+
+            <Rectangle Name="YellowSmallYellow" Grid.Row="2" Grid.Column="2" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Yellow">
+            </Rectangle>
+        </Grid>
 
     </Grid>
     
