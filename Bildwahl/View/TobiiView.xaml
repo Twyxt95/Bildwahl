@@ -42,6 +42,121 @@
             To="0*" />
         </Storyboard>
 
+        <Storyboard x:Key="BlueAnimationSecondStage">
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="2*"
+            Storyboard.TargetName="FirstContentColumnSecondStageBlue"
+            Storyboard.TargetProperty="Width"
+            To="4*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="2*"
+            Storyboard.TargetName="SecondContentColumnSecondStageBlue"
+            Storyboard.TargetProperty="Width"
+            To="0*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="2*"
+            Storyboard.TargetName="FirstContentRowSecondStageBlue"
+            Storyboard.TargetProperty="Height"
+            To="4*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="2*"
+            Storyboard.TargetName="SecondContentRowSecondStageBlue"
+            Storyboard.TargetProperty="Height"
+            To="0*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="2*"
+            Storyboard.TargetName="FirstContentColumnSecondStageGreen"
+            Storyboard.TargetProperty="Width"
+            To="4*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="2*"
+            Storyboard.TargetName="SecondContentColumnSecondStageGreen"
+            Storyboard.TargetProperty="Width"
+            To="0*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="2*"
+            Storyboard.TargetName="FirstContentRowSecondStageGreen"
+            Storyboard.TargetProperty="Height"
+            To="4*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="2*"
+            Storyboard.TargetName="SecondContentRowSecondStageGreen"
+            Storyboard.TargetProperty="Height"
+            To="0*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="2*"
+            Storyboard.TargetName="FirstContentColumnSecondStageRed"
+            Storyboard.TargetProperty="Width"
+            To="4*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="2*"
+            Storyboard.TargetName="SecondContentColumnSecondStageRed"
+            Storyboard.TargetProperty="Width"
+            To="0*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="2*"
+            Storyboard.TargetName="FirstContentRowSecondStageRed"
+            Storyboard.TargetProperty="Height"
+            To="4*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="2*"
+            Storyboard.TargetName="SecondContentRowSecondStageRed"
+            Storyboard.TargetProperty="Height"
+            To="0*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="2*"
+            Storyboard.TargetName="FirstContentColumnSecondStageYellow"
+            Storyboard.TargetProperty="Width"
+            To="4*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="2*"
+            Storyboard.TargetName="SecondContentColumnSecondStageYellow"
+            Storyboard.TargetProperty="Width"
+            To="0*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="2*"
+            Storyboard.TargetName="FirstContentRowSecondStageYellow"
+            Storyboard.TargetProperty="Height"
+            To="4*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="2*"
+            Storyboard.TargetName="SecondContentRowSecondStageYellow"
+            Storyboard.TargetProperty="Height"
+            To="0*" />
+        </Storyboard>
+
         <Storyboard x:Key="RedAnimation">
             <vw:GridLengthAnimation
             BeginTime="0:0:0"
@@ -69,6 +184,121 @@
             Duration="0:0:0.1"
             From="2*"
             Storyboard.TargetName="SecondContentRow"
+            Storyboard.TargetProperty="Height"
+            To="0*" />
+        </Storyboard>
+
+        <Storyboard x:Key="RedAnimationSecondStage">
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="2*"
+            Storyboard.TargetName="FirstContentColumnSecondStageRed"
+            Storyboard.TargetProperty="Width"
+            To="0*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="2*"
+            Storyboard.TargetName="SecondContentColumnSecondStageRed"
+            Storyboard.TargetProperty="Width"
+            To="4*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="2*"
+            Storyboard.TargetName="FirstContentRowSecondStageRed"
+            Storyboard.TargetProperty="Height"
+            To="4*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="2*"
+            Storyboard.TargetName="SecondContentRowSecondStageRed"
+            Storyboard.TargetProperty="Height"
+            To="0*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="2*"
+            Storyboard.TargetName="FirstContentColumnSecondStageBlue"
+            Storyboard.TargetProperty="Width"
+            To="0*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="2*"
+            Storyboard.TargetName="SecondContentColumnSecondStageBlue"
+            Storyboard.TargetProperty="Width"
+            To="4*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="2*"
+            Storyboard.TargetName="FirstContentRowSecondStageBlue"
+            Storyboard.TargetProperty="Height"
+            To="4*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="2*"
+            Storyboard.TargetName="SecondContentRowSecondStageBlue"
+            Storyboard.TargetProperty="Height"
+            To="0*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="2*"
+            Storyboard.TargetName="FirstContentColumnSecondStageYellow"
+            Storyboard.TargetProperty="Width"
+            To="0*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="2*"
+            Storyboard.TargetName="SecondContentColumnSecondStageYellow"
+            Storyboard.TargetProperty="Width"
+            To="4*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="2*"
+            Storyboard.TargetName="FirstContentRowSecondStageYellow"
+            Storyboard.TargetProperty="Height"
+            To="4*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="2*"
+            Storyboard.TargetName="SecondContentRowSecondStageYellow"
+            Storyboard.TargetProperty="Height"
+            To="0*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="2*"
+            Storyboard.TargetName="FirstContentColumnSecondStageGreen"
+            Storyboard.TargetProperty="Width"
+            To="0*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="2*"
+            Storyboard.TargetName="SecondContentColumnSecondStageGreen"
+            Storyboard.TargetProperty="Width"
+            To="4*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="2*"
+            Storyboard.TargetName="FirstContentRowSecondStageGreen"
+            Storyboard.TargetProperty="Height"
+            To="4*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="2*"
+            Storyboard.TargetName="SecondContentRowSecondStageGreen"
             Storyboard.TargetProperty="Height"
             To="0*" />
         </Storyboard>
@@ -104,6 +334,121 @@
             To="4*" />
         </Storyboard>
 
+        <Storyboard x:Key="GreenAnimationSecondStage">
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="2*"
+            Storyboard.TargetName="FirstContentColumnSecondStageGreen"
+            Storyboard.TargetProperty="Width"
+            To="4*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="2*"
+            Storyboard.TargetName="SecondContentColumnSecondStageGreen"
+            Storyboard.TargetProperty="Width"
+            To="0*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="2*"
+            Storyboard.TargetName="FirstContentRowSecondStageGreen"
+            Storyboard.TargetProperty="Height"
+            To="0*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="2*"
+            Storyboard.TargetName="SecondContentRowSecondStageGreen"
+            Storyboard.TargetProperty="Height"
+            To="4*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="2*"
+            Storyboard.TargetName="FirstContentColumnSecondStageBlue"
+            Storyboard.TargetProperty="Width"
+            To="4*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="2*"
+            Storyboard.TargetName="SecondContentColumnSecondStageBlue"
+            Storyboard.TargetProperty="Width"
+            To="0*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="2*"
+            Storyboard.TargetName="FirstContentRowSecondStageBlue"
+            Storyboard.TargetProperty="Height"
+            To="0*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="2*"
+            Storyboard.TargetName="SecondContentRowSecondStageBlue"
+            Storyboard.TargetProperty="Height"
+            To="4*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="2*"
+            Storyboard.TargetName="FirstContentColumnSecondStageYellow"
+            Storyboard.TargetProperty="Width"
+            To="4*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="2*"
+            Storyboard.TargetName="SecondContentColumnSecondStageYellow"
+            Storyboard.TargetProperty="Width"
+            To="0*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="2*"
+            Storyboard.TargetName="FirstContentRowSecondStageYellow"
+            Storyboard.TargetProperty="Height"
+            To="0*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="2*"
+            Storyboard.TargetName="SecondContentRowSecondStageYellow"
+            Storyboard.TargetProperty="Height"
+            To="4*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="2*"
+            Storyboard.TargetName="FirstContentColumnSecondStageRed"
+            Storyboard.TargetProperty="Width"
+            To="4*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="2*"
+            Storyboard.TargetName="SecondContentColumnSecondStageRed"
+            Storyboard.TargetProperty="Width"
+            To="0*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="2*"
+            Storyboard.TargetName="FirstContentRowSecondStageRed"
+            Storyboard.TargetProperty="Height"
+            To="0*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="2*"
+            Storyboard.TargetName="SecondContentRowSecondStageRed"
+            Storyboard.TargetProperty="Height"
+            To="4*" />
+        </Storyboard>
+
         <Storyboard x:Key="YellowAnimation">
             <vw:GridLengthAnimation
             BeginTime="0:0:0"
@@ -135,6 +480,156 @@
             To="4*" />
         </Storyboard>
 
+        <Storyboard x:Key="YellowAnimationSecondStage">
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="2*"
+            Storyboard.TargetName="FirstContentColumnSecondStageYellow"
+            Storyboard.TargetProperty="Width"
+            To="0*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="2*"
+            Storyboard.TargetName="SecondContentColumnSecondStageYellow"
+            Storyboard.TargetProperty="Width"
+            To="4*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="2*"
+            Storyboard.TargetName="FirstContentRowSecondStageYellow"
+            Storyboard.TargetProperty="Height"
+            To="0*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="2*"
+            Storyboard.TargetName="SecondContentRowSecondStageYellow"
+            Storyboard.TargetProperty="Height"
+            To="4*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="2*"
+            Storyboard.TargetName="FirstContentColumnSecondStageBlue"
+            Storyboard.TargetProperty="Width"
+            To="0*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="2*"
+            Storyboard.TargetName="SecondContentColumnSecondStageBlue"
+            Storyboard.TargetProperty="Width"
+            To="4*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="2*"
+            Storyboard.TargetName="FirstContentRowSecondStageBlue"
+            Storyboard.TargetProperty="Height"
+            To="0*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="2*"
+            Storyboard.TargetName="SecondContentRowSecondStageBlue"
+            Storyboard.TargetProperty="Height"
+            To="4*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="2*"
+            Storyboard.TargetName="FirstContentColumnSecondStageGreen"
+            Storyboard.TargetProperty="Width"
+            To="0*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="2*"
+            Storyboard.TargetName="SecondContentColumnSecondStageGreen"
+            Storyboard.TargetProperty="Width"
+            To="4*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="2*"
+            Storyboard.TargetName="FirstContentRowSecondStageGreen"
+            Storyboard.TargetProperty="Height"
+            To="0*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="2*"
+            Storyboard.TargetName="SecondContentRowSecondStageGreen"
+            Storyboard.TargetProperty="Height"
+            To="4*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="2*"
+            Storyboard.TargetName="FirstContentColumnSecondStageRed"
+            Storyboard.TargetProperty="Width"
+            To="0*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="2*"
+            Storyboard.TargetName="SecondContentColumnSecondStageRed"
+            Storyboard.TargetProperty="Width"
+            To="4*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="2*"
+            Storyboard.TargetName="FirstContentRowSecondStageRed"
+            Storyboard.TargetProperty="Height"
+            To="0*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="2*"
+            Storyboard.TargetName="SecondContentRowSecondStageRed"
+            Storyboard.TargetProperty="Height"
+            To="4*" />
+        </Storyboard>
+
+        <Storyboard x:Key="SecondStageActivated">
+            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="UpperLeft" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="UpperLeftSecondStage" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="UpperRight" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="UpperRightSecondStage" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="LowerLeft" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="LowerLeftSecondStage" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="LowerRight" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="LowerRightSecondStage" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+        </Storyboard>
+
         <Style x:Key="TobiiButtonStyle" TargetType="{x:Type Button}">
 
             <Setter Property="Background" Value="Red" />
@@ -147,6 +642,7 @@
                 
                 <Trigger Property="tobii:Behaviors.HasGaze" Value="True">
                     <Setter Property="Content" Value="{Binding NotifyOnTargetUpdated=True}" />
+                    <Setter Property="Visibility" Value="Collapsed"/>
 
                     <Setter Property="Background" Value="Yellow" />
                     <!--<Trigger.EnterActions>
@@ -192,53 +688,18 @@
 
         <Button Name="UpperLeft" Grid.Row="0" Grid.Column="0" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="3000" Style="{StaticResource TobiiButtonStyle}">
             <i:Interaction.Triggers>
-                <!--<i:EventTrigger EventName="tobii:Behaviors.HasGazeChanged">
-                    <i:InvokeCommandAction Command="{Binding DoSomethingCommand}"/>-->
                 <ei:PropertyChangedTrigger Binding="{Binding Content, ElementName=UpperLeft}">
                     <i:InvokeCommandAction Command="{Binding DoSomethingCommand}"/>
-                    
                 </ei:PropertyChangedTrigger>
-                
-                <!--</i:EventTrigger>-->
             </i:Interaction.Triggers>
 
             <Button.Triggers>
                 <EventTrigger RoutedEvent="Binding.TargetUpdated">
 
                     <BeginStoryboard Storyboard="{StaticResource BlueAnimation}" />
+                    <BeginStoryboard Storyboard="{StaticResource SecondStageActivated}" />
                 </EventTrigger>
-                </Button.Triggers>
-
-
-
-                
-            
-
-            
-
-            <!-- <Button.Triggers>
-
-                 Animates the color of the brush used to paint 
-             the second button from red to blue . 
-                <EventTrigger RoutedEvent="tobii:Behaviors.HasGazeChanged">
-                    <BeginStoryboard>
-                        <Storyboard Completed="{Binding Path=DoSomethingCommand}">
-                             <ColorAnimation 
-                  Storyboard.TargetName="myAnimatedBrush"
-                  Storyboard.TargetProperty="Color"
-                  From="Red" To="Blue" Duration="0:0:7"/>
-
-                            <DoubleAnimation Storyboard.TargetName="widthanimation"
-                  Storyboard.TargetProperty="Width"
-                  From="159" To="300" Duration="0:0:3" />
-
-
-                        </Storyboard>
-                    </BeginStoryboard>
-
-                </EventTrigger>
-
-            </Button.Triggers>-->
+            </Button.Triggers>
         </Button>
 
         <Button x:Name="LowerLeft" Grid.Row="3" Grid.Column="0" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="3000" Style="{StaticResource TobiiButtonStyle}">
@@ -250,6 +711,7 @@
             <Button.Triggers>
                 <EventTrigger RoutedEvent="Binding.TargetUpdated">
                     <BeginStoryboard Storyboard="{StaticResource GreenAnimation}" />
+                    <BeginStoryboard Storyboard="{StaticResource SecondStageActivated}" />
                 </EventTrigger>
             </Button.Triggers>
         </Button>
@@ -263,6 +725,7 @@
             <Button.Triggers>
                 <EventTrigger RoutedEvent="Binding.TargetUpdated">
                     <BeginStoryboard Storyboard="{StaticResource YellowAnimation}" />
+                    <BeginStoryboard Storyboard="{StaticResource SecondStageActivated}" />
                 </EventTrigger>
             </Button.Triggers>
         </Button>
@@ -276,25 +739,78 @@
             <Button.Triggers>
                 <EventTrigger RoutedEvent="Binding.TargetUpdated">
                     <BeginStoryboard Storyboard="{StaticResource RedAnimation}" />
+                    <BeginStoryboard Storyboard="{StaticResource SecondStageActivated}" />
                 </EventTrigger>
             </Button.Triggers>
         </Button>
 
+        <Button Name="UpperLeftSecondStage" Grid.Row="0" Grid.Column="0" Visibility="Collapsed" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="3000" Style="{StaticResource TobiiButtonStyle}">
+            <i:Interaction.Triggers>
+                <ei:PropertyChangedTrigger Binding="{Binding Content, ElementName=UpperLeft}">
+                    <i:InvokeCommandAction Command="{Binding DoSomethingCommand}"/>
+                </ei:PropertyChangedTrigger>
+            </i:Interaction.Triggers>
+
+            <Button.Triggers>
+                <EventTrigger RoutedEvent="Binding.TargetUpdated">
+                    <BeginStoryboard Storyboard="{StaticResource BlueAnimationSecondStage}" />
+                </EventTrigger>
+            </Button.Triggers>
+        </Button>
         
+        <Button x:Name="LowerLeftSecondStage" Grid.Row="3" Grid.Column="0" Visibility="Collapsed" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="3000" Style="{StaticResource TobiiButtonStyle}">
+            <i:Interaction.Triggers>
+                <ei:PropertyChangedTrigger Binding="{Binding Content, ElementName=LowerLeftSecondStage}">
+                    <i:InvokeCommandAction Command="{Binding DoSomethingCommand, Mode=OneWay}"/>
+                </ei:PropertyChangedTrigger>
+            </i:Interaction.Triggers>
+            <Button.Triggers>
+                <EventTrigger RoutedEvent="Binding.TargetUpdated">
+                    <BeginStoryboard Storyboard="{StaticResource GreenAnimationSecondStage}" />
+                </EventTrigger>
+            </Button.Triggers>
+        </Button>
+
+        <Button x:Name="LowerRightSecondStage" Grid.Row="3" Grid.Column="3" Visibility="Collapsed" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="3000" Style="{StaticResource TobiiButtonStyle}">
+            <i:Interaction.Triggers>
+                <ei:PropertyChangedTrigger Binding="{Binding Content, ElementName=LowerRight}">
+                    <i:InvokeCommandAction Command="{Binding DoSomethingCommand, Mode=OneWay}"/>
+                </ei:PropertyChangedTrigger>
+            </i:Interaction.Triggers>
+            <Button.Triggers>
+                <EventTrigger RoutedEvent="Binding.TargetUpdated">
+                    <BeginStoryboard Storyboard="{StaticResource YellowAnimationSecondStage}" />
+                </EventTrigger>
+            </Button.Triggers>
+        </Button>
+
+        <Button x:Name="UpperRightSecondStage" Grid.Row="0" Grid.Column="3" Visibility="Collapsed" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="3000" Style="{StaticResource TobiiButtonStyle}">
+            <i:Interaction.Triggers>
+                <ei:PropertyChangedTrigger Binding="{Binding Content, ElementName=UpperRight}">
+                    <i:InvokeCommandAction Command="{Binding DoSomethingCommand, Mode=OneWay}"/>
+                </ei:PropertyChangedTrigger>
+            </i:Interaction.Triggers>
+            <Button.Triggers>
+                <EventTrigger RoutedEvent="Binding.TargetUpdated">
+                    <BeginStoryboard Storyboard="{StaticResource RedAnimationSecondStage}" />
+                </EventTrigger>
+            </Button.Triggers>
+        </Button>
+
         <Rectangle Name="BlueBig" Grid.Row="1" Grid.Column="1" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Blue" >
             
         </Rectangle>
         <Grid Name="BlueGrid" Grid.Row="1" Grid.Column="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*" />
-                <ColumnDefinition Width="2*" />
-                <ColumnDefinition Width="2*" />
+                <ColumnDefinition x:Name="FirstContentColumnSecondStageBlue" Width="2*" />
+                <ColumnDefinition x:Name="SecondContentColumnSecondStageBlue" Width="2*" />
                 <ColumnDefinition Width="1*" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*" />
-                <RowDefinition Height="2*" />
-                <RowDefinition Height="2*" />
+                <RowDefinition x:Name="FirstContentRowSecondStageBlue" Height="2*" />
+                <RowDefinition x:Name="SecondContentRowSecondStageBlue" Height="2*" />
                 <RowDefinition Height="1*" />
             </Grid.RowDefinitions>
             <Rectangle Name="BlueSmall" Grid.Row="1" Grid.Column="1" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Blue" >
@@ -315,14 +831,14 @@
         <Grid Name="RedGrid" Grid.Row="1" Grid.Column="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*" />
-                <ColumnDefinition Width="2*" />
-                <ColumnDefinition Width="2*" />
+                <ColumnDefinition x:Name="FirstContentColumnSecondStageRed" Width="2*" />
+                <ColumnDefinition x:Name="SecondContentColumnSecondStageRed" Width="2*" />
                 <ColumnDefinition Width="1*" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*" />
-                <RowDefinition Height="2*" />
-                <RowDefinition Height="2*" />
+                <RowDefinition x:Name="FirstContentRowSecondStageRed" Height="2*" />
+                <RowDefinition x:Name="SecondContentRowSecondStageRed" Height="2*" />
                 <RowDefinition Height="1*" />
             </Grid.RowDefinitions>
             <Rectangle Name="BlueSmallRed" Grid.Row="1" Grid.Column="1" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Blue" >
@@ -344,14 +860,14 @@
         <Grid Name="GreenGrid" Grid.Row="2" Grid.Column="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*" />
-                <ColumnDefinition Width="2*" />
-                <ColumnDefinition Width="2*" />
+                <ColumnDefinition x:Name="FirstContentColumnSecondStageGreen" Width="2*" />
+                <ColumnDefinition x:Name="SecondContentColumnSecondStageGreen" Width="2*" />
                 <ColumnDefinition Width="1*" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*" />
-                <RowDefinition Height="2*" />
-                <RowDefinition Height="2*" />
+                <RowDefinition x:Name="FirstContentRowSecondStageGreen" Height="2*" />
+                <RowDefinition x:Name="SecondContentRowSecondStageGreen" Height="2*" />
                 <RowDefinition Height="1*" />
             </Grid.RowDefinitions>
             <Rectangle Name="BlueSmallGreen" Grid.Row="1" Grid.Column="1" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Blue" >
@@ -373,14 +889,14 @@
         <Grid Name="YellowGrid" Grid.Row="2" Grid.Column="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*" />
-                <ColumnDefinition Width="2*" />
-                <ColumnDefinition Width="2*" />
+                <ColumnDefinition x:Name="FirstContentColumnSecondStageYellow" Width="2*" />
+                <ColumnDefinition x:Name="SecondContentColumnSecondStageYellow" Width="2*" />
                 <ColumnDefinition Width="1*" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*" />
-                <RowDefinition Height="2*" />
-                <RowDefinition Height="2*" />
+                <RowDefinition x:Name="FirstContentRowSecondStageYellow" Height="2*" />
+                <RowDefinition x:Name="SecondContentRowSecondStageYellow" Height="2*" />
                 <RowDefinition Height="1*" />
             </Grid.RowDefinitions>
             <Rectangle Name="BlueSmallYellow" Grid.Row="1" Grid.Column="1" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Blue" >
