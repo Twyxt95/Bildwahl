@@ -21,8 +21,10 @@ namespace Bildwahl.Model
         public static ImageLinks CreateImageLinks(
             string imageLink)
         {
+            Console.WriteLine(imageLink);
             return new ImageLinks
             {
+
                 ImageLink = imageLink
             };
         }

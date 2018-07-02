@@ -20,7 +20,6 @@ namespace Bildwahl.ViewModel
         #region Fields
 
         ReadOnlyCollection<CommandViewModel> _commands;
-        readonly CustomerRepository _customerRepository;
         readonly ImageLinksRepository _imageLinksRepository;
         ObservableCollection<WorkspaceViewModel> _workspaces;
 
@@ -31,8 +30,6 @@ namespace Bildwahl.ViewModel
         public MainWindowViewModel(string customerDataFile)
         {
             base.DisplayName = Strings.MainWindowViewModel_DisplayName;
-            string path = "Data/customers.xml";
-            _customerRepository = new CustomerRepository(path);
             _imageLinksRepository = new ImageLinksRepository(customerDataFile);
         }
 
@@ -113,14 +110,6 @@ namespace Bildwahl.ViewModel
         #endregion // Workspaces
 
         #region Private Helpers
-
-        void CreateNewCustomer()
-        {
-            Customer newCustomer = Customer.CreateNewCustomer();
-            CustomerViewModel workspace = new CustomerViewModel(newCustomer, _customerRepository);
-            this.Workspaces.Add(workspace);
-            this.SetActiveWorkspace(workspace);
-        }
 
         void CreateNewScenario()
         {
