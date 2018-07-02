@@ -843,6 +843,21 @@
             </Grid.RowDefinitions>
             <Rectangle Name="BlueSmallRed" Grid.Row="1" Grid.Column="1" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Blue" >
             </Rectangle>
+            <Grid Grid.Row="1" Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="4*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="4*" />
+                    <RowDefinition Height="1*" />
+                </Grid.RowDefinitions>
+                <Image Source="{Binding Path=ImageLink}" Grid.Row="1" Grid.Column="1" Stretch="UniformToFill"></Image>
+            </Grid>
+
+            
 
             <Rectangle Name="RedSmallRed" Grid.Row="1" Grid.Column="2" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Red">
             </Rectangle>

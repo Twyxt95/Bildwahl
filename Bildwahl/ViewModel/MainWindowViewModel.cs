@@ -21,6 +21,7 @@ namespace Bildwahl.ViewModel
 
         ReadOnlyCollection<CommandViewModel> _commands;
         readonly CustomerRepository _customerRepository;
+        readonly ImageLinksRepository _imageLinksRepository;
         ObservableCollection<WorkspaceViewModel> _workspaces;
 
         #endregion // Fields
@@ -30,8 +31,9 @@ namespace Bildwahl.ViewModel
         public MainWindowViewModel(string customerDataFile)
         {
             base.DisplayName = Strings.MainWindowViewModel_DisplayName;
-
-            _customerRepository = new CustomerRepository(customerDataFile);
+            string path = "Data/customers.xml";
+            _customerRepository = new CustomerRepository(path);
+            _imageLinksRepository = new ImageLinksRepository(customerDataFile);
         }
 
         #endregion // Constructor
@@ -65,7 +67,7 @@ namespace Bildwahl.ViewModel
 
                 new CommandViewModel(
                     Strings.MainWindowViewModel_Command_CreateNewCustomer,
-                    new RelayCommand(param => this.CreateNewCustomer()))
+                    new RelayCommand(param => this.CreateNewScenario()))
             };
         }
 
@@ -120,6 +122,14 @@ namespace Bildwahl.ViewModel
             this.SetActiveWorkspace(workspace);
         }
 
+        void CreateNewScenario()
+        {
+            ImageLinks newCustomer = ImageLinks.CreateNewCustomer();
+            NewScenarioViewModel workspace = new NewScenarioViewModel(newCustomer, _imageLinksRepository);
+            this.Workspaces.Add(workspace);
+            this.SetActiveWorkspace(workspace);
+        }
+
         void ShowTrackingArea()
         {
             TobiiViewModel workspace =
@@ -128,7 +138,7 @@ namespace Bildwahl.ViewModel
 
             if (workspace == null)
             {
-                workspace = new TobiiViewModel();
+                workspace = new TobiiViewModel(_imageLinksRepository);
                 this.Workspaces.Add(workspace);
             }
 
