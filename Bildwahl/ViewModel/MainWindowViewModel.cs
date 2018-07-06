@@ -56,17 +56,30 @@ namespace Bildwahl.ViewModel
 
         List<CommandViewModel> CreateCommands()
         {
-            return new List<CommandViewModel>
+            int i = 0;
+            List<ImageLinks> all =
+                 _imageLinksRepository.GetCustomers();
+            List<CommandViewModel> list = new List<CommandViewModel> { };
+            
+            for (i = 0; i <= all.Count - 1; i++)
             {
-                new CommandViewModel(
-                    Strings.MainWindowViewModel_Command_ViewAllCustomers,
-                    new RelayCommand(param => this.ShowTrackingArea())),
+                string titel = all.ElementAt(i).Titel;
+                list.Add( new CommandViewModel(
+                    all.ElementAt(i).Titel,
+                     new RelayCommand(param => this.ShowScenario(titel))));
 
-                new CommandViewModel(
+            }
+
+            list.Add(new CommandViewModel(
                     Strings.MainWindowViewModel_Command_CreateNewCustomer,
-                    new RelayCommand(param => this.CreateNewScenario()))
-            };
+                    new RelayCommand(param => this.CreateNewScenario())));
+            list.Add(new CommandViewModel(
+                    Strings.MainWindowViewModel_Command_LoadScenario,
+                    new RelayCommand(param => this.LoadScenario())));
+            return list;
         }
+
+       
 
         #endregion // Commands
 
@@ -117,17 +130,34 @@ namespace Bildwahl.ViewModel
             NewScenarioViewModel workspace = new NewScenarioViewModel(newCustomer, _imageLinksRepository);
             this.Workspaces.Add(workspace);
             this.SetActiveWorkspace(workspace);
+            
         }
 
-        void ShowTrackingArea()
+        void ShowScenario(string scenario)
         {
+            Console.WriteLine(scenario + " ShowScenario");
             TobiiViewModel workspace =
                 this.Workspaces.FirstOrDefault(vm => vm is TobiiViewModel)
                 as TobiiViewModel;
 
+            
+                workspace = new TobiiViewModel(_imageLinksRepository, scenario);
+                this.Workspaces.Add(workspace);
+            
+
+            this.SetActiveWorkspace(workspace);
+        }
+
+        void LoadScenario()
+        {
+
+            LoadScenarioViewModel workspace =
+                this.Workspaces.FirstOrDefault(vm => vm is LoadScenarioViewModel)
+                as LoadScenarioViewModel;
+
             if (workspace == null)
             {
-                workspace = new TobiiViewModel(_imageLinksRepository);
+                workspace = new LoadScenarioViewModel();
                 this.Workspaces.Add(workspace);
             }
 

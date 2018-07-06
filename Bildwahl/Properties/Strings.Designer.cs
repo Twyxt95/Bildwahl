@@ -196,7 +196,18 @@ namespace Bildwahl.Properties {
                 return ResourceManager.GetString("MainWindowViewModel_Command_ViewAllCustomers", resourceCulture);
             }
         }
-        
+
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die View all customers ähnelt.
+        /// </summary>
+        public static string MainWindowViewModel_Command_LoadScenario
+        {
+            get
+            {
+                return ResourceManager.GetString("MainWindowViewModel_Command_LoadScenario", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die MVVM Demo App ähnelt.
         /// </summary>

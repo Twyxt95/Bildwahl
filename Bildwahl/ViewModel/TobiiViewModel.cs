@@ -21,13 +21,16 @@ namespace Bildwahl.ViewModel
         RelayCommand _doSomething;
         readonly ImageLinksRepository _imageLinksRepository;
         Boolean hasGaze = false;
-        public TobiiViewModel(ImageLinksRepository imageLinksRepository)
+        string _scenario;
+        public TobiiViewModel(ImageLinksRepository imageLinksRepository, string scenario)
         {
             if (imageLinksRepository == null)
                 throw new ArgumentNullException("customerRepository");
             base.DisplayName = Strings.TobiiViewModel_DisplayName;
 
             _imageLinksRepository = imageLinksRepository;
+
+            _scenario = scenario;
 
             // Subscribe for notifications of when a new customer is saved.
             _imageLinksRepository.ScenarioAdded += this.OnCustomerAddedToRepository;
@@ -39,7 +42,7 @@ namespace Bildwahl.ViewModel
         void CreateAllImageLinks()
         {
             List<NewScenarioViewModel> all =
-                (from cust in _imageLinksRepository.GetCustomers()
+                (from cust in _imageLinksRepository.GetCustomers(_scenario)
                  select new NewScenarioViewModel(cust, _imageLinksRepository)).ToList();
 
             foreach (NewScenarioViewModel cvm in all)

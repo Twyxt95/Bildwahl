@@ -169,6 +169,9 @@
     <value>Create new customer</value>
     <comment>Display name for the command that allows the user to create a new customer.</comment>
   </data>
+  <data name="MainWindowViewModel_Command_LoadScenario" xml:space="preserve">
+    <value>Laden</value>
+  </data>
   <data name="MainWindowViewModel_Command_ViewAllCustomers" xml:space="preserve">
     <value>Start</value>
     <comment>Display name for the command that shows all customers.</comment>

@@ -19,13 +19,15 @@ namespace Bildwahl.Model
         }
 
         public static ImageLinks CreateImageLinks(
-            string imageLink)
+            string imageLink,
+            string titel)
         {
             Console.WriteLine(imageLink);
             return new ImageLinks
             {
 
-                ImageLink = imageLink
+                ImageLink = imageLink,
+                Titel = titel
             };
         }
 
@@ -42,6 +44,12 @@ namespace Bildwahl.Model
         /// company, this value stores the company's name.
         /// </summary>
         public string ImageLink { get; set; }
+
+        /// <summary>
+        /// Gets/sets the ImageLinks's first name.  If this ImageLinks is a 
+        /// company, this value stores the company's name.
+        /// </summary>
+        public string Titel { get; set; }
 
 
         #endregion // State Properties

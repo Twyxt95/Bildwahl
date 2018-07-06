@@ -41,7 +41,7 @@ namespace Bildwahl
 
             // Create the ViewModel to which 
             // the main window binds.
-            string path = "Data/imagelinks.xml";
+            string path = "Data/standard.xml";
             var viewModel = new MainWindowViewModel(path);
 
             // When the ViewModel asks to be closed, 

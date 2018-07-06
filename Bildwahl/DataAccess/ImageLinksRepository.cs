@@ -18,6 +18,7 @@ namespace Bildwahl.DataAccess
         #region Fields
 
         readonly List<ImageLinks> _imageLinks;
+        static string _customerDataFile;
 
         #endregion // Fields
 
@@ -29,7 +30,9 @@ namespace Bildwahl.DataAccess
         /// <param name="customerDataFile">The relative path to an XML resource file that contains customer data.</param>
         public ImageLinksRepository(string customerDataFile)
         {
+            _customerDataFile = customerDataFile;
             _imageLinks = LoadCustomers(customerDataFile);
+            
         }
 
         #endregion // Constructor
@@ -48,16 +51,17 @@ namespace Bildwahl.DataAccess
         /// </summary>
         public void AddCustomer(ImageLinks customer)
         {
-            if (customer == null)
-                throw new ArgumentNullException("imagelink");
+            //if (customer == null)
+              //  throw new ArgumentNullException("imagelink");
 
-            if (!_imageLinks.Contains(customer))
-            {
-                _imageLinks.Add(customer);
+            //if (!_imageLinks.Contains(customer))
+            //{
+              //  _imageLinks.Add(customer);
 
-                if (this.ScenarioAdded != null)
-                    this.ScenarioAdded(this, new ScenarioAddedEventArgs(customer));
-            }
+              //  if (this.ScenarioAdded != null)
+                    WriteScenario(customer.Titel,customer.ImageLink);
+                //this.ScenarioAdded(this, new ScenarioAddedEventArgs(customer));
+            //}
         } 
 
         /// <summary>
@@ -75,8 +79,24 @@ namespace Bildwahl.DataAccess
         /// <summary>
         /// Returns a shallow-copied list of all customers in the repository.
         /// </summary>
+        public List<ImageLinks> GetCustomers(string scenario)
+        {
+            Console.WriteLine(scenario + " Look here");
+            List<ImageLinks> unfilteredList = new List<ImageLinks>(_imageLinks);
+            string test = unfilteredList.ElementAt(0).Titel;
+            string test2 = unfilteredList.ElementAt(0).ImageLink;
+            int index = unfilteredList.FindIndex(a => a.Titel == scenario);
+            Console.WriteLine(test);
+            Console.WriteLine(test2);
+            Console.WriteLine(index + " Index");
+            List<ImageLinks> filteredList= new List<ImageLinks>();
+            filteredList.Add(unfilteredList.ElementAt(index));
+            return filteredList;
+        }
+
         public List<ImageLinks> GetCustomers()
         {
+            
             return new List<ImageLinks>(_imageLinks);
         }
 
@@ -91,12 +111,55 @@ namespace Bildwahl.DataAccess
             using (Stream stream = GetResourceStream(customerDataFile))
             using (XmlReader xmlRdr = new XmlTextReader(stream))
                 return
-                    (from customerElem in XDocument.Load(xmlRdr).Element("imagelinks").Elements("imagelink")
+                    (from customerElem in XDocument.Load(xmlRdr).Element("imagelinks").Elements("scenario")
                      select ImageLinks.CreateImageLinks(
                         
-                        (string)customerElem.Attribute("imagelink")
+                        (string)customerElem.Attribute("imagelink"),
+                        (string)customerElem.Attribute("titel")
 
                          )).ToList();
+        }
+
+        static void WriteScenario(string titel, string imageLink)
+        {
+
+            //file name
+            string filename = _customerDataFile;
+            //create new instance of XmlDocument
+            XmlDocument doc = new XmlDocument();
+            Console.WriteLine(filename);
+            //load from file
+            doc.Load(@"C:\Users\Adrian\Documents\Bildwahl\Bildwahl\Bildwahl\"+ filename);
+
+            //create node and add value
+            XmlNode node = doc.CreateNode(XmlNodeType.Element, "scenario", null);
+            XmlAttribute attribute = doc.CreateAttribute("titel"); // create attribute
+            attribute.Value = titel; //set the appropriate value
+            node.Attributes.Append(attribute); // add the attribute to node
+
+            XmlAttribute attributeImageLink = doc.CreateAttribute("imagelink"); // create attribute
+            attributeImageLink.Value =imageLink; //set the appropriate value
+            node.Attributes.Append(attributeImageLink); // add the attribute to node
+            //node.InnerText = "this is new node";
+
+            //create title node
+            //XmlNode nodeTitle = doc.CreateElement("Title");
+            //add value for it
+            //nodeTitle.InnerText = "dritter";
+
+            //create Url node
+            //XmlNode nodeUrl = doc.CreateElement("Imagelink");
+            //nodeUrl.InnerText = "test";
+
+            //add to parent node
+            //node.AppendChild(nodeTitle);
+            //node.AppendChild(nodeUrl);
+
+            //add to elements collection
+            doc.DocumentElement.AppendChild(node);
+
+            //save back
+            doc.Save(@"C:\Users\Adrian\Documents\Bildwahl\Bildwahl\Bildwahl\"+filename);
         }
 
         static Stream GetResourceStream(string resourceFile)

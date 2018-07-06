@@ -1,9 +1,11 @@
 ﻿using System;
 using System.ComponentModel;
+using System.IO;
 using System.Windows.Input;
 using Bildwahl.DataAccess;
 using Bildwahl.Model;
 using Bildwahl.Properties;
+using Microsoft.Win32;
 
 namespace Bildwahl.ViewModel
 {
@@ -20,6 +22,7 @@ namespace Bildwahl.ViewModel
         string[] _customerTypeOptions;
         bool _isSelected;
         RelayCommand _saveCommand;
+        RelayCommand _saveImageCommand;
 
         #endregion // Fields
 
@@ -52,7 +55,21 @@ namespace Bildwahl.ViewModel
 
                 _customer.ImageLink = value;
 
-                base.OnPropertyChanged("imagelink");
+                base.OnPropertyChanged("ImageLink");
+            }
+        }
+
+        public string Titel
+        {
+            get { return _customer.Titel; }
+            set
+            {
+                if (value == _customer.Titel)
+                    return;
+
+                _customer.Titel = value;
+
+                base.OnPropertyChanged("Titel");
             }
         }
 
@@ -172,6 +189,20 @@ namespace Bildwahl.ViewModel
             }
         }
 
+        public ICommand SaveImageCommand
+        {
+            get
+            {
+                if (_saveCommand == null)
+                {
+                    _saveCommand = new RelayCommand(
+                        param => this.SaveImage()
+                        );
+                }
+                return _saveCommand;
+            }
+        }
+
         #endregion // Presentation Properties
 
         #region Public Methods
@@ -188,6 +219,28 @@ namespace Bildwahl.ViewModel
                 _customerRepository.AddCustomer(_customer);
 
             base.OnPropertyChanged("DisplayName");
+        }
+
+        public void SaveImage()
+        {
+            OpenFileDialog _importImage = new OpenFileDialog();
+            _importImage.Title = "Bild auswählen";
+            if (_importImage.ShowDialog() == true)
+            {
+                string ImportPath = _importImage.FileName;
+                string[] splittedPath = ImportPath.Split('\\');
+                string fileName = splittedPath[splittedPath.Length - 1];
+                Console.WriteLine(ImportPath);
+                try
+                {
+                    File.Copy(ImportPath, @"C: \Users\Adrian\Documents\Bildwahl\Bildwahl\Bildwahl\bin\Debug\Pictures\" + fileName, true);
+                    Console.WriteLine("Succes");
+                }
+                catch
+                {
+                    Console.WriteLine("ERrOR");
+                }
+            }
         }
 
         #endregion // Public Methods
