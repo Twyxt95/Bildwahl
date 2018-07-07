@@ -193,13 +193,13 @@ namespace Bildwahl.ViewModel
         {
             get
             {
-                if (_saveCommand == null)
+                if (_saveImageCommand == null)
                 {
-                    _saveCommand = new RelayCommand(
+                    _saveImageCommand = new RelayCommand(
                         param => this.SaveImage()
                         );
                 }
-                return _saveCommand;
+                return _saveImageCommand;
             }
         }
 
@@ -233,7 +233,8 @@ namespace Bildwahl.ViewModel
                 Console.WriteLine(ImportPath);
                 try
                 {
-                    File.Copy(ImportPath, @"C: \Users\Adrian\Documents\Bildwahl\Bildwahl\Bildwahl\bin\Debug\Pictures\" + fileName, true);
+                    File.Copy(ImportPath, @"C:\Users\Adrian\Documents\Bildwahl\Bildwahl\Bildwahl\bin\Debug\Pictures\" + fileName, true);
+                    _customer.ImageLink = @"C:\Users\Adrian\Documents\Bildwahl\Bildwahl\Bildwahl\bin\Debug\Pictures\" + fileName;
                     Console.WriteLine("Succes");
                 }
                 catch

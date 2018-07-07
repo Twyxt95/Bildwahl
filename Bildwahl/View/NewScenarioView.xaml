@@ -18,29 +18,27 @@
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
         <Label Grid.Row="0" Grid.Column="0"
-      Content="Link:" 
+      Content="Titel:" 
       HorizontalAlignment="Right"
       Target="{Binding ElementName=imageLinkTxt}"
       />
         <TextBox Grid.Row="0" Grid.Column="1"
       x:Name="imageLinkTxt"
-      Text="{Binding Path=ImageLink}" 
+      Text="{Binding Path=Titel}" 
       Validation.ErrorTemplate="{x:Null}"
       />
      
         
         <Label Grid.Row="1" Grid.Column="0"
-      Content="Titel:" 
+      Content="Bild:" 
       HorizontalAlignment="Right"
       Target="{Binding ElementName=titelTxt}"
       />
         <Button Grid.Row="1" Grid.Column="1"
       x:Name="titelTxt"
       Command="{Binding Path=SaveImageCommand}"
-      Content="_Save"
-      HorizontalAlignment="Right"
-      Margin="4,2" 
-      MinWidth="60" 
+      Content="Neues Bild"
+      
       />
  
         <Button Grid.Row="2" Grid.Column="2"

@@ -19,7 +19,7 @@ namespace Bildwahl.ViewModel
     {
         #region Fields
 
-        ReadOnlyCollection<CommandViewModel> _commands;
+        ObservableCollection<CommandViewModel> _commands;
         readonly ImageLinksRepository _imageLinksRepository;
         ObservableCollection<WorkspaceViewModel> _workspaces;
 
@@ -31,6 +31,7 @@ namespace Bildwahl.ViewModel
         {
             base.DisplayName = Strings.MainWindowViewModel_DisplayName;
             _imageLinksRepository = new ImageLinksRepository(customerDataFile);
+            _imageLinksRepository.ScenarioAdded += this.OnCustomerAddedToRepository;
         }
 
         #endregion // Constructor
@@ -41,14 +42,14 @@ namespace Bildwahl.ViewModel
         /// Returns a read-only list of commands 
         /// that the UI can display and execute.
         /// </summary>
-        public ReadOnlyCollection<CommandViewModel> Commands
+        public ObservableCollection<CommandViewModel> Commands
         {
             get
             {
                 if (_commands == null)
                 {
                     List<CommandViewModel> cmds = this.CreateCommands();
-                    _commands = new ReadOnlyCollection<CommandViewModel>(cmds);
+                    _commands = new ObservableCollection<CommandViewModel>(cmds);
                 }
                 return _commands;
             }
@@ -171,6 +172,16 @@ namespace Bildwahl.ViewModel
             ICollectionView collectionView = CollectionViewSource.GetDefaultView(this.Workspaces);
             if (collectionView != null)
                 collectionView.MoveCurrentTo(workspace);
+        }
+
+        void OnCustomerAddedToRepository(object sender, ScenarioAddedEventArgs e)
+        {
+            //var viewModel = new NewScenarioViewModel(e.NewCustomer, _imageLinksRepository);
+            List<ImageLinks> all =
+                 _imageLinksRepository.GetCustomers();
+            this.Commands.Add(new CommandViewModel(
+                    all.ElementAt(all.Count()-1).Titel,
+                     new RelayCommand(param => this.ShowScenario(all.ElementAt(all.Count() - 1).Titel))));
         }
 
         #endregion // Private Helpers

@@ -17,7 +17,7 @@ namespace Bildwahl.DataAccess
     {
         #region Fields
 
-        readonly List<ImageLinks> _imageLinks;
+        List<ImageLinks> _imageLinks;
         static string _customerDataFile;
 
         #endregion // Fields
@@ -52,15 +52,18 @@ namespace Bildwahl.DataAccess
         public void AddCustomer(ImageLinks customer)
         {
             //if (customer == null)
-              //  throw new ArgumentNullException("imagelink");
+            //  throw new ArgumentNullException("imagelink");
 
-            //if (!_imageLinks.Contains(customer))
-            //{
-              //  _imageLinks.Add(customer);
-
+            if (!_imageLinks.Contains(customer))
+            {
+                _imageLinks.Add(customer);
+            }
               //  if (this.ScenarioAdded != null)
                     WriteScenario(customer.Titel,customer.ImageLink);
-                //this.ScenarioAdded(this, new ScenarioAddedEventArgs(customer));
+            Console.WriteLine(_customerDataFile);
+           
+                this.ScenarioAdded(this, new ScenarioAddedEventArgs(customer));
+
             //}
         } 
 
@@ -85,6 +88,7 @@ namespace Bildwahl.DataAccess
             List<ImageLinks> unfilteredList = new List<ImageLinks>(_imageLinks);
             string test = unfilteredList.ElementAt(0).Titel;
             string test2 = unfilteredList.ElementAt(0).ImageLink;
+            Console.WriteLine(unfilteredList.ElementAt(2).Titel + " CHECK!!");
             int index = unfilteredList.FindIndex(a => a.Titel == scenario);
             Console.WriteLine(test);
             Console.WriteLine(test2);
@@ -108,6 +112,7 @@ namespace Bildwahl.DataAccess
         {
             // In a real application, the data would come from an external source,
             // but for this demo let's keep things simple and use a resource file.
+            Console.WriteLine("LOADED");
             using (Stream stream = GetResourceStream(customerDataFile))
             using (XmlReader xmlRdr = new XmlTextReader(stream))
                 return
