@@ -19,15 +19,51 @@ namespace Bildwahl.Model
         }
 
         public static ImageLinks CreateImageLinks(
-            string imageLink,
-            string titel)
+            string titel,
+            string blueBlue,
+            string blueRed,
+            string blueGreen,
+            string blueYellow,
+
+            string redBlue,
+            string redRed,
+            string redGreen,
+            string redYellow,
+
+            string greenBlue,
+            string greenRed,
+            string greenGreen,
+            string greenYellow,
+
+            string yellowBlue,
+            string yellowRed,
+            string yellowGreen,
+            string yellowYellow
+            )
         {
-            Console.WriteLine(imageLink);
             return new ImageLinks
             {
+                Titel = titel,
+                BlueBlue = blueBlue,
+                BlueRed = blueRed,
+                BlueGreen = blueGreen,
+                BlueYellow = blueYellow,
 
-                ImageLink = imageLink,
-                Titel = titel
+                RedBlue = redBlue,
+                RedRed = redRed,
+                RedGreen = redGreen,
+                RedYellow = redYellow,
+
+                GreenBlue = greenBlue,
+                GreenRed = greenRed,
+                GreenGreen = greenGreen,
+                GreenYellow = greenYellow,
+
+                YellowBlue = yellowBlue,
+                YellowRed = yellowRed,
+                YellowGreen = yellowGreen,
+                YellowYellow = yellowYellow
+
             };
         }
 
@@ -44,6 +80,30 @@ namespace Bildwahl.Model
         /// company, this value stores the company's name.
         /// </summary>
         public string ImageLink { get; set; }
+
+        #region ImageLinks
+        public string BlueBlue { get; set; }
+        public string BlueRed { get; set; }
+        public string BlueGreen { get; set; }
+        public string BlueYellow { get; set; }
+
+        public string RedBlue { get; set; }
+        public string RedRed { get; set; }
+        public string RedGreen { get; set; }
+        public string RedYellow { get; set; }
+
+        public string GreenBlue { get; set; }
+        public string GreenRed { get; set; }
+        public string GreenGreen { get; set; }
+        public string GreenYellow { get; set; }
+
+        public string YellowBlue { get; set; }
+        public string YellowRed { get; set; }
+        public string YellowGreen { get; set; }
+        public string YellowYellow { get; set; }
+
+
+        #endregion
 
         /// <summary>
         /// Gets/sets the ImageLinks's first name.  If this ImageLinks is a 

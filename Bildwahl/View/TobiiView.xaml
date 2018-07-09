@@ -631,43 +631,11 @@
         </Storyboard>
 
         <Style x:Key="TobiiButtonStyle" TargetType="{x:Type Button}">
-
-            <Setter Property="Background" Value="Red" />
-            <!--<EventSetter Event="tobii:Behaviors.HasGazeChanged" Handler="{Binding Path=DoSomethingCommand}" />-->
-            <!--<EventSetter Event="tobii:Behaviors.HasGazeChanged" Handler="DoSomething"/>-->
-            
-
-
             <Style.Triggers>
-                
                 <Trigger Property="tobii:Behaviors.HasGaze" Value="True">
                     <Setter Property="Content" Value="{Binding NotifyOnTargetUpdated=True}" />
-                    <Setter Property="Visibility" Value="Collapsed"/>
-
-                    <Setter Property="Background" Value="Yellow" />
-                    <!--<Trigger.EnterActions>
-                        <BeginStoryboard Storyboard="{StaticResource ColumnAnimation}" />
-                    </Trigger.EnterActions>-->
-                   
-
-
-
                 </Trigger>
 
-            </Style.Triggers>
-        </Style>
-        <Style x:Key="TobiiTestStyle" TargetType="{x:Type Rectangle}">
-
-            <Setter Property="Fill" Value="Red" />
-            
-            
-
-
-            <Style.Triggers>
-
-                <Trigger Property="tobii:Behaviors.HasGaze" Value="True">
-                    <Setter Property="Fill" Value="Yellow" />
-                </Trigger>
             </Style.Triggers>
         </Style>
     </UserControl.Resources>
@@ -686,7 +654,7 @@
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
 
-        <Button Name="UpperLeft" Grid.Row="0" Grid.Column="0" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="3000" Style="{StaticResource TobiiButtonStyle}">
+        <Button Name="UpperLeft" Grid.Row="0" Grid.Column="0" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="3000" Style="{StaticResource TobiiButtonStyle}" Background="Blue">
             <i:Interaction.Triggers>
                 <ei:PropertyChangedTrigger Binding="{Binding Content, ElementName=UpperLeft}">
                     <i:InvokeCommandAction Command="{Binding DoSomethingCommand}"/>
@@ -702,7 +670,7 @@
             </Button.Triggers>
         </Button>
 
-        <Button x:Name="LowerLeft" Grid.Row="3" Grid.Column="0" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="3000" Style="{StaticResource TobiiButtonStyle}">
+        <Button x:Name="LowerLeft" Grid.Row="3" Grid.Column="0" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="3000" Style="{StaticResource TobiiButtonStyle}" Background="Green">
             <i:Interaction.Triggers>
                 <ei:PropertyChangedTrigger Binding="{Binding Content, ElementName=LowerLeft}">
                     <i:InvokeCommandAction Command="{Binding DoSomethingCommand, Mode=OneWay}"/>
@@ -716,7 +684,7 @@
             </Button.Triggers>
         </Button>
 
-        <Button x:Name="LowerRight" Grid.Row="3" Grid.Column="3" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="3000" Style="{StaticResource TobiiButtonStyle}">
+        <Button x:Name="LowerRight" Grid.Row="3" Grid.Column="3" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="3000" Style="{StaticResource TobiiButtonStyle}" Background="Yellow">
             <i:Interaction.Triggers>
                 <ei:PropertyChangedTrigger Binding="{Binding Content, ElementName=LowerRight}">
                     <i:InvokeCommandAction Command="{Binding DoSomethingCommand, Mode=OneWay}"/>
@@ -730,7 +698,7 @@
             </Button.Triggers>
         </Button>
 
-        <Button x:Name="UpperRight" Grid.Row="0" Grid.Column="3" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="3000" Style="{StaticResource TobiiButtonStyle}">
+        <Button x:Name="UpperRight" Grid.Row="0" Grid.Column="3" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="3000" Style="{StaticResource TobiiButtonStyle}" Background="Red">
             <i:Interaction.Triggers>
                 <ei:PropertyChangedTrigger Binding="{Binding Content, ElementName=UpperRight}">
                     <i:InvokeCommandAction Command="{Binding DoSomethingCommand, Mode=OneWay}"/>
@@ -744,9 +712,9 @@
             </Button.Triggers>
         </Button>
 
-        <Button Name="UpperLeftSecondStage" Grid.Row="0" Grid.Column="0" Visibility="Collapsed" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="3000" Style="{StaticResource TobiiButtonStyle}">
+        <Button Name="UpperLeftSecondStage" Grid.Row="0" Grid.Column="0" Visibility="Collapsed" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="3000" Style="{StaticResource TobiiButtonStyle}" Background="Blue">
             <i:Interaction.Triggers>
-                <ei:PropertyChangedTrigger Binding="{Binding Content, ElementName=UpperLeft}">
+                <ei:PropertyChangedTrigger Binding="{Binding Content, ElementName=UpperLeftSecondStage}">
                     <i:InvokeCommandAction Command="{Binding DoSomethingCommand}"/>
                 </ei:PropertyChangedTrigger>
             </i:Interaction.Triggers>
@@ -758,7 +726,7 @@
             </Button.Triggers>
         </Button>
         
-        <Button x:Name="LowerLeftSecondStage" Grid.Row="3" Grid.Column="0" Visibility="Collapsed" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="3000" Style="{StaticResource TobiiButtonStyle}">
+        <Button x:Name="LowerLeftSecondStage" Grid.Row="3" Grid.Column="0" Visibility="Collapsed" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="3000" Style="{StaticResource TobiiButtonStyle}" Background="Green">
             <i:Interaction.Triggers>
                 <ei:PropertyChangedTrigger Binding="{Binding Content, ElementName=LowerLeftSecondStage}">
                     <i:InvokeCommandAction Command="{Binding DoSomethingCommand, Mode=OneWay}"/>
@@ -771,9 +739,9 @@
             </Button.Triggers>
         </Button>
 
-        <Button x:Name="LowerRightSecondStage" Grid.Row="3" Grid.Column="3" Visibility="Collapsed" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="3000" Style="{StaticResource TobiiButtonStyle}">
+        <Button x:Name="LowerRightSecondStage" Grid.Row="3" Grid.Column="3" Visibility="Collapsed" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="3000" Style="{StaticResource TobiiButtonStyle}" Background="Yellow">
             <i:Interaction.Triggers>
-                <ei:PropertyChangedTrigger Binding="{Binding Content, ElementName=LowerRight}">
+                <ei:PropertyChangedTrigger Binding="{Binding Content, ElementName=LowerRightSecondStage}">
                     <i:InvokeCommandAction Command="{Binding DoSomethingCommand, Mode=OneWay}"/>
                 </ei:PropertyChangedTrigger>
             </i:Interaction.Triggers>
@@ -784,9 +752,9 @@
             </Button.Triggers>
         </Button>
 
-        <Button x:Name="UpperRightSecondStage" Grid.Row="0" Grid.Column="3" Visibility="Collapsed" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="3000" Style="{StaticResource TobiiButtonStyle}">
+        <Button x:Name="UpperRightSecondStage" Grid.Row="0" Grid.Column="3" Visibility="Collapsed" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="3000" Style="{StaticResource TobiiButtonStyle}" Background="Red">
             <i:Interaction.Triggers>
-                <ei:PropertyChangedTrigger Binding="{Binding Content, ElementName=UpperRight}">
+                <ei:PropertyChangedTrigger Binding="{Binding Content, ElementName=UpperRightSecondStage}">
                     <i:InvokeCommandAction Command="{Binding DoSomethingCommand, Mode=OneWay}"/>
                 </ei:PropertyChangedTrigger>
             </i:Interaction.Triggers>
@@ -813,36 +781,43 @@
                 <RowDefinition x:Name="SecondContentRowSecondStageBlue" Height="2*" />
                 <RowDefinition Height="1*" />
             </Grid.RowDefinitions>
-            <Rectangle Name="BlueSmall" Grid.Row="1" Grid.Column="1" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Blue" >
-            </Rectangle>
-            <Grid Grid.Row="1" Grid.Column="1" >
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="1*" />
-                    <ColumnDefinition Width="4*" />
-                    <ColumnDefinition Width="1*" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="1*" />
-                    <RowDefinition Height="4*" />
-                    <RowDefinition Height="1*" />
-                </Grid.RowDefinitions>
-                <ItemsControl ItemsSource="{Binding AllCustomers}" Grid.Row="1" Grid.Column="1">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <Label Content="{Binding Titel}"></Label>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
+            
+            <Rectangle Name="BlueSmall" Grid.Row="1" Grid.Column="1" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Blue" />
+            <ItemsControl ItemsSource="{Binding AllCustomers}" Grid.Row="1" Grid.Column="1" Margin="10">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Image Source="{Binding BlueBlue}" Stretch="UniformToFill"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
 
-            </Grid>
-            <Rectangle Name="RedSmall" Grid.Row="1" Grid.Column="2" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Red">
-            </Rectangle>
+            <Rectangle Name="RedSmall" Grid.Row="1" Grid.Column="2" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Red"/>
+            <ItemsControl ItemsSource="{Binding AllCustomers}" Grid.Row="1" Grid.Column="2" Margin="10">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Image Source="{Binding BlueRed}" Stretch="UniformToFill"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
 
-            <Rectangle Name="GreenSmall" Grid.Row="2" Grid.Column="1" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Green">
-            </Rectangle>
+            <Rectangle Name="GreenSmall" Grid.Row="2" Grid.Column="1" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Green"/>
+            <ItemsControl ItemsSource="{Binding AllCustomers}" Grid.Row="2" Grid.Column="1" Margin="10">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Image Source="{Binding BlueGreen}" Stretch="UniformToFill"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
 
-            <Rectangle Name="YellowSmall" Grid.Row="2" Grid.Column="2" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Yellow">
-            </Rectangle>
+            <Rectangle Name="YellowSmall" Grid.Row="2" Grid.Column="2" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Yellow"/>
+            <ItemsControl ItemsSource="{Binding AllCustomers}" Grid.Row="2" Grid.Column="2" Margin="10">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Image Source="{Binding BlueYellow}" Stretch="UniformToFill"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+
         </Grid>
         
         <Rectangle Name="RedBig" Grid.Row="1" Grid.Column="2" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Red">
@@ -860,39 +835,42 @@
                 <RowDefinition x:Name="SecondContentRowSecondStageRed" Height="2*" />
                 <RowDefinition Height="1*" />
             </Grid.RowDefinitions>
-            <Rectangle Name="BlueSmallRed" Grid.Row="1" Grid.Column="1" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Blue" >
-            </Rectangle>
-            <Grid Grid.Row="1" Grid.Column="1" >
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="1*" />
-                    <ColumnDefinition Width="4*" />
-                    <ColumnDefinition Width="1*" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="1*" />
-                    <RowDefinition Height="4*" />
-                    <RowDefinition Height="1*" />
-                </Grid.RowDefinitions>
-                <ItemsControl ItemsSource="{Binding AllCustomers}" Grid.Row="1" Grid.Column="1">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <Image Source="{Binding ImageLink}" Stretch="UniformToFill"/>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-                
-            </Grid>
-
             
+            <Rectangle Name="BlueSmallRed" Grid.Row="1" Grid.Column="1" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Blue" />
+            <ItemsControl ItemsSource="{Binding AllCustomers}" Grid.Row="1" Grid.Column="1" Margin="10">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Image Source="{Binding RedBlue}" Stretch="UniformToFill"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
 
-            <Rectangle Name="RedSmallRed" Grid.Row="1" Grid.Column="2" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Red">
-            </Rectangle>
+            <Rectangle Name="RedSmallRed" Grid.Row="1" Grid.Column="2" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Red"/>
+            <ItemsControl ItemsSource="{Binding AllCustomers}" Grid.Row="1" Grid.Column="2" Margin="10">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Image Source="{Binding RedRed}" Stretch="UniformToFill"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
 
-            <Rectangle Name="GreenSmallRed" Grid.Row="2" Grid.Column="1" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Green">
-            </Rectangle>
+            <Rectangle Name="GreenSmallRed" Grid.Row="2" Grid.Column="1" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Green"/>
+            <ItemsControl ItemsSource="{Binding AllCustomers}" Grid.Row="2" Grid.Column="1" Margin="10">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Image Source="{Binding RedGreen}" Stretch="UniformToFill"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
 
-            <Rectangle Name="YellowSmallRed" Grid.Row="2" Grid.Column="2" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Yellow">
-            </Rectangle>
+            <Rectangle Name="YellowSmallRed" Grid.Row="2" Grid.Column="2" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Yellow"/>
+            <ItemsControl ItemsSource="{Binding AllCustomers}" Grid.Row="2" Grid.Column="2" Margin="10">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Image Source="{Binding RedYellow}" Stretch="UniformToFill"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
         </Grid>
 
         <Rectangle Name="GreenBig" Grid.Row="2" Grid.Column="1" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Green">
@@ -911,17 +889,42 @@
                 <RowDefinition x:Name="SecondContentRowSecondStageGreen" Height="2*" />
                 <RowDefinition Height="1*" />
             </Grid.RowDefinitions>
-            <Rectangle Name="BlueSmallGreen" Grid.Row="1" Grid.Column="1" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Blue" >
-            </Rectangle>
+            <Rectangle Name="BlueSmallGreen" Grid.Row="1" Grid.Column="1" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Blue"/>
+            <ItemsControl ItemsSource="{Binding AllCustomers}" Grid.Row="1" Grid.Column="1" Margin="10">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Image Source="{Binding GreenBlue}" Stretch="UniformToFill"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
 
-            <Rectangle Name="RedSmallGreen" Grid.Row="1" Grid.Column="2" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Red">
-            </Rectangle>
+            <Rectangle Name="RedSmallGreen" Grid.Row="1" Grid.Column="2" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Red"/>
+            <ItemsControl ItemsSource="{Binding AllCustomers}" Grid.Row="1" Grid.Column="2" Margin="10">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Image Source="{Binding GreenRed}" Stretch="UniformToFill"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
 
-            <Rectangle Name="GreenSmallGreen" Grid.Row="2" Grid.Column="1" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Green">
-            </Rectangle>
+            <Rectangle Name="GreenSmallGreen" Grid.Row="2" Grid.Column="1" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Green"/>
+            <ItemsControl ItemsSource="{Binding AllCustomers}" Grid.Row="2" Grid.Column="1" Margin="10">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Image Source="{Binding GreenGreen}" Stretch="UniformToFill"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+    
+            <Rectangle Name="YellowSmallGreen" Grid.Row="2" Grid.Column="2" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Yellow"/>
+            <ItemsControl ItemsSource="{Binding AllCustomers}" Grid.Row="2" Grid.Column="2" Margin="10">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Image Source="{Binding GreenYellow}" Stretch="UniformToFill"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
 
-            <Rectangle Name="YellowSmallGreen" Grid.Row="2" Grid.Column="2" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Yellow">
-            </Rectangle>
         </Grid>
 
         <Rectangle Name="YellowBig" Grid.Row="2" Grid.Column="2" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Yellow">
@@ -940,17 +943,42 @@
                 <RowDefinition x:Name="SecondContentRowSecondStageYellow" Height="2*" />
                 <RowDefinition Height="1*" />
             </Grid.RowDefinitions>
-            <Rectangle Name="BlueSmallYellow" Grid.Row="1" Grid.Column="1" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Blue" >
-            </Rectangle>
+            <Rectangle Name="BlueSmallYellow" Grid.Row="1" Grid.Column="1" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Blue"/>
+            <ItemsControl ItemsSource="{Binding AllCustomers}" Grid.Row="1" Grid.Column="1" Margin="10">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Image Source="{Binding YellowBlue}" Stretch="UniformToFill"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
 
-            <Rectangle Name="RedSmallYellow" Grid.Row="1" Grid.Column="2" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Red">
-            </Rectangle>
+            <Rectangle Name="RedSmallYellow" Grid.Row="1" Grid.Column="2" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Red"/>
+            <ItemsControl ItemsSource="{Binding AllCustomers}" Grid.Row="1" Grid.Column="2" Margin="10">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Image Source="{Binding YellowRed}" Stretch="UniformToFill"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
 
-            <Rectangle Name="GreenSmallYellow" Grid.Row="2" Grid.Column="1" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Green">
-            </Rectangle>
+            <Rectangle Name="GreenSmallYellow" Grid.Row="2" Grid.Column="1" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Green"/>
+            <ItemsControl ItemsSource="{Binding AllCustomers}" Grid.Row="2" Grid.Column="1" Margin="10">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Image Source="{Binding YellowGreen}" Stretch="UniformToFill"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
 
-            <Rectangle Name="YellowSmallYellow" Grid.Row="2" Grid.Column="2" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Yellow">
-            </Rectangle>
+            <Rectangle Name="YellowSmallYellow" Grid.Row="2" Grid.Column="2" tobii:Behaviors.IsGazeAware="True" Stroke="Black" Fill="Yellow"/>
+            <ItemsControl ItemsSource="{Binding AllCustomers}" Grid.Row="2" Grid.Column="2" Margin="10">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Image Source="{Binding YellowYellow}" Stretch="UniformToFill"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+            
         </Grid>
 
     </Grid>

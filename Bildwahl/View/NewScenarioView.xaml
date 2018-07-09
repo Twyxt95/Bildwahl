@@ -6,15 +6,28 @@
  
 
   >
+    <UserControl.Resources>
+        <Style x:Key="AddImageButtonStyle" TargetType="{x:Type Button}">
+        </Style>
+    </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*" />
             <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="2*" />
             <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="2*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*" />
             <RowDefinition Height="2*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="1*" />
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
         <Label Grid.Row="0" Grid.Column="0"
@@ -28,25 +41,30 @@
       Validation.ErrorTemplate="{x:Null}"
       />
      
-        
-        <Label Grid.Row="1" Grid.Column="0"
-      Content="Bild:" 
-      HorizontalAlignment="Right"
-      Target="{Binding ElementName=titelTxt}"
-      />
-        <Button Grid.Row="1" Grid.Column="1"
-      x:Name="titelTxt"
-      Command="{Binding Path=SaveImageCommand}"
-      Content="Neues Bild"
-      
-      />
- 
-        <Button Grid.Row="2" Grid.Column="2"
+        <Button Grid.Row="1" Grid.Column="1" Command="{Binding Path=SaveImageCommandBlueBlue}" Content="Bild hinzufügen" Style="{StaticResource AddImageButtonStyle}"/>
+        <Button Grid.Row="1" Grid.Column="2" Command="{Binding Path=SaveImageCommandBlueRed}" Content="Bild hinzufügen" Style="{StaticResource AddImageButtonStyle}"/>
+        <Button Grid.Row="2" Grid.Column="1" Command="{Binding Path=SaveImageCommandBlueGreen}" Content="Bild hinzufügen" Style="{StaticResource AddImageButtonStyle}"/>
+        <Button Grid.Row="2" Grid.Column="2" Command="{Binding Path=SaveImageCommandBlueYellow}" Content="Bild hinzufügen" Style="{StaticResource AddImageButtonStyle}"/>
+
+        <Button Grid.Row="1" Grid.Column="4" Command="{Binding Path=SaveImageCommandRedBlue}" Content="Bild hinzufügen" Style="{StaticResource AddImageButtonStyle}"/>
+        <Button Grid.Row="1" Grid.Column="5" Command="{Binding Path=SaveImageCommandRedRed}" Content="Bild hinzufügen" Style="{StaticResource AddImageButtonStyle}"/>
+        <Button Grid.Row="2" Grid.Column="4" Command="{Binding Path=SaveImageCommandRedGreen}" Content="Bild hinzufügen" Style="{StaticResource AddImageButtonStyle}"/>
+        <Button Grid.Row="2" Grid.Column="5" Command="{Binding Path=SaveImageCommandRedYellow}" Content="Bild hinzufügen" Style="{StaticResource AddImageButtonStyle}"/>
+
+        <Button Grid.Row="4" Grid.Column="1" Command="{Binding Path=SaveImageCommandGreenBlue}" Content="Bild hinzufügen" Style="{StaticResource AddImageButtonStyle}"/>
+        <Button Grid.Row="4" Grid.Column="2" Command="{Binding Path=SaveImageCommandGreenRed}" Content="Bild hinzufügen" Style="{StaticResource AddImageButtonStyle}"/>
+        <Button Grid.Row="5" Grid.Column="1" Command="{Binding Path=SaveImageCommandGreenGreen}" Content="Bild hinzufügen" Style="{StaticResource AddImageButtonStyle}"/>
+        <Button Grid.Row="5" Grid.Column="2" Command="{Binding Path=SaveImageCommandGreenYellow}" Content="Bild hinzufügen" Style="{StaticResource AddImageButtonStyle}"/>
+
+        <Button Grid.Row="4" Grid.Column="4" Command="{Binding Path=SaveImageCommandYellowBlue}" Content="Bild hinzufügen" Style="{StaticResource AddImageButtonStyle}"/>
+        <Button Grid.Row="4" Grid.Column="5" Command="{Binding Path=SaveImageCommandYellowRed}" Content="Bild hinzufügen" Style="{StaticResource AddImageButtonStyle}"/>
+        <Button Grid.Row="5" Grid.Column="4" Command="{Binding Path=SaveImageCommandYellowGreen}" Content="Bild hinzufügen" Style="{StaticResource AddImageButtonStyle}"/>
+        <Button Grid.Row="5" Grid.Column="5" Command="{Binding Path=SaveImageCommandYellowYellow}" Content="Bild hinzufügen" Style="{StaticResource AddImageButtonStyle}"/>
+
+
+        <Button Grid.Row="7" Grid.Column="6"
       Command="{Binding Path=SaveCommand}"
       Content="_Save"
-      HorizontalAlignment="Right"
-      Margin="4,2" 
-      MinWidth="60" 
       />
     </Grid>
 </UserControl>

@@ -59,10 +59,27 @@ namespace Bildwahl.DataAccess
                 _imageLinks.Add(customer);
             }
               //  if (this.ScenarioAdded != null)
-                    WriteScenario(customer.Titel,customer.ImageLink);
-            Console.WriteLine(_customerDataFile);
-           
-                this.ScenarioAdded(this, new ScenarioAddedEventArgs(customer));
+            WriteScenario(
+                customer.Titel,
+                customer.BlueBlue,
+                customer.BlueRed,
+                customer.BlueGreen,
+                customer.BlueYellow,
+                customer.RedBlue,
+                customer.RedRed,
+                customer.RedGreen,
+                customer.RedYellow,
+                customer.GreenBlue,
+                customer.GreenRed,
+                customer.GreenGreen,
+                customer.GreenYellow,
+                customer.YellowBlue,
+                customer.YellowRed,
+                customer.YellowGreen,
+                customer.YellowYellow
+                );
+
+            this.ScenarioAdded(this, new ScenarioAddedEventArgs(customer));
 
             //}
         } 
@@ -84,15 +101,8 @@ namespace Bildwahl.DataAccess
         /// </summary>
         public List<ImageLinks> GetCustomers(string scenario)
         {
-            Console.WriteLine(scenario + " Look here");
             List<ImageLinks> unfilteredList = new List<ImageLinks>(_imageLinks);
-            string test = unfilteredList.ElementAt(0).Titel;
-            string test2 = unfilteredList.ElementAt(0).ImageLink;
-            Console.WriteLine(unfilteredList.ElementAt(2).Titel + " CHECK!!");
             int index = unfilteredList.FindIndex(a => a.Titel == scenario);
-            Console.WriteLine(test);
-            Console.WriteLine(test2);
-            Console.WriteLine(index + " Index");
             List<ImageLinks> filteredList= new List<ImageLinks>();
             filteredList.Add(unfilteredList.ElementAt(index));
             return filteredList;
@@ -118,14 +128,51 @@ namespace Bildwahl.DataAccess
                 return
                     (from customerElem in XDocument.Load(xmlRdr).Element("imagelinks").Elements("scenario")
                      select ImageLinks.CreateImageLinks(
-                        
-                        (string)customerElem.Attribute("imagelink"),
-                        (string)customerElem.Attribute("titel")
+                        (string)customerElem.Attribute("titel"),
+                        (string)customerElem.Attribute("blueblue"),
+                        (string)customerElem.Attribute("bluered"),
+                        (string)customerElem.Attribute("bluegreen"),
+                        (string)customerElem.Attribute("blueyellow"),
 
+                        (string)customerElem.Attribute("redblue"),
+                        (string)customerElem.Attribute("redred"),
+                        (string)customerElem.Attribute("redgreen"),
+                        (string)customerElem.Attribute("redyellow"),
+
+                        (string)customerElem.Attribute("greenblue"),
+                        (string)customerElem.Attribute("greenred"),
+                        (string)customerElem.Attribute("greengreen"),
+                        (string)customerElem.Attribute("greenyellow"),
+
+                        (string)customerElem.Attribute("yellowblue"),
+                        (string)customerElem.Attribute("yellowred"),
+                        (string)customerElem.Attribute("yellowgreen"),
+                        (string)customerElem.Attribute("yellowyellow")
                          )).ToList();
         }
 
-        static void WriteScenario(string titel, string imageLink)
+        static void WriteScenario(
+            string titel,
+            string blueBlue,
+            string blueRed,
+            string blueGreen,
+            string blueYellow,
+
+            string redBlue,
+            string redRed,
+            string redGreen,
+            string redYellow,
+
+            string greenBlue,
+            string greenRed,
+            string greenGreen,
+            string greenYellow,
+
+            string yellowBlue,
+            string yellowRed,
+            string yellowGreen,
+            string yellowYellow
+            )
         {
 
             //file name
@@ -142,23 +189,58 @@ namespace Bildwahl.DataAccess
             attribute.Value = titel; //set the appropriate value
             node.Attributes.Append(attribute); // add the attribute to node
 
-            XmlAttribute attributeImageLink = doc.CreateAttribute("imagelink"); // create attribute
-            attributeImageLink.Value =imageLink; //set the appropriate value
-            node.Attributes.Append(attributeImageLink); // add the attribute to node
-            //node.InnerText = "this is new node";
+            XmlAttribute attributeBlueBlue = doc.CreateAttribute("blueblue"); // create attribute
+            attributeBlueBlue.Value = blueBlue; //set the appropriate value
+            node.Attributes.Append(attributeBlueBlue); // add the attribute to node
+            XmlAttribute attributeBlueRed = doc.CreateAttribute("bluered"); // create attribute
+            attributeBlueRed.Value = blueRed; //set the appropriate value
+            node.Attributes.Append(attributeBlueRed); // add the attribute to node
+            XmlAttribute attributeBlueGreen = doc.CreateAttribute("bluegreen"); // create attribute
+            attributeBlueGreen.Value = blueGreen; //set the appropriate value
+            node.Attributes.Append(attributeBlueGreen); // add the attribute to node
+            XmlAttribute attributeBlueYellow = doc.CreateAttribute("blueyellow"); // create attribute
+            attributeBlueYellow.Value = blueYellow; //set the appropriate value
+            node.Attributes.Append(attributeBlueYellow); // add the attribute to node
 
-            //create title node
-            //XmlNode nodeTitle = doc.CreateElement("Title");
-            //add value for it
-            //nodeTitle.InnerText = "dritter";
+            XmlAttribute attributeRedBlue = doc.CreateAttribute("redblue"); // create attribute
+            attributeRedBlue.Value = redBlue; //set the appropriate value
+            node.Attributes.Append(attributeRedBlue); // add the attribute to node
+            XmlAttribute attributeRedRed = doc.CreateAttribute("redred"); // create attribute
+            attributeRedRed.Value = redRed; //set the appropriate value
+            node.Attributes.Append(attributeRedRed); // add the attribute to node
+            XmlAttribute attributeRedGreen = doc.CreateAttribute("redgreen"); // create attribute
+            attributeRedGreen.Value = redGreen; //set the appropriate value
+            node.Attributes.Append(attributeRedGreen); // add the attribute to node
+            XmlAttribute attributeRedYellow = doc.CreateAttribute("redyellow"); // create attribute
+            attributeRedYellow.Value = redYellow; //set the appropriate value
+            node.Attributes.Append(attributeRedYellow); // add the attribute to node
 
-            //create Url node
-            //XmlNode nodeUrl = doc.CreateElement("Imagelink");
-            //nodeUrl.InnerText = "test";
+            XmlAttribute attributeGreenBlue = doc.CreateAttribute("greenblue"); // create attribute
+            attributeGreenBlue.Value = greenBlue; //set the appropriate value
+            node.Attributes.Append(attributeGreenBlue); // add the attribute to node
+            XmlAttribute attributeGreenRed = doc.CreateAttribute("greenred"); // create attribute
+            attributeGreenRed.Value = greenRed; //set the appropriate value
+            node.Attributes.Append(attributeGreenRed); // add the attribute to node
+            XmlAttribute attributeGreenGreen = doc.CreateAttribute("greengreen"); // create attribute
+            attributeGreenGreen.Value = greenGreen; //set the appropriate value
+            node.Attributes.Append(attributeGreenGreen); // add the attribute to node
+            XmlAttribute attributeGreenYellow = doc.CreateAttribute("greenyellow"); // create attribute
+            attributeGreenYellow.Value = greenYellow; //set the appropriate value
+            node.Attributes.Append(attributeGreenYellow); // add the attribute to node
 
-            //add to parent node
-            //node.AppendChild(nodeTitle);
-            //node.AppendChild(nodeUrl);
+            XmlAttribute attributeYellowBlue = doc.CreateAttribute("yellowblue"); // create attribute
+            attributeYellowBlue.Value = yellowBlue; //set the appropriate value
+            node.Attributes.Append(attributeYellowBlue); // add the attribute to node
+            XmlAttribute attributeYellowRed = doc.CreateAttribute("yellowred"); // create attribute
+            attributeYellowRed.Value = yellowRed; //set the appropriate value
+            node.Attributes.Append(attributeYellowRed); // add the attribute to node
+            XmlAttribute attributeYellowGreen = doc.CreateAttribute("yellowgreen"); // create attribute
+            attributeYellowGreen.Value = yellowGreen; //set the appropriate value
+            node.Attributes.Append(attributeYellowGreen); // add the attribute to node
+            XmlAttribute attributeYellowYellow = doc.CreateAttribute("yellowyellow"); // create attribute
+            attributeYellowYellow.Value = yellowYellow; //set the appropriate value
+            node.Attributes.Append(attributeYellowYellow); // add the attribute to node
+
 
             //add to elements collection
             doc.DocumentElement.AppendChild(node);

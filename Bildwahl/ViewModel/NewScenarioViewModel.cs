@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.IO;
 using System.Windows.Input;
 using Bildwahl.DataAccess;
@@ -22,7 +23,25 @@ namespace Bildwahl.ViewModel
         string[] _customerTypeOptions;
         bool _isSelected;
         RelayCommand _saveCommand;
-        RelayCommand _saveImageCommand;
+        RelayCommand _saveImageCommandBlueBlue;
+        RelayCommand _saveImageCommandBlueRed;
+        RelayCommand _saveImageCommandBlueGreen;
+        RelayCommand _saveImageCommandBlueYellow;
+
+        RelayCommand _saveImageCommandRedBlue;
+        RelayCommand _saveImageCommandRedRed;
+        RelayCommand _saveImageCommandRedGreen;
+        RelayCommand _saveImageCommandRedYellow;
+
+        RelayCommand _saveImageCommandGreenBlue;
+        RelayCommand _saveImageCommandGreenRed;
+        RelayCommand _saveImageCommandGreenGreen;
+        RelayCommand _saveImageCommandGreenYellow;
+
+        RelayCommand _saveImageCommandYellowBlue;
+        RelayCommand _saveImageCommandYellowRed;
+        RelayCommand _saveImageCommandYellowGreen;
+        RelayCommand _saveImageCommandYellowYellow;
 
         #endregion // Fields
 
@@ -44,6 +63,8 @@ namespace Bildwahl.ViewModel
         #endregion // Constructor
 
         #region Customer Properties
+
+
 
         public string ImageLink
         {
@@ -73,6 +94,221 @@ namespace Bildwahl.ViewModel
             }
         }
 
+        #region ImageLinks
+
+        public string BlueBlue
+        {
+            get { return _customer.BlueBlue; }
+            set
+            {
+                if (value == _customer.BlueBlue)
+                    return;
+
+                _customer.BlueBlue = value;
+
+                base.OnPropertyChanged("BlueBlue");
+            }
+        }
+        public string BlueRed
+        {
+            get { return _customer.BlueRed; }
+            set
+            {
+                if (value == _customer.BlueRed)
+                    return;
+
+                _customer.BlueRed = value;
+
+                base.OnPropertyChanged("BlueRed");
+            }
+        }
+        public string BlueGreen
+        {
+            get { return _customer.BlueGreen; }
+            set
+            {
+                if (value == _customer.BlueGreen)
+                    return;
+
+                _customer.BlueGreen = value;
+
+                base.OnPropertyChanged("BlueGreen");
+            }
+        }
+        public string BlueYellow
+        {
+            get { return _customer.BlueYellow; }
+            set
+            {
+                if (value == _customer.BlueYellow)
+                    return;
+
+                _customer.BlueYellow = value;
+
+                base.OnPropertyChanged("BlueYellow");
+            }
+        }
+
+        public string RedBlue
+        {
+            get { return _customer.RedBlue; }
+            set
+            {
+                if (value == _customer.RedBlue)
+                    return;
+
+                _customer.RedBlue = value;
+
+                base.OnPropertyChanged("RedBlue");
+            }
+        }
+        public string RedRed
+        {
+            get { return _customer.RedRed; }
+            set
+            {
+                if (value == _customer.RedRed)
+                    return;
+
+                _customer.RedRed = value;
+
+                base.OnPropertyChanged("RedRed");
+            }
+        }
+        public string RedGreen
+        {
+            get { return _customer.RedGreen; }
+            set
+            {
+                if (value == _customer.RedGreen)
+                    return;
+
+                _customer.RedGreen = value;
+
+                base.OnPropertyChanged("RedGreen");
+            }
+        }
+        public string RedYellow
+        {
+            get { return _customer.RedYellow; }
+            set
+            {
+                if (value == _customer.RedYellow)
+                    return;
+
+                _customer.RedYellow = value;
+
+                base.OnPropertyChanged("RedYellow");
+            }
+        }
+
+        public string GreenBlue
+        {
+            get { return _customer.GreenBlue; }
+            set
+            {
+                if (value == _customer.GreenBlue)
+                    return;
+
+                _customer.GreenBlue = value;
+
+                base.OnPropertyChanged("GreenBlue");
+            }
+        }
+        public string GreenRed
+        {
+            get { return _customer.GreenRed; }
+            set
+            {
+                if (value == _customer.GreenRed)
+                    return;
+
+                _customer.GreenRed = value;
+
+                base.OnPropertyChanged("GreenRed");
+            }
+        }
+        public string GreenGreen
+        {
+            get { return _customer.GreenGreen; }
+            set
+            {
+                if (value == _customer.GreenGreen)
+                    return;
+
+                _customer.GreenGreen = value;
+
+                base.OnPropertyChanged("GreenGreen");
+            }
+        }
+        public string GreenYellow
+        {
+            get { return _customer.GreenYellow; }
+            set
+            {
+                if (value == _customer.GreenYellow)
+                    return;
+
+                _customer.GreenYellow = value;
+
+                base.OnPropertyChanged("GreenYellow");
+            }
+        }
+
+        public string YellowBlue
+        {
+            get { return _customer.YellowBlue; }
+            set
+            {
+                if (value == _customer.YellowBlue)
+                    return;
+
+                _customer.YellowBlue = value;
+
+                base.OnPropertyChanged("YellowBlue");
+            }
+        }
+        public string YellowRed
+        {
+            get { return _customer.YellowRed; }
+            set
+            {
+                if (value == _customer.YellowRed)
+                    return;
+
+                _customer.YellowRed = value;
+
+                base.OnPropertyChanged("YellowRed");
+            }
+        }
+        public string YellowGreen
+        {
+            get { return _customer.YellowGreen; }
+            set
+            {
+                if (value == _customer.YellowGreen)
+                    return;
+
+                _customer.YellowGreen = value;
+
+                base.OnPropertyChanged("YellowGreen");
+            }
+        }
+        public string YellowYellow
+        {
+            get { return _customer.YellowYellow; }
+            set
+            {
+                if (value == _customer.YellowYellow)
+                    return;
+
+                _customer.YellowYellow = value;
+
+                base.OnPropertyChanged("YellowYellow");
+            }
+        }
+
+        #endregion
 
 
         #endregion // Customer Properties
@@ -189,20 +425,220 @@ namespace Bildwahl.ViewModel
             }
         }
 
-        public ICommand SaveImageCommand
+        #region SaveImageCommands
+        public ICommand SaveImageCommandBlueBlue
         {
             get
             {
-                if (_saveImageCommand == null)
+                if (_saveImageCommandBlueBlue == null)
                 {
-                    _saveImageCommand = new RelayCommand(
-                        param => this.SaveImage()
+                    _saveImageCommandBlueBlue = new RelayCommand(
+                        param => this.SaveImage("BlueBlue")
                         );
                 }
-                return _saveImageCommand;
+                return _saveImageCommandBlueBlue;
+            }
+        }
+        public ICommand SaveImageCommandBlueRed
+        {
+            get
+            {
+                if (_saveImageCommandBlueRed == null)
+                {
+                    _saveImageCommandBlueRed = new RelayCommand(
+                        param => this.SaveImage("BlueRed")
+                        );
+                }
+                return _saveImageCommandBlueRed;
+            }
+        }
+        public ICommand SaveImageCommandBlueGreen
+        {
+            get
+            {
+                if (_saveImageCommandBlueGreen == null)
+                {
+                    _saveImageCommandBlueGreen = new RelayCommand(
+                        param => this.SaveImage("BlueGreen")
+                        );
+                }
+                return _saveImageCommandBlueGreen;
+            }
+        }
+        public ICommand SaveImageCommandBlueYellow
+        {
+            get
+            {
+                if (_saveImageCommandBlueYellow == null)
+                {
+                    _saveImageCommandBlueYellow = new RelayCommand(
+                        param => this.SaveImage("BlueYellow")
+                        );
+                }
+                return _saveImageCommandBlueYellow;
             }
         }
 
+        public ICommand SaveImageCommandRedBlue
+        {
+            get
+            {
+                if (_saveImageCommandRedBlue == null)
+                {
+                    _saveImageCommandRedBlue = new RelayCommand(
+                        param => this.SaveImage("RedBlue")
+                        );
+                }
+                return _saveImageCommandRedBlue;
+            }
+        }
+        public ICommand SaveImageCommandRedRed
+        {
+            get
+            {
+                if (_saveImageCommandRedRed == null)
+                {
+                    _saveImageCommandRedRed = new RelayCommand(
+                        param => this.SaveImage("RedRed")
+                        );
+                }
+                return _saveImageCommandRedRed;
+            }
+        }
+        public ICommand SaveImageCommandRedGreen
+        {
+            get
+            {
+                if (_saveImageCommandRedGreen == null)
+                {
+                    _saveImageCommandRedGreen = new RelayCommand(
+                        param => this.SaveImage("RedGreen")
+                        );
+                }
+                return _saveImageCommandRedGreen;
+            }
+        }
+        public ICommand SaveImageCommandRedYellow
+        {
+            get
+            {
+                if (_saveImageCommandRedYellow == null)
+                {
+                    _saveImageCommandRedYellow = new RelayCommand(
+                        param => this.SaveImage("RedYellow")
+                        );
+                }
+                return _saveImageCommandRedYellow;
+            }
+        }
+
+        public ICommand SaveImageCommandGreenBlue
+        {
+            get
+            {
+                if (_saveImageCommandGreenBlue == null)
+                {
+                    _saveImageCommandGreenBlue = new RelayCommand(
+                        param => this.SaveImage("GreenBlue")
+                        );
+                }
+                return _saveImageCommandGreenBlue;
+            }
+        }
+        public ICommand SaveImageCommandGreenRed
+        {
+            get
+            {
+                if (_saveImageCommandGreenRed == null)
+                {
+                    _saveImageCommandGreenRed = new RelayCommand(
+                        param => this.SaveImage("GreenRed")
+                        );
+                }
+                return _saveImageCommandGreenRed;
+            }
+        }
+        public ICommand SaveImageCommandGreenGreen
+        {
+            get
+            {
+                if (_saveImageCommandGreenGreen == null)
+                {
+                    _saveImageCommandGreenGreen = new RelayCommand(
+                        param => this.SaveImage("GreenGreen")
+                        );
+                }
+                return _saveImageCommandGreenGreen;
+            }
+        }
+        public ICommand SaveImageCommandGreenYellow
+        {
+            get
+            {
+                if (_saveImageCommandGreenYellow == null)
+                {
+                    _saveImageCommandGreenYellow = new RelayCommand(
+                        param => this.SaveImage("GreenYellow")
+                        );
+                }
+                return _saveImageCommandGreenYellow;
+            }
+        }
+
+        public ICommand SaveImageCommandYellowBlue
+        {
+            get
+            {
+                if (_saveImageCommandYellowBlue == null)
+                {
+                    _saveImageCommandYellowBlue = new RelayCommand(
+                        param => this.SaveImage("YellowBlue")
+                        );
+                }
+                return _saveImageCommandYellowBlue;
+            }
+        }
+        public ICommand SaveImageCommandYellowRed
+        {
+            get
+            {
+                if (_saveImageCommandYellowRed == null)
+                {
+                    _saveImageCommandYellowRed = new RelayCommand(
+                        param => this.SaveImage("YellowRed")
+                        );
+                }
+                return _saveImageCommandYellowRed;
+            }
+        }
+        public ICommand SaveImageCommandYellowGreen
+        {
+            get
+            {
+                if (_saveImageCommandYellowGreen == null)
+                {
+                    _saveImageCommandYellowGreen = new RelayCommand(
+                        param => this.SaveImage("YellowGreen")
+                        );
+                }
+                return _saveImageCommandYellowGreen;
+            }
+        }
+        public ICommand SaveImageCommandYellowYellow
+        {
+            get
+            {
+                if (_saveImageCommandYellowYellow == null)
+                {
+                    _saveImageCommandYellowYellow = new RelayCommand(
+                        param => this.SaveImage("YellowYellow")
+                        );
+                }
+                return _saveImageCommandYellowYellow;
+            }
+        }
+
+        #endregion // SaveImageCommands
         #endregion // Presentation Properties
 
         #region Public Methods
@@ -221,7 +657,7 @@ namespace Bildwahl.ViewModel
             base.OnPropertyChanged("DisplayName");
         }
 
-        public void SaveImage()
+        public void SaveImage(string field)
         {
             OpenFileDialog _importImage = new OpenFileDialog();
             _importImage.Title = "Bild auswählen";
@@ -231,10 +667,69 @@ namespace Bildwahl.ViewModel
                 string[] splittedPath = ImportPath.Split('\\');
                 string fileName = splittedPath[splittedPath.Length - 1];
                 Console.WriteLine(ImportPath);
+                
                 try
                 {
                     File.Copy(ImportPath, @"C:\Users\Adrian\Documents\Bildwahl\Bildwahl\Bildwahl\bin\Debug\Pictures\" + fileName, true);
-                    _customer.ImageLink = @"C:\Users\Adrian\Documents\Bildwahl\Bildwahl\Bildwahl\bin\Debug\Pictures\" + fileName;
+                    string destination = @"C:\Users\Adrian\Documents\Bildwahl\Bildwahl\Bildwahl\bin\Debug\Pictures\" + fileName;
+                    switch (field)
+                    {
+                        case "BlueBlue":
+                            _customer.BlueBlue = destination;
+                            break;
+                        case "BlueRed":
+                            _customer.BlueRed = destination;
+                            break;
+                        case "BlueGreen":
+                            _customer.BlueGreen = destination;
+                            break;
+                        case "BlueYellow":
+                            _customer.BlueYellow = destination;
+                            break;
+
+                        case "RedBlue":
+                            _customer.RedBlue = destination;
+                            break;
+                        case "RedRed":
+                            _customer.RedRed = destination;
+                            break;
+                        case "RedGreen":
+                            _customer.RedGreen = destination;
+                            break;
+                        case "RedYellow":
+                            _customer.RedYellow = destination;
+                            break;
+
+                        case "GreenBlue":
+                            _customer.GreenBlue = destination;
+                            break;
+                        case "GreenRed":
+                            _customer.GreenRed = destination;
+                            break;
+                        case "GreenGreen":
+                            _customer.GreenGreen = destination;
+                            break;
+                        case "GreenYellow":
+                            _customer.GreenYellow = destination;
+                            break;
+
+                        case "YellowBlue":
+                            _customer.YellowBlue = destination;
+                            break;
+                        case "YellowRed":
+                            _customer.YellowRed = destination;
+                            break;
+                        case "YellowGreen":
+                            _customer.YellowGreen = destination;
+                            break;
+                        case "YellowYellow":
+                            _customer.YellowYellow = destination;
+                            break;
+
+                        default:
+                            Debug.Fail("Unexpected property being validated on ImageLinks: " + field);
+                            break;
+                    }
                     Console.WriteLine("Succes");
                 }
                 catch
