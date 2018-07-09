@@ -158,7 +158,7 @@ namespace Bildwahl.ViewModel
 
             if (workspace == null)
             {
-                workspace = new DeleteScenarioViewModel();
+                workspace = new DeleteScenarioViewModel(_imageLinksRepository);
                 this.Workspaces.Add(workspace);
             }
 

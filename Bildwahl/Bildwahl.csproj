@@ -171,7 +171,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Data\standard.xml">
+    <Resource Include="Data\scenario.xml">
       <SubType>Designer</SubType>
     </Resource>
   </ItemGroup>

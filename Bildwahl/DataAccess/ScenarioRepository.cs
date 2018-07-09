@@ -84,6 +84,11 @@ namespace Bildwahl.DataAccess
             //}
         } 
 
+        public void DeleteScenario()
+        {
+            DeleteScenarioXml();
+        }
+
         /// <summary>
         /// Returns true if the specified customer exists in the
         /// repository, or false if it is not.
@@ -248,6 +253,21 @@ namespace Bildwahl.DataAccess
             //save back
             doc.Save(@"C:\Users\Adrian\Documents\Bildwahl\Bildwahl\Bildwahl\"+filename);
         }
+
+        static void DeleteScenarioXml()
+        {
+            string filename = "Data/scenario.xml";
+            //create new instance of XmlDocument
+            XmlDocument doc = new XmlDocument();
+            Console.WriteLine(filename);
+            //load from file
+            doc.Load(@"C:\Users\Adrian\Documents\Bildwahl\Bildwahl\Bildwahl\" + filename);
+            XmlNodeList node= doc.SelectNodes("//scenario[@titel='Test']");
+            //doc.SelectSingleNode("imagelinks");
+            doc.SelectSingleNode("imagelinks").RemoveChild(node.Item(0));
+            //save back
+            doc.Save(@"C:\Users\Adrian\Documents\Bildwahl\Bildwahl\Bildwahl\" + filename);
+        } 
 
         static Stream GetResourceStream(string resourceFile)
         {
