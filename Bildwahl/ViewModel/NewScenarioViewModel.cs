@@ -17,8 +17,8 @@ namespace Bildwahl.ViewModel
     {
         #region Fields
 
-        readonly ImageLinks _customer;
-        readonly ImageLinksRepository _customerRepository;
+        readonly Scenario _customer;
+        readonly ScenarioRepository _customerRepository;
         string _customerType;
         string[] _customerTypeOptions;
         bool _isSelected;
@@ -47,7 +47,7 @@ namespace Bildwahl.ViewModel
 
         #region Constructor
 
-        public NewScenarioViewModel(ImageLinks customer, ImageLinksRepository customerRepository)
+        public NewScenarioViewModel(Scenario customer, ScenarioRepository customerRepository)
         {
             if (customer == null)
                 throw new ArgumentNullException("customer");

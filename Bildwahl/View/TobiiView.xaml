@@ -633,7 +633,7 @@
         <Style x:Key="TobiiButtonStyle" TargetType="{x:Type Button}">
             <Style.Triggers>
                 <Trigger Property="tobii:Behaviors.HasGaze" Value="True">
-                    <Setter Property="Content" Value="{Binding NotifyOnTargetUpdated=True}" />
+                    <Setter Property="MinWidth" Value="{Binding NotifyOnTargetUpdated=True}" />
                 </Trigger>
 
             </Style.Triggers>

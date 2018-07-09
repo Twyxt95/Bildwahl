@@ -19,10 +19,10 @@ namespace Bildwahl.ViewModel
     public class TobiiViewModel : WorkspaceViewModel
     {
         RelayCommand _doSomething;
-        readonly ImageLinksRepository _imageLinksRepository;
+        readonly ScenarioRepository _imageLinksRepository;
         Boolean hasGaze = false;
         string _scenario;
-        public TobiiViewModel(ImageLinksRepository imageLinksRepository, string scenario)
+        public TobiiViewModel(ScenarioRepository imageLinksRepository, string scenario)
         {
             if (imageLinksRepository == null)
                 throw new ArgumentNullException("customerRepository");

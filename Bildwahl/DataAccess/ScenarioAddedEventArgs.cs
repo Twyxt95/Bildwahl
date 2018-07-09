@@ -8,11 +8,11 @@ namespace Bildwahl.DataAccess
     /// </summary>
     public class ScenarioAddedEventArgs : EventArgs
     {
-        public ScenarioAddedEventArgs(ImageLinks newCustomer)
+        public ScenarioAddedEventArgs(Scenario newCustomer)
         {
             this.NewCustomer = newCustomer;
         }
 
-        public ImageLinks NewCustomer { get; private set; }
+        public Scenario NewCustomer { get; private set; }
     }
 }

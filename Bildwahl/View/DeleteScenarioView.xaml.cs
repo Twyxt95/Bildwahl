@@ -18,9 +18,9 @@ namespace Bildwahl.View
     /// <summary>
     /// Interaktionslogik für LoadScenario.xaml
     /// </summary>
-    public partial class LoadScenarioView : UserControl
+    public partial class DeleteScenarioView : UserControl
     {
-        public LoadScenarioView()
+        public DeleteScenarioView()
         {
             InitializeComponent();
         }

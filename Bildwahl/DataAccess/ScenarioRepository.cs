@@ -13,11 +13,11 @@ namespace Bildwahl.DataAccess
     /// <summary>
     /// Represents a source of customers in the application.
     /// </summary>
-    public class ImageLinksRepository
+    public class ScenarioRepository
     {
         #region Fields
 
-        List<ImageLinks> _imageLinks;
+        List<Scenario> _imageLinks;
         static string _customerDataFile;
 
         #endregion // Fields
@@ -28,7 +28,7 @@ namespace Bildwahl.DataAccess
         /// Creates a new repository of customers.
         /// </summary>
         /// <param name="customerDataFile">The relative path to an XML resource file that contains customer data.</param>
-        public ImageLinksRepository(string customerDataFile)
+        public ScenarioRepository(string customerDataFile)
         {
             _customerDataFile = customerDataFile;
             _imageLinks = LoadCustomers(customerDataFile);
@@ -49,7 +49,7 @@ namespace Bildwahl.DataAccess
         /// If the customer is already in the repository, an
         /// exception is not thrown.
         /// </summary>
-        public void AddCustomer(ImageLinks customer)
+        public void AddCustomer(Scenario customer)
         {
             //if (customer == null)
             //  throw new ArgumentNullException("imagelink");
@@ -88,7 +88,7 @@ namespace Bildwahl.DataAccess
         /// Returns true if the specified customer exists in the
         /// repository, or false if it is not.
         /// </summary>
-        public bool ContainsCustomer(ImageLinks customer)
+        public bool ContainsCustomer(Scenario customer)
         {
             if (customer == null)
                 throw new ArgumentNullException("imagelink");
@@ -99,26 +99,26 @@ namespace Bildwahl.DataAccess
         /// <summary>
         /// Returns a shallow-copied list of all customers in the repository.
         /// </summary>
-        public List<ImageLinks> GetCustomers(string scenario)
+        public List<Scenario> GetCustomers(string scenario)
         {
-            List<ImageLinks> unfilteredList = new List<ImageLinks>(_imageLinks);
+            List<Scenario> unfilteredList = new List<Scenario>(_imageLinks);
             int index = unfilteredList.FindIndex(a => a.Titel == scenario);
-            List<ImageLinks> filteredList= new List<ImageLinks>();
+            List<Scenario> filteredList= new List<Scenario>();
             filteredList.Add(unfilteredList.ElementAt(index));
             return filteredList;
         }
 
-        public List<ImageLinks> GetCustomers()
+        public List<Scenario> GetCustomers()
         {
             
-            return new List<ImageLinks>(_imageLinks);
+            return new List<Scenario>(_imageLinks);
         }
 
         #endregion // Public Interface
 
         #region Private Helpers
 
-        static List<ImageLinks> LoadCustomers(string customerDataFile)
+        static List<Scenario> LoadCustomers(string customerDataFile)
         {
             // In a real application, the data would come from an external source,
             // but for this demo let's keep things simple and use a resource file.
@@ -127,7 +127,7 @@ namespace Bildwahl.DataAccess
             using (XmlReader xmlRdr = new XmlTextReader(stream))
                 return
                     (from customerElem in XDocument.Load(xmlRdr).Element("imagelinks").Elements("scenario")
-                     select ImageLinks.CreateImageLinks(
+                     select Scenario.CreateImageLinks(
                         (string)customerElem.Attribute("titel"),
                         (string)customerElem.Attribute("blueblue"),
                         (string)customerElem.Attribute("bluered"),

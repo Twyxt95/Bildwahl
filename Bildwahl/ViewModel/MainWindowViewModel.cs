@@ -20,7 +20,7 @@ namespace Bildwahl.ViewModel
         #region Fields
 
         ObservableCollection<CommandViewModel> _commands;
-        readonly ImageLinksRepository _imageLinksRepository;
+        readonly ScenarioRepository _imageLinksRepository;
         ObservableCollection<WorkspaceViewModel> _workspaces;
 
         #endregion // Fields
@@ -30,7 +30,7 @@ namespace Bildwahl.ViewModel
         public MainWindowViewModel(string customerDataFile)
         {
             base.DisplayName = Strings.MainWindowViewModel_DisplayName;
-            _imageLinksRepository = new ImageLinksRepository(customerDataFile);
+            _imageLinksRepository = new ScenarioRepository(customerDataFile);
             _imageLinksRepository.ScenarioAdded += this.OnCustomerAddedToRepository;
         }
 
@@ -58,7 +58,7 @@ namespace Bildwahl.ViewModel
         List<CommandViewModel> CreateCommands()
         {
             int i = 0;
-            List<ImageLinks> all =
+            List<Scenario> all =
                  _imageLinksRepository.GetCustomers();
             List<CommandViewModel> list = new List<CommandViewModel> { };
             
@@ -127,7 +127,7 @@ namespace Bildwahl.ViewModel
 
         void CreateNewScenario()
         {
-            ImageLinks newCustomer = ImageLinks.CreateNewCustomer();
+            Scenario newCustomer = Scenario.CreateNewCustomer();
             NewScenarioViewModel workspace = new NewScenarioViewModel(newCustomer, _imageLinksRepository);
             this.Workspaces.Add(workspace);
             this.SetActiveWorkspace(workspace);
@@ -152,13 +152,13 @@ namespace Bildwahl.ViewModel
         void LoadScenario()
         {
 
-            LoadScenarioViewModel workspace =
-                this.Workspaces.FirstOrDefault(vm => vm is LoadScenarioViewModel)
-                as LoadScenarioViewModel;
+            DeleteScenarioViewModel workspace =
+                this.Workspaces.FirstOrDefault(vm => vm is DeleteScenarioViewModel)
+                as DeleteScenarioViewModel;
 
             if (workspace == null)
             {
-                workspace = new LoadScenarioViewModel();
+                workspace = new DeleteScenarioViewModel();
                 this.Workspaces.Add(workspace);
             }
 
@@ -177,7 +177,7 @@ namespace Bildwahl.ViewModel
         void OnCustomerAddedToRepository(object sender, ScenarioAddedEventArgs e)
         {
             //var viewModel = new NewScenarioViewModel(e.NewCustomer, _imageLinksRepository);
-            List<ImageLinks> all =
+            List<Scenario> all =
                  _imageLinksRepository.GetCustomers();
             this.Commands.Add(new CommandViewModel(
                     all.ElementAt(all.Count()-1).Titel,

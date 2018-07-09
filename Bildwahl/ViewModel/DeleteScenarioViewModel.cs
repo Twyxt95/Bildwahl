@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bildwahl.ViewModel
 {
-    class LoadScenarioViewModel : WorkspaceViewModel
+    class DeleteScenarioViewModel : WorkspaceViewModel
     {
     }
 }

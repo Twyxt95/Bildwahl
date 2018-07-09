@@ -9,16 +9,16 @@ using System.Threading.Tasks;
 
 namespace Bildwahl.Model
 {
-    public class ImageLinks : IDataErrorInfo
+    public class Scenario : IDataErrorInfo
     {
         #region Creation
 
-        public static ImageLinks CreateNewCustomer()
+        public static Scenario CreateNewCustomer()
         {
-            return new ImageLinks();
+            return new Scenario();
         }
 
-        public static ImageLinks CreateImageLinks(
+        public static Scenario CreateImageLinks(
             string titel,
             string blueBlue,
             string blueRed,
@@ -41,7 +41,7 @@ namespace Bildwahl.Model
             string yellowYellow
             )
         {
-            return new ImageLinks
+            return new Scenario
             {
                 Titel = titel,
                 BlueBlue = blueBlue,
@@ -67,7 +67,7 @@ namespace Bildwahl.Model
             };
         }
 
-        protected ImageLinks()
+        protected Scenario()
         {
         }
 
