@@ -22,6 +22,8 @@ namespace Bildwahl.ViewModel
         string _customerType;
         string[] _customerTypeOptions;
         bool _isSelected;
+        RelayCommand _deleteScenarioCommand;
+
         RelayCommand _saveCommand;
         RelayCommand _saveImageCommandBlueBlue;
         RelayCommand _saveImageCommandBlueRed;
@@ -407,6 +409,26 @@ namespace Bildwahl.ViewModel
             }
         }
 
+        //public ICommand EliminarCommand => _deleteScenarioCommand ?? _deleteScenarioCommand = new RelayCommand<Scenario>(Delete));
+
+        public ICommand DeleteScenarioCommand
+        {
+            get
+            {
+                if (_deleteScenarioCommand == null)
+                {
+                    _deleteScenarioCommand = new RelayCommand(
+                        param => this.Delete(_customer)
+                        );
+                }
+                return _deleteScenarioCommand;
+            }
+        }
+
+        public void Delete(Scenario scenario)
+        {
+           _customerRepository.DeleteScenario(scenario);
+        }
         /// <summary>
         /// Returns a command that saves the customer.
         /// </summary>
@@ -797,14 +819,18 @@ namespace Bildwahl.ViewModel
             }
         }
 
-       /* string ValidateCustomerType()
-        {
-            if (this.CustomerType == Strings.CustomerViewModel_CustomerTypeOption_Company ||
-               this.CustomerType == Strings.CustomerViewModel_CustomerTypeOption_Person)
-                return null;
+        
 
-            return Strings.CustomerViewModel_Error_MissingCustomerType;
-        }*/
+
+
+        /* string ValidateCustomerType()
+         {
+             if (this.CustomerType == Strings.CustomerViewModel_CustomerTypeOption_Company ||
+                this.CustomerType == Strings.CustomerViewModel_CustomerTypeOption_Person)
+                 return null;
+
+             return Strings.CustomerViewModel_Error_MissingCustomerType;
+         }*/
 
         #endregion // IDataErrorInfo Members
     }

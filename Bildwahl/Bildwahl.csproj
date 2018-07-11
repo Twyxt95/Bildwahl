@@ -85,6 +85,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DataAccess\ScenarioDeletedEventArgs.cs" />
     <Compile Include="DataAccess\ScenarioRepository.cs" />
     <Compile Include="DataAccess\ScenarioAddedEventArgs.cs" />
     <Compile Include="Model\Scenario.cs" />

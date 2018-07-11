@@ -4,10 +4,92 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Bildwahl.View"
+             xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <CollectionViewSource
+      x:Key="CustomerGroups" 
+      Source="{Binding Path=AllScenarios}"
+      >
+            <CollectionViewSource.GroupDescriptions>
+
+            </CollectionViewSource.GroupDescriptions>
+            <CollectionViewSource.SortDescriptions>
+                <!-- 
+        Sort descending by IsCompany so that the 'True' values appear first,
+        which means that companies will always be listed before people.
+        -->
+
+            </CollectionViewSource.SortDescriptions>
+        </CollectionViewSource>
+        <GroupStyle x:Key="CustomerGroupStyle">
+            <GroupStyle.HeaderTemplate>
+                <DataTemplate>
+                    <TextBlock 
+            x:Name="txt" 
+            Background="{StaticResource Brush_HeaderBackground}"
+            FontWeight="Bold"
+            Foreground="White"
+            Margin="1"
+            Padding="4,2,0,2"
+            Text="People" 
+            />
+                    
+                </DataTemplate>
+            </GroupStyle.HeaderTemplate>
+        </GroupStyle>
+        <Style x:Key="CustomerItemStyle" TargetType="{x:Type ListViewItem}">
+            <!-- 
+      Stretch the content of each cell so that we can 
+      right-align text in the Total Sales column. 
+      -->
+            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+            <!-- 
+      Bind the IsSelected property of a ListViewItem to the 
+      IsSelected property of a CustomerViewModel object.
+      -->
+            <Setter Property="IsSelected" Value="{Binding Path=IsSelected, Mode=TwoWay}" />
+            <Style.Triggers>
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="ItemsControl.AlternationIndex" Value="1" />
+                        <Condition Property="IsSelected" Value="False" />
+                        <Condition Property="IsMouseOver" Value="False" />
+                    </MultiTrigger.Conditions>
+                    <Setter Property="Background" Value="#EEEEEEEE" />
+                </MultiTrigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
     <Grid>
-        
-        <Button Command="{Binding Path=DeleteScenario}" Content="Delete"></Button>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="2*" />
+        </Grid.RowDefinitions>
+        <ListView Name="lv" Grid.Column="1" Grid.Row="1"
+      AlternationCount="2" 
+      ItemContainerStyle="{StaticResource CustomerItemStyle}"
+      ItemsSource="{Binding AllScenarios}"
+      >
+            <ListView.GroupStyle>
+                <StaticResourceExtension 
+          ResourceKey="CustomerGroupStyle" 
+          />
+            </ListView.GroupStyle>
+
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Path=Titel}"/>
+
+
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Name="TestingThis" Command="{Binding Path=DeleteScenario}" Content="Delete" Grid.Row="0" Grid.Column="0"></Button>
     </Grid>
 </UserControl>

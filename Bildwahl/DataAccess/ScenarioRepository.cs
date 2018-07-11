@@ -44,6 +44,8 @@ namespace Bildwahl.DataAccess
         /// </summary>
         public event EventHandler<ScenarioAddedEventArgs> ScenarioAdded;
 
+        public event EventHandler<ScenarioDeletedEventArgs> ScenarioDeleted;
+
         /// <summary>
         /// Places the specified customer into the repository.
         /// If the customer is already in the repository, an
@@ -84,9 +86,11 @@ namespace Bildwahl.DataAccess
             //}
         } 
 
-        public void DeleteScenario()
+        public void DeleteScenario(Scenario scenario)
         {
-            DeleteScenarioXml();
+            DeleteScenarioXml(scenario.Titel);
+            this.ScenarioDeleted(this, new ScenarioDeletedEventArgs(scenario));
+            
         }
 
         /// <summary>
@@ -254,7 +258,7 @@ namespace Bildwahl.DataAccess
             doc.Save(@"C:\Users\Adrian\Documents\Bildwahl\Bildwahl\Bildwahl\"+filename);
         }
 
-        static void DeleteScenarioXml()
+        static void DeleteScenarioXml(string titel)
         {
             string filename = "Data/scenario.xml";
             //create new instance of XmlDocument
@@ -262,7 +266,7 @@ namespace Bildwahl.DataAccess
             Console.WriteLine(filename);
             //load from file
             doc.Load(@"C:\Users\Adrian\Documents\Bildwahl\Bildwahl\Bildwahl\" + filename);
-            XmlNodeList node= doc.SelectNodes("//scenario[@titel='Test']");
+            XmlNodeList node= doc.SelectNodes("//scenario[@titel='" + titel + "']");
             //doc.SelectSingleNode("imagelinks");
             doc.SelectSingleNode("imagelinks").RemoveChild(node.Item(0));
             //save back

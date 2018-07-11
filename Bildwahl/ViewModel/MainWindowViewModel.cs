@@ -32,6 +32,7 @@ namespace Bildwahl.ViewModel
             base.DisplayName = Strings.MainWindowViewModel_DisplayName;
             _imageLinksRepository = new ScenarioRepository(customerDataFile);
             _imageLinksRepository.ScenarioAdded += this.OnCustomerAddedToRepository;
+            _imageLinksRepository.ScenarioDeleted += this.OnCustomerDeleteFromRepository;
         }
 
         #endregion // Constructor
@@ -182,6 +183,14 @@ namespace Bildwahl.ViewModel
             this.Commands.Add(new CommandViewModel(
                     all.ElementAt(all.Count()-1).Titel,
                      new RelayCommand(param => this.ShowScenario(all.ElementAt(all.Count() - 1).Titel))));
+        }
+
+        void OnCustomerDeleteFromRepository(object sender, ScenarioDeletedEventArgs e)
+        {
+            //var viewModel = new NewScenarioViewModel(e.NewCustomer, _imageLinksRepository);
+            //List<Scenario> all =
+              //   _imageLinksRepository.GetCustomers();
+            this.Commands.Remove((Commands.SingleOrDefault(i => i.DisplayName == e.ToRemoveScenario.Titel)));
         }
 
         #endregion // Private Helpers
