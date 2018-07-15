@@ -104,8 +104,40 @@ This resource dictionary is used by the MainWindow.
         <ItemsControl IsTabStop="False" ItemsSource="{Binding}" Margin="6,2">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Button Margin="2,6" Command="{Binding Path=Command}" Content="{Binding Path=DisplayName}">
-                        
+                    <Button Margin="2,6" Command="{Binding Path=Command}" Content="{Binding Path=DisplayName}" Background="WhiteSmoke" BorderBrush="WhiteSmoke" Cursor="Hand" BorderThickness="1">
+                        <Button.Template>
+                            <ControlTemplate TargetType="{x:Type ButtonBase}">
+                                <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                                    <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="Button.IsDefaulted" Value="True">
+                                        <Setter Property="Background" TargetName="border" Value="#F8F9F7"/>
+                                        <Setter Property="BorderBrush" TargetName="border" Value="#5B5B5B"/>
+                                    </Trigger>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" TargetName="border" Value="#F8F9F7"/>
+                                        <Setter Property="BorderBrush" TargetName="border" Value="#5B5B5B"/>
+                                    </Trigger>
+                                    <Trigger Property="IsFocused" Value="True">
+                                        <Setter TargetName="border" Property="BorderBrush" Value="#5B5B5B" />
+                                    </Trigger>
+                                    <Trigger Property="IsPressed" Value="True">
+                                        <Setter Property="Background" TargetName="border" Value="#F8F9F7"/>
+                                        <Setter Property="BorderBrush" TargetName="border" Value="#5B5B5B"/>
+                                    </Trigger>
+                                    <Trigger Property="ToggleButton.IsChecked" Value="True">
+                                        <Setter Property="Background" TargetName="border" Value="Red"/>
+                                        <Setter Property="BorderBrush" TargetName="border" Value="#5B5B5B"/>
+                                    </Trigger>
+                                    <Trigger Property="IsEnabled" Value="False">
+                                        <Setter Property="Background" TargetName="border" Value="Blue"/>
+                                        <Setter Property="BorderBrush" TargetName="border" Value="#5B5B5B"/>
+                                        <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="#F8F9F7"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Button.Template>
                     </Button>
                     
                 </DataTemplate>
@@ -118,7 +150,7 @@ This resource dictionary is used by the MainWindow.
   a tab item with a close button.
   -->
     <DataTemplate x:Key="ClosableTabItemTemplate">
-        <DockPanel Width="120">
+        <DockPanel Width="120" >
             <Button 
         Command="{Binding Path=CloseCommand}"
         Content="X"
@@ -130,9 +162,43 @@ This resource dictionary is used by the MainWindow.
         FontWeight="Bold"  
         Margin="0,1,0,0"
         Padding="0"
+                Background="#F8F9F7"
+                BorderBrush="#F8F9F7"
         VerticalContentAlignment="Bottom"
         Width="16" Height="16" 
-        />
+        >
+                
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type ButtonBase}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                            <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="Button.IsDefaulted" Value="True">
+                                <Setter Property="Background" TargetName="border" Value="#F8F9F7"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#F8F9F7"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" TargetName="border" Value="#F8F9F7"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="LightGray"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" TargetName="border" Value="#F8F9F7"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#F8F9F7"/>
+                            </Trigger>
+                            <Trigger Property="ToggleButton.IsChecked" Value="True">
+                                <Setter Property="Background" TargetName="border" Value="#F8F9F7"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#F8F9F7"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Background" TargetName="border" Value="#F8F9F7"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#F8F9F7"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="#F8F9F7"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
             <ContentPresenter 
         Content="{Binding Path=DisplayName}" 
         VerticalAlignment="Center" 
@@ -149,7 +215,20 @@ This resource dictionary is used by the MainWindow.
       ItemsSource="{Binding}" 
       ItemTemplate="{StaticResource ClosableTabItemTemplate}"
       Margin="4"
-      />
+      >
+            <TabControl.Resources>
+                <Style TargetType="TabItem">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="TabItem">
+                                <Border Name="Border" >
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </TabControl.Resources>
+        </TabControl>
     </DataTemplate>
 
 </ResourceDictionary>

@@ -14,16 +14,7 @@
     </Window.Resources>
 
     <DockPanel>
-        <DockPanel DockPanel.Dock="Top" KeyboardNavigation.TabNavigation="None">
-            <Menu KeyboardNavigation.TabNavigation="Cycle">
-                <MenuItem Header="_File">
-                    <MenuItem Header="E_xit" Command="{Binding Path=CloseCommand}" />
-                </MenuItem>
-                <MenuItem Header="_Edit" />
-                <MenuItem Header="_Options" />
-                <MenuItem Header="_Help" />
-            </Menu>
-        </DockPanel>
+        
 
         <Grid Margin="4">
             <Grid.ColumnDefinitions>
@@ -31,7 +22,7 @@
                 <ColumnDefinition Width="4" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <Expander>
+            <Expander ExpandDirection="Right" IsExpanded="True">
             <Border 
         Grid.Column="0" 
         Style="{StaticResource MainBorderStyle}"
@@ -41,6 +32,7 @@
                 <HeaderedContentControl
           Content="{Binding Path=Commands}"
           ContentTemplate="{StaticResource CommandsTemplate}"
+          
           Header="Control Panel"
           Style="{StaticResource MainHCCStyle}"
           />
@@ -54,6 +46,7 @@
           Content="{Binding Path=Workspaces}"
           ContentTemplate="{StaticResource WorkspacesTemplate}"
           Header="Workspaces"
+                    Background="WhiteSmoke"
           Style="{StaticResource MainHCCStyle}"
           />
             </Border>
