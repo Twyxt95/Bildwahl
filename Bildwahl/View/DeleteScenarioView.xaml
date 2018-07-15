@@ -64,14 +64,14 @@
     </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*" />
             <ColumnDefinition Width="1*" />
-            <ColumnDefinition Width="2*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="5*" />
             <RowDefinition Height="1*" />
-            <RowDefinition Height="2*" />
         </Grid.RowDefinitions>
-        <ListView Name="lv" Grid.Column="1" Grid.Row="1"
+        <ListView Name="lv" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"
       AlternationCount="2" 
       ItemContainerStyle="{StaticResource CustomerItemStyle}"
       ItemsSource="{Binding AllScenarios}"
@@ -90,6 +90,6 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Name="TestingThis" Command="{Binding Path=DeleteScenario}" Content="Delete" Grid.Row="0" Grid.Column="0"></Button>
+        <Button Name="TestingThis" Command="{Binding Path=DeleteScenario}" Content="Delete" Grid.Row="1" Grid.Column="1"></Button>
     </Grid>
 </UserControl>

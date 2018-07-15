@@ -9,6 +9,8 @@
     <UserControl.Resources>
         <Style x:Key="AddImageButtonStyle" TargetType="{x:Type Button}">
         </Style>
+        <Style x:Key="DeleteImageButtonStyle" TargetType="{x:Type Button}">
+        </Style>
     </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -40,26 +42,281 @@
       Text="{Binding Path=Titel}" 
       Validation.ErrorTemplate="{x:Null}"
       />
-     
-        <Button Grid.Row="1" Grid.Column="1" Command="{Binding Path=SaveImageCommandBlueBlue}" Content="Bild hinzufügen" Style="{StaticResource AddImageButtonStyle}"/>
-        <Button Grid.Row="1" Grid.Column="2" Command="{Binding Path=SaveImageCommandBlueRed}" Content="Bild hinzufügen" Style="{StaticResource AddImageButtonStyle}"/>
-        <Button Grid.Row="2" Grid.Column="1" Command="{Binding Path=SaveImageCommandBlueGreen}" Content="Bild hinzufügen" Style="{StaticResource AddImageButtonStyle}"/>
-        <Button Grid.Row="2" Grid.Column="2" Command="{Binding Path=SaveImageCommandBlueYellow}" Content="Bild hinzufügen" Style="{StaticResource AddImageButtonStyle}"/>
+        <!--Blue-->
+        <Rectangle Grid.Row="1" Grid.Column="1" Fill="Blue"/>
+        <Grid Grid.Row="1" Grid.Column="1"> 
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="3*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            <Button Grid.Row="0" Grid.Column="2" Command="{Binding Path=SaveImageCommandBlueBlue}" Content="+" Style="{StaticResource AddImageButtonStyle}"/>
+            <Button Grid.Row="0" Grid.Column="0" Command="{Binding Path=DeleteImageCommandBlueBlue}" Content="-" Style="{StaticResource DeleteImageButtonStyle}"/>
+            <Image Grid.Row="1" Grid.Column="1" Source="{Binding Path=BlueBlue}" Stretch="Uniform"/>
+        </Grid>
 
-        <Button Grid.Row="1" Grid.Column="4" Command="{Binding Path=SaveImageCommandRedBlue}" Content="Bild hinzufügen" Style="{StaticResource AddImageButtonStyle}"/>
-        <Button Grid.Row="1" Grid.Column="5" Command="{Binding Path=SaveImageCommandRedRed}" Content="Bild hinzufügen" Style="{StaticResource AddImageButtonStyle}"/>
-        <Button Grid.Row="2" Grid.Column="4" Command="{Binding Path=SaveImageCommandRedGreen}" Content="Bild hinzufügen" Style="{StaticResource AddImageButtonStyle}"/>
-        <Button Grid.Row="2" Grid.Column="5" Command="{Binding Path=SaveImageCommandRedYellow}" Content="Bild hinzufügen" Style="{StaticResource AddImageButtonStyle}"/>
+        <Rectangle Grid.Row="1" Grid.Column="2" Fill="Red"/>
+        <Grid Grid.Row="1" Grid.Column="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="3*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            <Button Grid.Row="0" Grid.Column="2" Command="{Binding Path=SaveImageCommandBlueRed}" Content="+" Style="{StaticResource AddImageButtonStyle}"/>
+            <Button Grid.Row="0" Grid.Column="0" Command="{Binding Path=DeleteImageCommandBlueRed}" Content="-" Style="{StaticResource DeleteImageButtonStyle}"/>
+            <Image Grid.Row="1" Grid.Column="1" Source="{Binding Path=BlueRed}" Stretch="Uniform"/>
+        </Grid>
 
-        <Button Grid.Row="4" Grid.Column="1" Command="{Binding Path=SaveImageCommandGreenBlue}" Content="Bild hinzufügen" Style="{StaticResource AddImageButtonStyle}"/>
-        <Button Grid.Row="4" Grid.Column="2" Command="{Binding Path=SaveImageCommandGreenRed}" Content="Bild hinzufügen" Style="{StaticResource AddImageButtonStyle}"/>
-        <Button Grid.Row="5" Grid.Column="1" Command="{Binding Path=SaveImageCommandGreenGreen}" Content="Bild hinzufügen" Style="{StaticResource AddImageButtonStyle}"/>
-        <Button Grid.Row="5" Grid.Column="2" Command="{Binding Path=SaveImageCommandGreenYellow}" Content="Bild hinzufügen" Style="{StaticResource AddImageButtonStyle}"/>
+        <Rectangle Grid.Row="2" Grid.Column="1" Fill="Green"/>
+        <Grid Grid.Row="2" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="3*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            <Button Grid.Row="0" Grid.Column="2" Command="{Binding Path=SaveImageCommandBlueGreen}" Content="+" Style="{StaticResource AddImageButtonStyle}"/>
+            <Button Grid.Row="0" Grid.Column="0" Command="{Binding Path=DeleteImageCommandBlueGreen}" Content="-" Style="{StaticResource DeleteImageButtonStyle}"/>
+            <Image Grid.Row="1" Grid.Column="1" Source="{Binding Path=BlueGreen}" Stretch="Uniform"/>
+        </Grid>
 
-        <Button Grid.Row="4" Grid.Column="4" Command="{Binding Path=SaveImageCommandYellowBlue}" Content="Bild hinzufügen" Style="{StaticResource AddImageButtonStyle}"/>
-        <Button Grid.Row="4" Grid.Column="5" Command="{Binding Path=SaveImageCommandYellowRed}" Content="Bild hinzufügen" Style="{StaticResource AddImageButtonStyle}"/>
-        <Button Grid.Row="5" Grid.Column="4" Command="{Binding Path=SaveImageCommandYellowGreen}" Content="Bild hinzufügen" Style="{StaticResource AddImageButtonStyle}"/>
-        <Button Grid.Row="5" Grid.Column="5" Command="{Binding Path=SaveImageCommandYellowYellow}" Content="Bild hinzufügen" Style="{StaticResource AddImageButtonStyle}"/>
+        <Rectangle Grid.Row="2" Grid.Column="2" Fill="Yellow"/>
+        <Grid Grid.Row="2" Grid.Column="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="3*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            <Button Grid.Row="0" Grid.Column="2" Command="{Binding Path=SaveImageCommandBlueYellow}" Content="+" Style="{StaticResource AddImageButtonStyle}"/>
+            <Button Grid.Row="0" Grid.Column="0" Command="{Binding Path=DeleteImageCommandBlueYellow}" Content="-" Style="{StaticResource DeleteImageButtonStyle}"/>
+            <Image Grid.Row="1" Grid.Column="1" Source="{Binding Path=BlueYellow}" Stretch="Uniform"/>
+        </Grid>
+
+        <!--Red-->
+        <Rectangle Grid.Row="1" Grid.Column="4" Fill="Blue"/>
+        <Grid Grid.Row="1" Grid.Column="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="3*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            <Button Grid.Row="0" Grid.Column="2" Command="{Binding Path=SaveImageCommandRedBlue}" Content="Bild hinzufügen" Style="{StaticResource AddImageButtonStyle}"/>
+            <Button Grid.Row="0" Grid.Column="0" Command="{Binding Path=DeleteImageCommandRedBlue}" Content="-" Style="{StaticResource DeleteImageButtonStyle}"/>
+            <Image Grid.Row="1" Grid.Column="1" Source="{Binding Path=RedBlue}" Stretch="Uniform"/>
+        </Grid>
+
+        <Rectangle Grid.Row="1" Grid.Column="5" Fill="Red"/>
+        <Grid Grid.Row="1" Grid.Column="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="3*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            <Button Grid.Row="0" Grid.Column="2" Command="{Binding Path=SaveImageCommandRedRed}" Content="Bild hinzufügen" Style="{StaticResource AddImageButtonStyle}"/>
+            <Button Grid.Row="0" Grid.Column="0" Command="{Binding Path=DeleteImageCommandRedRed}" Content="-" Style="{StaticResource DeleteImageButtonStyle}"/>
+            <Image Grid.Row="1" Grid.Column="1" Source="{Binding Path=RedRed}" Stretch="Uniform"/>
+        </Grid>
+
+        <Rectangle Grid.Row="2" Grid.Column="4" Fill="Green"/>
+        <Grid Grid.Row="2" Grid.Column="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="3*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            <Button Grid.Row="0" Grid.Column="2" Command="{Binding Path=SaveImageCommandRedGreen}" Content="Bild hinzufügen" Style="{StaticResource AddImageButtonStyle}"/>
+            <Button Grid.Row="0" Grid.Column="0" Command="{Binding Path=DeleteImageCommandRedGreen}" Content="-" Style="{StaticResource DeleteImageButtonStyle}"/>
+            <Image Grid.Row="1" Grid.Column="1" Source="{Binding Path=RedGreen}" Stretch="Uniform"/>
+        </Grid>
+
+        <Rectangle Grid.Row="2" Grid.Column="5" Fill="Yellow"/>
+        <Grid Grid.Row="2" Grid.Column="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="3*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            <Button Grid.Row="0" Grid.Column="2" Command="{Binding Path=SaveImageCommandRedYellow}" Content="Bild hinzufügen" Style="{StaticResource AddImageButtonStyle}"/>
+            <Button Grid.Row="0" Grid.Column="0" Command="{Binding Path=DeleteImageCommandRedYellow}" Content="-" Style="{StaticResource DeleteImageButtonStyle}"/>
+            <Image Grid.Row="1" Grid.Column="1" Source="{Binding Path=RedYellow}" Stretch="Uniform"/>
+        </Grid>
+
+        <!--Green-->
+        <Rectangle Grid.Row="4" Grid.Column="1" Fill="Blue"/>
+        <Grid Grid.Row="4" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="3*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            <Button Grid.Row="0" Grid.Column="2" Command="{Binding Path=SaveImageCommandGreenBlue}" Content="Bild hinzufügen" Style="{StaticResource AddImageButtonStyle}"/>
+            <Button Grid.Row="0" Grid.Column="0" Command="{Binding Path=DeleteImageCommandGreenBlue}" Content="-" Style="{StaticResource DeleteImageButtonStyle}"/>
+            <Image Grid.Row="1" Grid.Column="1" Source="{Binding Path=GreenBlue}" Stretch="Uniform"/>
+        </Grid>
+
+        <Rectangle Grid.Row="4" Grid.Column="2" Fill="Red"/>
+        <Grid Grid.Row="4" Grid.Column="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="3*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            <Button Grid.Row="0" Grid.Column="2" Command="{Binding Path=SaveImageCommandGreenRed}" Content="Bild hinzufügen" Style="{StaticResource AddImageButtonStyle}"/>
+            <Button Grid.Row="0" Grid.Column="0" Command="{Binding Path=DeleteImageCommandGreenRed}" Content="-" Style="{StaticResource DeleteImageButtonStyle}"/>
+            <Image Grid.Row="1" Grid.Column="1" Source="{Binding Path=GreenRed}" Stretch="Uniform"/>
+        </Grid>
+
+        <Rectangle Grid.Row="5" Grid.Column="1" Fill="Green"/>
+        <Grid Grid.Row="5" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="3*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            <Button Grid.Row="0" Grid.Column="2" Command="{Binding Path=SaveImageCommandGreenGreen}" Content="Bild hinzufügen" Style="{StaticResource AddImageButtonStyle}"/>
+            <Button Grid.Row="0" Grid.Column="0" Command="{Binding Path=DeleteImageCommandGreenGreen}" Content="-" Style="{StaticResource DeleteImageButtonStyle}"/>
+            <Image Grid.Row="1" Grid.Column="1" Source="{Binding Path=GreenGreen}" Stretch="Uniform"/>
+        </Grid>
+
+        <Rectangle Grid.Row="5" Grid.Column="2" Fill="Yellow"/>
+        <Grid Grid.Row="5" Grid.Column="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="3*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            <Button Grid.Row="0" Grid.Column="2" Command="{Binding Path=SaveImageCommandGreenYellow}" Content="Bild hinzufügen" Style="{StaticResource AddImageButtonStyle}"/>
+            <Button Grid.Row="0" Grid.Column="0" Command="{Binding Path=DeleteImageCommandGreenYellow}" Content="-" Style="{StaticResource DeleteImageButtonStyle}"/>
+            <Image Grid.Row="1" Grid.Column="1" Source="{Binding Path=GreenYellow}" Stretch="Uniform"/>
+        </Grid>
+
+        <!--Yellow-->
+        <Rectangle Grid.Row="4" Grid.Column="4" Fill="Blue"/>
+        <Grid Grid.Row="4" Grid.Column="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="3*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            <Button Grid.Row="0" Grid.Column="2" Command="{Binding Path=SaveImageCommandYellowBlue}" Content="Bild hinzufügen" Style="{StaticResource AddImageButtonStyle}"/>
+            <Button Grid.Row="0" Grid.Column="0" Command="{Binding Path=DeleteImageCommandYellowBlue}" Content="-" Style="{StaticResource DeleteImageButtonStyle}"/>
+            <Image Grid.Row="1" Grid.Column="1" Source="{Binding Path=YellowBlue}" Stretch="Uniform"/>
+        </Grid>
+
+        <Rectangle Grid.Row="4" Grid.Column="5" Fill="Red"/>
+        <Grid Grid.Row="4" Grid.Column="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="3*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            <Button Grid.Row="0" Grid.Column="2" Command="{Binding Path=SaveImageCommandYellowRed}" Content="Bild hinzufügen" Style="{StaticResource AddImageButtonStyle}"/>
+            <Button Grid.Row="0" Grid.Column="0" Command="{Binding Path=DeleteImageCommandYellowRed}" Content="-" Style="{StaticResource DeleteImageButtonStyle}"/>
+            <Image Grid.Row="1" Grid.Column="1" Source="{Binding Path=YellowRed}" Stretch="Uniform"/>
+        </Grid>
+
+        <Rectangle Grid.Row="5" Grid.Column="4" Fill="Green"/>
+        <Grid Grid.Row="5" Grid.Column="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="3*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            <Button Grid.Row="0" Grid.Column="2" Command="{Binding Path=SaveImageCommandYellowGreen}" Content="Bild hinzufügen" Style="{StaticResource AddImageButtonStyle}"/>
+            <Button Grid.Row="0" Grid.Column="0" Command="{Binding Path=DeleteImageCommandYellowGreen}" Content="-" Style="{StaticResource DeleteImageButtonStyle}"/>
+            <Image Grid.Row="1" Grid.Column="1" Source="{Binding Path=YellowGreen}" Stretch="Uniform"/>
+        </Grid>
+
+        <Rectangle Grid.Row="5" Grid.Column="5" Fill="Yellow"/>
+        <Grid Grid.Row="5" Grid.Column="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="3*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            <Button Grid.Row="0" Grid.Column="2" Command="{Binding Path=SaveImageCommandYellowYellow}" Content="Bild hinzufügen" Style="{StaticResource AddImageButtonStyle}"/>
+            <Button Grid.Row="0" Grid.Column="0" Command="{Binding Path=DeleteImageCommandYellowYellow}" Content="-" Style="{StaticResource DeleteImageButtonStyle}"/>
+            <Image Grid.Row="1" Grid.Column="1" Source="{Binding Path=YellowYellow}" Stretch="Uniform"/>
+        </Grid>
 
 
         <Button Grid.Row="7" Grid.Column="6"

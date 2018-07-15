@@ -21,8 +21,29 @@ namespace Bildwahl.ViewModel
         readonly ScenarioRepository _customerRepository;
         string _customerType;
         string[] _customerTypeOptions;
+        string _fileName;
         bool _isSelected;
         RelayCommand _deleteScenarioCommand;
+
+        RelayCommand _deleteImageCommandBlueBlue;
+        RelayCommand _deleteImageCommandBlueRed;
+        RelayCommand _deleteImageCommandBlueGreen;
+        RelayCommand _deleteImageCommandBlueYellow;
+
+        RelayCommand _deleteImageCommandRedBlue;
+        RelayCommand _deleteImageCommandRedRed;
+        RelayCommand _deleteImageCommandRedGreen;
+        RelayCommand _deleteImageCommandRedYellow;
+
+        RelayCommand _deleteImageCommandGreenBlue;
+        RelayCommand _deleteImageCommandGreenRed;
+        RelayCommand _deleteImageCommandGreenGreen;
+        RelayCommand _deleteImageCommandGreenYellow;
+
+        RelayCommand _deleteImageCommandYellowBlue;
+        RelayCommand _deleteImageCommandYellowRed;
+        RelayCommand _deleteImageCommandYellowGreen;
+        RelayCommand _deleteImageCommandYellowYellow;
 
         RelayCommand _saveCommand;
         RelayCommand _saveImageCommandBlueBlue;
@@ -65,8 +86,6 @@ namespace Bildwahl.ViewModel
         #endregion // Constructor
 
         #region Customer Properties
-
-
 
         public string ImageLink
         {
@@ -447,6 +466,220 @@ namespace Bildwahl.ViewModel
             }
         }
 
+        #region DeleteImageCommands
+        public ICommand DeleteImageCommandBlueBlue
+        {
+            get
+            {
+                if (_deleteImageCommandBlueBlue == null)
+                {
+                    _deleteImageCommandBlueBlue = new RelayCommand(
+                        param => this.DeleteImage("BlueBlue")
+                        );
+                }
+                return _deleteImageCommandBlueBlue;
+            }
+        }
+        public ICommand DeleteImageCommandBlueRed
+        {
+            get
+            {
+                if (_deleteImageCommandBlueRed == null)
+                {
+                    _deleteImageCommandBlueRed = new RelayCommand(
+                        param => this.DeleteImage("BlueRed")
+                        );
+                }
+                return _deleteImageCommandBlueRed;
+            }
+        }
+        public ICommand DeleteImageCommandBlueGreen
+        {
+            get
+            {
+                if (_deleteImageCommandBlueGreen == null)
+                {
+                    _deleteImageCommandBlueGreen = new RelayCommand(
+                        param => this.DeleteImage("BlueGreen")
+                        );
+                }
+                return _deleteImageCommandBlueGreen;
+            }
+        }
+        public ICommand DeleteImageCommandBlueYellow
+        {
+            get
+            {
+                if (_deleteImageCommandBlueYellow == null)
+                {
+                    _deleteImageCommandBlueYellow = new RelayCommand(
+                        param => this.DeleteImage("BlueYellow")
+                        );
+                }
+                return _deleteImageCommandBlueYellow;
+            }
+        }
+
+        public ICommand DeleteImageCommandRedBlue
+        {
+            get
+            {
+                if (_deleteImageCommandRedBlue == null)
+                {
+                    _deleteImageCommandRedBlue = new RelayCommand(
+                        param => this.DeleteImage("RedBlue")
+                        );
+                }
+                return _deleteImageCommandRedBlue;
+            }
+        }
+        public ICommand DeleteImageCommandRedRed
+        {
+            get
+            {
+                if (_deleteImageCommandRedRed == null)
+                {
+                    _deleteImageCommandRedRed = new RelayCommand(
+                        param => this.DeleteImage("RedRed")
+                        );
+                }
+                return _deleteImageCommandRedRed;
+            }
+        }
+        public ICommand DeleteImageCommandRedGreen
+        {
+            get
+            {
+                if (_deleteImageCommandRedGreen == null)
+                {
+                    _deleteImageCommandRedGreen = new RelayCommand(
+                        param => this.DeleteImage("RedGreen")
+                        );
+                }
+                return _deleteImageCommandRedGreen;
+            }
+        }
+        public ICommand DeleteImageCommandRedYellow
+        {
+            get
+            {
+                if (_deleteImageCommandRedYellow == null)
+                {
+                    _deleteImageCommandRedYellow = new RelayCommand(
+                        param => this.DeleteImage("RedYellow")
+                        );
+                }
+                return _deleteImageCommandRedYellow;
+            }
+        }
+
+        public ICommand DeleteImageCommandGreenBlue
+        {
+            get
+            {
+                if (_deleteImageCommandGreenBlue == null)
+                {
+                    _deleteImageCommandGreenBlue = new RelayCommand(
+                        param => this.DeleteImage("GreenBlue")
+                        );
+                }
+                return _deleteImageCommandGreenBlue;
+            }
+        }
+        public ICommand DeleteImageCommandGreenRed
+        {
+            get
+            {
+                if (_deleteImageCommandGreenRed == null)
+                {
+                    _deleteImageCommandGreenRed = new RelayCommand(
+                        param => this.DeleteImage("GreenRed")
+                        );
+                }
+                return _deleteImageCommandGreenRed;
+            }
+        }
+        public ICommand DeleteImageCommandGreenGreen
+        {
+            get
+            {
+                if (_deleteImageCommandGreenGreen == null)
+                {
+                    _deleteImageCommandGreenGreen = new RelayCommand(
+                        param => this.DeleteImage("GreenGreen")
+                        );
+                }
+                return _deleteImageCommandGreenGreen;
+            }
+        }
+        public ICommand DeleteImageCommandGreenYellow
+        {
+            get
+            {
+                if (_deleteImageCommandGreenYellow == null)
+                {
+                    _deleteImageCommandGreenYellow = new RelayCommand(
+                        param => this.DeleteImage("GreenYellow")
+                        );
+                }
+                return _deleteImageCommandGreenYellow;
+            }
+        }
+
+        public ICommand DeleteImageCommandYellowBlue
+        {
+            get
+            {
+                if (_deleteImageCommandYellowBlue == null)
+                {
+                    _deleteImageCommandYellowBlue = new RelayCommand(
+                        param => this.DeleteImage("YellowBlue")
+                        );
+                }
+                return _deleteImageCommandYellowBlue;
+            }
+        }
+        public ICommand DeleteImageCommandYellowRed
+        {
+            get
+            {
+                if (_deleteImageCommandYellowRed == null)
+                {
+                    _deleteImageCommandYellowRed = new RelayCommand(
+                        param => this.DeleteImage("YellowRed")
+                        );
+                }
+                return _deleteImageCommandYellowRed;
+            }
+        }
+        public ICommand DeleteImageCommandYellowGreen
+        {
+            get
+            {
+                if (_deleteImageCommandYellowGreen == null)
+                {
+                    _deleteImageCommandYellowGreen = new RelayCommand(
+                        param => this.DeleteImage("YellowGreen")
+                        );
+                }
+                return _deleteImageCommandYellowGreen;
+            }
+        }
+        public ICommand DeleteImageCommandYellowYellow
+        {
+            get
+            {
+                if (_deleteImageCommandYellowYellow == null)
+                {
+                    _deleteImageCommandYellowYellow = new RelayCommand(
+                        param => this.DeleteImage("YellowYellow")
+                        );
+                }
+                return _deleteImageCommandYellowYellow;
+            }
+        }
+        #endregion
+
         #region SaveImageCommands
         public ICommand SaveImageCommandBlueBlue
         {
@@ -679,6 +912,84 @@ namespace Bildwahl.ViewModel
             base.OnPropertyChanged("DisplayName");
         }
 
+        public void DeleteImage(string field)
+        {
+            switch (field)
+            {
+                case "BlueBlue":
+                    this.BlueBlue = null;
+                    _customer.BlueBlue = null;
+                    break;
+                case "BlueRed":
+                    this.BlueRed = null;
+                    _customer.BlueRed = null;
+                    break;
+                case "BlueGreen":
+                    this.BlueGreen = null;
+                    _customer.BlueGreen = null;
+                    break;
+                case "BlueYellow":
+                    this.BlueYellow = null;
+                    _customer.BlueYellow = null;
+                    break;
+
+                case "RedBlue":
+                    this.RedBlue = null;
+                    _customer.RedBlue = null;
+                    break;
+                case "RedRed":
+                    this.RedRed = null;
+                    _customer.RedRed = null;
+                    break;
+                case "RedGreen":
+                    this.RedGreen = null;
+                    _customer.RedGreen = null;
+                    break;
+                case "RedYellow":
+                    this.RedYellow = null;
+                    _customer.RedYellow = null;
+                    break;
+
+                case "GreenBlue":
+                    this.GreenBlue = null;
+                    _customer.GreenBlue = null;
+                    break;
+                case "GreenRed":
+                    this.GreenRed = null;
+                    _customer.GreenRed = null;
+                    break;
+                case "GreenGreen":
+                    this.GreenGreen = null;
+                    _customer.GreenGreen = null;
+                    break;
+                case "GreenYellow":
+                    this.GreenYellow = null;
+                    _customer.GreenYellow = null;
+                    break;
+
+                case "YellowBlue":
+                    this.YellowBlue = null;
+                    _customer.YellowBlue = null;
+                    break;
+                case "YellowRed":
+                    this.YellowRed = null;
+                    _customer.YellowRed = null;
+                    break;
+                case "YellowGreen":
+                    this.YellowGreen = null;
+                    _customer.YellowGreen = null;
+                    break;
+                case "YellowYellow":
+                    this.YellowYellow = null;
+                    _customer.YellowYellow = null;
+                    break;
+
+                default:
+                    Debug.Fail("Unexpected property being validated on ImageLinks: " + field);
+                    break;
+            }
+        }
+
         public void SaveImage(string field)
         {
             OpenFileDialog _importImage = new OpenFileDialog();
@@ -697,54 +1008,70 @@ namespace Bildwahl.ViewModel
                     switch (field)
                     {
                         case "BlueBlue":
+                            this.BlueBlue = destination;
                             _customer.BlueBlue = destination;
                             break;
                         case "BlueRed":
+                            this.BlueRed = destination;
                             _customer.BlueRed = destination;
                             break;
                         case "BlueGreen":
+                            this.BlueGreen = destination;
                             _customer.BlueGreen = destination;
                             break;
                         case "BlueYellow":
+                            this.BlueYellow = destination;
                             _customer.BlueYellow = destination;
                             break;
 
                         case "RedBlue":
+                            this.RedBlue = destination;
                             _customer.RedBlue = destination;
                             break;
                         case "RedRed":
+                            this.RedRed = destination;
                             _customer.RedRed = destination;
                             break;
                         case "RedGreen":
+                            this.RedGreen = destination;
                             _customer.RedGreen = destination;
                             break;
                         case "RedYellow":
+                            this.RedYellow = destination;
                             _customer.RedYellow = destination;
                             break;
 
                         case "GreenBlue":
+                            this.GreenBlue = destination;
                             _customer.GreenBlue = destination;
                             break;
                         case "GreenRed":
+                            this.GreenRed = destination;
                             _customer.GreenRed = destination;
                             break;
                         case "GreenGreen":
+                            this.GreenGreen = destination;
                             _customer.GreenGreen = destination;
                             break;
                         case "GreenYellow":
+                            this.GreenYellow = destination;
                             _customer.GreenYellow = destination;
                             break;
 
                         case "YellowBlue":
+                            this.YellowBlue = destination;
                             _customer.YellowBlue = destination;
                             break;
                         case "YellowRed":
+                            this.YellowRed = destination;
                             _customer.YellowRed = destination;
                             break;
                         case "YellowGreen":
+                            this.YellowGreen = destination;
                             _customer.YellowGreen = destination;
                             break;
                         case "YellowYellow":
+                            this.YellowYellow = destination;
                             _customer.YellowYellow = destination;
                             break;
 
