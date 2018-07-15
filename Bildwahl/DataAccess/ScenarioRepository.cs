@@ -108,12 +108,11 @@ namespace Bildwahl.DataAccess
         /// <summary>
         /// Returns a shallow-copied list of all customers in the repository.
         /// </summary>
-        public List<Scenario> GetCustomers(string scenario)
+        public Scenario GetCustomers(string scenario)
         {
             List<Scenario> unfilteredList = new List<Scenario>(_imageLinks);
             int index = unfilteredList.FindIndex(a => a.Titel == scenario);
-            List<Scenario> filteredList= new List<Scenario>();
-            filteredList.Add(unfilteredList.ElementAt(index));
+            Scenario filteredList= unfilteredList.ElementAt(index);
             return filteredList;
         }
 

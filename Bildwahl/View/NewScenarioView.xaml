@@ -8,9 +8,73 @@
   >
     <UserControl.Resources>
         <Style x:Key="AddImageButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="#F8F9F7" />
+            <Setter Property="Foreground" Value="#14CC58"/>
+            <Setter Property="BorderBrush" Value="#14CC58"/>
+            <Setter Property="FontWeight" Value="ExtraBold" />
         </Style>
+        
         <Style x:Key="DeleteImageButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="#F8F9F7" />
+            <Setter Property="Foreground" Value="#FF0109"/>
+            <Setter Property="BorderBrush" Value="#FF0109"/>
+            <Setter Property="FontWeight" Value="ExtraBold" />
         </Style>
+
+        <Storyboard x:Key="AddBlueBlueStory">
+            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="AddBlueBlue" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="DeleteBlueBlue" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="ImageBlueBlue" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="DeleteBlueBlueStory">
+            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="AddBlueBlue" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="DeleteBlueBlue" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="ImageBlueBlue" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
+            </ObjectAnimationUsingKeyFrames>
+        </Storyboard>
+        
+        <ControlTemplate x:Key="AddImageButtonTemplate"  TargetType="{x:Type ButtonBase}">
+            <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" TargetName="border" Value="#14CC58"/>
+                    <Setter Property="Foreground"  Value="#F8F9F7"/>
+                    <Setter Property="BorderBrush" TargetName="border" Value="#F8F9F7"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+
+        <ControlTemplate x:Key="DeleteImageButtonTemplate"  TargetType="{x:Type ButtonBase}">
+            <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" TargetName="border" Value="#FF0109"/>
+                    <Setter Property="Foreground"  Value="#F8F9F7"/>
+                    <Setter Property="BorderBrush" TargetName="border" Value="#F8F9F7"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
     </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -47,17 +111,45 @@
         <Grid Grid.Row="1" Grid.Column="1"> 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*" />
-                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="7*" />
                 <ColumnDefinition Width="1*" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*" />
-                <RowDefinition Height="3*" />
+                <RowDefinition Height="7*" />
                 <RowDefinition Height="1*" />
             </Grid.RowDefinitions>
-            <Button Grid.Row="0" Grid.Column="2" Command="{Binding Path=SaveImageCommandBlueBlue}" Content="+" Style="{StaticResource AddImageButtonStyle}"/>
-            <Button Grid.Row="0" Grid.Column="0" Command="{Binding Path=DeleteImageCommandBlueBlue}" Content="-" Style="{StaticResource DeleteImageButtonStyle}"/>
-            <Image Grid.Row="1" Grid.Column="1" Source="{Binding Path=BlueBlue}" Stretch="Uniform"/>
+            
+            <Image x:Name="ImageBlueBlue" Grid.Row="1" Grid.Column="1" Source="{Binding Path=BlueBlue}" Visibility="Collapsed" Stretch="Uniform"/>
+            <Grid Grid.Row="1" Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="3*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="3*" />
+                    <RowDefinition Height="1*" />
+                </Grid.RowDefinitions>
+                <Button x:Name="AddBlueBlue" Template="{StaticResource AddImageButtonTemplate}" Grid.Row="0" Grid.Column="2" Command="{Binding Path=SaveImageCommandBlueBlue}" Content="+" Style="{StaticResource AddImageButtonStyle}">
+                    <Button.Triggers>
+                        <EventTrigger RoutedEvent="Button.Click" >
+                            <BeginStoryboard  Storyboard="{StaticResource AddBlueBlueStory}">
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Button.Triggers>
+                </Button>
+                <Button x:Name="DeleteBlueBlue" Template="{StaticResource DeleteImageButtonTemplate}" Grid.Row="0" Grid.Column="2" Command="{Binding Path=DeleteImageCommandBlueBlue}" Visibility="Collapsed" Content="-" Style="{StaticResource DeleteImageButtonStyle}">
+                    <Button.Triggers>
+                        <EventTrigger RoutedEvent="Button.Click" >
+                            <BeginStoryboard  Storyboard="{StaticResource DeleteBlueBlueStory}">
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Button.Triggers>
+                </Button>
+            </Grid>
+            
         </Grid>
 
         <Rectangle Grid.Row="1" Grid.Column="2" Fill="Red"/>

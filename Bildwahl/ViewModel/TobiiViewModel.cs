@@ -21,84 +21,241 @@ namespace Bildwahl.ViewModel
         RelayCommand _doSomething;
         readonly ScenarioRepository _imageLinksRepository;
         Boolean hasGaze = false;
-        string _scenario;
-        public TobiiViewModel(ScenarioRepository imageLinksRepository, string scenario)
+        string _scenarioName;
+        Scenario scenario;
+        public TobiiViewModel(ScenarioRepository imageLinksRepository, string scenarioName)
         {
             if (imageLinksRepository == null)
                 throw new ArgumentNullException("customerRepository");
             base.DisplayName = Strings.TobiiViewModel_DisplayName;
 
             _imageLinksRepository = imageLinksRepository;
-
-            _scenario = scenario;
-
-            // Subscribe for notifications of when a new customer is saved.
-            _imageLinksRepository.ScenarioAdded += this.OnCustomerAddedToRepository;
-
-            // Populate the AllCustomers collection with CustomerViewModels.
-            this.CreateAllImageLinks();
+            scenario = _imageLinksRepository.GetCustomers(scenarioName);
+            _scenarioName = scenarioName;
         }
 
-        void CreateAllImageLinks()
-        {
-            List<NewScenarioViewModel> all =
-                (from cust in _imageLinksRepository.GetCustomers(_scenario)
-                 select new NewScenarioViewModel(cust, _imageLinksRepository)).ToList();
 
-            foreach (NewScenarioViewModel cvm in all)
-                cvm.PropertyChanged += this.OnCustomerViewModelPropertyChanged;
-
-            this.AllCustomers = new ObservableCollection<NewScenarioViewModel>(all);
-            this.AllCustomers.CollectionChanged += this.OnCollectionChanged;
-        }
-
-        void OnCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
-        {
-            if (e.NewItems != null && e.NewItems.Count != 0)
-                foreach (NewScenarioViewModel custVM in e.NewItems)
-                    custVM.PropertyChanged += this.OnCustomerViewModelPropertyChanged;
-
-            if (e.OldItems != null && e.OldItems.Count != 0)
-                foreach (NewScenarioViewModel custVM in e.OldItems)
-                    custVM.PropertyChanged -= this.OnCustomerViewModelPropertyChanged;
-        }
-
-        void OnCustomerAddedToRepository(object sender, ScenarioAddedEventArgs e)
-        {
-            var viewModel = new NewScenarioViewModel(e.NewCustomer, _imageLinksRepository);
-            this.AllCustomers.Add(viewModel);
-        }
 
         /// <summary>
         /// Returns a collection of all the CustomerViewModel objects.
         /// </summary>
         public ObservableCollection<NewScenarioViewModel> AllCustomers { get; private set; }
-
-        void OnCustomerViewModelPropertyChanged(object sender, PropertyChangedEventArgs e)
+        #region ImageLinks
+        public string BlueBlue
         {
-            string IsSelected = "IsSelected";
+            get { return scenario.BlueBlue; }
+            set
+            {
+                if (value == scenario.BlueBlue)
+                    return;
 
-            // Make sure that the property name we're referencing is valid.
-            // This is a debugging technique, and does not execute in a Release build.
-            (sender as NewScenarioViewModel).VerifyPropertyName(IsSelected);
+                scenario.BlueBlue = value;
 
-            // When a customer is selected or unselected, we must let the
-            // world know that the TotalSelectedSales property has changed,
-            // so that it will be queried again for a new value.
-            if (e.PropertyName == IsSelected)
-                this.OnPropertyChanged("TotalSelectedSales");
+                base.OnPropertyChanged("BlueBlue");
+            }
+        }
+        public string BlueRed
+        {
+            get { return scenario.BlueRed; }
+            set
+            {
+                if (value == scenario.BlueRed)
+                    return;
+
+                scenario.BlueRed = value;
+
+                base.OnPropertyChanged("BlueRed");
+            }
+        }
+        public string BlueGreen
+        {
+            get { return scenario.BlueGreen; }
+            set
+            {
+                if (value == scenario.BlueGreen)
+                    return;
+
+                scenario.BlueGreen = value;
+
+                base.OnPropertyChanged("BlueGreen");
+            }
+        }
+        public string BlueYellow
+        {
+            get { return scenario.BlueYellow; }
+            set
+            {
+                if (value == scenario.BlueYellow)
+                    return;
+
+                scenario.BlueYellow = value;
+
+                base.OnPropertyChanged("BlueYellow");
+            }
         }
 
-        protected override void OnDispose()
+        public string RedBlue
         {
-            foreach (NewScenarioViewModel custVM in this.AllCustomers)
-                custVM.Dispose();
+            get { return scenario.RedBlue; }
+            set
+            {
+                if (value == scenario.RedBlue)
+                    return;
 
-            this.AllCustomers.Clear();
-            this.AllCustomers.CollectionChanged -= this.OnCollectionChanged;
+                scenario.RedBlue = value;
 
-            _imageLinksRepository.ScenarioAdded -= this.OnCustomerAddedToRepository;
+                base.OnPropertyChanged("RedBlue");
+            }
         }
+        public string RedRed
+        {
+            get { return scenario.RedRed; }
+            set
+            {
+                if (value == scenario.RedRed)
+                    return;
+
+                scenario.RedRed = value;
+
+                base.OnPropertyChanged("RedRed");
+            }
+        }
+        public string RedGreen
+        {
+            get { return scenario.RedGreen; }
+            set
+            {
+                if (value == scenario.RedGreen)
+                    return;
+
+                scenario.RedGreen = value;
+
+                base.OnPropertyChanged("RedGreen");
+            }
+        }
+        public string RedYellow
+        {
+            get { return scenario.RedYellow; }
+            set
+            {
+                if (value == scenario.RedYellow)
+                    return;
+
+                scenario.RedYellow = value;
+
+                base.OnPropertyChanged("RedYellow");
+            }
+        }
+
+        public string GreenBlue
+        {
+            get { return scenario.GreenBlue; }
+            set
+            {
+                if (value == scenario.GreenBlue)
+                    return;
+
+                scenario.GreenBlue = value;
+
+                base.OnPropertyChanged("GreenBlue");
+            }
+        }
+        public string GreenRed
+        {
+            get { return scenario.GreenRed; }
+            set
+            {
+                if (value == scenario.GreenRed)
+                    return;
+
+                scenario.GreenRed = value;
+
+                base.OnPropertyChanged("GreenRed");
+            }
+        }
+        public string GreenGreen
+        {
+            get { return scenario.GreenGreen; }
+            set
+            {
+                if (value == scenario.GreenGreen)
+                    return;
+
+                scenario.GreenGreen = value;
+
+                base.OnPropertyChanged("GreenGreen");
+            }
+        }
+        public string GreenYellow
+        {
+            get { return scenario.GreenYellow; }
+            set
+            {
+                if (value == scenario.GreenYellow)
+                    return;
+
+                scenario.GreenYellow = value;
+
+                base.OnPropertyChanged("GreenYellow");
+            }
+        }
+
+        public string YellowBlue
+        {
+            get { return scenario.YellowBlue; }
+            set
+            {
+                if (value == scenario.YellowBlue)
+                    return;
+
+                scenario.YellowBlue = value;
+
+                base.OnPropertyChanged("YellowBlue");
+            }
+        }
+        public string YellowRed
+        {
+            get { return scenario.YellowRed; }
+            set
+            {
+                if (value == scenario.YellowRed)
+                    return;
+
+                scenario.YellowRed = value;
+
+                base.OnPropertyChanged("YellowRed");
+            }
+        }
+        public string YellowGreen
+        {
+            get { return scenario.YellowGreen; }
+            set
+            {
+                if (value == scenario.YellowGreen)
+                    return;
+
+                scenario.YellowGreen = value;
+
+                base.OnPropertyChanged("YellowGreen");
+            }
+        }
+        public string YellowYellow
+        {
+            get { return scenario.YellowYellow; }
+            set
+            {
+                if (value == scenario.YellowYellow)
+                    return;
+
+                scenario.YellowYellow = value;
+
+                base.OnPropertyChanged("YellowYellow");
+            }
+        }
+#endregion
+
+
+
 
         public ICommand DoSomethingCommand
         {
