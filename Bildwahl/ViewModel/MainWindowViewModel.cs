@@ -27,12 +27,12 @@ namespace Bildwahl.ViewModel
 
         #region Constructor
 
-        public MainWindowViewModel(string customerDataFile)
+        public MainWindowViewModel(string scenarioDataFile)
         {
             base.DisplayName = Strings.MainWindowViewModel_DisplayName;
-            _imageLinksRepository = new ScenarioRepository(customerDataFile);
-            _imageLinksRepository.ScenarioAdded += this.OnCustomerAddedToRepository;
-            _imageLinksRepository.ScenarioDeleted += this.OnCustomerDeleteFromRepository;
+            _imageLinksRepository = new ScenarioRepository(scenarioDataFile);
+            _imageLinksRepository.ScenarioAdded += this.OnScenarioAddedToRepository;
+            _imageLinksRepository.ScenarioDeleted += this.OnScenarioDeletedFromRepository;
         }
 
         #endregion // Constructor
@@ -60,7 +60,7 @@ namespace Bildwahl.ViewModel
         {
             int i = 0;
             List<Scenario> all =
-                 _imageLinksRepository.GetCustomers();
+                 _imageLinksRepository.GetScenarios();
             List<CommandViewModel> list = new List<CommandViewModel> { };
             
             for (i = 0; i <= all.Count - 1; i++)
@@ -73,10 +73,10 @@ namespace Bildwahl.ViewModel
             }
 
             list.Add(new CommandViewModel(
-                    Strings.MainWindowViewModel_Command_CreateNewCustomer,
+                    Strings.MainWindowViewModel_Command_CreateNewScenario,
                     new RelayCommand(param => this.CreateNewScenario())));
             list.Add(new CommandViewModel(
-                    Strings.MainWindowViewModel_Command_LoadScenario,
+                    Strings.MainWindowViewModel_Command_DeleteScenario,
                     new RelayCommand(param => this.LoadScenario())));
             return list;
         }
@@ -128,24 +128,20 @@ namespace Bildwahl.ViewModel
 
         void CreateNewScenario()
         {
-            Scenario newCustomer = Scenario.CreateNewCustomer();
-            NewScenarioViewModel workspace = new NewScenarioViewModel(newCustomer, _imageLinksRepository);
+            Scenario newScenario = Scenario.CreateNewScenario();
+            NewScenarioViewModel workspace = new NewScenarioViewModel(newScenario, _imageLinksRepository);
             this.Workspaces.Add(workspace);
             this.SetActiveWorkspace(workspace);
-            
         }
 
         void ShowScenario(string scenario)
         {
-            Console.WriteLine(scenario + " ShowScenario");
             TobiiViewModel workspace =
                 this.Workspaces.FirstOrDefault(vm => vm is TobiiViewModel)
                 as TobiiViewModel;
 
-            
                 workspace = new TobiiViewModel(_imageLinksRepository, scenario);
                 this.Workspaces.Add(workspace);
-            
 
             this.SetActiveWorkspace(workspace);
         }
@@ -175,21 +171,17 @@ namespace Bildwahl.ViewModel
                 collectionView.MoveCurrentTo(workspace);
         }
 
-        void OnCustomerAddedToRepository(object sender, ScenarioAddedEventArgs e)
+        void OnScenarioAddedToRepository(object sender, ScenarioAddedEventArgs e)
         {
-            //var viewModel = new NewScenarioViewModel(e.NewCustomer, _imageLinksRepository);
             List<Scenario> all =
-                 _imageLinksRepository.GetCustomers();
+                 _imageLinksRepository.GetScenarios();
             this.Commands.Add(new CommandViewModel(
                     all.ElementAt(all.Count()-1).Titel,
                      new RelayCommand(param => this.ShowScenario(all.ElementAt(all.Count() - 1).Titel))));
         }
 
-        void OnCustomerDeleteFromRepository(object sender, ScenarioDeletedEventArgs e)
+        void OnScenarioDeletedFromRepository(object sender, ScenarioDeletedEventArgs e)
         {
-            //var viewModel = new NewScenarioViewModel(e.NewCustomer, _imageLinksRepository);
-            //List<Scenario> all =
-              //   _imageLinksRepository.GetCustomers();
             this.Commands.Remove((Commands.SingleOrDefault(i => i.DisplayName == e.ToRemoveScenario.Titel)));
         }
 

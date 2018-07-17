@@ -60,17 +60,9 @@ namespace Bildwahl.Properties {
             }
         }
         
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die All Customers ähnelt.
-        /// </summary>
-        public static string AllCustomersViewModel_DisplayName {
-            get {
-                return ResourceManager.GetString("AllCustomersViewModel_DisplayName", resourceCulture);
-            }
-        }
 
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die All Customers ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge
         /// </summary>
         public static string TobiiViewModel_DisplayName
         {
@@ -79,132 +71,43 @@ namespace Bildwahl.Properties {
                 return ResourceManager.GetString("TobiiViewModel_DisplayName", resourceCulture);
             }
         }
-
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Companies have no last name ähnelt.
-        /// </summary>
-        public static string Customer_Error_CompanyHasNoLastName {
-            get {
-                return ResourceManager.GetString("Customer_Error_CompanyHasNoLastName", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die E-mail address is invalid ähnelt.
-        /// </summary>
-        public static string Customer_Error_InvalidEmail {
-            get {
-                return ResourceManager.GetString("Customer_Error_InvalidEmail", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die E-mail address is missing ähnelt.
-        /// </summary>
-        public static string Customer_Error_MissingEmail {
-            get {
-                return ResourceManager.GetString("Customer_Error_MissingEmail", resourceCulture);
-            }
-        }
         
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die First name is missing ähnelt.
         /// </summary>
-        public static string Customer_Error_MissingFirstName {
+        public static string Scenario_Error_MissingTitel {
             get {
-                return ResourceManager.GetString("Customer_Error_MissingFirstName", resourceCulture);
+                return ResourceManager.GetString("Scenario_Error_MissingTitel", resourceCulture);
+            }
+        }
+        
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Cannot save an invalid scenario. ähnelt.
+        /// </summary>
+        public static string NewScenarioViewModel_Exception_CannotSave {
+            get {
+                return ResourceManager.GetString("NewScenarioViewModel_Exception_CannotSave", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Last name is missing ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Create new scenario ähnelt.
         /// </summary>
-        public static string Customer_Error_MissingLastName {
+        public static string MainWindowViewModel_Command_CreateNewScenario {
             get {
-                return ResourceManager.GetString("Customer_Error_MissingLastName", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Company ähnelt.
-        /// </summary>
-        public static string CustomerViewModel_CustomerTypeOption_Company {
-            get {
-                return ResourceManager.GetString("CustomerViewModel_CustomerTypeOption_Company", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die (Not Specified) ähnelt.
-        /// </summary>
-        public static string CustomerViewModel_CustomerTypeOption_NotSpecified {
-            get {
-                return ResourceManager.GetString("CustomerViewModel_CustomerTypeOption_NotSpecified", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Person ähnelt.
-        /// </summary>
-        public static string CustomerViewModel_CustomerTypeOption_Person {
-            get {
-                return ResourceManager.GetString("CustomerViewModel_CustomerTypeOption_Person", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die New Customer ähnelt.
-        /// </summary>
-        public static string CustomerViewModel_DisplayName {
-            get {
-                return ResourceManager.GetString("CustomerViewModel_DisplayName", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Customer type must be selected ähnelt.
-        /// </summary>
-        public static string CustomerViewModel_Error_MissingCustomerType {
-            get {
-                return ResourceManager.GetString("CustomerViewModel_Error_MissingCustomerType", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Cannot save an invalid customer. ähnelt.
-        /// </summary>
-        public static string CustomerViewModel_Exception_CannotSave {
-            get {
-                return ResourceManager.GetString("CustomerViewModel_Exception_CannotSave", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Create new customer ähnelt.
-        /// </summary>
-        public static string MainWindowViewModel_Command_CreateNewCustomer {
-            get {
-                return ResourceManager.GetString("MainWindowViewModel_Command_CreateNewCustomer", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die View all customers ähnelt.
-        /// </summary>
-        public static string MainWindowViewModel_Command_ViewAllCustomers {
-            get {
-                return ResourceManager.GetString("MainWindowViewModel_Command_ViewAllCustomers", resourceCulture);
+                return ResourceManager.GetString("MainWindowViewModel_Command_CreateNewScenario", resourceCulture);
             }
         }
 
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die View all customers ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge
         /// </summary>
-        public static string MainWindowViewModel_Command_LoadScenario
+        public static string MainWindowViewModel_Command_DeleteScenario
         {
             get
             {
-                return ResourceManager.GetString("MainWindowViewModel_Command_LoadScenario", resourceCulture);
+                return ResourceManager.GetString("MainWindowViewModel_Command_DeleteScenario", resourceCulture);
             }
         }
 

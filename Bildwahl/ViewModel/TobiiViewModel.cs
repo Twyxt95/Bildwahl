@@ -1,45 +1,24 @@
 ﻿using System;
-using System.ComponentModel;
-using System.Windows.Input;
 using Bildwahl.DataAccess;
 using Bildwahl.Model;
 using Bildwahl.Properties;
-using Tobii.Interaction.Framework;
-using Tobii.Interaction;
-using Tobii.Interaction.Wpf;
-using System.IO;
-using System.Windows.Media.Imaging;
-using System.Collections.Generic;
-using System.Linq;
-using System.Collections.ObjectModel;
-using System.Collections.Specialized;
 
 namespace Bildwahl.ViewModel
 {
     public class TobiiViewModel : WorkspaceViewModel
     {
-        RelayCommand _doSomething;
-        readonly ScenarioRepository _imageLinksRepository;
-        Boolean hasGaze = false;
-        string _scenarioName;
+        readonly ScenarioRepository _scenarioRepository;
+        readonly string _scenarioName;
         Scenario scenario;
-        public TobiiViewModel(ScenarioRepository imageLinksRepository, string scenarioName)
+        public TobiiViewModel(ScenarioRepository scenarioRepository, string scenarioName)
         {
-            if (imageLinksRepository == null)
-                throw new ArgumentNullException("customerRepository");
             base.DisplayName = Strings.TobiiViewModel_DisplayName;
 
-            _imageLinksRepository = imageLinksRepository;
-            scenario = _imageLinksRepository.GetCustomers(scenarioName);
+            _scenarioRepository = scenarioRepository ?? throw new ArgumentNullException("scenarioRepository");
+            scenario = _scenarioRepository.GetScenarios(scenarioName);
             _scenarioName = scenarioName;
         }
 
-
-
-        /// <summary>
-        /// Returns a collection of all the CustomerViewModel objects.
-        /// </summary>
-        public ObservableCollection<NewScenarioViewModel> AllCustomers { get; private set; }
         #region ImageLinks
         public string BlueBlue
         {
@@ -253,46 +232,6 @@ namespace Bildwahl.ViewModel
             }
         }
 #endregion
-
-
-
-
-        public ICommand DoSomethingCommand
-        {
-            get
-            {
-                if (_doSomething == null)
-                {
-                    _doSomething = new RelayCommand(
-                        param => this.TestingThis()
-                        );
-                }
-                return _doSomething;
-            }
-        }
-
-        private void TestingThis()
-        {
-            hasGaze = !hasGaze;
-            if (hasGaze)
-            {
-                Console.WriteLine("Catched");
-            }
-        }
-
-        public string GetImage()
-        {
-            var path = Path.Combine(Environment.CurrentDirectory, "Pictures", "Koala.jpg");
-            Console.WriteLine(path);
-
-            return path;
-        }
-
-        public string GetImagePath
-        {
-            
-            get { return GetImage(); }
-        }
 
     }
 }

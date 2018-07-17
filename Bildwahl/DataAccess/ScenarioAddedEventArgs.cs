@@ -4,15 +4,15 @@ using Bildwahl.Model;
 namespace Bildwahl.DataAccess
 {
     /// <summary>
-    /// Event arguments used by CustomerRepository's CustomerAdded event.
+    /// Event arguments used by ScenarioRepository's ScenarioAdded event.
     /// </summary>
     public class ScenarioAddedEventArgs : EventArgs
     {
-        public ScenarioAddedEventArgs(Scenario newCustomer)
+        public ScenarioAddedEventArgs(Scenario newScenario)
         {
-            this.NewCustomer = newCustomer;
+            this.NewScenario = newScenario;
         }
 
-        public Scenario NewCustomer { get; private set; }
+        public Scenario NewScenario { get; private set; }
     }
 }

@@ -60,30 +60,26 @@ namespace Bildwahl.ViewModel
         public DeleteScenarioViewModel(ScenarioRepository scenarioRepository)
         {
             _scenarioRepository = scenarioRepository;
-            _scenarioRepository.ScenarioDeleted += this.OnCustomerDeletedToRepository;
+            _scenarioRepository.ScenarioDeleted += this.OnScenarioDeletedFromRepository;
             IsListItemSelected = false;
-            // Populate the AllCustomers collection with CustomerViewModels.
-            this.CreateAllCustomers();
+            this.CreateAllScenarios();
         }
 
-        private void OnCustomerDeletedToRepository(object sender, ScenarioDeletedEventArgs e)
+        private void OnScenarioDeletedFromRepository(object sender, ScenarioDeletedEventArgs e)
         {
             AllScenarios.Remove(e.ToRemoveScenario);
         }
 
-        void CreateAllCustomers()
+        void CreateAllScenarios()
         {
-            List<Scenario> all = _scenarioRepository.GetCustomers();
+            List<Scenario> all = _scenarioRepository.GetScenarios();
             foreach (Scenario cvm in all)
-                cvm.PropertyChanged += this.OnCustomerViewModelPropertyChanged;
-            /*foreach (NewScenarioViewModel cvm in all)
-                cvm.PropertyChanged += this.OnCustomerViewModelPropertyChanged;*/
+                cvm.PropertyChanged += this.OnScenarioPropertyChanged;
 
             this.AllScenarios = new ObservableCollection<Scenario>(all);
-            //this.AllCustomers.CollectionChanged += this.OnCollectionChanged;
         }
 
-        void OnCustomerViewModelPropertyChanged(object sender, PropertyChangedEventArgs e)
+        void OnScenarioPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             string IsSelected = "IsSelected";
             Console.WriteLine("select");
@@ -92,7 +88,7 @@ namespace Bildwahl.ViewModel
             (sender as Scenario).VerifyPropertyName(IsSelected);
             IsListItemSelected = false;
             base.OnPropertyChanged("IsListItemSelected");
-            // When a customer is selected or unselected, we must let the
+            // When a scenario is selected or unselected, we must let the
             // world know that the TotalSelectedSales property has changed,
             // so that it will be queried again for a new value.
             if (e.PropertyName == IsSelected)

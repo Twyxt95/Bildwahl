@@ -11,27 +11,27 @@ using Bildwahl.Model;
 namespace Bildwahl.DataAccess
 {
     /// <summary>
-    /// Represents a source of customers in the application.
+    /// Represents a source of scenarios in the application.
     /// </summary>
     public class ScenarioRepository
     {
         #region Fields
 
-        List<Scenario> _imageLinks;
-        static string _customerDataFile;
+        List<Scenario> _scenarios;
+        static string _scenarioDataFile;
 
         #endregion // Fields
 
         #region Constructor
 
         /// <summary>
-        /// Creates a new repository of customers.
+        /// Creates a new repository of scenarios.
         /// </summary>
-        /// <param name="customerDataFile">The relative path to an XML resource file that contains customer data.</param>
-        public ScenarioRepository(string customerDataFile)
+        /// <param name="scenarioDataFile">The relative path to an XML resource file that contains scenario data.</param>
+        public ScenarioRepository(string scenarioDataFile)
         {
-            _customerDataFile = customerDataFile;
-            _imageLinks = LoadCustomers(customerDataFile);
+            _scenarioDataFile = scenarioDataFile;
+            _scenarios = LoadScenarios(scenarioDataFile);
             
         }
 
@@ -40,50 +40,44 @@ namespace Bildwahl.DataAccess
         #region Public Interface
 
         /// <summary>
-        /// Raised when a customer is placed into the repository.
+        /// Raised when a scenario is placed into the repository.
         /// </summary>
         public event EventHandler<ScenarioAddedEventArgs> ScenarioAdded;
 
         public event EventHandler<ScenarioDeletedEventArgs> ScenarioDeleted;
 
         /// <summary>
-        /// Places the specified customer into the repository.
-        /// If the customer is already in the repository, an
+        /// Places the specified scenario into the repository.
+        /// If the scenario is already in the repository, an
         /// exception is not thrown.
         /// </summary>
-        public void AddCustomer(Scenario customer)
+        public void AddScenario(Scenario scenario)
         {
-            //if (customer == null)
-            //  throw new ArgumentNullException("imagelink");
-
-            if (!_imageLinks.Contains(customer))
+            if (!_scenarios.Contains(scenario))
             {
-                _imageLinks.Add(customer);
+                _scenarios.Add(scenario);
             }
-              //  if (this.ScenarioAdded != null)
             WriteScenario(
-                customer.Titel,
-                customer.BlueBlue,
-                customer.BlueRed,
-                customer.BlueGreen,
-                customer.BlueYellow,
-                customer.RedBlue,
-                customer.RedRed,
-                customer.RedGreen,
-                customer.RedYellow,
-                customer.GreenBlue,
-                customer.GreenRed,
-                customer.GreenGreen,
-                customer.GreenYellow,
-                customer.YellowBlue,
-                customer.YellowRed,
-                customer.YellowGreen,
-                customer.YellowYellow
+                scenario.Titel,
+                scenario.BlueBlue,
+                scenario.BlueRed,
+                scenario.BlueGreen,
+                scenario.BlueYellow,
+                scenario.RedBlue,
+                scenario.RedRed,
+                scenario.RedGreen,
+                scenario.RedYellow,
+                scenario.GreenBlue,
+                scenario.GreenRed,
+                scenario.GreenGreen,
+                scenario.GreenYellow,
+                scenario.YellowBlue,
+                scenario.YellowRed,
+                scenario.YellowGreen,
+                scenario.YellowYellow
                 );
 
-            this.ScenarioAdded(this, new ScenarioAddedEventArgs(customer));
-
-            //}
+            this.ScenarioAdded(this, new ScenarioAddedEventArgs(scenario));
         } 
 
         public void DeleteScenario(Scenario scenario)
@@ -94,68 +88,68 @@ namespace Bildwahl.DataAccess
         }
 
         /// <summary>
-        /// Returns true if the specified customer exists in the
+        /// Returns true if the specified scenario exists in the
         /// repository, or false if it is not.
         /// </summary>
-        public bool ContainsCustomer(Scenario customer)
+        public bool ContainsScenario(Scenario scenario)
         {
-            if (customer == null)
-                throw new ArgumentNullException("imagelink");
+            if (scenario == null)
+                throw new ArgumentNullException("scenario");
 
-            return _imageLinks.Contains(customer);
+            return _scenarios.Contains(scenario);
         }
 
         /// <summary>
-        /// Returns a shallow-copied list of all customers in the repository.
+        /// Returns a shallow-copied list of all scenarios in the repository.
         /// </summary>
-        public Scenario GetCustomers(string scenario)
+        public Scenario GetScenarios(string scenario)
         {
-            List<Scenario> unfilteredList = new List<Scenario>(_imageLinks);
+            List<Scenario> unfilteredList = new List<Scenario>(_scenarios);
             int index = unfilteredList.FindIndex(a => a.Titel == scenario);
             Scenario filteredList= unfilteredList.ElementAt(index);
             return filteredList;
         }
 
-        public List<Scenario> GetCustomers()
+        public List<Scenario> GetScenarios()
         {
             
-            return new List<Scenario>(_imageLinks);
+            return new List<Scenario>(_scenarios);
         }
 
         #endregion // Public Interface
 
         #region Private Helpers
 
-        static List<Scenario> LoadCustomers(string customerDataFile)
+        static List<Scenario> LoadScenarios(string scenarioDataFile)
         {
             // In a real application, the data would come from an external source,
             // but for this demo let's keep things simple and use a resource file.
             Console.WriteLine("LOADED");
-            using (Stream stream = GetResourceStream(customerDataFile))
+            using (Stream stream = GetResourceStream(scenarioDataFile))
             using (XmlReader xmlRdr = new XmlTextReader(stream))
                 return
-                    (from customerElem in XDocument.Load(xmlRdr).Element("imagelinks").Elements("scenario")
+                    (from scenarioElem in XDocument.Load(xmlRdr).Element("imagelinks").Elements("scenario")
                      select Scenario.CreateImageLinks(
-                        (string)customerElem.Attribute("titel"),
-                        (string)customerElem.Attribute("blueblue"),
-                        (string)customerElem.Attribute("bluered"),
-                        (string)customerElem.Attribute("bluegreen"),
-                        (string)customerElem.Attribute("blueyellow"),
+                        (string)scenarioElem.Attribute("titel"),
+                        (string)scenarioElem.Attribute("blueblue"),
+                        (string)scenarioElem.Attribute("bluered"),
+                        (string)scenarioElem.Attribute("bluegreen"),
+                        (string)scenarioElem.Attribute("blueyellow"),
 
-                        (string)customerElem.Attribute("redblue"),
-                        (string)customerElem.Attribute("redred"),
-                        (string)customerElem.Attribute("redgreen"),
-                        (string)customerElem.Attribute("redyellow"),
+                        (string)scenarioElem.Attribute("redblue"),
+                        (string)scenarioElem.Attribute("redred"),
+                        (string)scenarioElem.Attribute("redgreen"),
+                        (string)scenarioElem.Attribute("redyellow"),
 
-                        (string)customerElem.Attribute("greenblue"),
-                        (string)customerElem.Attribute("greenred"),
-                        (string)customerElem.Attribute("greengreen"),
-                        (string)customerElem.Attribute("greenyellow"),
+                        (string)scenarioElem.Attribute("greenblue"),
+                        (string)scenarioElem.Attribute("greenred"),
+                        (string)scenarioElem.Attribute("greengreen"),
+                        (string)scenarioElem.Attribute("greenyellow"),
 
-                        (string)customerElem.Attribute("yellowblue"),
-                        (string)customerElem.Attribute("yellowred"),
-                        (string)customerElem.Attribute("yellowgreen"),
-                        (string)customerElem.Attribute("yellowyellow")
+                        (string)scenarioElem.Attribute("yellowblue"),
+                        (string)scenarioElem.Attribute("yellowred"),
+                        (string)scenarioElem.Attribute("yellowgreen"),
+                        (string)scenarioElem.Attribute("yellowyellow")
                          )).ToList();
         }
 
@@ -184,7 +178,7 @@ namespace Bildwahl.DataAccess
         {
 
             //file name
-            string filename = _customerDataFile;
+            string filename = _scenarioDataFile;
             //create new instance of XmlDocument
             XmlDocument doc = new XmlDocument();
             Console.WriteLine(filename);

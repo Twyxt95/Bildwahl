@@ -9,24 +9,24 @@ This resource dictionary is used by the MainWindow.
   >
 
     <!-- 
-  This template applies an AllCustomersView to an instance 
-  of the AllCustomersViewModel class shown in the main window.
+  This template applies a TobiiView to an instance 
+  of the TobiiViewModel class shown in the main window.
   -->
     <DataTemplate DataType="{x:Type vm:TobiiViewModel}">
         <vw:TobiiView />
     </DataTemplate>
 
     <!-- 
-  This template applies an AllCustomersView to an instance 
-  of the AllCustomersViewModel class shown in the main window.
+  This template applies an DeleteScenaioView to an instance 
+  of the DeleteScenarioViewModel class shown in the main window.
   -->
     <DataTemplate DataType="{x:Type vm:DeleteScenarioViewModel}">
         <vw:DeleteScenarioView />
     </DataTemplate>
 
     <!-- 
-  This template applies a CustomerView to an instance  
-  of the CustomerViewModel class shown in the main window.
+  This template applies a NewScenarioView to an instance  
+  of the NewScenarioViewModel class shown in the main window.
   -->
     <DataTemplate DataType="{x:Type vm:NewScenarioViewModel}">
         <vw:NewScenarioView />

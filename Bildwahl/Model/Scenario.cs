@@ -14,7 +14,7 @@ namespace Bildwahl.Model
         bool _isSelected;
         #region Creation
 
-        public static Scenario CreateNewCustomer()
+        public static Scenario CreateNewScenario()
         {
             return new Scenario();
         }
@@ -228,7 +228,7 @@ namespace Bildwahl.Model
         {
             if (IsStringMissing(this.Titel))
             {
-                return Strings.Customer_Error_MissingFirstName;
+                return Strings.Scenario_Error_MissingTitel;
             }
             return null;
         }

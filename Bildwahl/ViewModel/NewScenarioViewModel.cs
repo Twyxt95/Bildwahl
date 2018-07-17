@@ -10,20 +10,14 @@ using Microsoft.Win32;
 
 namespace Bildwahl.ViewModel
 {
-    /// <summary>
-    /// A UI-friendly wrapper for a Customer object.
-    /// </summary>
     public class NewScenarioViewModel : WorkspaceViewModel, IDataErrorInfo
     {
         #region Fields
 
-        readonly Scenario _customer;
-        readonly ScenarioRepository _customerRepository;
-        string _customerType;
-        string[] _customerTypeOptions;
-        string _fileName;
+        readonly Scenario _scenario;
+        readonly ScenarioRepository _scenarioRepository;
+        readonly string _fileName;
         bool _isSelected;
-        RelayCommand _deleteScenarioCommand;
 
         RelayCommand _deleteImageCommandBlueBlue;
         RelayCommand _deleteImageCommandBlueRed;
@@ -70,46 +64,26 @@ namespace Bildwahl.ViewModel
 
         #region Constructor
 
-        public NewScenarioViewModel(Scenario customer, ScenarioRepository customerRepository)
+        public NewScenarioViewModel(Scenario scanario, ScenarioRepository scenarioRepository)
         {
-            if (customer == null)
-                throw new ArgumentNullException("customer");
-
-            if (customerRepository == null)
-                throw new ArgumentNullException("customerRepository");
-
-            _customer = customer;
-            _customerRepository = customerRepository;
-            _customerType = Strings.CustomerViewModel_CustomerTypeOption_NotSpecified;
+            _scenario = scanario ?? throw new ArgumentNullException("scenario");
+            _scenarioRepository = scenarioRepository ?? throw new ArgumentNullException("scenarioRepository");
         }
 
         #endregion // Constructor
 
-        #region Customer Properties
+        #region Scenario Properties
 
-        public string ImageLink
-        {
-            get { return _customer.ImageLink; }
-            set
-            {
-                if (value == _customer.ImageLink)
-                    return;
-
-                _customer.ImageLink = value;
-
-                base.OnPropertyChanged("ImageLink");
-            }
-        }
 
         public string Titel
         {
-            get { return _customer.Titel; }
+            get { return _scenario.Titel; }
             set
             {
-                if (value == _customer.Titel)
+                if (value == _scenario.Titel)
                     return;
 
-                _customer.Titel = value;
+                _scenario.Titel = value;
 
                 base.OnPropertyChanged("Titel");
             }
@@ -119,52 +93,52 @@ namespace Bildwahl.ViewModel
 
         public string BlueBlue
         {
-            get { return _customer.BlueBlue; }
+            get { return _scenario.BlueBlue; }
             set
             {
-                if (value == _customer.BlueBlue)
+                if (value == _scenario.BlueBlue)
                     return;
 
-                _customer.BlueBlue = value;
+                _scenario.BlueBlue = value;
 
                 base.OnPropertyChanged("BlueBlue");
             }
         }
         public string BlueRed
         {
-            get { return _customer.BlueRed; }
+            get { return _scenario.BlueRed; }
             set
             {
-                if (value == _customer.BlueRed)
+                if (value == _scenario.BlueRed)
                     return;
 
-                _customer.BlueRed = value;
+                _scenario.BlueRed = value;
 
                 base.OnPropertyChanged("BlueRed");
             }
         }
         public string BlueGreen
         {
-            get { return _customer.BlueGreen; }
+            get { return _scenario.BlueGreen; }
             set
             {
-                if (value == _customer.BlueGreen)
+                if (value == _scenario.BlueGreen)
                     return;
 
-                _customer.BlueGreen = value;
+                _scenario.BlueGreen = value;
 
                 base.OnPropertyChanged("BlueGreen");
             }
         }
         public string BlueYellow
         {
-            get { return _customer.BlueYellow; }
+            get { return _scenario.BlueYellow; }
             set
             {
-                if (value == _customer.BlueYellow)
+                if (value == _scenario.BlueYellow)
                     return;
 
-                _customer.BlueYellow = value;
+                _scenario.BlueYellow = value;
 
                 base.OnPropertyChanged("BlueYellow");
             }
@@ -172,52 +146,52 @@ namespace Bildwahl.ViewModel
 
         public string RedBlue
         {
-            get { return _customer.RedBlue; }
+            get { return _scenario.RedBlue; }
             set
             {
-                if (value == _customer.RedBlue)
+                if (value == _scenario.RedBlue)
                     return;
 
-                _customer.RedBlue = value;
+                _scenario.RedBlue = value;
 
                 base.OnPropertyChanged("RedBlue");
             }
         }
         public string RedRed
         {
-            get { return _customer.RedRed; }
+            get { return _scenario.RedRed; }
             set
             {
-                if (value == _customer.RedRed)
+                if (value == _scenario.RedRed)
                     return;
 
-                _customer.RedRed = value;
+                _scenario.RedRed = value;
 
                 base.OnPropertyChanged("RedRed");
             }
         }
         public string RedGreen
         {
-            get { return _customer.RedGreen; }
+            get { return _scenario.RedGreen; }
             set
             {
-                if (value == _customer.RedGreen)
+                if (value == _scenario.RedGreen)
                     return;
 
-                _customer.RedGreen = value;
+                _scenario.RedGreen = value;
 
                 base.OnPropertyChanged("RedGreen");
             }
         }
         public string RedYellow
         {
-            get { return _customer.RedYellow; }
+            get { return _scenario.RedYellow; }
             set
             {
-                if (value == _customer.RedYellow)
+                if (value == _scenario.RedYellow)
                     return;
 
-                _customer.RedYellow = value;
+                _scenario.RedYellow = value;
 
                 base.OnPropertyChanged("RedYellow");
             }
@@ -225,52 +199,52 @@ namespace Bildwahl.ViewModel
 
         public string GreenBlue
         {
-            get { return _customer.GreenBlue; }
+            get { return _scenario.GreenBlue; }
             set
             {
-                if (value == _customer.GreenBlue)
+                if (value == _scenario.GreenBlue)
                     return;
 
-                _customer.GreenBlue = value;
+                _scenario.GreenBlue = value;
 
                 base.OnPropertyChanged("GreenBlue");
             }
         }
         public string GreenRed
         {
-            get { return _customer.GreenRed; }
+            get { return _scenario.GreenRed; }
             set
             {
-                if (value == _customer.GreenRed)
+                if (value == _scenario.GreenRed)
                     return;
 
-                _customer.GreenRed = value;
+                _scenario.GreenRed = value;
 
                 base.OnPropertyChanged("GreenRed");
             }
         }
         public string GreenGreen
         {
-            get { return _customer.GreenGreen; }
+            get { return _scenario.GreenGreen; }
             set
             {
-                if (value == _customer.GreenGreen)
+                if (value == _scenario.GreenGreen)
                     return;
 
-                _customer.GreenGreen = value;
+                _scenario.GreenGreen = value;
 
                 base.OnPropertyChanged("GreenGreen");
             }
         }
         public string GreenYellow
         {
-            get { return _customer.GreenYellow; }
+            get { return _scenario.GreenYellow; }
             set
             {
-                if (value == _customer.GreenYellow)
+                if (value == _scenario.GreenYellow)
                     return;
 
-                _customer.GreenYellow = value;
+                _scenario.GreenYellow = value;
 
                 base.OnPropertyChanged("GreenYellow");
             }
@@ -278,52 +252,52 @@ namespace Bildwahl.ViewModel
 
         public string YellowBlue
         {
-            get { return _customer.YellowBlue; }
+            get { return _scenario.YellowBlue; }
             set
             {
-                if (value == _customer.YellowBlue)
+                if (value == _scenario.YellowBlue)
                     return;
 
-                _customer.YellowBlue = value;
+                _scenario.YellowBlue = value;
 
                 base.OnPropertyChanged("YellowBlue");
             }
         }
         public string YellowRed
         {
-            get { return _customer.YellowRed; }
+            get { return _scenario.YellowRed; }
             set
             {
-                if (value == _customer.YellowRed)
+                if (value == _scenario.YellowRed)
                     return;
 
-                _customer.YellowRed = value;
+                _scenario.YellowRed = value;
 
                 base.OnPropertyChanged("YellowRed");
             }
         }
         public string YellowGreen
         {
-            get { return _customer.YellowGreen; }
+            get { return _scenario.YellowGreen; }
             set
             {
-                if (value == _customer.YellowGreen)
+                if (value == _scenario.YellowGreen)
                     return;
 
-                _customer.YellowGreen = value;
+                _scenario.YellowGreen = value;
 
                 base.OnPropertyChanged("YellowGreen");
             }
         }
         public string YellowYellow
         {
-            get { return _customer.YellowYellow; }
+            get { return _scenario.YellowYellow; }
             set
             {
-                if (value == _customer.YellowYellow)
+                if (value == _scenario.YellowYellow)
                     return;
 
-                _customer.YellowYellow = value;
+                _scenario.YellowYellow = value;
 
                 base.OnPropertyChanged("YellowYellow");
             }
@@ -332,105 +306,13 @@ namespace Bildwahl.ViewModel
         #endregion
 
 
-        #endregion // Customer Properties
+        #endregion
 
         #region Presentation Properties
 
-        /// <summary>
-        /// Gets/sets a value that indicates what type of customer this is.
-        /// This property maps to the IsCompany property of the Customer class,
-        /// but also has support for an 'unselected' state.
-        /// </summary>
-        /*  public string CustomerType
-          {
-              get { return _customerType; }
-              set
-              {
-                  if (value == _customerType || String.IsNullOrEmpty(value))
-                      return;
-
-                  _customerType = value;
-
-                  if (_customerType == Strings.CustomerViewModel_CustomerTypeOption_Company)
-                  {
-                      _customer.IsCompany = true;
-                  }
-                  else if (_customerType == Strings.CustomerViewModel_CustomerTypeOption_Person)
-                  {
-                      _customer.IsCompany = false;
-                  }
-
-                  base.OnPropertyChanged("CustomerType");
-
-                  // Since this ViewModel object has knowledge of how to translate
-                  // a customer type (i.e. text) to a Customer object's IsCompany property,
-                  // it also must raise a property change notification when it changes
-                  // the value of IsCompany.  The LastName property is validated 
-                  // differently based on whether the customer is a company or not,
-                  // so the validation for the LastName property must execute now.
-                  base.OnPropertyChanged("LastName");
-              }
-          }
-
-          /// <summary>
-          /// Returns a list of strings used to populate the Customer Type selector.
-          /// </summary>
-          public string[] CustomerTypeOptions
-          {
-              get
-              {
-                  if (_customerTypeOptions == null)
-                  {
-                      _customerTypeOptions = new string[]
-                      {
-                          Strings.CustomerViewModel_CustomerTypeOption_NotSpecified,
-                          Strings.CustomerViewModel_CustomerTypeOption_Person,
-                          Strings.CustomerViewModel_CustomerTypeOption_Company
-                      };
-                  }
-                  return _customerTypeOptions;
-              }
-          }*/
-
-        public override string DisplayName
-        {
-            get
-            {
-                if (this.IsNewCustomer)
-                {
-                    return Strings.CustomerViewModel_DisplayName;
-                }
-               /* else if (_customer.IsCompany)
-                {
-                    return _customer.FirstName;
-                }*/
-                else
-                {
-                    return  _customer.ImageLink;
-                }
-            }
-        }
 
         /// <summary>
-        /// Gets/sets whether this customer is selected in the UI.
-        /// </summary>
-        public bool IsSelected
-        {
-            get { return _isSelected; }
-            set
-            {
-                if (value == _isSelected)
-                    return;
-
-                _isSelected = value;
-
-                base.OnPropertyChanged("IsSelected");
-            }
-        }
-
-
-        /// <summary>
-        /// Returns a command that saves the customer.
+        /// Returns a command that saves the scenario.
         /// </summary>
         public ICommand SaveCommand
         {
@@ -880,15 +762,15 @@ namespace Bildwahl.ViewModel
         #region Public Methods
 
         /// <summary>
-        /// Saves the customer to the repository.  This method is invoked by the SaveCommand.
+        /// Saves the scenario to the repository.  This method is invoked by the SaveCommand.
         /// </summary>
         public void Save()
         {
-            if (!_customer.IsValid)
-                throw new InvalidOperationException(Strings.CustomerViewModel_Exception_CannotSave);
+            if (!_scenario.IsValid)
+                throw new InvalidOperationException(Strings.NewScenarioViewModel_Exception_CannotSave);
 
-            if (this.IsNewCustomer)
-                _customerRepository.AddCustomer(_customer);
+            if (this.IsNewScenario)
+                _scenarioRepository.AddScenario(_scenario);
 
             base.OnPropertyChanged("DisplayName");
         }
@@ -899,70 +781,70 @@ namespace Bildwahl.ViewModel
             {
                 case "BlueBlue":
                     this.BlueBlue = null;
-                    _customer.BlueBlue = null;
+                    _scenario.BlueBlue = null;
                     break;
                 case "BlueRed":
                     this.BlueRed = null;
-                    _customer.BlueRed = null;
+                    _scenario.BlueRed = null;
                     break;
                 case "BlueGreen":
                     this.BlueGreen = null;
-                    _customer.BlueGreen = null;
+                    _scenario.BlueGreen = null;
                     break;
                 case "BlueYellow":
                     this.BlueYellow = null;
-                    _customer.BlueYellow = null;
+                    _scenario.BlueYellow = null;
                     break;
 
                 case "RedBlue":
                     this.RedBlue = null;
-                    _customer.RedBlue = null;
+                    _scenario.RedBlue = null;
                     break;
                 case "RedRed":
                     this.RedRed = null;
-                    _customer.RedRed = null;
+                    _scenario.RedRed = null;
                     break;
                 case "RedGreen":
                     this.RedGreen = null;
-                    _customer.RedGreen = null;
+                    _scenario.RedGreen = null;
                     break;
                 case "RedYellow":
                     this.RedYellow = null;
-                    _customer.RedYellow = null;
+                    _scenario.RedYellow = null;
                     break;
 
                 case "GreenBlue":
                     this.GreenBlue = null;
-                    _customer.GreenBlue = null;
+                    _scenario.GreenBlue = null;
                     break;
                 case "GreenRed":
                     this.GreenRed = null;
-                    _customer.GreenRed = null;
+                    _scenario.GreenRed = null;
                     break;
                 case "GreenGreen":
                     this.GreenGreen = null;
-                    _customer.GreenGreen = null;
+                    _scenario.GreenGreen = null;
                     break;
                 case "GreenYellow":
                     this.GreenYellow = null;
-                    _customer.GreenYellow = null;
+                    _scenario.GreenYellow = null;
                     break;
 
                 case "YellowBlue":
                     this.YellowBlue = null;
-                    _customer.YellowBlue = null;
+                    _scenario.YellowBlue = null;
                     break;
                 case "YellowRed":
                     this.YellowRed = null;
-                    _customer.YellowRed = null;
+                    _scenario.YellowRed = null;
                     break;
                 case "YellowGreen":
                     this.YellowGreen = null;
-                    _customer.YellowGreen = null;
+                    _scenario.YellowGreen = null;
                     break;
                 case "YellowYellow":
                     this.YellowYellow = null;
-                    _customer.YellowYellow = null;
+                    _scenario.YellowYellow = null;
                     break;
 
                 default:
@@ -990,70 +872,70 @@ namespace Bildwahl.ViewModel
                     {
                         case "BlueBlue":
                             this.BlueBlue = destination;
-                            _customer.BlueBlue = destination;
+                            _scenario.BlueBlue = destination;
                             break;
                         case "BlueRed":
                             this.BlueRed = destination;
-                            _customer.BlueRed = destination;
+                            _scenario.BlueRed = destination;
                             break;
                         case "BlueGreen":
                             this.BlueGreen = destination;
-                            _customer.BlueGreen = destination;
+                            _scenario.BlueGreen = destination;
                             break;
                         case "BlueYellow":
                             this.BlueYellow = destination;
-                            _customer.BlueYellow = destination;
+                            _scenario.BlueYellow = destination;
                             break;
 
                         case "RedBlue":
                             this.RedBlue = destination;
-                            _customer.RedBlue = destination;
+                            _scenario.RedBlue = destination;
                             break;
                         case "RedRed":
                             this.RedRed = destination;
-                            _customer.RedRed = destination;
+                            _scenario.RedRed = destination;
                             break;
                         case "RedGreen":
                             this.RedGreen = destination;
-                            _customer.RedGreen = destination;
+                            _scenario.RedGreen = destination;
                             break;
                         case "RedYellow":
                             this.RedYellow = destination;
-                            _customer.RedYellow = destination;
+                            _scenario.RedYellow = destination;
                             break;
 
                         case "GreenBlue":
                             this.GreenBlue = destination;
-                            _customer.GreenBlue = destination;
+                            _scenario.GreenBlue = destination;
                             break;
                         case "GreenRed":
                             this.GreenRed = destination;
-                            _customer.GreenRed = destination;
+                            _scenario.GreenRed = destination;
                             break;
                         case "GreenGreen":
                             this.GreenGreen = destination;
-                            _customer.GreenGreen = destination;
+                            _scenario.GreenGreen = destination;
                             break;
                         case "GreenYellow":
                             this.GreenYellow = destination;
-                            _customer.GreenYellow = destination;
+                            _scenario.GreenYellow = destination;
                             break;
 
                         case "YellowBlue":
                             this.YellowBlue = destination;
-                            _customer.YellowBlue = destination;
+                            _scenario.YellowBlue = destination;
                             break;
                         case "YellowRed":
                             this.YellowRed = destination;
-                            _customer.YellowRed = destination;
+                            _scenario.YellowRed = destination;
                             break;
                         case "YellowGreen":
                             this.YellowGreen = destination;
-                            _customer.YellowGreen = destination;
+                            _scenario.YellowGreen = destination;
                             break;
                         case "YellowYellow":
                             this.YellowYellow = destination;
-                            _customer.YellowYellow = destination;
+                            _scenario.YellowYellow = destination;
                             break;
 
                         default:
@@ -1074,20 +956,20 @@ namespace Bildwahl.ViewModel
         #region Private Helpers
 
         /// <summary>
-        /// Returns true if this customer was created by the user and it has not yet
-        /// been saved to the customer repository.
+        /// Returns true if this scenario was created by the user and it has not yet
+        /// been saved to the scenario repository.
         /// </summary>
-        bool IsNewCustomer
+        bool IsNewScenario
         {
-            get { return !_customerRepository.ContainsCustomer(_customer); }
+            get { return !_scenarioRepository.ContainsScenario(_scenario); }
         }
 
         /// <summary>
-        /// Returns true if the customer is valid and can be saved.
+        /// Returns true if the scenario is valid and can be saved.
         /// </summary>
         bool CanSave
         {
-            get { return _customer.IsValid; }
+            get { return _scenario.IsValid; }
         }
 
         #endregion // Private Helpers
@@ -1096,7 +978,7 @@ namespace Bildwahl.ViewModel
 
         string IDataErrorInfo.Error
         {
-            get { return (_customer as IDataErrorInfo).Error; }
+            get { return (_scenario as IDataErrorInfo).Error; }
         }
 
         string IDataErrorInfo.this[string propertyName]
@@ -1105,7 +987,7 @@ namespace Bildwahl.ViewModel
             {
                 string error = null;
 
-                    error = (_customer as IDataErrorInfo)[propertyName];
+                    error = (_scenario as IDataErrorInfo)[propertyName];
 
                 // Dirty the commands registered with CommandManager,
                 // such as our Save command, so that they are queried
@@ -1115,20 +997,6 @@ namespace Bildwahl.ViewModel
                 return error;
             }
         }
-
-        
-
-
-
-        /* string ValidateCustomerType()
-         {
-             if (this.CustomerType == Strings.CustomerViewModel_CustomerTypeOption_Company ||
-                this.CustomerType == Strings.CustomerViewModel_CustomerTypeOption_Person)
-                 return null;
-
-             return Strings.CustomerViewModel_Error_MissingCustomerType;
-         }*/
-
         #endregion // IDataErrorInfo Members
     }
 }
