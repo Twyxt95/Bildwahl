@@ -158,7 +158,7 @@
     <comment>Error message for when a Customer is missing an e-mail address.</comment>
   </data>
   <data name="Customer_Error_MissingFirstName" xml:space="preserve">
-    <value>First name is missing</value>
+    <value>Titel fehlt</value>
     <comment>Error message for when a Customer is missing a first name.</comment>
   </data>
   <data name="Customer_Error_MissingLastName" xml:space="preserve">

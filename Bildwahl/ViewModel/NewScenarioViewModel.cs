@@ -428,26 +428,7 @@ namespace Bildwahl.ViewModel
             }
         }
 
-        //public ICommand EliminarCommand => _deleteScenarioCommand ?? _deleteScenarioCommand = new RelayCommand<Scenario>(Delete));
 
-        public ICommand DeleteScenarioCommand
-        {
-            get
-            {
-                if (_deleteScenarioCommand == null)
-                {
-                    _deleteScenarioCommand = new RelayCommand(
-                        param => this.Delete(_customer)
-                        );
-                }
-                return _deleteScenarioCommand;
-            }
-        }
-
-        public void Delete(Scenario scenario)
-        {
-           _customerRepository.DeleteScenario(scenario);
-        }
         /// <summary>
         /// Returns a command that saves the customer.
         /// </summary>
@@ -1106,7 +1087,7 @@ namespace Bildwahl.ViewModel
         /// </summary>
         bool CanSave
         {
-            get { return true /*String.IsNullOrEmpty(this.ValidateCustomerType()) && _customer.IsValid*/; }
+            get { return _customer.IsValid; }
         }
 
         #endregion // Private Helpers
@@ -1124,18 +1105,7 @@ namespace Bildwahl.ViewModel
             {
                 string error = null;
 
-                if (propertyName == "CustomerType")
-                {
-                    // The IsCompany property of the Customer class 
-                    // is Boolean, so it has no concept of being in
-                    // an "unselected" state.  The NewScenarioViewModel
-                    // class handles this mapping and validation.
-                    //error = this.ValidateCustomerType();
-                }
-                else
-                {
                     error = (_customer as IDataErrorInfo)[propertyName];
-                }
 
                 // Dirty the commands registered with CommandManager,
                 // such as our Save command, so that they are queried

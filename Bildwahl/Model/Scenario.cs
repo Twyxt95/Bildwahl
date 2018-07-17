@@ -153,13 +153,49 @@ namespace Bildwahl.Model
 
                 _isSelected = value;
 
-                //base.OnPropertyChanged("IsSelected");
+                this.OnPropertyChanged("IsSelected");
             }
         }
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Raises this object's PropertyChanged event.
+        /// </summary>
+        /// <param name="propertyName">The property that has a new value.</param>
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            this.VerifyPropertyName(propertyName);
+
+            PropertyChangedEventHandler handler = this.PropertyChanged;
+            if (handler != null)
+            {
+                var e = new PropertyChangedEventArgs(propertyName);
+                handler(this, e);
+            }
+        }
+
+        public void VerifyPropertyName(string propertyName)
+        {
+            // Verify that the property name matches a real,  
+            // public, instance property on this object.
+            if (TypeDescriptor.GetProperties(this)[propertyName] == null)
+            {
+                string msg = "Invalid property name: " + propertyName;
+
+                if (this.ThrowOnInvalidPropertyName)
+                    throw new Exception(msg);
+                else
+                    Debug.Fail(msg);
+            }
+        }
+
+        protected virtual bool ThrowOnInvalidPropertyName { get; private set; }
+
+
         static readonly string[] ValidatedProperties =
         {
-            "imagelink"
+            "Titel"
         };
 
         string GetValidationError(string propertyName)
@@ -171,8 +207,8 @@ namespace Bildwahl.Model
 
             switch (propertyName)
             {
-                case "imagelink":
-                    error = this.ValidateImageLink();
+                case "Titel":
+                    error = this.ValidateTitel();
                     break;
 
                 default:
@@ -186,6 +222,15 @@ namespace Bildwahl.Model
         private string ValidateImageLink()
         {
            return null;
+        }
+
+        string ValidateTitel()
+        {
+            if (IsStringMissing(this.Titel))
+            {
+                return Strings.Customer_Error_MissingFirstName;
+            }
+            return null;
         }
 
         static bool IsStringMissing(string value)

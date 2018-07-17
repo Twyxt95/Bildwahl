@@ -499,11 +499,35 @@
             </ControlTemplate.Triggers>
         </ControlTemplate>
 
+        <ControlTemplate x:Key="SaveButtonTemplate"  TargetType="{x:Type ButtonBase}">
+            <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" TargetName="border" Value="#F8F9F7"/>
+                    <Setter Property="BorderBrush" TargetName="border" Value="#5B5B5B"/>
+                </Trigger>
+                <Trigger Property="IsFocused" Value="True">
+                    <Setter TargetName="border" Property="BorderBrush" Value="#5B5B5B" />
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" TargetName="border" Value="#F8F9F7"/>
+                    <Setter Property="BorderBrush" TargetName="border" Value="#5B5B5B"/>
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Background" TargetName="border" Value="#BABBB9"/>
+                    <Setter Property="BorderBrush" TargetName="border" Value="#7C7C7C"/>
+                    <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="#7C7C7C"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+        
         <DataTemplate DataType="{x:Type ValidationError}">
             <TextBlock 
           FontStyle="Italic"
           Foreground="Red"
-          HorizontalAlignment="Right"
+          HorizontalAlignment="Left"
           Margin="0,1"
           Text="{Binding Path=ErrorContent}" 
           />
@@ -536,11 +560,12 @@
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*" />
-                <RowDefinition Height="2*" />
+                <RowDefinition Height="Auto" />
                 <RowDefinition Height="1*" />
             </Grid.RowDefinitions>
-            <Label Grid.Row="1" Grid.Column="0" Content="Titel:" HorizontalAlignment="Right" Target="{Binding ElementName=imageLinkTxt}"/>
-            <TextBox Grid.Row="1" Grid.Column="1" x:Name="imageLinkTxt" Text="{Binding Path=Titel}" Validation.ErrorTemplate="{x:Null}"/>
+            <Label Grid.Row="1" Grid.Column="0" Content="Titel:" HorizontalAlignment="Right" Target="{Binding ElementName=titelBox}"/>
+            <TextBox Grid.Row="1" Grid.Column="1" x:Name="titelBox" Text="{Binding Path=Titel, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{x:Null}"/>
+            <ContentPresenter Grid.Row="2" Grid.Column="1" Content="{Binding ElementName=titelBox, Path=(Validation.Errors).CurrentItem}"/>
         </Grid>
         
       
@@ -1239,9 +1264,6 @@
         </Grid>
 
 
-        <Button Grid.Row="7" Grid.Column="6"
-      Command="{Binding Path=SaveCommand}"
-      Content="_Save"
-      />
+        <Button Grid.Row="7" Grid.Column="6" Template="{StaticResource SaveButtonTemplate}" Cursor="Hand" Background="#F8F9F7" BorderBrush="#5B5B5B" Command="{Binding Path=SaveCommand}" Content="Speichern"/>
     </Grid>
 </UserControl>
