@@ -68,6 +68,7 @@ namespace Bildwahl.ViewModel
         {
             _scenario = scanario ?? throw new ArgumentNullException("scenario");
             _scenarioRepository = scenarioRepository ?? throw new ArgumentNullException("scenarioRepository");
+            IsBlueBlueSaved = false;
         }
 
         #endregion // Constructor
@@ -782,6 +783,8 @@ namespace Bildwahl.ViewModel
                 case "BlueBlue":
                     this.BlueBlue = null;
                     _scenario.BlueBlue = null;
+                    IsBlueBlueSaved = false;
+                    base.OnPropertyChanged("IsBlueBlueSaved");
                     break;
                 case "BlueRed":
                     this.BlueRed = null;
@@ -853,10 +856,17 @@ namespace Bildwahl.ViewModel
             }
         }
 
+
+
+        public bool IsBlueBlueSaved { get; private set; }
+
         public void SaveImage(string field)
         {
-            OpenFileDialog _importImage = new OpenFileDialog();
-            _importImage.Title = "Bild auswählen";
+            OpenFileDialog _importImage = new OpenFileDialog
+            {
+                Title = "Bild auswählen",
+                Filter = " Image Files| *.jpg; *.jpeg; *.png; *.gif;"
+            };
             if (_importImage.ShowDialog() == true)
             {
                 string ImportPath = _importImage.FileName;
@@ -873,6 +883,8 @@ namespace Bildwahl.ViewModel
                         case "BlueBlue":
                             this.BlueBlue = destination;
                             _scenario.BlueBlue = destination;
+                            IsBlueBlueSaved = true;
+                            base.OnPropertyChanged("IsBlueBlueSaved");
                             break;
                         case "BlueRed":
                             this.BlueRed = destination;

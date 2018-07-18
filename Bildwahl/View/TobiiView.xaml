@@ -3,6 +3,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:tobii="clr-namespace:Tobii.Interaction.Wpf;assembly=Tobii.Interaction.Net"
+    
     xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
     xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
 
@@ -54,7 +55,7 @@
             BeginTime="0:0:0"
             Duration="0:0:0.1"
             From="2*"
-            Storyboard.TargetName="SecondContentColumnSecondStageBlue"
+            Storyboard.TargetName ="SecondContentColumnSecondStageBlue"
             Storyboard.TargetProperty="Width"
             To="0*" />
             <vw:GridLengthAnimation
@@ -155,6 +156,10 @@
             Storyboard.TargetName="SecondContentRowSecondStageYellow"
             Storyboard.TargetProperty="Height"
             To="0*" />
+            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="ResetButton" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
         </Storyboard>
 
         <Storyboard x:Key="RedAnimation">
@@ -301,6 +306,10 @@
             Storyboard.TargetName="SecondContentRowSecondStageGreen"
             Storyboard.TargetProperty="Height"
             To="0*" />
+            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="ResetButton" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
         </Storyboard>
 
         <Storyboard x:Key="GreenAnimation">
@@ -447,6 +456,10 @@
             Storyboard.TargetName="SecondContentRowSecondStageRed"
             Storyboard.TargetProperty="Height"
             To="4*" />
+            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="ResetButton" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
         </Storyboard>
 
         <Storyboard x:Key="YellowAnimation">
@@ -593,6 +606,10 @@
             Storyboard.TargetName="SecondContentRowSecondStageRed"
             Storyboard.TargetProperty="Height"
             To="4*" />
+            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="ResetButton" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
         </Storyboard>
 
         <Storyboard x:Key="SecondStageActivated">
@@ -630,12 +647,205 @@
             </ObjectAnimationUsingKeyFrames>
         </Storyboard>
 
+        <Storyboard x:Key="SecondStageCompleted">
+            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="UpperLeftSecondStage" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="UpperRightSecondStage" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="LowerLeftSecondStage" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="LowerRightSecondStage" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
+            </ObjectAnimationUsingKeyFrames>
+        </Storyboard>
+
+        <Storyboard x:Key="Reset">
+            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="UpperLeft" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="UpperRight" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="LowerLeft" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="LowerRight" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="ResetButton" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
+            </ObjectAnimationUsingKeyFrames>
+
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="0*"
+            Storyboard.TargetName="FirstContentColumn"
+            Storyboard.TargetProperty="Width"
+            To="2*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="0*"
+            Storyboard.TargetName="SecondContentColumn"
+            Storyboard.TargetProperty="Width"
+            To="2*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="0*"
+            Storyboard.TargetName="FirstContentRow"
+            Storyboard.TargetProperty="Height"
+            To="2*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="0*"
+            Storyboard.TargetName="SecondContentRow"
+            Storyboard.TargetProperty="Height"
+            To="2*" />
+            
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="0*"
+            Storyboard.TargetName="FirstContentColumnSecondStageYellow"
+            Storyboard.TargetProperty="Width"
+            To="2*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="0*"
+            Storyboard.TargetName="SecondContentColumnSecondStageYellow"
+            Storyboard.TargetProperty="Width"
+            To="2*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="0*"
+            Storyboard.TargetName="FirstContentRowSecondStageYellow"
+            Storyboard.TargetProperty="Height"
+            To="2*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="0*"
+            Storyboard.TargetName="SecondContentRowSecondStageYellow"
+            Storyboard.TargetProperty="Height"
+            To="2*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="0*"
+            Storyboard.TargetName="FirstContentColumnSecondStageBlue"
+            Storyboard.TargetProperty="Width"
+            To="2*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="0*"
+            Storyboard.TargetName="SecondContentColumnSecondStageBlue"
+            Storyboard.TargetProperty="Width"
+            To="2*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="0*"
+            Storyboard.TargetName="FirstContentRowSecondStageBlue"
+            Storyboard.TargetProperty="Height"
+            To="2*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="0*"
+            Storyboard.TargetName="SecondContentRowSecondStageBlue"
+            Storyboard.TargetProperty="Height"
+            To="2*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="0*"
+            Storyboard.TargetName="FirstContentColumnSecondStageGreen"
+            Storyboard.TargetProperty="Width"
+            To="2*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="0*"
+            Storyboard.TargetName="SecondContentColumnSecondStageGreen"
+            Storyboard.TargetProperty="Width"
+            To="2*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="0*"
+            Storyboard.TargetName="FirstContentRowSecondStageGreen"
+            Storyboard.TargetProperty="Height"
+            To="2*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="0*"
+            Storyboard.TargetName="SecondContentRowSecondStageGreen"
+            Storyboard.TargetProperty="Height"
+            To="2*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="0*"
+            Storyboard.TargetName="FirstContentColumnSecondStageRed"
+            Storyboard.TargetProperty="Width"
+            To="2*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="0*"
+            Storyboard.TargetName="SecondContentColumnSecondStageRed"
+            Storyboard.TargetProperty="Width"
+            To="2*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="0*"
+            Storyboard.TargetName="FirstContentRowSecondStageRed"
+            Storyboard.TargetProperty="Height"
+            To="2*" />
+            <vw:GridLengthAnimation
+            BeginTime="0:0:0"
+            Duration="0:0:0.1"
+            From="0*"
+            Storyboard.TargetName="SecondContentRowSecondStageRed"
+            Storyboard.TargetProperty="Height"
+            To="2*" />
+        </Storyboard>
+
+        
+
         <Style x:Key="TobiiButtonStyle" TargetType="{x:Type Button}">
+            <EventSetter Event="tobii:Behaviors.HasGazeChanged" Handler="Instruction_OnHasGazeChanged" />
+            <!--<Setter Property="Foreground" Value="Green"/>
             <Style.Triggers>
-                <Trigger Property="tobii:Behaviors.HasGaze" Value="True">
-                    <Setter Property="MinWidth" Value="{Binding NotifyOnTargetUpdated=True}" />
-                </Trigger>
-            </Style.Triggers>
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="tobii:Behaviors.HasGaze" Value="True" />
+                        <Condition Property="Visibility" Value="Visible" />
+                    </MultiTrigger.Conditions>
+                    <Setter Property="Button.Foreground" Value="Beige"/>
+                    
+                </MultiTrigger>
+            </Style.Triggers>-->
         </Style>
 
         <ControlTemplate x:Key="TobiiButton" TargetType="{x:Type ButtonBase}">
@@ -644,9 +854,50 @@
             </Border>
             <ControlTemplate.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
-                </Trigger>                
+                </Trigger>
+               <!-- <DataTrigger Binding="{Binding ShowInstruction}" Value="True">
+                    
+                    <DataTrigger.EnterActions>
+                        
+                        <BeginStoryboard Storyboard="{StaticResource BlueAnimation}"/>
+                        <BeginStoryboard Storyboard="{StaticResource SecondStageActivated}"/>
+                    </DataTrigger.EnterActions>
+                </DataTrigger>-->
+
             </ControlTemplate.Triggers>
         </ControlTemplate>
+
+        <!--<Style x:Key="UpperLeftStyle" TargetType="{x:Type Button}">
+            <EventSetter Event="tobii:Behaviors.HasGazeChanged" Handler="{ Binding Instruction_OnHasGazeChanged}" />
+            
+
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding ShowInstruction}" Value="True">
+                    <DataTrigger.EnterActions>
+                        <BeginStoryboard Storyboard="{StaticResource BlueAnimation}"/>
+                    </DataTrigger.EnterActions>
+                </DataTrigger>
+                
+                <Trigger Property="tobii:Behaviors.HasGaze" Value="True">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                    
+                    <Trigger.EnterActions>
+                        
+                        <BeginStoryboard Storyboard="{StaticResource BlueAnimation}"/>
+                    </Trigger.EnterActions>
+                </Trigger>
+            </Style.Triggers>
+        </Style> -->
+
+        <Style x:Key="UpperLeftSecondStageStyle" TargetType="{x:Type Button}">
+            <Style.Triggers>
+                <Trigger Property="tobii:Behaviors.HasGaze" Value="True">
+                    <Trigger.EnterActions>
+                        <BeginStoryboard Storyboard="{StaticResource BlueAnimationSecondStage}"/>
+                    </Trigger.EnterActions>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
     </UserControl.Resources>
     
     <Grid Name="grid">
@@ -663,115 +914,132 @@
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
 
-        <Button Name="UpperLeft" Template="{StaticResource TobiiButton}" BorderThickness="0" Grid.Row="0" Grid.Column="0" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="3000" Style="{StaticResource TobiiButtonStyle}" Background="Blue">
+
+        <Button x:Name="UpperLeft" Template="{StaticResource TobiiButton}"  BorderThickness="0" Grid.Row="0" Grid.Column="0" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="3000" Style="{StaticResource TobiiButtonStyle}" Background="Blue">
             <i:Interaction.Triggers>
-                <ei:PropertyChangedTrigger Binding="{Binding Content, ElementName=UpperLeft}">
-                    <i:InvokeCommandAction Command="{Binding DoSomethingCommand}"/>
-                </ei:PropertyChangedTrigger>
+                <ei:DataTrigger Binding="{Binding BlueClicked}" Value="True">
+                    <ei:ControlStoryboardAction Storyboard="{StaticResource BlueAnimation}"/>
+                    <ei:ControlStoryboardAction Storyboard="{StaticResource SecondStageActivated}"/>
+                </ei:DataTrigger>
             </i:Interaction.Triggers>
-            <Button.Triggers>
-                <EventTrigger RoutedEvent="Binding.TargetUpdated">
-                    <BeginStoryboard Storyboard="{StaticResource BlueAnimation}" />
-                    <BeginStoryboard Storyboard="{StaticResource SecondStageActivated}" />
+           <!-- <Button.Triggers>
+                <EventTrigger RoutedEvent="tobii:Behaviors.HasGazeChanged">
+                    <BeginStoryboard Storyboard="{StaticResource BlueAnimation}"/>
+                    <BeginStoryboard Storyboard="{StaticResource SecondStageActivated}"/>
                 </EventTrigger>
             </Button.Triggers>
+            <Button.Style>
+                <Style>
+                    <EventSetter Event="tobii:Behaviors.HasGazeChanged" Handler="Instruction_OnHasGazeChanged" />
+
+
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ShowInstruction}" Value="True">
+                            <DataTrigger.EnterActions>
+                                <BeginStoryboard Storyboard="{StaticResource BlueAnimation}"/>
+                                
+                            </DataTrigger.EnterActions>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>-->
+
         </Button>
 
-        <Button x:Name="LowerLeft" Template="{StaticResource TobiiButton}" BorderThickness="0" Grid.Row="3" Grid.Column="0" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="3000" Style="{StaticResource TobiiButtonStyle}" Background="Green">
+        <Button x:Name="LowerLeft" Template="{StaticResource TobiiButton}" BorderThickness="0" Grid.Row="3" Grid.Column="0" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="3000" Style="{StaticResource TobiiButtonStyle}"  Background="Green">
             <i:Interaction.Triggers>
-                <ei:PropertyChangedTrigger Binding="{Binding Content, ElementName=LowerLeft}">
-                    <i:InvokeCommandAction Command="{Binding DoSomethingCommand, Mode=OneWay}"/>
-                </ei:PropertyChangedTrigger>
+                <ei:DataTrigger Binding="{Binding GreenClicked}" Value="True">
+                    <ei:ControlStoryboardAction Storyboard="{StaticResource GreenAnimation}"/>
+                    <ei:ControlStoryboardAction Storyboard="{StaticResource SecondStageActivated}"/>
+                </ei:DataTrigger>
             </i:Interaction.Triggers>
-            <Button.Triggers>
-                <EventTrigger RoutedEvent="Binding.TargetUpdated">
-                    <BeginStoryboard Storyboard="{StaticResource GreenAnimation}" />
-                    <BeginStoryboard Storyboard="{StaticResource SecondStageActivated}" />
-                </EventTrigger>
-            </Button.Triggers>
+            <!-- <Button.Style>
+                <Style>
+                    <EventSetter Event="tobii:Behaviors.HasGazeChanged" Handler="Instruction_OnHasGazeChanged" />
+
+
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ShowInstruction}" Value="True">
+                            <DataTrigger.EnterActions>
+                                <BeginStoryboard Storyboard="{StaticResource GreenAnimation}"/>
+                                
+                            </DataTrigger.EnterActions>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>-->
         </Button>
 
         <Button x:Name="LowerRight" Template="{StaticResource TobiiButton}" BorderThickness="0" Grid.Row="3" Grid.Column="3" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="3000" Style="{StaticResource TobiiButtonStyle}" Background="Yellow">
             <i:Interaction.Triggers>
-                <ei:PropertyChangedTrigger Binding="{Binding Content, ElementName=LowerRight}">
-                    <i:InvokeCommandAction Command="{Binding DoSomethingCommand, Mode=OneWay}"/>
-                </ei:PropertyChangedTrigger>
+                <ei:DataTrigger Binding="{Binding YellowClicked}" Value="True">
+                    <ei:ControlStoryboardAction Storyboard="{StaticResource YellowAnimation}"/>
+                    <ei:ControlStoryboardAction Storyboard="{StaticResource SecondStageActivated}"/>
+                </ei:DataTrigger>
             </i:Interaction.Triggers>
-            <Button.Triggers>
-                <EventTrigger RoutedEvent="Binding.TargetUpdated">
-                    <BeginStoryboard Storyboard="{StaticResource YellowAnimation}" />
-                    <BeginStoryboard Storyboard="{StaticResource SecondStageActivated}" />
-                </EventTrigger>
-            </Button.Triggers>
         </Button>
 
         <Button x:Name="UpperRight" Template="{StaticResource TobiiButton}" BorderThickness="0" Grid.Row="0" Grid.Column="3" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="3000" Style="{StaticResource TobiiButtonStyle}" Background="Red">
             <i:Interaction.Triggers>
-                <ei:PropertyChangedTrigger Binding="{Binding Content, ElementName=UpperRight}">
-                    <i:InvokeCommandAction Command="{Binding DoSomethingCommand, Mode=OneWay}"/>
-                </ei:PropertyChangedTrigger>
+                <ei:DataTrigger Binding="{Binding RedClicked}" Value="True">
+                    <ei:ControlStoryboardAction Storyboard="{StaticResource RedAnimation}"/>
+                    <ei:ControlStoryboardAction Storyboard="{StaticResource SecondStageActivated}"/>
+                </ei:DataTrigger>
             </i:Interaction.Triggers>
-            <Button.Triggers>
-                <EventTrigger RoutedEvent="Binding.TargetUpdated">
-                    <BeginStoryboard Storyboard="{StaticResource RedAnimation}" />
-                    <BeginStoryboard Storyboard="{StaticResource SecondStageActivated}" />
-                </EventTrigger>
-            </Button.Triggers>
         </Button>
 
-        <Button x:Name="UpperLeftSecondStage" Template="{StaticResource TobiiButton}" BorderThickness="0" Grid.Row="0" Grid.Column="0" Visibility="Collapsed" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="3000" Style="{StaticResource TobiiButtonStyle}" Background="Blue">
+        <Button x:Name="UpperLeftSecondStage" Template="{StaticResource TobiiButton}" BorderThickness="0" Grid.Row="0" Grid.Column="0" Visibility="Collapsed" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="3000" Style="{StaticResource TobiiButtonStyle}" Background="Purple">
             <i:Interaction.Triggers>
-                <ei:PropertyChangedTrigger Binding="{Binding Content, ElementName=UpperLeftSecondStage}">
-                    <i:InvokeCommandAction Command="{Binding DoSomethingCommand}"/>
-                </ei:PropertyChangedTrigger>
+                <ei:DataTrigger Binding="{Binding BlueSecondStageClicked}" Value="True">
+                    <ei:ControlStoryboardAction Storyboard="{StaticResource BlueAnimationSecondStage}"/>
+                    <ei:ControlStoryboardAction Storyboard="{StaticResource SecondStageCompleted}"/>
+                </ei:DataTrigger>
             </i:Interaction.Triggers>
-
-            <Button.Triggers>
-                <EventTrigger RoutedEvent="Binding.TargetUpdated">
-                    <BeginStoryboard Storyboard="{StaticResource BlueAnimationSecondStage}" />
-                </EventTrigger>
-            </Button.Triggers>
         </Button>
 
         <Button x:Name="LowerLeftSecondStage"  Template="{StaticResource TobiiButton}" BorderThickness="0" Grid.Row="3" Grid.Column="0" Visibility="Collapsed" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="3000" Style="{StaticResource TobiiButtonStyle}" Background="Green">
             <i:Interaction.Triggers>
-                <ei:PropertyChangedTrigger Binding="{Binding Content, ElementName=LowerLeftSecondStage}">
-                    <i:InvokeCommandAction Command="{Binding DoSomethingCommand, Mode=OneWay}"/>
-                </ei:PropertyChangedTrigger>
+                <ei:DataTrigger Binding="{Binding GreenSecondStageClicked}" Value="True">
+                    <ei:ControlStoryboardAction Storyboard="{StaticResource GreenAnimationSecondStage}"/>
+                    <ei:ControlStoryboardAction Storyboard="{StaticResource SecondStageCompleted}"/>
+                </ei:DataTrigger>
             </i:Interaction.Triggers>
-            <Button.Triggers>
-                <EventTrigger RoutedEvent="Binding.TargetUpdated">
-                    <BeginStoryboard Storyboard="{StaticResource GreenAnimationSecondStage}" />
-                </EventTrigger>
-            </Button.Triggers>
+            
         </Button>
 
         <Button x:Name="LowerRightSecondStage" Template="{StaticResource TobiiButton}" BorderThickness="0" Grid.Row="3" Grid.Column="3" Visibility="Collapsed" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="3000" Style="{StaticResource TobiiButtonStyle}" Background="Yellow">
             <i:Interaction.Triggers>
-                <ei:PropertyChangedTrigger Binding="{Binding Content, ElementName=LowerRightSecondStage}">
-                    <i:InvokeCommandAction Command="{Binding DoSomethingCommand, Mode=OneWay}"/>
-                </ei:PropertyChangedTrigger>
+                <ei:DataTrigger Binding="{Binding YellowSecondStageClicked}" Value="True">
+                    <ei:ControlStoryboardAction Storyboard="{StaticResource YellowAnimationSecondStage}"/>
+                    <ei:ControlStoryboardAction Storyboard="{StaticResource SecondStageCompleted}"/>
+                </ei:DataTrigger>
             </i:Interaction.Triggers>
-            <Button.Triggers>
-                <EventTrigger RoutedEvent="Binding.TargetUpdated">
-                    <BeginStoryboard Storyboard="{StaticResource YellowAnimationSecondStage}" />
-                </EventTrigger>
-            </Button.Triggers>
         </Button>
 
         <Button x:Name="UpperRightSecondStage" Template="{StaticResource TobiiButton}" BorderThickness="0" Grid.Row="0" Grid.Column="3" Visibility="Collapsed" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="3000" Style="{StaticResource TobiiButtonStyle}" Background="Red">
             <i:Interaction.Triggers>
-                <ei:PropertyChangedTrigger Binding="{Binding Content, ElementName=UpperRightSecondStage}">
-                    <i:InvokeCommandAction Command="{Binding DoSomethingCommand, Mode=OneWay}"/>
-                </ei:PropertyChangedTrigger>
+                <ei:DataTrigger Binding="{Binding RedSecondStageClicked}" Value="True">
+                    <ei:ControlStoryboardAction Storyboard="{StaticResource RedAnimationSecondStage}"/>
+                    <ei:ControlStoryboardAction Storyboard="{StaticResource SecondStageCompleted}"/>
+                </ei:DataTrigger>
             </i:Interaction.Triggers>
-            <Button.Triggers>
-                <EventTrigger RoutedEvent="Binding.TargetUpdated">
-                    <BeginStoryboard Storyboard="{StaticResource RedAnimationSecondStage}" />
-                </EventTrigger>
-            </Button.Triggers>
         </Button>
 
+        <Grid Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.5*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1.5*" />
+            </Grid.ColumnDefinitions>
+            <Button x:Name="ResetButton" Visibility="Collapsed" Grid.Column="1" Background="Aquamarine" >
+                <Button.Triggers>
+                    <EventTrigger RoutedEvent="Button.Click">
+                        <BeginStoryboard Storyboard="{StaticResource Reset}" />
+                    </EventTrigger>
+                </Button.Triggers>
+            </Button>
+        </Grid>
+        
         <Rectangle Name="BlueBig" Grid.Row="1" Grid.Column="1" Fill="Blue" >
             
         </Rectangle>

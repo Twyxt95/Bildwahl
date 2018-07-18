@@ -1,7 +1,11 @@
 ﻿using System;
+using System.ComponentModel;
+using System.Windows;
+using System.Windows.Controls;
 using Bildwahl.DataAccess;
 using Bildwahl.Model;
 using Bildwahl.Properties;
+using Tobii.Interaction.Wpf;
 
 namespace Bildwahl.ViewModel
 {
@@ -10,6 +14,7 @@ namespace Bildwahl.ViewModel
         readonly ScenarioRepository _scenarioRepository;
         readonly string _scenarioName;
         Scenario scenario;
+        private bool _showInstruction;
         public TobiiViewModel(ScenarioRepository scenarioRepository, string scenarioName)
         {
             base.DisplayName = Strings.TobiiViewModel_DisplayName;
@@ -231,7 +236,88 @@ namespace Bildwahl.ViewModel
                 base.OnPropertyChanged("YellowYellow");
             }
         }
-#endregion
+        #endregion
 
+
+
+
+        public bool ShowInstruction
+        {
+            get { return _showInstruction; }
+            private set
+            {
+                if (_showInstruction != value)
+                {
+                    _showInstruction = value;
+                    base.OnPropertyChanged("ShowInstruction");
+                }
+            }
+        }
+
+        public bool BlueClicked { get; private set; }
+        public bool GreenClicked { get; private set; }
+        public bool RedClicked { get; private set; }
+        public bool YellowClicked { get; private set; }
+
+        public bool BlueSecondStageClicked { get; private set; }
+        public bool GreenSecondStageClicked { get; private set; }
+        public bool RedSecondStageClicked { get; private set; }
+        public bool YellowSecondStageClicked { get; private set; }
+
+        public void NotifyInstructionHasGazeChanged(bool hasGaze, string name)
+        {
+            if (hasGaze)  
+            {
+                Console.WriteLine(name);
+                switch (name)
+                {
+                    case "UpperLeft":
+                        BlueClicked = true;
+                        Console.WriteLine("eins");
+                        base.OnPropertyChanged("BlueClicked");
+                        break;
+                    case "LowerLeft":
+                        GreenClicked = true;
+                        Console.WriteLine("zwei");
+                        base.OnPropertyChanged("GreenClicked");
+                        break;
+                    case "UpperRight":
+                        RedClicked = true;
+                        Console.WriteLine("eins");
+                        base.OnPropertyChanged("RedClicked");
+                        break;
+                    case "LowerRight":
+                        YellowClicked = true;
+                        Console.WriteLine("zwei");
+                        base.OnPropertyChanged("YellowClicked");
+                        break;
+                    case "UpperLeftSecondStage":
+                        BlueSecondStageClicked = true;
+                        Console.WriteLine("eins");
+                        base.OnPropertyChanged("BlueSecondStageClicked");
+                        break;
+                    case "LowerLeftSecondStage":
+                        GreenSecondStageClicked = true;
+                        Console.WriteLine("zwei");
+                        base.OnPropertyChanged("GreenSecondStageClicked");
+                        break;
+                    case "UpperRightSecondStage":
+                        RedSecondStageClicked = true;
+                        Console.WriteLine("eins");
+                        base.OnPropertyChanged("RedSecondStageClicked");
+                        break;
+                    case "LowerRightSecondStage":
+                        YellowSecondStageClicked = true;
+                        Console.WriteLine("zwei");
+                        base.OnPropertyChanged("YellowSecondStageClicked");
+                        break;
+                }
+            }
+        }
+
+        public void CloseInstruction()
+        {
+            ShowInstruction = false;
+        }
     }
 }
