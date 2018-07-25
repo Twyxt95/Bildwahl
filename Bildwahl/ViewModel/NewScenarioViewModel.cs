@@ -780,7 +780,6 @@ namespace Bildwahl.ViewModel
                 case "BlueBlue":
                     this.BlueBlue = null;
                     _scenario.BlueBlue = null;
-                    base.OnPropertyChanged("IsBlueBlueSaved");
                     break;
                 case "BlueRed":
                     this.BlueRed = null;
@@ -876,7 +875,6 @@ namespace Bildwahl.ViewModel
                         case "BlueBlue":
                             this.BlueBlue = destination;
                             _scenario.BlueBlue = destination;
-                            base.OnPropertyChanged("IsBlueBlueSaved");
                             break;
                         case "BlueRed":
                             this.BlueRed = destination;
@@ -950,7 +948,7 @@ namespace Bildwahl.ViewModel
                 }
                 catch
                 {
-                    Console.WriteLine("ERrOR");
+                    Console.WriteLine("ERROR");
                 }
             }
         }

@@ -263,6 +263,7 @@ namespace Bildwahl.ViewModel
         public bool GreenSecondStageClicked { get; private set; }
         public bool RedSecondStageClicked { get; private set; }
         public bool YellowSecondStageClicked { get; private set; }
+        public bool ResetClicked { get; private set; }
 
         public void NotifyInstructionHasGazeChanged(bool hasGaze, string name)
         {
@@ -273,43 +274,39 @@ namespace Bildwahl.ViewModel
                 {
                     case "UpperLeft":
                         BlueClicked = true;
-                        Console.WriteLine("eins");
                         base.OnPropertyChanged("BlueClicked");
                         break;
                     case "LowerLeft":
                         GreenClicked = true;
-                        Console.WriteLine("zwei");
                         base.OnPropertyChanged("GreenClicked");
                         break;
                     case "UpperRight":
                         RedClicked = true;
-                        Console.WriteLine("eins");
                         base.OnPropertyChanged("RedClicked");
                         break;
                     case "LowerRight":
                         YellowClicked = true;
-                        Console.WriteLine("zwei");
                         base.OnPropertyChanged("YellowClicked");
                         break;
                     case "UpperLeftSecondStage":
                         BlueSecondStageClicked = true;
-                        Console.WriteLine("eins");
                         base.OnPropertyChanged("BlueSecondStageClicked");
                         break;
                     case "LowerLeftSecondStage":
                         GreenSecondStageClicked = true;
-                        Console.WriteLine("zwei");
                         base.OnPropertyChanged("GreenSecondStageClicked");
                         break;
                     case "UpperRightSecondStage":
                         RedSecondStageClicked = true;
-                        Console.WriteLine("eins");
                         base.OnPropertyChanged("RedSecondStageClicked");
                         break;
                     case "LowerRightSecondStage":
                         YellowSecondStageClicked = true;
-                        Console.WriteLine("zwei");
                         base.OnPropertyChanged("YellowSecondStageClicked");
+                        break;
+                    case "Reset":
+                        ResetClicked = true;
+                        base.OnPropertyChanged("ResetClicked");
                         break;
                 }
             }

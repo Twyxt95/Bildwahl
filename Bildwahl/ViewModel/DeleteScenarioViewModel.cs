@@ -143,6 +143,25 @@ namespace Bildwahl.ViewModel
             int index = AllScenarios.IndexOf(AllScenarios.Where(p => p.IsSelected == true).FirstOrDefault());
             Scenario scenario = AllScenarios.ElementAt(index);
             _scenarioRepository.DeleteScenario(scenario);
+            BlueBlue = null;
+            BlueRed = null;
+            BlueGreen = null;
+            BlueYellow = null;
+
+            RedBlue = null;
+            RedRed = null;
+            RedGreen = null;
+            RedYellow = null;
+
+            GreenBlue = null;
+            GreenRed = null;
+            GreenGreen = null;
+            GreenYellow = null;
+
+            YellowBlue = null;
+            YellowRed = null;
+            YellowGreen = null;
+            YellowYellow = null;
         }
 
         public string Titel

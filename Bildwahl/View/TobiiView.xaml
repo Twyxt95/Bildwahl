@@ -831,22 +831,8 @@
             To="2*" />
         </Storyboard>
 
-        
-
         <Style x:Key="TobiiButtonStyle" TargetType="{x:Type Button}">
-            
             <EventSetter Event="tobii:Behaviors.HasGazeChanged" Handler="Instruction_OnHasGazeChanged" />
-            <!--<Setter Property="Foreground" Value="Green"/>
-            <Style.Triggers>
-                <MultiTrigger>
-                    <MultiTrigger.Conditions>
-                        <Condition Property="tobii:Behaviors.HasGaze" Value="True" />
-                        <Condition Property="Visibility" Value="Visible" />
-                    </MultiTrigger.Conditions>
-                    <Setter Property="Button.Foreground" Value="Beige"/>
-                    
-                </MultiTrigger>
-            </Style.Triggers>-->
         </Style>
 
         <ControlTemplate x:Key="TobiiButton" TargetType="{x:Type ButtonBase}">
@@ -856,50 +842,8 @@
             <ControlTemplate.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
                 </Trigger>
-                
-               <!-- <DataTrigger Binding="{Binding ShowInstruction}" Value="True">
-                    
-                    <DataTrigger.EnterActions>
-                        
-                        <BeginStoryboard Storyboard="{StaticResource BlueAnimation}"/>
-                        <BeginStoryboard Storyboard="{StaticResource SecondStageActivated}"/>
-                    </DataTrigger.EnterActions>
-                </DataTrigger>-->
-
             </ControlTemplate.Triggers>
         </ControlTemplate>
-
-        <!--<Style x:Key="UpperLeftStyle" TargetType="{x:Type Button}">
-            <EventSetter Event="tobii:Behaviors.HasGazeChanged" Handler="{ Binding Instruction_OnHasGazeChanged}" />
-            
-
-            <Style.Triggers>
-                <DataTrigger Binding="{Binding ShowInstruction}" Value="True">
-                    <DataTrigger.EnterActions>
-                        <BeginStoryboard Storyboard="{StaticResource BlueAnimation}"/>
-                    </DataTrigger.EnterActions>
-                </DataTrigger>
-                
-                <Trigger Property="tobii:Behaviors.HasGaze" Value="True">
-                    <Setter Property="Visibility" Value="Collapsed"/>
-                    
-                    <Trigger.EnterActions>
-                        
-                        <BeginStoryboard Storyboard="{StaticResource BlueAnimation}"/>
-                    </Trigger.EnterActions>
-                </Trigger>
-            </Style.Triggers>
-        </Style> -->
-
-        <Style x:Key="UpperLeftSecondStageStyle" TargetType="{x:Type Button}">
-            <Style.Triggers>
-                <Trigger Property="tobii:Behaviors.HasGaze" Value="True">
-                    <Trigger.EnterActions>
-                        <BeginStoryboard Storyboard="{StaticResource BlueAnimationSecondStage}"/>
-                    </Trigger.EnterActions>
-                </Trigger>
-            </Style.Triggers>
-        </Style>
     </UserControl.Resources>
     
     <Grid Name="grid">
@@ -924,29 +868,6 @@
                     <ei:ControlStoryboardAction Storyboard="{StaticResource SecondStageActivated}"/>
                 </ei:DataTrigger>
             </i:Interaction.Triggers>
-            
-            <!-- <Button.Triggers>
-                <EventTrigger RoutedEvent="tobii:Behaviors.HasGazeChanged">
-                    <BeginStoryboard Storyboard="{StaticResource BlueAnimation}"/>
-                    <BeginStoryboard Storyboard="{StaticResource SecondStageActivated}"/>
-                </EventTrigger>
-            </Button.Triggers>
-            <Button.Style>
-                <Style>
-                    <EventSetter Event="tobii:Behaviors.HasGazeChanged" Handler="Instruction_OnHasGazeChanged" />
-
-
-                    <Style.Triggers>
-                        <DataTrigger Binding="{Binding ShowInstruction}" Value="True">
-                            <DataTrigger.EnterActions>
-                                <BeginStoryboard Storyboard="{StaticResource BlueAnimation}"/>
-                                
-                            </DataTrigger.EnterActions>
-                        </DataTrigger>
-                    </Style.Triggers>
-                </Style>
-            </Button.Style>-->
-
         </Button>
 
         <Button x:Name="LowerLeft" Template="{StaticResource TobiiButton}" BorderThickness="0" Grid.Row="3" Grid.Column="0" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="1000" Style="{StaticResource TobiiButtonStyle}"  Background="Green">
@@ -956,21 +877,6 @@
                     <ei:ControlStoryboardAction Storyboard="{StaticResource SecondStageActivated}"/>
                 </ei:DataTrigger>
             </i:Interaction.Triggers>
-            <!-- <Button.Style>
-                <Style>
-                    <EventSetter Event="tobii:Behaviors.HasGazeChanged" Handler="Instruction_OnHasGazeChanged" />
-
-
-                    <Style.Triggers>
-                        <DataTrigger Binding="{Binding ShowInstruction}" Value="True">
-                            <DataTrigger.EnterActions>
-                                <BeginStoryboard Storyboard="{StaticResource GreenAnimation}"/>
-                                
-                            </DataTrigger.EnterActions>
-                        </DataTrigger>
-                    </Style.Triggers>
-                </Style>
-            </Button.Style>-->
         </Button>
 
         <Button x:Name="LowerRight" Template="{StaticResource TobiiButton}" BorderThickness="0" Grid.Row="3" Grid.Column="3" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="1000" Style="{StaticResource TobiiButtonStyle}" Background="Yellow">
@@ -1034,12 +940,17 @@
                 <ColumnDefinition Width="1*" />
                 <ColumnDefinition Width="1.5*" />
             </Grid.ColumnDefinitions>
-            <Button x:Name="ResetButton" Visibility="Collapsed" Grid.Column="1" Background="Aquamarine" >
+            <Button x:Name="ResetButton" Template="{StaticResource TobiiButton}" Content="Löschen" Visibility="Collapsed" Grid.Column="1" Background="Aquamarine" Style="{StaticResource TobiiButtonStyle}">
                 <Button.Triggers>
                     <EventTrigger RoutedEvent="Button.Click">
                         <BeginStoryboard Storyboard="{StaticResource Reset}" />
                     </EventTrigger>
                 </Button.Triggers>
+                <i:Interaction.Triggers>
+                    <ei:DataTrigger Binding="{Binding ResetClicked}" Value="True">
+                        <ei:ControlStoryboardAction Storyboard="{StaticResource Reset}"/>
+                    </ei:DataTrigger>
+                </i:Interaction.Triggers>
             </Button>
         </Grid>
         
