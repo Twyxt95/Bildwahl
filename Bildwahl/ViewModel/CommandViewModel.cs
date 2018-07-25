@@ -10,11 +10,8 @@ namespace Bildwahl.ViewModel
     {
         public CommandViewModel(string displayName, ICommand command)
         {
-            if (command == null)
-                throw new ArgumentNullException("command");
-
             base.DisplayName = displayName;
-            this.Command = command;
+            this.Command = command ?? throw new ArgumentNullException("command");
         }
 
         public ICommand Command { get; private set; }

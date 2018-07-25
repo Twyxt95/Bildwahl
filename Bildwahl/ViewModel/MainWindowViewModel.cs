@@ -20,7 +20,7 @@ namespace Bildwahl.ViewModel
         #region Fields
 
         ObservableCollection<CommandViewModel> _commands;
-        readonly ScenarioRepository _imageLinksRepository;
+        readonly ScenarioRepository _scenarioRepository;
         ObservableCollection<WorkspaceViewModel> _workspaces;
 
         #endregion // Fields
@@ -30,9 +30,9 @@ namespace Bildwahl.ViewModel
         public MainWindowViewModel(string scenarioDataFile)
         {
             base.DisplayName = Strings.MainWindowViewModel_DisplayName;
-            _imageLinksRepository = new ScenarioRepository(scenarioDataFile);
-            _imageLinksRepository.ScenarioAdded += this.OnScenarioAddedToRepository;
-            _imageLinksRepository.ScenarioDeleted += this.OnScenarioDeletedFromRepository;
+            _scenarioRepository = new ScenarioRepository(scenarioDataFile);
+            _scenarioRepository.ScenarioAdded += this.OnScenarioAddedToRepository;
+            _scenarioRepository.ScenarioDeleted += this.OnScenarioDeletedFromRepository;
         }
 
         #endregion // Constructor
@@ -60,7 +60,7 @@ namespace Bildwahl.ViewModel
         {
             int i = 0;
             List<Scenario> all =
-                 _imageLinksRepository.GetScenarios();
+                 _scenarioRepository.GetScenarios();
             List<CommandViewModel> list = new List<CommandViewModel> { };
             
             for (i = 0; i <= all.Count - 1; i++)
@@ -129,7 +129,7 @@ namespace Bildwahl.ViewModel
         void CreateNewScenario()
         {
             Scenario newScenario = Scenario.CreateNewScenario();
-            NewScenarioViewModel workspace = new NewScenarioViewModel(newScenario, _imageLinksRepository);
+            NewScenarioViewModel workspace = new NewScenarioViewModel(newScenario, _scenarioRepository);
             this.Workspaces.Add(workspace);
             this.SetActiveWorkspace(workspace);
         }
@@ -140,7 +140,7 @@ namespace Bildwahl.ViewModel
                 this.Workspaces.FirstOrDefault(vm => vm is TobiiViewModel)
                 as TobiiViewModel;
 
-                workspace = new TobiiViewModel(_imageLinksRepository, scenario);
+                workspace = new TobiiViewModel(_scenarioRepository, scenario);
                 this.Workspaces.Add(workspace);
 
             this.SetActiveWorkspace(workspace);
@@ -155,7 +155,7 @@ namespace Bildwahl.ViewModel
 
             if (workspace == null)
             {
-                workspace = new DeleteScenarioViewModel(_imageLinksRepository);
+                workspace = new DeleteScenarioViewModel(_scenarioRepository);
                 this.Workspaces.Add(workspace);
             }
 
@@ -174,10 +174,11 @@ namespace Bildwahl.ViewModel
         void OnScenarioAddedToRepository(object sender, ScenarioAddedEventArgs e)
         {
             List<Scenario> all =
-                 _imageLinksRepository.GetScenarios();
+                 _scenarioRepository.GetScenarios();
             this.Commands.Add(new CommandViewModel(
                     all.ElementAt(all.Count()-1).Titel,
                      new RelayCommand(param => this.ShowScenario(all.ElementAt(all.Count() - 1).Titel))));
+            this.ShowScenario(all.ElementAt(all.Count() - 1).Titel);
         }
 
         void OnScenarioDeletedFromRepository(object sender, ScenarioDeletedEventArgs e)

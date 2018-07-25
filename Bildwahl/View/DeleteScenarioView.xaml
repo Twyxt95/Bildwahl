@@ -629,7 +629,6 @@
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
         <ListView Name="lv" Grid.Column="1" Grid.Row="1" Grid.RowSpan="6" AlternationCount="1" ItemContainerStyle="{StaticResource CustomerItemStyle}" ItemsSource="{Binding AllScenarios}">
-
             <ListView.View>
                 <GridView ColumnHeaderContainerStyle="{StaticResource GridViewColumnHeaderStyle}">
                     <GridViewColumn Header="Titel" DisplayMemberBinding="{Binding Path=Titel}"/>

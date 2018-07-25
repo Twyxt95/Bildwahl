@@ -834,6 +834,7 @@
         
 
         <Style x:Key="TobiiButtonStyle" TargetType="{x:Type Button}">
+            
             <EventSetter Event="tobii:Behaviors.HasGazeChanged" Handler="Instruction_OnHasGazeChanged" />
             <!--<Setter Property="Foreground" Value="Green"/>
             <Style.Triggers>
@@ -855,6 +856,7 @@
             <ControlTemplate.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
                 </Trigger>
+                
                <!-- <DataTrigger Binding="{Binding ShowInstruction}" Value="True">
                     
                     <DataTrigger.EnterActions>
@@ -915,14 +917,15 @@
         </Grid.RowDefinitions>
 
 
-        <Button x:Name="UpperLeft" Template="{StaticResource TobiiButton}"  BorderThickness="0" Grid.Row="0" Grid.Column="0" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="3000" Style="{StaticResource TobiiButtonStyle}" Background="Blue">
+        <Button x:Name="UpperLeft" Template="{StaticResource TobiiButton}"  BorderThickness="0" Grid.Row="0" Grid.Column="0" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="1000" Style="{StaticResource TobiiButtonStyle}" Background="Blue">
             <i:Interaction.Triggers>
                 <ei:DataTrigger Binding="{Binding BlueClicked}" Value="True">
                     <ei:ControlStoryboardAction Storyboard="{StaticResource BlueAnimation}"/>
                     <ei:ControlStoryboardAction Storyboard="{StaticResource SecondStageActivated}"/>
                 </ei:DataTrigger>
             </i:Interaction.Triggers>
-           <!-- <Button.Triggers>
+            
+            <!-- <Button.Triggers>
                 <EventTrigger RoutedEvent="tobii:Behaviors.HasGazeChanged">
                     <BeginStoryboard Storyboard="{StaticResource BlueAnimation}"/>
                     <BeginStoryboard Storyboard="{StaticResource SecondStageActivated}"/>
@@ -946,7 +949,7 @@
 
         </Button>
 
-        <Button x:Name="LowerLeft" Template="{StaticResource TobiiButton}" BorderThickness="0" Grid.Row="3" Grid.Column="0" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="3000" Style="{StaticResource TobiiButtonStyle}"  Background="Green">
+        <Button x:Name="LowerLeft" Template="{StaticResource TobiiButton}" BorderThickness="0" Grid.Row="3" Grid.Column="0" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="1000" Style="{StaticResource TobiiButtonStyle}"  Background="Green">
             <i:Interaction.Triggers>
                 <ei:DataTrigger Binding="{Binding GreenClicked}" Value="True">
                     <ei:ControlStoryboardAction Storyboard="{StaticResource GreenAnimation}"/>
@@ -970,7 +973,7 @@
             </Button.Style>-->
         </Button>
 
-        <Button x:Name="LowerRight" Template="{StaticResource TobiiButton}" BorderThickness="0" Grid.Row="3" Grid.Column="3" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="3000" Style="{StaticResource TobiiButtonStyle}" Background="Yellow">
+        <Button x:Name="LowerRight" Template="{StaticResource TobiiButton}" BorderThickness="0" Grid.Row="3" Grid.Column="3" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="1000" Style="{StaticResource TobiiButtonStyle}" Background="Yellow">
             <i:Interaction.Triggers>
                 <ei:DataTrigger Binding="{Binding YellowClicked}" Value="True">
                     <ei:ControlStoryboardAction Storyboard="{StaticResource YellowAnimation}"/>
@@ -979,7 +982,7 @@
             </i:Interaction.Triggers>
         </Button>
 
-        <Button x:Name="UpperRight" Template="{StaticResource TobiiButton}" BorderThickness="0" Grid.Row="0" Grid.Column="3" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="3000" Style="{StaticResource TobiiButtonStyle}" Background="Red">
+        <Button x:Name="UpperRight" Template="{StaticResource TobiiButton}" BorderThickness="0" Grid.Row="0" Grid.Column="3" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="1000" Style="{StaticResource TobiiButtonStyle}" Background="Red">
             <i:Interaction.Triggers>
                 <ei:DataTrigger Binding="{Binding RedClicked}" Value="True">
                     <ei:ControlStoryboardAction Storyboard="{StaticResource RedAnimation}"/>
@@ -988,7 +991,7 @@
             </i:Interaction.Triggers>
         </Button>
 
-        <Button x:Name="UpperLeftSecondStage" Template="{StaticResource TobiiButton}" BorderThickness="0" Grid.Row="0" Grid.Column="0" Visibility="Collapsed" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="3000" Style="{StaticResource TobiiButtonStyle}" Background="Purple">
+        <Button x:Name="UpperLeftSecondStage" Template="{StaticResource TobiiButton}" BorderThickness="0" Grid.Row="0" Grid.Column="0" Visibility="Collapsed" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="1000" Style="{StaticResource TobiiButtonStyle}" Background="Blue">
             <i:Interaction.Triggers>
                 <ei:DataTrigger Binding="{Binding BlueSecondStageClicked}" Value="True">
                     <ei:ControlStoryboardAction Storyboard="{StaticResource BlueAnimationSecondStage}"/>
@@ -997,7 +1000,7 @@
             </i:Interaction.Triggers>
         </Button>
 
-        <Button x:Name="LowerLeftSecondStage"  Template="{StaticResource TobiiButton}" BorderThickness="0" Grid.Row="3" Grid.Column="0" Visibility="Collapsed" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="3000" Style="{StaticResource TobiiButtonStyle}" Background="Green">
+        <Button x:Name="LowerLeftSecondStage"  Template="{StaticResource TobiiButton}" BorderThickness="0" Grid.Row="3" Grid.Column="0" Visibility="Collapsed" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="1000" Style="{StaticResource TobiiButtonStyle}" Background="Green">
             <i:Interaction.Triggers>
                 <ei:DataTrigger Binding="{Binding GreenSecondStageClicked}" Value="True">
                     <ei:ControlStoryboardAction Storyboard="{StaticResource GreenAnimationSecondStage}"/>
@@ -1007,7 +1010,7 @@
             
         </Button>
 
-        <Button x:Name="LowerRightSecondStage" Template="{StaticResource TobiiButton}" BorderThickness="0" Grid.Row="3" Grid.Column="3" Visibility="Collapsed" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="3000" Style="{StaticResource TobiiButtonStyle}" Background="Yellow">
+        <Button x:Name="LowerRightSecondStage" Template="{StaticResource TobiiButton}" BorderThickness="0" Grid.Row="3" Grid.Column="3" Visibility="Collapsed" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="1000" Style="{StaticResource TobiiButtonStyle}" Background="Yellow">
             <i:Interaction.Triggers>
                 <ei:DataTrigger Binding="{Binding YellowSecondStageClicked}" Value="True">
                     <ei:ControlStoryboardAction Storyboard="{StaticResource YellowAnimationSecondStage}"/>
@@ -1016,7 +1019,7 @@
             </i:Interaction.Triggers>
         </Button>
 
-        <Button x:Name="UpperRightSecondStage" Template="{StaticResource TobiiButton}" BorderThickness="0" Grid.Row="0" Grid.Column="3" Visibility="Collapsed" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="3000" Style="{StaticResource TobiiButtonStyle}" Background="Red">
+        <Button x:Name="UpperRightSecondStage" Template="{StaticResource TobiiButton}" BorderThickness="0" Grid.Row="0" Grid.Column="3" Visibility="Collapsed" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="1000" Style="{StaticResource TobiiButtonStyle}" Background="Red">
             <i:Interaction.Triggers>
                 <ei:DataTrigger Binding="{Binding RedSecondStageClicked}" Value="True">
                     <ei:ControlStoryboardAction Storyboard="{StaticResource RedAnimationSecondStage}"/>

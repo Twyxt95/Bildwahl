@@ -34,7 +34,6 @@ namespace Bildwahl.ViewModel
         RelayCommand _deleteImageCommandYellowGreen;
         RelayCommand _deleteImageCommandYellowYellow;
 
-        RelayCommand _saveCommand;
         RelayCommand _saveImageCommandBlueBlue;
         RelayCommand _saveImageCommandBlueRed;
         RelayCommand _saveImageCommandBlueGreen;
@@ -82,7 +81,6 @@ namespace Bildwahl.ViewModel
         void OnScenarioPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             string IsSelected = "IsSelected";
-            Console.WriteLine("select");
             // Make sure that the property name we're referencing is valid.
             // This is a debugging technique, and does not execute in a Release build.
             (sender as Scenario).VerifyPropertyName(IsSelected);
@@ -143,7 +141,6 @@ namespace Bildwahl.ViewModel
         public void Delete()
         {
             int index = AllScenarios.IndexOf(AllScenarios.Where(p => p.IsSelected == true).FirstOrDefault());
-            Console.WriteLine(index + "HERE!!!!!!");
             Scenario scenario = AllScenarios.ElementAt(index);
             _scenarioRepository.DeleteScenario(scenario);
         }
