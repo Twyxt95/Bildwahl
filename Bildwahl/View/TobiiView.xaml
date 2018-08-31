@@ -940,7 +940,7 @@
                 <ColumnDefinition Width="1*" />
                 <ColumnDefinition Width="1.5*" />
             </Grid.ColumnDefinitions>
-            <Button x:Name="ResetButton" Template="{StaticResource TobiiButton}" Content="Löschen" Visibility="Collapsed" Grid.Column="1" Background="Aquamarine" Style="{StaticResource TobiiButtonStyle}">
+            <Button x:Name="ResetButton" Template="{StaticResource TobiiButton}" BorderThickness="0" Content="Zurück" Visibility="Collapsed" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="2000" Grid.Column="1" Background="Aquamarine" Style="{StaticResource TobiiButtonStyle}">
                 <Button.Triggers>
                     <EventTrigger RoutedEvent="Button.Click">
                         <BeginStoryboard Storyboard="{StaticResource Reset}" />
@@ -959,16 +959,16 @@
         </Rectangle>
         <Grid Name="BlueGrid" Grid.Row="1" Grid.Column="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="0.5*" />
                 <ColumnDefinition x:Name="FirstContentColumnSecondStageBlue" Width="2*" />
                 <ColumnDefinition x:Name="SecondContentColumnSecondStageBlue" Width="2*" />
-                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="0.5*" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="1*" />
+                <RowDefinition Height="0.5*" />
                 <RowDefinition x:Name="FirstContentRowSecondStageBlue" Height="2*" />
                 <RowDefinition x:Name="SecondContentRowSecondStageBlue" Height="2*" />
-                <RowDefinition Height="1*" />
+                <RowDefinition Height="0.5*" />
             </Grid.RowDefinitions>
 
             <Rectangle Name="BlueSmall" Grid.Row="1" Grid.Column="1" Stroke="Black" Fill="Blue" />
@@ -1036,16 +1036,16 @@
         </Rectangle>
         <Grid Name="RedGrid" Grid.Row="1" Grid.Column="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="0.5*" />
                 <ColumnDefinition x:Name="FirstContentColumnSecondStageRed" Width="2*" />
                 <ColumnDefinition x:Name="SecondContentColumnSecondStageRed" Width="2*" />
-                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="0.5*" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="1*" />
+                <RowDefinition Height="0.5*" />
                 <RowDefinition x:Name="FirstContentRowSecondStageRed" Height="2*" />
                 <RowDefinition x:Name="SecondContentRowSecondStageRed" Height="2*" />
-                <RowDefinition Height="1*" />
+                <RowDefinition Height="0.5*" />
             </Grid.RowDefinitions>
 
             <Rectangle Name="BlueSmallRed" Grid.Row="1" Grid.Column="1" Stroke="Black" Fill="Blue" />
@@ -1113,16 +1113,16 @@
 
         <Grid Name="GreenGrid" Grid.Row="2" Grid.Column="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="0.5*" />
                 <ColumnDefinition x:Name="FirstContentColumnSecondStageGreen" Width="2*" />
                 <ColumnDefinition x:Name="SecondContentColumnSecondStageGreen" Width="2*" />
-                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="0.5*" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="1*" />
+                <RowDefinition Height="0.5*" />
                 <RowDefinition x:Name="FirstContentRowSecondStageGreen" Height="2*" />
                 <RowDefinition x:Name="SecondContentRowSecondStageGreen" Height="2*" />
-                <RowDefinition Height="1*" />
+                <RowDefinition Height="0.5*" />
             </Grid.RowDefinitions>
             
             <Rectangle Name="BlueSmallGreen" Grid.Row="1" Grid.Column="1" Stroke="Black" Fill="Blue"/>
@@ -1190,16 +1190,16 @@
 
         <Grid Name="YellowGrid" Grid.Row="2" Grid.Column="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="0.5*" />
                 <ColumnDefinition x:Name="FirstContentColumnSecondStageYellow" Width="2*" />
                 <ColumnDefinition x:Name="SecondContentColumnSecondStageYellow" Width="2*" />
-                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="0.5*" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="1*" />
+                <RowDefinition Height="0.5*" />
                 <RowDefinition x:Name="FirstContentRowSecondStageYellow" Height="2*" />
                 <RowDefinition x:Name="SecondContentRowSecondStageYellow" Height="2*" />
-                <RowDefinition Height="1*" />
+                <RowDefinition Height="0.5*" />
             </Grid.RowDefinitions>
 
             <Rectangle Name="BlueSmallYellow" Grid.Row="1" Grid.Column="1" Stroke="Black" Fill="Blue"/>

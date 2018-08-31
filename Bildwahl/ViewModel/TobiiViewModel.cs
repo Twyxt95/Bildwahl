@@ -238,22 +238,6 @@ namespace Bildwahl.ViewModel
         }
         #endregion
 
-
-
-
-        public bool ShowInstruction
-        {
-            get { return _showInstruction; }
-            private set
-            {
-                if (_showInstruction != value)
-                {
-                    _showInstruction = value;
-                    base.OnPropertyChanged("ShowInstruction");
-                }
-            }
-        }
-
         public bool BlueClicked { get; private set; }
         public bool GreenClicked { get; private set; }
         public bool RedClicked { get; private set; }
@@ -265,11 +249,10 @@ namespace Bildwahl.ViewModel
         public bool YellowSecondStageClicked { get; private set; }
         public bool ResetClicked { get; private set; }
 
-        public void NotifyInstructionHasGazeChanged(bool hasGaze, string name)
+        public void NotifyHasGazeChanged(bool hasGaze, string name)
         {
             if (hasGaze)  
             {
-                Console.WriteLine(name);
                 switch (name)
                 {
                     case "UpperLeft":
@@ -304,17 +287,12 @@ namespace Bildwahl.ViewModel
                         YellowSecondStageClicked = true;
                         base.OnPropertyChanged("YellowSecondStageClicked");
                         break;
-                    case "Reset":
+                    case "ResetButton":
                         ResetClicked = true;
                         base.OnPropertyChanged("ResetClicked");
                         break;
                 }
             }
-        }
-
-        public void CloseInstruction()
-        {
-            ShowInstruction = false;
         }
     }
 }

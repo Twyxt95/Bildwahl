@@ -303,6 +303,27 @@ namespace Bildwahl.ViewModel
 
         #endregion
 
+        #region Bools
+        public bool BlueBlueImage { get; private set; }
+        public bool BlueRedImage { get; private set; }
+        public bool BlueGreenImage { get; private set; }
+        public bool BlueYellowImage { get; private set; }
+
+        public bool RedBlueImage { get; private set; }
+        public bool RedRedImage { get; private set; }
+        public bool RedGreenImage { get; private set; }
+        public bool RedYellowImage { get; private set; }
+
+        public bool GreenBlueImage { get; private set; }
+        public bool GreenRedImage { get; private set; }
+        public bool GreenGreenImage { get; private set; }
+        public bool GreenYellowImage { get; private set; }
+
+        public bool YellowBlueImage { get; private set; }
+        public bool YellowRedImage { get; private set; }
+        public bool YellowGreenImage { get; private set; }
+        public bool YellowYellowImage { get; private set; }
+        #endregion
 
         #endregion
 
@@ -780,69 +801,101 @@ namespace Bildwahl.ViewModel
                 case "BlueBlue":
                     this.BlueBlue = null;
                     _scenario.BlueBlue = null;
+                    BlueBlueImage = false;
+                    base.OnPropertyChanged("BlueBlueImage");
                     break;
                 case "BlueRed":
                     this.BlueRed = null;
                     _scenario.BlueRed = null;
+                    BlueRedImage = false;
+                    base.OnPropertyChanged("BlueRedImage");
                     break;
                 case "BlueGreen":
                     this.BlueGreen = null;
                     _scenario.BlueGreen = null;
+                    BlueGreenImage = false;
+                    base.OnPropertyChanged("BlueGreenImage");
                     break;
                 case "BlueYellow":
                     this.BlueYellow = null;
                     _scenario.BlueYellow = null;
+                    BlueYellowImage = false;
+                    base.OnPropertyChanged("BlueYellowImage");
                     break;
 
                 case "RedBlue":
                     this.RedBlue = null;
                     _scenario.RedBlue = null;
+                    RedBlueImage = false;
+                    base.OnPropertyChanged("RedBlueImage");
                     break;
                 case "RedRed":
                     this.RedRed = null;
                     _scenario.RedRed = null;
+                    RedRedImage = false;
+                    base.OnPropertyChanged("RedRedImage");
                     break;
                 case "RedGreen":
                     this.RedGreen = null;
                     _scenario.RedGreen = null;
+                    RedGreenImage = false;
+                    base.OnPropertyChanged("RedGreenImage");
                     break;
                 case "RedYellow":
                     this.RedYellow = null;
                     _scenario.RedYellow = null;
+                    RedYellowImage = false;
+                    base.OnPropertyChanged("RedYellowImage");
                     break;
 
                 case "GreenBlue":
                     this.GreenBlue = null;
                     _scenario.GreenBlue = null;
+                    GreenBlueImage = false;
+                    base.OnPropertyChanged("GreenBlueImage");
                     break;
                 case "GreenRed":
                     this.GreenRed = null;
                     _scenario.GreenRed = null;
+                    GreenRedImage = false;
+                    base.OnPropertyChanged("GreenRedImage");
                     break;
                 case "GreenGreen":
                     this.GreenGreen = null;
                     _scenario.GreenGreen = null;
+                    GreenGreenImage = false;
+                    base.OnPropertyChanged("GreenGreenImage");
                     break;
                 case "GreenYellow":
                     this.GreenYellow = null;
                     _scenario.GreenYellow = null;
+                    GreenYellowImage = false;
+                    base.OnPropertyChanged("GreenYellowImage");
                     break;
 
                 case "YellowBlue":
                     this.YellowBlue = null;
                     _scenario.YellowBlue = null;
+                    YellowBlueImage = false;
+                    base.OnPropertyChanged("YellowBlueImage");
                     break;
                 case "YellowRed":
                     this.YellowRed = null;
                     _scenario.YellowRed = null;
+                    YellowRedImage = false;
+                    base.OnPropertyChanged("YellowRedImage");
                     break;
                 case "YellowGreen":
                     this.YellowGreen = null;
                     _scenario.YellowGreen = null;
+                    YellowGreenImage = false;
+                    base.OnPropertyChanged("YellowGreenImage");
                     break;
                 case "YellowYellow":
                     this.YellowYellow = null;
                     _scenario.YellowYellow = null;
+                    YellowYellowImage = false;
+                    base.OnPropertyChanged("YellowYellowImage");
                     break;
 
                 default:
@@ -861,83 +914,118 @@ namespace Bildwahl.ViewModel
             };
             if (_importImage.ShowDialog() == true)
             {
-                string ImportPath = _importImage.FileName;
-                string[] splittedPath = ImportPath.Split('\\');
+                string importPath = _importImage.FileName;
+                string[] splittedPath = importPath.Split('\\');
                 string fileName = splittedPath[splittedPath.Length - 1];
-                Console.WriteLine(ImportPath);
                 
                 try
                 {
-                    File.Copy(ImportPath, @"C:\Users\Adrian\Documents\Bildwahl\Bildwahl\Bildwahl\bin\Debug\Pictures\" + fileName, true);
-                    string destination = @"C:\Users\Adrian\Documents\Bildwahl\Bildwahl\Bildwahl\bin\Debug\Pictures\" + fileName;
+                    string directory = System.AppDomain.CurrentDomain.BaseDirectory;
+                    string destination = directory + @"\Pictures\" + fileName;
+                    Directory.CreateDirectory(directory + @"\Pictures\");
+                    if (!File.Exists(destination)){
+                        File.Copy(importPath, destination, true);
+                    }                  
                     switch (field)
                     {
                         case "BlueBlue":
                             this.BlueBlue = destination;
                             _scenario.BlueBlue = destination;
+                            BlueBlueImage = true;
+                            base.OnPropertyChanged("BlueBlueImage");
                             break;
                         case "BlueRed":
                             this.BlueRed = destination;
                             _scenario.BlueRed = destination;
+                            BlueRedImage = true;
+                            base.OnPropertyChanged("BlueRedImage");
                             break;
                         case "BlueGreen":
                             this.BlueGreen = destination;
                             _scenario.BlueGreen = destination;
+                            BlueGreenImage = true;
+                            base.OnPropertyChanged("BlueGreenImage");
                             break;
                         case "BlueYellow":
                             this.BlueYellow = destination;
                             _scenario.BlueYellow = destination;
+                            BlueYellowImage = true;
+                            base.OnPropertyChanged("BlueYellowImage");
                             break;
 
                         case "RedBlue":
                             this.RedBlue = destination;
                             _scenario.RedBlue = destination;
+                            RedBlueImage = true;
+                            base.OnPropertyChanged("RedBlueImage");
                             break;
                         case "RedRed":
                             this.RedRed = destination;
                             _scenario.RedRed = destination;
+                            RedRedImage = true;
+                            base.OnPropertyChanged("RedRedImage");
                             break;
                         case "RedGreen":
                             this.RedGreen = destination;
                             _scenario.RedGreen = destination;
+                            RedGreenImage = true;
+                            base.OnPropertyChanged("RedGreenImage");
                             break;
                         case "RedYellow":
                             this.RedYellow = destination;
                             _scenario.RedYellow = destination;
+                            RedYellowImage = true;
+                            base.OnPropertyChanged("RedYellowImage");
                             break;
 
                         case "GreenBlue":
                             this.GreenBlue = destination;
                             _scenario.GreenBlue = destination;
+                            GreenBlueImage = true;
+                            base.OnPropertyChanged("GreenBlueImage");
                             break;
                         case "GreenRed":
                             this.GreenRed = destination;
                             _scenario.GreenRed = destination;
+                            GreenRedImage = true;
+                            base.OnPropertyChanged("GreenRedImage");
                             break;
                         case "GreenGreen":
                             this.GreenGreen = destination;
                             _scenario.GreenGreen = destination;
+                            GreenGreenImage = true;
+                            base.OnPropertyChanged("GreenGreenImage");
                             break;
                         case "GreenYellow":
                             this.GreenYellow = destination;
                             _scenario.GreenYellow = destination;
+                            GreenYellowImage = true;
+                            base.OnPropertyChanged("GreenYellowImage");
                             break;
 
                         case "YellowBlue":
                             this.YellowBlue = destination;
                             _scenario.YellowBlue = destination;
+                            YellowBlueImage = true;
+                            base.OnPropertyChanged("YellowBlueImage");
                             break;
                         case "YellowRed":
                             this.YellowRed = destination;
                             _scenario.YellowRed = destination;
+                            YellowRedImage = true;
+                            base.OnPropertyChanged("YellowRedImage");
                             break;
                         case "YellowGreen":
                             this.YellowGreen = destination;
                             _scenario.YellowGreen = destination;
+                            YellowGreenImage = true;
+                            base.OnPropertyChanged("YellowGreenImage");
                             break;
                         case "YellowYellow":
                             this.YellowYellow = destination;
                             _scenario.YellowYellow = destination;
+                            YellowYellowImage = true;
+                            base.OnPropertyChanged("YellowYellowImage");
                             break;
 
                         default:

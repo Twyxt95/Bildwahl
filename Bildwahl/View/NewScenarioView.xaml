@@ -2,9 +2,9 @@
   x:Class="Bildwahl.View.NewScenarioView"
   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+  xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
   xmlns:vw="clr-namespace:Bildwahl.View"
- 
-
   >
     <UserControl.Resources>
         <Style x:Key="AddImageButtonStyle" TargetType="{x:Type Button}">
@@ -597,19 +597,30 @@
                 </Grid.RowDefinitions>
                 <Button x:Name="AddBlueBlue" Template="{StaticResource AddImageButtonTemplate}" Grid.Row="0" Grid.Column="2" Command="{Binding Path=SaveImageCommandBlueBlue}" Content="+" Style="{StaticResource AddImageButtonStyle}">
                     <Button.Triggers>
-                        <EventTrigger RoutedEvent="Button.Click" >
+                        <!--<EventTrigger RoutedEvent="Button.Click" >
                             <BeginStoryboard  Storyboard="{StaticResource AddBlueBlueStory}">
                             </BeginStoryboard>
-                        </EventTrigger>
+                        </EventTrigger>-->
                     </Button.Triggers>
+                    <i:Interaction.Triggers>
+                        <ei:DataTrigger Binding="{Binding BlueBlueImage}" Value="True">
+                            <ei:ControlStoryboardAction Storyboard="{StaticResource AddBlueBlueStory}"/>
+                        </ei:DataTrigger>
+                    </i:Interaction.Triggers>
                 </Button>
                 <Button x:Name="DeleteBlueBlue" Template="{StaticResource DeleteImageButtonTemplate}" Grid.Row="0" Grid.Column="2" Command="{Binding Path=DeleteImageCommandBlueBlue}" Visibility="Collapsed" Content="-" Style="{StaticResource DeleteImageButtonStyle}">
                     <Button.Triggers>
-                        <EventTrigger RoutedEvent="Button.Click" >
+                       <!-- <EventTrigger RoutedEvent="Button.Click" >
                             <BeginStoryboard  Storyboard="{StaticResource DeleteBlueBlueStory}">
                             </BeginStoryboard>
-                        </EventTrigger>
+                        </EventTrigger>-->
+                        
                     </Button.Triggers>
+                    <i:Interaction.Triggers>
+                        <ei:DataTrigger Binding="{Binding BlueBlueImage}" Value="False">
+                            <ei:ControlStoryboardAction Storyboard="{StaticResource DeleteBlueBlueStory}"/>
+                        </ei:DataTrigger>
+                    </i:Interaction.Triggers>
                 </Button>
             </Grid>
             
@@ -640,20 +651,18 @@
                     <RowDefinition Height="1*" />
                 </Grid.RowDefinitions>
                 <Button x:Name="AddBlueRed" Template="{StaticResource AddImageButtonTemplate}" Grid.Row="0" Grid.Column="2" Command="{Binding Path=SaveImageCommandBlueRed}" Content="+" Style="{StaticResource AddImageButtonStyle}">
-                    <Button.Triggers>
-                        <EventTrigger RoutedEvent="Button.Click" >
-                            <BeginStoryboard  Storyboard="{StaticResource AddBlueRedStory}">
-                            </BeginStoryboard>
-                        </EventTrigger>
-                    </Button.Triggers>
+                    <i:Interaction.Triggers>
+                        <ei:DataTrigger Binding="{Binding BlueRedImage}" Value="True">
+                            <ei:ControlStoryboardAction Storyboard="{StaticResource AddBlueRedStory}"/>
+                        </ei:DataTrigger>
+                    </i:Interaction.Triggers>
                 </Button>
                 <Button x:Name="DeleteBlueRed" Template="{StaticResource DeleteImageButtonTemplate}" Grid.Row="0" Grid.Column="2" Command="{Binding Path=DeleteImageCommandBlueRed}" Visibility="Collapsed" Content="-" Style="{StaticResource DeleteImageButtonStyle}">
-                    <Button.Triggers>
-                        <EventTrigger RoutedEvent="Button.Click" >
-                            <BeginStoryboard  Storyboard="{StaticResource DeleteBlueRedStory}">
-                            </BeginStoryboard>
-                        </EventTrigger>
-                    </Button.Triggers>
+                    <i:Interaction.Triggers>
+                        <ei:DataTrigger Binding="{Binding BlueRedImage}" Value="False">
+                            <ei:ControlStoryboardAction Storyboard="{StaticResource DeleteBlueRedStory}"/>
+                        </ei:DataTrigger>
+                    </i:Interaction.Triggers>
                 </Button>
             </Grid>
         </Grid>
@@ -683,20 +692,18 @@
                     <RowDefinition Height="1*" />
                 </Grid.RowDefinitions>
                 <Button x:Name="AddBlueGreen" Template="{StaticResource AddImageButtonTemplate}" Grid.Row="0" Grid.Column="2" Command="{Binding Path=SaveImageCommandBlueGreen}" Content="+" Style="{StaticResource AddImageButtonStyle}">
-                    <Button.Triggers>
-                        <EventTrigger RoutedEvent="Button.Click" >
-                            <BeginStoryboard  Storyboard="{StaticResource AddBlueGreenStory}">
-                            </BeginStoryboard>
-                        </EventTrigger>
-                    </Button.Triggers>
+                    <i:Interaction.Triggers>
+                        <ei:DataTrigger Binding="{Binding BlueGreenImage}" Value="True">
+                            <ei:ControlStoryboardAction Storyboard="{StaticResource AddBlueGreenStory}"/>
+                        </ei:DataTrigger>
+                    </i:Interaction.Triggers>
                 </Button>
                 <Button x:Name="DeleteBlueGreen" Template="{StaticResource DeleteImageButtonTemplate}" Grid.Row="0" Grid.Column="2" Command="{Binding Path=DeleteImageCommandBlueGreen}" Visibility="Collapsed" Content="-" Style="{StaticResource DeleteImageButtonStyle}">
-                    <Button.Triggers>
-                        <EventTrigger RoutedEvent="Button.Click" >
-                            <BeginStoryboard  Storyboard="{StaticResource DeleteBlueGreenStory}">
-                            </BeginStoryboard>
-                        </EventTrigger>
-                    </Button.Triggers>
+                    <i:Interaction.Triggers>
+                        <ei:DataTrigger Binding="{Binding BlueGreenImage}" Value="False">
+                            <ei:ControlStoryboardAction Storyboard="{StaticResource DeleteBlueGreenStory}"/>
+                        </ei:DataTrigger>
+                    </i:Interaction.Triggers>
                 </Button>
             </Grid>
         </Grid>
@@ -726,20 +733,18 @@
                     <RowDefinition Height="1*" />
                 </Grid.RowDefinitions>
                 <Button x:Name="AddBlueYellow" Template="{StaticResource AddImageButtonTemplate}" Grid.Row="0" Grid.Column="2" Command="{Binding Path=SaveImageCommandBlueYellow}" Content="+" Style="{StaticResource AddImageButtonStyle}">
-                    <Button.Triggers>
-                        <EventTrigger RoutedEvent="Button.Click" >
-                            <BeginStoryboard  Storyboard="{StaticResource AddBlueYellowStory}">
-                            </BeginStoryboard>
-                        </EventTrigger>
-                    </Button.Triggers>
+                    <i:Interaction.Triggers>
+                        <ei:DataTrigger Binding="{Binding BlueYellowImage}" Value="True">
+                            <ei:ControlStoryboardAction Storyboard="{StaticResource AddBlueYellowStory}"/>
+                        </ei:DataTrigger>
+                    </i:Interaction.Triggers>
                 </Button>
                 <Button x:Name="DeleteBlueYellow" Template="{StaticResource DeleteImageButtonTemplate}" Grid.Row="0" Grid.Column="2" Command="{Binding Path=DeleteImageCommandBlueYellow}" Visibility="Collapsed" Content="-" Style="{StaticResource DeleteImageButtonStyle}">
-                    <Button.Triggers>
-                        <EventTrigger RoutedEvent="Button.Click" >
-                            <BeginStoryboard  Storyboard="{StaticResource DeleteBlueYellowStory}">
-                            </BeginStoryboard>
-                        </EventTrigger>
-                    </Button.Triggers>
+                    <i:Interaction.Triggers>
+                        <ei:DataTrigger Binding="{Binding BlueYellowImage}" Value="False">
+                            <ei:ControlStoryboardAction Storyboard="{StaticResource DeleteBlueYellowStory}"/>
+                        </ei:DataTrigger>
+                    </i:Interaction.Triggers>
                 </Button>
             </Grid>
         </Grid>
@@ -770,20 +775,18 @@
                     <RowDefinition Height="1*" />
                 </Grid.RowDefinitions>
                 <Button x:Name="AddRedBlue" Template="{StaticResource AddImageButtonTemplate}" Grid.Row="0" Grid.Column="2" Command="{Binding Path=SaveImageCommandRedBlue}" Content="+" Style="{StaticResource AddImageButtonStyle}">
-                    <Button.Triggers>
-                        <EventTrigger RoutedEvent="Button.Click" >
-                            <BeginStoryboard  Storyboard="{StaticResource AddRedBlueStory}">
-                            </BeginStoryboard>
-                        </EventTrigger>
-                    </Button.Triggers>
+                    <i:Interaction.Triggers>
+                        <ei:DataTrigger Binding="{Binding RedBlueImage}" Value="True">
+                            <ei:ControlStoryboardAction Storyboard="{StaticResource AddRedBlueStory}"/>
+                        </ei:DataTrigger>
+                    </i:Interaction.Triggers>
                 </Button>
                 <Button x:Name="DeleteRedBlue" Template="{StaticResource DeleteImageButtonTemplate}" Grid.Row="0" Grid.Column="2" Command="{Binding Path=DeleteImageCommandRedBlue}" Visibility="Collapsed" Content="-" Style="{StaticResource DeleteImageButtonStyle}">
-                    <Button.Triggers>
-                        <EventTrigger RoutedEvent="Button.Click" >
-                            <BeginStoryboard  Storyboard="{StaticResource DeleteRedBlueStory}">
-                            </BeginStoryboard>
-                        </EventTrigger>
-                    </Button.Triggers>
+                    <i:Interaction.Triggers>
+                        <ei:DataTrigger Binding="{Binding RedBlueImage}" Value="False">
+                            <ei:ControlStoryboardAction Storyboard="{StaticResource DeleteRedBlueStory}"/>
+                        </ei:DataTrigger>
+                    </i:Interaction.Triggers>
                 </Button>
             </Grid>
         </Grid>
@@ -813,20 +816,18 @@
                     <RowDefinition Height="1*" />
                 </Grid.RowDefinitions>
                 <Button x:Name="AddRedRed" Template="{StaticResource AddImageButtonTemplate}" Grid.Row="0" Grid.Column="2" Command="{Binding Path=SaveImageCommandRedRed}" Content="+" Style="{StaticResource AddImageButtonStyle}">
-                    <Button.Triggers>
-                        <EventTrigger RoutedEvent="Button.Click" >
-                            <BeginStoryboard  Storyboard="{StaticResource AddRedRedStory}">
-                            </BeginStoryboard>
-                        </EventTrigger>
-                    </Button.Triggers>
+                    <i:Interaction.Triggers>
+                        <ei:DataTrigger Binding="{Binding RedRedImage}" Value="True">
+                            <ei:ControlStoryboardAction Storyboard="{StaticResource AddRedRedStory}"/>
+                        </ei:DataTrigger>
+                    </i:Interaction.Triggers>
                 </Button>
                 <Button x:Name="DeleteRedRed" Template="{StaticResource DeleteImageButtonTemplate}" Grid.Row="0" Grid.Column="2" Command="{Binding Path=DeleteImageCommandRedRed}" Visibility="Collapsed" Content="-" Style="{StaticResource DeleteImageButtonStyle}">
-                    <Button.Triggers>
-                        <EventTrigger RoutedEvent="Button.Click" >
-                            <BeginStoryboard  Storyboard="{StaticResource DeleteRedRedStory}">
-                            </BeginStoryboard>
-                        </EventTrigger>
-                    </Button.Triggers>
+                    <i:Interaction.Triggers>
+                        <ei:DataTrigger Binding="{Binding RedRedImage}" Value="False">
+                            <ei:ControlStoryboardAction Storyboard="{StaticResource DeleteRedRedStory}"/>
+                        </ei:DataTrigger>
+                    </i:Interaction.Triggers>
                 </Button>
             </Grid>
         </Grid>
@@ -856,20 +857,18 @@
                     <RowDefinition Height="1*" />
                 </Grid.RowDefinitions>
                 <Button x:Name="AddRedGreen" Template="{StaticResource AddImageButtonTemplate}" Grid.Row="0" Grid.Column="2" Command="{Binding Path=SaveImageCommandRedGreen}" Content="+" Style="{StaticResource AddImageButtonStyle}">
-                    <Button.Triggers>
-                        <EventTrigger RoutedEvent="Button.Click" >
-                            <BeginStoryboard  Storyboard="{StaticResource AddRedGreenStory}">
-                            </BeginStoryboard>
-                        </EventTrigger>
-                    </Button.Triggers>
+                    <i:Interaction.Triggers>
+                        <ei:DataTrigger Binding="{Binding RedGreenImage}" Value="True">
+                            <ei:ControlStoryboardAction Storyboard="{StaticResource AddRedGreenStory}"/>
+                        </ei:DataTrigger>
+                    </i:Interaction.Triggers>
                 </Button>
                 <Button x:Name="DeleteRedGreen" Template="{StaticResource DeleteImageButtonTemplate}" Grid.Row="0" Grid.Column="2" Command="{Binding Path=DeleteImageCommandRedGreen}" Visibility="Collapsed" Content="-" Style="{StaticResource DeleteImageButtonStyle}">
-                    <Button.Triggers>
-                        <EventTrigger RoutedEvent="Button.Click" >
-                            <BeginStoryboard  Storyboard="{StaticResource DeleteRedGreenStory}">
-                            </BeginStoryboard>
-                        </EventTrigger>
-                    </Button.Triggers>
+                    <i:Interaction.Triggers>
+                        <ei:DataTrigger Binding="{Binding RedGreenImage}" Value="False">
+                            <ei:ControlStoryboardAction Storyboard="{StaticResource DeleteRedGreenStory}"/>
+                        </ei:DataTrigger>
+                    </i:Interaction.Triggers>
                 </Button>
             </Grid>
         </Grid>
@@ -899,20 +898,18 @@
                     <RowDefinition Height="1*" />
                 </Grid.RowDefinitions>
                 <Button x:Name="AddRedYellow" Template="{StaticResource AddImageButtonTemplate}" Grid.Row="0" Grid.Column="2" Command="{Binding Path=SaveImageCommandRedYellow}" Content="+" Style="{StaticResource AddImageButtonStyle}">
-                    <Button.Triggers>
-                        <EventTrigger RoutedEvent="Button.Click" >
-                            <BeginStoryboard  Storyboard="{StaticResource AddRedYellowStory}">
-                            </BeginStoryboard>
-                        </EventTrigger>
-                    </Button.Triggers>
+                    <i:Interaction.Triggers>
+                        <ei:DataTrigger Binding="{Binding RedYellowImage}" Value="True">
+                            <ei:ControlStoryboardAction Storyboard="{StaticResource AddRedYellowStory}"/>
+                        </ei:DataTrigger>
+                    </i:Interaction.Triggers>
                 </Button>
                 <Button x:Name="DeleteRedYellow" Template="{StaticResource DeleteImageButtonTemplate}" Grid.Row="0" Grid.Column="2" Command="{Binding Path=DeleteImageCommandRedYellow}" Visibility="Collapsed" Content="-" Style="{StaticResource DeleteImageButtonStyle}">
-                    <Button.Triggers>
-                        <EventTrigger RoutedEvent="Button.Click" >
-                            <BeginStoryboard  Storyboard="{StaticResource DeleteRedYellowStory}">
-                            </BeginStoryboard>
-                        </EventTrigger>
-                    </Button.Triggers>
+                    <i:Interaction.Triggers>
+                        <ei:DataTrigger Binding="{Binding RedYellowImage}" Value="False">
+                            <ei:ControlStoryboardAction Storyboard="{StaticResource DeleteRedYellowStory}"/>
+                        </ei:DataTrigger>
+                    </i:Interaction.Triggers>
                 </Button>
             </Grid>
         </Grid>
@@ -943,20 +940,18 @@
                     <RowDefinition Height="1*" />
                 </Grid.RowDefinitions>
                 <Button x:Name="AddGreenBlue" Template="{StaticResource AddImageButtonTemplate}" Grid.Row="0" Grid.Column="2" Command="{Binding Path=SaveImageCommandGreenBlue}" Content="+" Style="{StaticResource AddImageButtonStyle}">
-                    <Button.Triggers>
-                        <EventTrigger RoutedEvent="Button.Click" >
-                            <BeginStoryboard  Storyboard="{StaticResource AddGreenBlueStory}">
-                            </BeginStoryboard>
-                        </EventTrigger>
-                    </Button.Triggers>
+                    <i:Interaction.Triggers>
+                        <ei:DataTrigger Binding="{Binding GreenBlueImage}" Value="True">
+                            <ei:ControlStoryboardAction Storyboard="{StaticResource AddGreenBlueStory}"/>
+                        </ei:DataTrigger>
+                    </i:Interaction.Triggers>
                 </Button>
                 <Button x:Name="DeleteGreenBlue" Template="{StaticResource DeleteImageButtonTemplate}" Grid.Row="0" Grid.Column="2" Command="{Binding Path=DeleteImageCommandGreenBlue}" Visibility="Collapsed" Content="-" Style="{StaticResource DeleteImageButtonStyle}">
-                    <Button.Triggers>
-                        <EventTrigger RoutedEvent="Button.Click" >
-                            <BeginStoryboard  Storyboard="{StaticResource DeleteGreenBlueStory}">
-                            </BeginStoryboard>
-                        </EventTrigger>
-                    </Button.Triggers>
+                    <i:Interaction.Triggers>
+                        <ei:DataTrigger Binding="{Binding GreenBlueImage}" Value="False">
+                            <ei:ControlStoryboardAction Storyboard="{StaticResource DeleteGreenBlueStory}"/>
+                        </ei:DataTrigger>
+                    </i:Interaction.Triggers>
                 </Button>
             </Grid>
         </Grid>
@@ -986,20 +981,18 @@
                     <RowDefinition Height="1*" />
                 </Grid.RowDefinitions>
                 <Button x:Name="AddGreenRed" Template="{StaticResource AddImageButtonTemplate}" Grid.Row="0" Grid.Column="2" Command="{Binding Path=SaveImageCommandGreenRed}" Content="+" Style="{StaticResource AddImageButtonStyle}">
-                    <Button.Triggers>
-                        <EventTrigger RoutedEvent="Button.Click" >
-                            <BeginStoryboard  Storyboard="{StaticResource AddGreenRedStory}">
-                            </BeginStoryboard>
-                        </EventTrigger>
-                    </Button.Triggers>
+                    <i:Interaction.Triggers>
+                        <ei:DataTrigger Binding="{Binding GreenRedImage}" Value="True">
+                            <ei:ControlStoryboardAction Storyboard="{StaticResource AddGreenRedStory}"/>
+                        </ei:DataTrigger>
+                    </i:Interaction.Triggers>
                 </Button>
                 <Button x:Name="DeleteGreenRed" Template="{StaticResource DeleteImageButtonTemplate}" Grid.Row="0" Grid.Column="2" Command="{Binding Path=DeleteImageCommandGreenRed}" Visibility="Collapsed" Content="-" Style="{StaticResource DeleteImageButtonStyle}">
-                    <Button.Triggers>
-                        <EventTrigger RoutedEvent="Button.Click" >
-                            <BeginStoryboard  Storyboard="{StaticResource DeleteGreenRedStory}">
-                            </BeginStoryboard>
-                        </EventTrigger>
-                    </Button.Triggers>
+                    <i:Interaction.Triggers>
+                        <ei:DataTrigger Binding="{Binding GreenRedImage}" Value="False">
+                            <ei:ControlStoryboardAction Storyboard="{StaticResource DeleteGreenRedStory}"/>
+                        </ei:DataTrigger>
+                    </i:Interaction.Triggers>
                 </Button>
             </Grid>
         </Grid>
@@ -1029,20 +1022,18 @@
                     <RowDefinition Height="1*" />
                 </Grid.RowDefinitions>
                 <Button x:Name="AddGreenGreen" Template="{StaticResource AddImageButtonTemplate}" Grid.Row="0" Grid.Column="2" Command="{Binding Path=SaveImageCommandGreenGreen}" Content="+" Style="{StaticResource AddImageButtonStyle}">
-                    <Button.Triggers>
-                        <EventTrigger RoutedEvent="Button.Click" >
-                            <BeginStoryboard  Storyboard="{StaticResource AddGreenGreenStory}">
-                            </BeginStoryboard>
-                        </EventTrigger>
-                    </Button.Triggers>
+                    <i:Interaction.Triggers>
+                        <ei:DataTrigger Binding="{Binding GreenGreenImage}" Value="True">
+                            <ei:ControlStoryboardAction Storyboard="{StaticResource AddGreenGreenStory}"/>
+                        </ei:DataTrigger>
+                    </i:Interaction.Triggers>
                 </Button>
                 <Button x:Name="DeleteGreenGreen" Template="{StaticResource DeleteImageButtonTemplate}" Grid.Row="0" Grid.Column="2" Command="{Binding Path=DeleteImageCommandGreenGreen}" Visibility="Collapsed" Content="-" Style="{StaticResource DeleteImageButtonStyle}">
-                    <Button.Triggers>
-                        <EventTrigger RoutedEvent="Button.Click" >
-                            <BeginStoryboard  Storyboard="{StaticResource DeleteGreenGreenStory}">
-                            </BeginStoryboard>
-                        </EventTrigger>
-                    </Button.Triggers>
+                    <i:Interaction.Triggers>
+                        <ei:DataTrigger Binding="{Binding GreenGreenImage}" Value="False">
+                            <ei:ControlStoryboardAction Storyboard="{StaticResource DeleteGreenGreenStory}"/>
+                        </ei:DataTrigger>
+                    </i:Interaction.Triggers>
                 </Button>
             </Grid>
         </Grid>
@@ -1072,20 +1063,18 @@
                     <RowDefinition Height="1*" />
                 </Grid.RowDefinitions>
                 <Button x:Name="AddGreenYellow" Template="{StaticResource AddImageButtonTemplate}" Grid.Row="0" Grid.Column="2" Command="{Binding Path=SaveImageCommandGreenYellow}" Content="+" Style="{StaticResource AddImageButtonStyle}">
-                    <Button.Triggers>
-                        <EventTrigger RoutedEvent="Button.Click" >
-                            <BeginStoryboard  Storyboard="{StaticResource AddGreenYellowStory}">
-                            </BeginStoryboard>
-                        </EventTrigger>
-                    </Button.Triggers>
+                    <i:Interaction.Triggers>
+                        <ei:DataTrigger Binding="{Binding GreenYellowImage}" Value="True">
+                            <ei:ControlStoryboardAction Storyboard="{StaticResource AddGreenYellowStory}"/>
+                        </ei:DataTrigger>
+                    </i:Interaction.Triggers>
                 </Button>
                 <Button x:Name="DeleteGreenYellow" Template="{StaticResource DeleteImageButtonTemplate}" Grid.Row="0" Grid.Column="2" Command="{Binding Path=DeleteImageCommandGreenYellow}" Visibility="Collapsed" Content="-" Style="{StaticResource DeleteImageButtonStyle}">
-                    <Button.Triggers>
-                        <EventTrigger RoutedEvent="Button.Click" >
-                            <BeginStoryboard  Storyboard="{StaticResource DeleteGreenYellowStory}">
-                            </BeginStoryboard>
-                        </EventTrigger>
-                    </Button.Triggers>
+                    <i:Interaction.Triggers>
+                        <ei:DataTrigger Binding="{Binding GreenYellowImage}" Value="False">
+                            <ei:ControlStoryboardAction Storyboard="{StaticResource DeleteGreenYellowStory}"/>
+                        </ei:DataTrigger>
+                    </i:Interaction.Triggers>
                 </Button>
             </Grid>
         </Grid>
@@ -1116,20 +1105,18 @@
                     <RowDefinition Height="1*" />
                 </Grid.RowDefinitions>
                 <Button x:Name="AddYellowBlue" Template="{StaticResource AddImageButtonTemplate}" Grid.Row="0" Grid.Column="2" Command="{Binding Path=SaveImageCommandYellowBlue}" Content="+" Style="{StaticResource AddImageButtonStyle}">
-                    <Button.Triggers>
-                        <EventTrigger RoutedEvent="Button.Click" >
-                            <BeginStoryboard  Storyboard="{StaticResource AddYellowBlueStory}">
-                            </BeginStoryboard>
-                        </EventTrigger>
-                    </Button.Triggers>
+                    <i:Interaction.Triggers>
+                        <ei:DataTrigger Binding="{Binding YellowBlueImage}" Value="True">
+                            <ei:ControlStoryboardAction Storyboard="{StaticResource AddYellowBlueStory}"/>
+                        </ei:DataTrigger>
+                    </i:Interaction.Triggers>
                 </Button>
                 <Button x:Name="DeleteYellowBlue" Template="{StaticResource DeleteImageButtonTemplate}" Grid.Row="0" Grid.Column="2" Command="{Binding Path=DeleteImageCommandYellowBlue}" Visibility="Collapsed" Content="-" Style="{StaticResource DeleteImageButtonStyle}">
-                    <Button.Triggers>
-                        <EventTrigger RoutedEvent="Button.Click" >
-                            <BeginStoryboard  Storyboard="{StaticResource DeleteYellowBlueStory}">
-                            </BeginStoryboard>
-                        </EventTrigger>
-                    </Button.Triggers>
+                    <i:Interaction.Triggers>
+                        <ei:DataTrigger Binding="{Binding YellowBlueImage}" Value="False">
+                            <ei:ControlStoryboardAction Storyboard="{StaticResource DeleteYellowBlueStory}"/>
+                        </ei:DataTrigger>
+                    </i:Interaction.Triggers>
                 </Button>
             </Grid>
         </Grid>
@@ -1159,20 +1146,18 @@
                     <RowDefinition Height="1*" />
                 </Grid.RowDefinitions>
                 <Button x:Name="AddYellowRed" Template="{StaticResource AddImageButtonTemplate}" Grid.Row="0" Grid.Column="2" Command="{Binding Path=SaveImageCommandYellowRed}" Content="+" Style="{StaticResource AddImageButtonStyle}">
-                    <Button.Triggers>
-                        <EventTrigger RoutedEvent="Button.Click" >
-                            <BeginStoryboard  Storyboard="{StaticResource AddYellowRedStory}">
-                            </BeginStoryboard>
-                        </EventTrigger>
-                    </Button.Triggers>
+                    <i:Interaction.Triggers>
+                        <ei:DataTrigger Binding="{Binding YellowRedImage}" Value="True">
+                            <ei:ControlStoryboardAction Storyboard="{StaticResource AddYellowRedStory}"/>
+                        </ei:DataTrigger>
+                    </i:Interaction.Triggers>
                 </Button>
                 <Button x:Name="DeleteYellowRed" Template="{StaticResource DeleteImageButtonTemplate}" Grid.Row="0" Grid.Column="2" Command="{Binding Path=DeleteImageCommandYellowRed}" Visibility="Collapsed" Content="-" Style="{StaticResource DeleteImageButtonStyle}">
-                    <Button.Triggers>
-                        <EventTrigger RoutedEvent="Button.Click" >
-                            <BeginStoryboard  Storyboard="{StaticResource DeleteYellowRedStory}">
-                            </BeginStoryboard>
-                        </EventTrigger>
-                    </Button.Triggers>
+                    <i:Interaction.Triggers>
+                        <ei:DataTrigger Binding="{Binding YellowRedImage}" Value="False">
+                            <ei:ControlStoryboardAction Storyboard="{StaticResource DeleteYellowRedStory}"/>
+                        </ei:DataTrigger>
+                    </i:Interaction.Triggers>
                 </Button>
             </Grid>
         </Grid>
@@ -1202,20 +1187,18 @@
                     <RowDefinition Height="1*" />
                 </Grid.RowDefinitions>
                 <Button x:Name="AddYellowGreen" Template="{StaticResource AddImageButtonTemplate}" Grid.Row="0" Grid.Column="2" Command="{Binding Path=SaveImageCommandYellowGreen}" Content="+" Style="{StaticResource AddImageButtonStyle}">
-                    <Button.Triggers>
-                        <EventTrigger RoutedEvent="Button.Click" >
-                            <BeginStoryboard  Storyboard="{StaticResource AddYellowGreenStory}">
-                            </BeginStoryboard>
-                        </EventTrigger>
-                    </Button.Triggers>
+                    <i:Interaction.Triggers>
+                        <ei:DataTrigger Binding="{Binding YellowGreenImage}" Value="True">
+                            <ei:ControlStoryboardAction Storyboard="{StaticResource AddYellowGreenStory}"/>
+                        </ei:DataTrigger>
+                    </i:Interaction.Triggers>
                 </Button>
                 <Button x:Name="DeleteYellowGreen" Template="{StaticResource DeleteImageButtonTemplate}" Grid.Row="0" Grid.Column="2" Command="{Binding Path=DeleteImageCommandYellowGreen}" Visibility="Collapsed" Content="-" Style="{StaticResource DeleteImageButtonStyle}">
-                    <Button.Triggers>
-                        <EventTrigger RoutedEvent="Button.Click" >
-                            <BeginStoryboard  Storyboard="{StaticResource DeleteYellowGreenStory}">
-                            </BeginStoryboard>
-                        </EventTrigger>
-                    </Button.Triggers>
+                    <i:Interaction.Triggers>
+                        <ei:DataTrigger Binding="{Binding YellowGreenImage}" Value="False">
+                            <ei:ControlStoryboardAction Storyboard="{StaticResource DeleteYellowGreenStory}"/>
+                        </ei:DataTrigger>
+                    </i:Interaction.Triggers>
                 </Button>
             </Grid>
         </Grid>
@@ -1245,20 +1228,18 @@
                     <RowDefinition Height="1*" />
                 </Grid.RowDefinitions>
                 <Button x:Name="AddYellowYellow" Template="{StaticResource AddImageButtonTemplate}" Grid.Row="0" Grid.Column="2" Command="{Binding Path=SaveImageCommandYellowYellow}" Content="+" Style="{StaticResource AddImageButtonStyle}">
-                    <Button.Triggers>
-                        <EventTrigger RoutedEvent="Button.Click" >
-                            <BeginStoryboard  Storyboard="{StaticResource AddYellowYellowStory}">
-                            </BeginStoryboard>
-                        </EventTrigger>
-                    </Button.Triggers>
+                    <i:Interaction.Triggers>
+                        <ei:DataTrigger Binding="{Binding YellowYellowImage}" Value="True">
+                            <ei:ControlStoryboardAction Storyboard="{StaticResource AddYellowYellowStory}"/>
+                        </ei:DataTrigger>
+                    </i:Interaction.Triggers>
                 </Button>
                 <Button x:Name="DeleteYellowYellow" Template="{StaticResource DeleteImageButtonTemplate}" Grid.Row="0" Grid.Column="2" Command="{Binding Path=DeleteImageCommandYellowYellow}" Visibility="Collapsed" Content="-" Style="{StaticResource DeleteImageButtonStyle}">
-                    <Button.Triggers>
-                        <EventTrigger RoutedEvent="Button.Click" >
-                            <BeginStoryboard  Storyboard="{StaticResource DeleteYellowYellowStory}">
-                            </BeginStoryboard>
-                        </EventTrigger>
-                    </Button.Triggers>
+                    <i:Interaction.Triggers>
+                        <ei:DataTrigger Binding="{Binding YellowYellowImage}" Value="False">
+                            <ei:ControlStoryboardAction Storyboard="{StaticResource DeleteYellowYellowStory}"/>
+                        </ei:DataTrigger>
+                    </i:Interaction.Triggers>
                 </Button>
             </Grid>
         </Grid>

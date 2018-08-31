@@ -22,7 +22,7 @@ namespace Bildwahl.View
 
             var model = (TobiiViewModel)DataContext;
             var hasGaze = textBlock.GetHasGaze();
-            model.NotifyInstructionHasGazeChanged(hasGaze,textBlock.Name);
+            model.NotifyHasGazeChanged(hasGaze,textBlock.Name);
         }
     }
 }

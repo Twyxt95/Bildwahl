@@ -84,7 +84,6 @@ namespace Bildwahl.DataAccess
         {
             DeleteScenarioXml(scenario.Titel);
             this.ScenarioDeleted(this, new ScenarioDeletedEventArgs(scenario));
-            
         }
 
         /// <summary>
@@ -112,7 +111,6 @@ namespace Bildwahl.DataAccess
 
         public List<Scenario> GetScenarios()
         {
-            
             return new List<Scenario>(_scenarios);
         }
 
@@ -122,33 +120,50 @@ namespace Bildwahl.DataAccess
 
         static List<Scenario> LoadScenarios(string scenarioDataFile)
         {
-            // In a real application, the data would come from an external source,
-            // but for this demo let's keep things simple and use a resource file.
             Console.WriteLine("LOADED");
-            using (Stream stream = GetResourceStream(scenarioDataFile))
-            using (XmlReader xmlRdr = new XmlTextReader(stream))
-                return
-                    (from scenarioElem in XDocument.Load(xmlRdr).Element("imagelinks").Elements("scenario")
+            string directory = System.AppDomain.CurrentDomain.BaseDirectory;
+            //string directory = System.AppDomain.CurrentDomain.BaseDirectory;
+            //using (Stream stream = GetResourceStream("../"+scenarioDataFile))
+            // using (XmlReader xmlRdr = new XmlTextReader(stream))
+            //(from scenarioElem in XDocument.Load(xmlRdr).Element("imagelinks").Elements("scenario")
+            return
+                    (from scenarioElem in XDocument.Load(scenarioDataFile).Element("imagelinks").Elements("scenario")
                      select Scenario.CreateImageLinks(
                         (string)scenarioElem.Attribute("titel"),
+                        directory+"//Pictures//"+
                         (string)scenarioElem.Attribute("blueblue"),
+                        directory + "//Pictures//" +
                         (string)scenarioElem.Attribute("bluered"),
+                        directory + "//Pictures//" +
                         (string)scenarioElem.Attribute("bluegreen"),
+                        directory + "//Pictures//" +
                         (string)scenarioElem.Attribute("blueyellow"),
 
+                        directory + "//Pictures//" +
                         (string)scenarioElem.Attribute("redblue"),
+                        directory + "//Pictures//" +
                         (string)scenarioElem.Attribute("redred"),
+                        directory + "//Pictures//" +
                         (string)scenarioElem.Attribute("redgreen"),
+                        directory + "//Pictures//" +
                         (string)scenarioElem.Attribute("redyellow"),
 
+                        directory + "//Pictures//" +
                         (string)scenarioElem.Attribute("greenblue"),
+                        directory + "//Pictures//" +
                         (string)scenarioElem.Attribute("greenred"),
+                        directory + "//Pictures//" +
                         (string)scenarioElem.Attribute("greengreen"),
+                        directory + "//Pictures//" +
                         (string)scenarioElem.Attribute("greenyellow"),
 
+                        directory + "//Pictures//" +
                         (string)scenarioElem.Attribute("yellowblue"),
+                        directory + "//Pictures//" +
                         (string)scenarioElem.Attribute("yellowred"),
+                        directory + "//Pictures//" +
                         (string)scenarioElem.Attribute("yellowgreen"),
+                        directory + "//Pictures//" +
                         (string)scenarioElem.Attribute("yellowyellow")
                          )).ToList();
         }
@@ -183,7 +198,9 @@ namespace Bildwahl.DataAccess
             XmlDocument doc = new XmlDocument();
             Console.WriteLine(filename);
             //load from file
-            doc.Load(@"C:\Users\Adrian\Documents\Bildwahl\Bildwahl\Bildwahl\"+ filename);
+            //doc.Load(@"C:\Users\Adrian\Documents\Bildwahl\Bildwahl\Bildwahl\"+ filename);
+            string directory = System.AppDomain.CurrentDomain.BaseDirectory;
+            doc.Load(directory + filename);
 
             //create node and add value
             XmlNode node = doc.CreateNode(XmlNodeType.Element, "scenario", null);
@@ -191,56 +208,74 @@ namespace Bildwahl.DataAccess
             attribute.Value = titel; //set the appropriate value
             node.Attributes.Append(attribute); // add the attribute to node
 
+            string[] splittedPath;
+
             XmlAttribute attributeBlueBlue = doc.CreateAttribute("blueblue"); // create attribute
-            attributeBlueBlue.Value = blueBlue; //set the appropriate value
+            splittedPath = blueBlue.Split('\\');
+            attributeBlueBlue.Value = splittedPath[splittedPath.Length - 1]; //set the appropriate value
             node.Attributes.Append(attributeBlueBlue); // add the attribute to node
             XmlAttribute attributeBlueRed = doc.CreateAttribute("bluered"); // create attribute
-            attributeBlueRed.Value = blueRed; //set the appropriate value
+            splittedPath = blueRed.Split('\\');
+            attributeBlueRed.Value = splittedPath[splittedPath.Length - 1]; //set the appropriate value
             node.Attributes.Append(attributeBlueRed); // add the attribute to node
             XmlAttribute attributeBlueGreen = doc.CreateAttribute("bluegreen"); // create attribute
-            attributeBlueGreen.Value = blueGreen; //set the appropriate value
+            splittedPath = blueGreen.Split('\\');
+            attributeBlueGreen.Value = splittedPath[splittedPath.Length - 1]; //set the appropriate value
             node.Attributes.Append(attributeBlueGreen); // add the attribute to node
             XmlAttribute attributeBlueYellow = doc.CreateAttribute("blueyellow"); // create attribute
-            attributeBlueYellow.Value = blueYellow; //set the appropriate value
+            splittedPath = blueYellow.Split('\\');
+            attributeBlueYellow.Value = splittedPath[splittedPath.Length - 1];  //set the appropriate value
             node.Attributes.Append(attributeBlueYellow); // add the attribute to node
 
             XmlAttribute attributeRedBlue = doc.CreateAttribute("redblue"); // create attribute
-            attributeRedBlue.Value = redBlue; //set the appropriate value
+            splittedPath = redBlue.Split('\\');
+            attributeRedBlue.Value = splittedPath[splittedPath.Length - 1]; //set the appropriate value
             node.Attributes.Append(attributeRedBlue); // add the attribute to node
             XmlAttribute attributeRedRed = doc.CreateAttribute("redred"); // create attribute
-            attributeRedRed.Value = redRed; //set the appropriate value
+            splittedPath = redRed.Split('\\');
+            attributeRedRed.Value = splittedPath[splittedPath.Length - 1]; //set the appropriate value
             node.Attributes.Append(attributeRedRed); // add the attribute to node
             XmlAttribute attributeRedGreen = doc.CreateAttribute("redgreen"); // create attribute
-            attributeRedGreen.Value = redGreen; //set the appropriate value
+            splittedPath = redGreen.Split('\\');
+            attributeRedGreen.Value = splittedPath[splittedPath.Length - 1]; //set the appropriate value
             node.Attributes.Append(attributeRedGreen); // add the attribute to node
             XmlAttribute attributeRedYellow = doc.CreateAttribute("redyellow"); // create attribute
-            attributeRedYellow.Value = redYellow; //set the appropriate value
+            splittedPath = redYellow.Split('\\');
+            attributeRedYellow.Value = splittedPath[splittedPath.Length - 1]; //set the appropriate value
             node.Attributes.Append(attributeRedYellow); // add the attribute to node
 
             XmlAttribute attributeGreenBlue = doc.CreateAttribute("greenblue"); // create attribute
-            attributeGreenBlue.Value = greenBlue; //set the appropriate value
+            splittedPath = greenBlue.Split('\\');
+            attributeGreenBlue.Value = splittedPath[splittedPath.Length - 1]; //set the appropriate value
             node.Attributes.Append(attributeGreenBlue); // add the attribute to node
             XmlAttribute attributeGreenRed = doc.CreateAttribute("greenred"); // create attribute
-            attributeGreenRed.Value = greenRed; //set the appropriate value
+            splittedPath = greenRed.Split('\\');
+            attributeGreenRed.Value = splittedPath[splittedPath.Length - 1]; //set the appropriate value
             node.Attributes.Append(attributeGreenRed); // add the attribute to node
             XmlAttribute attributeGreenGreen = doc.CreateAttribute("greengreen"); // create attribute
-            attributeGreenGreen.Value = greenGreen; //set the appropriate value
+            splittedPath = greenGreen.Split('\\');
+            attributeGreenGreen.Value = splittedPath[splittedPath.Length - 1]; //set the appropriate value
             node.Attributes.Append(attributeGreenGreen); // add the attribute to node
             XmlAttribute attributeGreenYellow = doc.CreateAttribute("greenyellow"); // create attribute
-            attributeGreenYellow.Value = greenYellow; //set the appropriate value
+            splittedPath = greenYellow.Split('\\');
+            attributeGreenYellow.Value = splittedPath[splittedPath.Length - 1]; //set the appropriate value
             node.Attributes.Append(attributeGreenYellow); // add the attribute to node
 
             XmlAttribute attributeYellowBlue = doc.CreateAttribute("yellowblue"); // create attribute
-            attributeYellowBlue.Value = yellowBlue; //set the appropriate value
+            splittedPath = yellowBlue.Split('\\');
+            attributeYellowBlue.Value = splittedPath[splittedPath.Length - 1]; //set the appropriate value
             node.Attributes.Append(attributeYellowBlue); // add the attribute to node
             XmlAttribute attributeYellowRed = doc.CreateAttribute("yellowred"); // create attribute
-            attributeYellowRed.Value = yellowRed; //set the appropriate value
+            splittedPath = yellowRed.Split('\\');
+            attributeYellowRed.Value = splittedPath[splittedPath.Length - 1]; //set the appropriate value
             node.Attributes.Append(attributeYellowRed); // add the attribute to node
             XmlAttribute attributeYellowGreen = doc.CreateAttribute("yellowgreen"); // create attribute
-            attributeYellowGreen.Value = yellowGreen; //set the appropriate value
+            splittedPath = yellowGreen.Split('\\');
+            attributeYellowGreen.Value = splittedPath[splittedPath.Length - 1]; //set the appropriate value
             node.Attributes.Append(attributeYellowGreen); // add the attribute to node
             XmlAttribute attributeYellowYellow = doc.CreateAttribute("yellowyellow"); // create attribute
-            attributeYellowYellow.Value = yellowYellow; //set the appropriate value
+            splittedPath = yellowYellow.Split('\\');
+            attributeYellowYellow.Value = splittedPath[splittedPath.Length - 1]; //set the appropriate value
             node.Attributes.Append(attributeYellowYellow); // add the attribute to node
 
 
@@ -248,22 +283,25 @@ namespace Bildwahl.DataAccess
             doc.DocumentElement.AppendChild(node);
 
             //save back
-            doc.Save(@"C:\Users\Adrian\Documents\Bildwahl\Bildwahl\Bildwahl\"+filename);
+            doc.Save(directory+filename);
+            //doc.Save(@"C:\Users\Adrian\Documents\Bildwahl\Bildwahl\Bildwahl\" + filename);
         }
 
         static void DeleteScenarioXml(string titel)
         {
-            string filename = "Data/scenario.xml";
+            string filename = _scenarioDataFile;
             //create new instance of XmlDocument
             XmlDocument doc = new XmlDocument();
-            Console.WriteLine(filename);
+            string directory = System.AppDomain.CurrentDomain.BaseDirectory;
             //load from file
-            doc.Load(@"C:\Users\Adrian\Documents\Bildwahl\Bildwahl\Bildwahl\" + filename);
+            //doc.Load(@"C:\Users\Adrian\Documents\Bildwahl\Bildwahl\Bildwahl\" + filename);
+            doc.Load(directory + filename);
             XmlNodeList node= doc.SelectNodes("//scenario[@titel='" + titel + "']");
             //doc.SelectSingleNode("imagelinks");
             doc.SelectSingleNode("imagelinks").RemoveChild(node.Item(0));
             //save back
-            doc.Save(@"C:\Users\Adrian\Documents\Bildwahl\Bildwahl\Bildwahl\" + filename);
+            //doc.Save(@"C:\Users\Adrian\Documents\Bildwahl\Bildwahl\Bildwahl\" + filename);
+            doc.Save(directory + filename);
         } 
 
         static Stream GetResourceStream(string resourceFile)
