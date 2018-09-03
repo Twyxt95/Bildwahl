@@ -10,13 +10,16 @@ using Microsoft.Win32;
 
 namespace Bildwahl.ViewModel
 {
+    /// <summary> Das ViewModel für das Erstellen eines neuen Szenarios </summary>
     public class NewScenarioViewModel : WorkspaceViewModel, IDataErrorInfo
     {
-        #region Fields
-
+        /// <summary> Das neue Szenario </summary>
         readonly Scenario _scenario;
+
+        /// <summary> Verzeichnis für alle Szenarien </summary>
         readonly ScenarioRepository _scenarioRepository;
 
+        /// Commands um Bilder zu löschen
         RelayCommand _deleteImageCommandBlueBlue;
         RelayCommand _deleteImageCommandBlueRed;
         RelayCommand _deleteImageCommandBlueGreen;
@@ -37,7 +40,10 @@ namespace Bildwahl.ViewModel
         RelayCommand _deleteImageCommandYellowGreen;
         RelayCommand _deleteImageCommandYellowYellow;
 
+        /// <summary> Command um das Szenario zu speichern </summary>
         RelayCommand _saveCommand;
+
+        /// Commands um Bilder zu speichern
         RelayCommand _saveImageCommandBlueBlue;
         RelayCommand _saveImageCommandBlueRed;
         RelayCommand _saveImageCommandBlueGreen;
@@ -58,21 +64,16 @@ namespace Bildwahl.ViewModel
         RelayCommand _saveImageCommandYellowGreen;
         RelayCommand _saveImageCommandYellowYellow;
 
-        #endregion // Fields
-
-        #region Constructor
-
-        public NewScenarioViewModel(Scenario scanario, ScenarioRepository scenarioRepository)
+        /// <summary> Konstruktor </summary>
+        /// <param name="scenario"> Das neue Szenario </param>
+        /// <param name="scenarioRepository"> Verzeichnis für alle Szenarien </param>
+        public NewScenarioViewModel(Scenario scenario, ScenarioRepository scenarioRepository)
         {
-            _scenario = scanario ?? throw new ArgumentNullException("scenario");
+            _scenario = scenario ?? throw new ArgumentNullException("scenario");
             _scenarioRepository = scenarioRepository ?? throw new ArgumentNullException("scenarioRepository");
         }
 
-        #endregion // Constructor
-
-        #region Scenario Properties
-
-
+        /// <summary> Titel des neuen Szenarios </summary>
         public string Titel
         {
             get { return _scenario.Titel; }
@@ -89,6 +90,7 @@ namespace Bildwahl.ViewModel
 
         #region ImageLinks
 
+        ///Bilder des neuen Szenarios
         public string BlueBlue
         {
             get { return _scenario.BlueBlue; }
@@ -304,6 +306,8 @@ namespace Bildwahl.ViewModel
         #endregion
 
         #region Bools
+
+        ///Ob ein Bild hinzugefügt wurde
         public bool BlueBlueImage { get; private set; }
         public bool BlueRedImage { get; private set; }
         public bool BlueGreenImage { get; private set; }
@@ -325,14 +329,8 @@ namespace Bildwahl.ViewModel
         public bool YellowYellowImage { get; private set; }
         #endregion
 
-        #endregion
-
-        #region Presentation Properties
-
-
-        /// <summary>
-        /// Returns a command that saves the scenario.
-        /// </summary>
+        /// <summary> Speichern des neuen Szenarios </summary>
+        /// <returns> Das Speichern Command </returns>
         public ICommand SaveCommand
         {
             get
@@ -349,6 +347,7 @@ namespace Bildwahl.ViewModel
         }
 
         #region DeleteImageCommands
+        /// Commands um Bilder zu löschen
         public ICommand DeleteImageCommandBlueBlue
         {
             get
@@ -563,6 +562,7 @@ namespace Bildwahl.ViewModel
         #endregion
 
         #region SaveImageCommands
+        /// Commands um Bilder zu speichern
         public ICommand SaveImageCommandBlueBlue
         {
             get
@@ -776,13 +776,9 @@ namespace Bildwahl.ViewModel
         }
 
         #endregion // SaveImageCommands
-        #endregion // Presentation Properties
 
-        #region Public Methods
 
-        /// <summary>
-        /// Saves the scenario to the repository.  This method is invoked by the SaveCommand.
-        /// </summary>
+        /// <summary> Speichert das Szenario im Verzeichnis </summary>
         public void Save()
         {
             if (!_scenario.IsValid)
@@ -794,6 +790,8 @@ namespace Bildwahl.ViewModel
             base.OnPropertyChanged("DisplayName");
         }
 
+        /// <summary> Löscht ein Bild </summary>
+        /// <param name="field"> Das Bild das gelöscht werden soll </param>
         public void DeleteImage(string field)
         {
             switch (field)
@@ -904,7 +902,8 @@ namespace Bildwahl.ViewModel
             }
         }
 
-
+        /// <summary> Speichert ein Bild </summary>
+        /// <param name="field"> Das Bild das gespeichert werden soll </param>
         public void SaveImage(string field)
         {
             OpenFileDialog _importImage = new OpenFileDialog
@@ -1041,30 +1040,17 @@ namespace Bildwahl.ViewModel
             }
         }
 
-        #endregion // Public Methods
-
-        #region Private Helpers
-
-        /// <summary>
-        /// Returns true if this scenario was created by the user and it has not yet
-        /// been saved to the scenario repository.
-        /// </summary>
+        /// <summary> Ob das Szenario noch nicht erstellt wurde </summary>
         bool IsNewScenario
         {
             get { return !_scenarioRepository.ContainsScenario(_scenario); }
         }
 
-        /// <summary>
-        /// Returns true if the scenario is valid and can be saved.
-        /// </summary>
+        /// <summary> Ob das Szenario gespeichert werden kann </summary>
         bool CanSave
         {
             get { return _scenario.IsValid; }
         }
-
-        #endregion // Private Helpers
-
-        #region IDataErrorInfo Members
 
         string IDataErrorInfo.Error
         {
@@ -1079,15 +1065,11 @@ namespace Bildwahl.ViewModel
 
                     error = (_scenario as IDataErrorInfo)[propertyName];
 
-                // Dirty the commands registered with CommandManager,
-                // such as our Save command, so that they are queried
-                // to see if they can execute now.
                 CommandManager.InvalidateRequerySuggested();
 
                 return error;
             }
         }
-        #endregion // IDataErrorInfo Members
     }
 }
 
