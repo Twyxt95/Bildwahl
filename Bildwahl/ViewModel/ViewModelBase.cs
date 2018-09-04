@@ -6,26 +6,13 @@ namespace Bildwahl.ViewModel
 {
     public abstract class ViewModelBase : INotifyPropertyChanged, IDisposable
     {
-        #region Constructor
-
+        /// <summary> Konstruktor </summary>
         protected ViewModelBase()
         {
         }
 
-        #endregion // Constructor
-
-        #region DisplayName
-
-        /// <summary>
-        /// Returns the user-friendly name of this object.
-        /// Child classes can set this property to a new value,
-        /// or override it to determine the value on-demand.
-        /// </summary>
+        /// <summary>Name des Viewmodels </summary>
         public virtual string DisplayName { get; protected set; }
-
-        #endregion // DisplayName
-
-        #region Debugging Aides
 
         /// <summary>
         /// Warns the developer if this object does not have
@@ -57,7 +44,6 @@ namespace Bildwahl.ViewModel
         /// </summary>
         protected virtual bool ThrowOnInvalidPropertyName { get; private set; }
 
-        #endregion // Debugging Aides
 
         #region INotifyPropertyChanged Members
 
