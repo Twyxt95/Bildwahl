@@ -3,7 +3,9 @@ using Bildwahl.Model;
 
 namespace Bildwahl.DataAccess
 {
-    /// <summary> Event, das ausgelöst wird, wenn ein Szenario erstellt wird </summary>
+    /// <summary>
+    /// Event arguments used by ScenarioRepository's ScenarioAdded event.
+    /// </summary>
     public class ScenarioAddedEventArgs : EventArgs
     {
         public ScenarioAddedEventArgs(Scenario newScenario)

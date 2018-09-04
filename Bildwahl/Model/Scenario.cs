@@ -9,24 +9,16 @@ using System.Threading.Tasks;
 
 namespace Bildwahl.Model
 {
-    /// <summary> Datenhalterklasse für ein Szenario </summary>
     public class Scenario : IDataErrorInfo
     {
-        /// <summary> Ob das Szenario im DeleteScenario-Worskpace ausgewählt wurde </summary>
         bool _isSelected;
+        #region Creation
 
-        /// <summary> Konstruktor </summary>
-        protected Scenario()
-        {
-        }
-
-        /// <summary> Erstellt ein neues Szenario </summary>
         public static Scenario CreateNewScenario()
         {
             return new Scenario();
         }
 
-        /// <summary> Der Titel und die Bilder werden in Variablen gespeichert </summary>
         public static Scenario CreateImageLinks(
             string titel,
             string blueBlue,
@@ -76,8 +68,21 @@ namespace Bildwahl.Model
             };
         }
 
+        protected Scenario()
+        {
+        }
+
+        #endregion // Creation
+
+        #region State Properties
+
+        /// <summary>
+        /// Gets/sets the ImageLinks's first name.  If this ImageLinks is a 
+        /// company, this value stores the company's name.
+        /// </summary>
+        public string ImageLink { get; set; }
+
         #region ImageLinks
-        /// Alle Bilder des Szenarios
         public string BlueBlue { get; set; }
         public string BlueRed { get; set; }
         public string BlueGreen { get; set; }
@@ -101,9 +106,14 @@ namespace Bildwahl.Model
 
         #endregion
 
-        /// <summary> Titel des Szenarios </summary>
+        /// <summary>
+        /// Gets/sets the ImageLinks's first name.  If this ImageLinks is a 
+        /// company, this value stores the company's name.
+        /// </summary>
         public string Titel { get; set; }
 
+
+        #endregion // State Properties
 
         #region IDataErrorInfo Members
 
@@ -118,7 +128,9 @@ namespace Bildwahl.Model
 
         #region Validation
 
-        /// <summary> Gibt True zurück, wenn keine Validation Errors bestehen </summary>
+        /// <summary>
+        /// Returns true if this object has no validation errors.
+        /// </summary>
         public bool IsValid
         {
             get
@@ -131,7 +143,6 @@ namespace Bildwahl.Model
             }
         }
 
-        /// <summary> Ob das Szenario im DeleteScenario-Worskpace ausgewählt wurde </summary>
         public bool IsSelected
         {
             get { return _isSelected; }
@@ -146,11 +157,12 @@ namespace Bildwahl.Model
             }
         }
 
-        /// <summary> Event das ausgelöst wird, wenn das Szenario ausgewählt wird </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
-        /// <summary> Löst PropertyChangedEvent aus </summary>
-        /// <param name="propertyName">Property die geändert werden soll </param>
+        /// <summary>
+        /// Raises this object's PropertyChanged event.
+        /// </summary>
+        /// <param name="propertyName">The property that has a new value.</param>
         protected virtual void OnPropertyChanged(string propertyName)
         {
             this.VerifyPropertyName(propertyName);
@@ -163,10 +175,10 @@ namespace Bildwahl.Model
             }
         }
 
-        /// <summary> Verifiziert, dass das Objekt die Property besitzt die geändert werden soll </summary>
-        /// <param name="propertyName">Property die geändert werden soll </param>
         public void VerifyPropertyName(string propertyName)
         {
+            // Verify that the property name matches a real,  
+            // public, instance property on this object.
             if (TypeDescriptor.GetProperties(this)[propertyName] == null)
             {
                 string msg = "Invalid property name: " + propertyName;
@@ -186,8 +198,6 @@ namespace Bildwahl.Model
             "Titel"
         };
 
-        /// <summary> Gibt falls Fehler in der Validierung entshen Fehlermeldung zurück </summary>
-        /// <param name="propertyName">Property die geändert werden soll </param>
         string GetValidationError(string propertyName)
         {
             if (Array.IndexOf(ValidatedProperties, propertyName) < 0)
@@ -209,7 +219,11 @@ namespace Bildwahl.Model
             return error;
         }
 
-        /// <summary> Validiert ob ein Titel eingeben wurde, ansonsten wird Fehlermeldung zurückgegeben </summary>
+        private string ValidateImageLink()
+        {
+           return null;
+        }
+
         string ValidateTitel()
         {
             if (IsStringMissing(this.Titel))
@@ -219,8 +233,6 @@ namespace Bildwahl.Model
             return null;
         }
 
-        /// <summary> Überprüft ob ein String existiert </summary>
-        /// /// <param name="value">STring der überprüft werden soll</param>
         static bool IsStringMissing(string value)
         {
             return

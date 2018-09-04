@@ -9,28 +9,22 @@ using Tobii.Interaction.Wpf;
 
 namespace Bildwahl.ViewModel
 {
-    /// <summary> Das ViewModel für das Durchführen eines Szenarios </summary>
     public class TobiiViewModel : WorkspaceViewModel
     {
-        /// <summary> Verzeichnis für alle Szenarien </summary>
         readonly ScenarioRepository _scenarioRepository;
-
-        /// <summary> Das aktuelle Szenario </summary>
+        readonly string _scenarioName;
         Scenario scenario;
-
-        /// <summary> Konstruktor </summary>
-        /// <param name="scenarioRepository"> Verzeichnis für alle Szenarien </param>
-        /// <param name="scenarioName"> Titel des Szenarios </param>
+        private bool _showInstruction;
         public TobiiViewModel(ScenarioRepository scenarioRepository, string scenarioName)
         {
             base.DisplayName = Strings.TobiiViewModel_DisplayName;
 
             _scenarioRepository = scenarioRepository ?? throw new ArgumentNullException("scenarioRepository");
             scenario = _scenarioRepository.GetScenarios(scenarioName);
+            _scenarioName = scenarioName;
         }
 
         #region ImageLinks
-        /// Bilder die angezeigt werden
         public string BlueBlue
         {
             get { return scenario.BlueBlue; }
@@ -244,8 +238,6 @@ namespace Bildwahl.ViewModel
         }
         #endregion
 
-        #region Bools
-        ///Welcher Button ausgewählt wurde
         public bool BlueClicked { get; private set; }
         public bool GreenClicked { get; private set; }
         public bool RedClicked { get; private set; }
@@ -256,11 +248,7 @@ namespace Bildwahl.ViewModel
         public bool RedSecondStageClicked { get; private set; }
         public bool YellowSecondStageClicked { get; private set; }
         public bool ResetClicked { get; private set; }
-        #endregion
 
-        /// <summary> Eventhandler für hasGaze </summary>
-        /// <param name="hasGaze"> Ob der Button betrachtet wird</param>
-        /// <param name="name"> Betrachteter Button </param>
         public void NotifyHasGazeChanged(bool hasGaze, string name)
         {
             if (hasGaze)  

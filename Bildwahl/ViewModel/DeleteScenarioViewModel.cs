@@ -1,51 +1,74 @@
 ﻿using Bildwahl.DataAccess;
 using Bildwahl.Model;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace Bildwahl.ViewModel
 {
-    /// <summary> Das ViewModel für das Löschen eines Szenarios </summary>
     class DeleteScenarioViewModel : WorkspaceViewModel
     {
-        /// <summary> RelayCommand zum Löschen des Szenarios </summary>
         RelayCommand _deleteScenario;
+        RelayCommand _deleteImageCommandBlueBlue;
+        RelayCommand _deleteImageCommandBlueRed;
+        RelayCommand _deleteImageCommandBlueGreen;
+        RelayCommand _deleteImageCommandBlueYellow;
 
-        /// <summary> Verzeichnis für alle Szenarien </summary>
+        RelayCommand _deleteImageCommandRedBlue;
+        RelayCommand _deleteImageCommandRedRed;
+        RelayCommand _deleteImageCommandRedGreen;
+        RelayCommand _deleteImageCommandRedYellow;
+
+        RelayCommand _deleteImageCommandGreenBlue;
+        RelayCommand _deleteImageCommandGreenRed;
+        RelayCommand _deleteImageCommandGreenGreen;
+        RelayCommand _deleteImageCommandGreenYellow;
+
+        RelayCommand _deleteImageCommandYellowBlue;
+        RelayCommand _deleteImageCommandYellowRed;
+        RelayCommand _deleteImageCommandYellowGreen;
+        RelayCommand _deleteImageCommandYellowYellow;
+
+        RelayCommand _saveImageCommandBlueBlue;
+        RelayCommand _saveImageCommandBlueRed;
+        RelayCommand _saveImageCommandBlueGreen;
+        RelayCommand _saveImageCommandBlueYellow;
+
+        RelayCommand _saveImageCommandRedBlue;
+        RelayCommand _saveImageCommandRedRed;
+        RelayCommand _saveImageCommandRedGreen;
+        RelayCommand _saveImageCommandRedYellow;
+
+        RelayCommand _saveImageCommandGreenBlue;
+        RelayCommand _saveImageCommandGreenRed;
+        RelayCommand _saveImageCommandGreenGreen;
+        RelayCommand _saveImageCommandGreenYellow;
+
+        RelayCommand _saveImageCommandYellowBlue;
+        RelayCommand _saveImageCommandYellowRed;
+        RelayCommand _saveImageCommandYellowGreen;
+        RelayCommand _saveImageCommandYellowYellow;
         readonly ScenarioRepository _scenarioRepository;
-
-        /// <summary> Index des ausgewählten Szenarios </summary>
         int _index;
 
-        /// <summary> ObservableCollection mit alle Szenarien </summary>
-        public ObservableCollection<Scenario> AllScenarios { get; private set; }
-
-        /// <summary> Ob ein Item der Liste ausgewählt ist </summary>
-        public bool IsListItemSelected { get; private set; }
-
-        /// <summary> Konstruktor </summary>
-        /// <param name="scenarioRepository"> Verzeichnis für alle Szenarien </param>
         public DeleteScenarioViewModel(ScenarioRepository scenarioRepository)
         {
             _scenarioRepository = scenarioRepository;
-            /// Registrieren des Events
-            _scenarioRepository.ScenarioDeleted += this.OnScenarioDeletedFromRepository;         
+            _scenarioRepository.ScenarioDeleted += this.OnScenarioDeletedFromRepository;
             IsListItemSelected = false;
             this.CreateAllScenarios();
         }
 
-        /// <summary> Eventhandler wenn Szenario gelöscht wird </summary>
-        /// <param name="sender"> Objekt von dem das Event ausgeht</param>
-        /// <param name="e"> Ausgelöstes Event </param>
         private void OnScenarioDeletedFromRepository(object sender, ScenarioDeletedEventArgs e)
         {
             AllScenarios.Remove(e.ToRemoveScenario);
         }
 
-        /// <summary> Erstellt alle Szenarien bei Programmstart </summary>
         void CreateAllScenarios()
         {
             List<Scenario> all = _scenarioRepository.GetScenarios();
@@ -55,15 +78,17 @@ namespace Bildwahl.ViewModel
             this.AllScenarios = new ObservableCollection<Scenario>(all);
         }
 
-        /// <summary> Event wird ausgelöst, wenn Item in der Liste ausgewählt wird </summary>
-        /// <param name="sender"> Objekt von dem das Event ausgeht</param>
-        /// <param name="e"> Ausgelöstes Event </param>
         void OnScenarioPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             string IsSelected = "IsSelected";
+            // Make sure that the property name we're referencing is valid.
+            // This is a debugging technique, and does not execute in a Release build.
             (sender as Scenario).VerifyPropertyName(IsSelected);
             IsListItemSelected = false;
             base.OnPropertyChanged("IsListItemSelected");
+            // When a scenario is selected or unselected, we must let the
+            // world know that the TotalSelectedSales property has changed,
+            // so that it will be queried again for a new value.
             if (e.PropertyName == IsSelected)
             {
                 if ((sender as Scenario).IsSelected)
@@ -95,7 +120,10 @@ namespace Bildwahl.ViewModel
             }
         }
 
-        /// <summary> Command über das das Szenario gelöscht wird </summary>
+        public ObservableCollection<Scenario> AllScenarios { get; private set; }
+
+        public bool IsListItemSelected { get; private set; }
+
         public ICommand DeleteScenario
         {
             get
@@ -110,10 +138,8 @@ namespace Bildwahl.ViewModel
             }
         }
 
-        /// <summary> Löscht das ausgewählte Szenario </summary>
         public void Delete()
         {
-            /// <summary> Index des ausgewählten Szenarios </summary>
             int index = AllScenarios.IndexOf(AllScenarios.Where(p => p.IsSelected == true).FirstOrDefault());
             Scenario scenario = AllScenarios.ElementAt(index);
             _scenarioRepository.DeleteScenario(scenario);
@@ -138,7 +164,6 @@ namespace Bildwahl.ViewModel
             YellowYellow = null;
         }
 
-        /// <summary> Titel des ausgewählten Szenarios </summary>
         public string Titel
         {
             get { return AllScenarios.ElementAt(_index).Titel; }
@@ -153,7 +178,6 @@ namespace Bildwahl.ViewModel
             }
         }
 
-        /// Alle Bilder
         private string blueBlue;
         private string blueRed;
         private string blueGreen;
@@ -174,9 +198,8 @@ namespace Bildwahl.ViewModel
         private string yellowGreen;
         private string yellowYellow;
 
-        #region ImageLinks 
+        #region ImageLinks
 
-        /// Alle Bilder
         public string BlueBlue
         {
             get { return blueBlue; }
@@ -388,5 +411,446 @@ namespace Bildwahl.ViewModel
             }
         }
         #endregion
+
+        #region DeleteImageCommands
+        public ICommand DeleteImageCommandBlueBlue
+        {
+            get
+            {
+                if (_deleteImageCommandBlueBlue == null)
+                {
+                    _deleteImageCommandBlueBlue = new RelayCommand(
+                        param => this.DeleteImage("BlueBlue")
+                        );
+                }
+                return _deleteImageCommandBlueBlue;
+            }
+        }
+        public ICommand DeleteImageCommandBlueRed
+        {
+            get
+            {
+                if (_deleteImageCommandBlueRed == null)
+                {
+                    _deleteImageCommandBlueRed = new RelayCommand(
+                        param => this.DeleteImage("BlueRed")
+                        );
+                }
+                return _deleteImageCommandBlueRed;
+            }
+        }
+        public ICommand DeleteImageCommandBlueGreen
+        {
+            get
+            {
+                if (_deleteImageCommandBlueGreen == null)
+                {
+                    _deleteImageCommandBlueGreen = new RelayCommand(
+                        param => this.DeleteImage("BlueGreen")
+                        );
+                }
+                return _deleteImageCommandBlueGreen;
+            }
+        }
+        public ICommand DeleteImageCommandBlueYellow
+        {
+            get
+            {
+                if (_deleteImageCommandBlueYellow == null)
+                {
+                    _deleteImageCommandBlueYellow = new RelayCommand(
+                        param => this.DeleteImage("BlueYellow")
+                        );
+                }
+                return _deleteImageCommandBlueYellow;
+            }
+        }
+
+        public ICommand DeleteImageCommandRedBlue
+        {
+            get
+            {
+                if (_deleteImageCommandRedBlue == null)
+                {
+                    _deleteImageCommandRedBlue = new RelayCommand(
+                        param => this.DeleteImage("RedBlue")
+                        );
+                }
+                return _deleteImageCommandRedBlue;
+            }
+        }
+        public ICommand DeleteImageCommandRedRed
+        {
+            get
+            {
+                if (_deleteImageCommandRedRed == null)
+                {
+                    _deleteImageCommandRedRed = new RelayCommand(
+                        param => this.DeleteImage("RedRed")
+                        );
+                }
+                return _deleteImageCommandRedRed;
+            }
+        }
+        public ICommand DeleteImageCommandRedGreen
+        {
+            get
+            {
+                if (_deleteImageCommandRedGreen == null)
+                {
+                    _deleteImageCommandRedGreen = new RelayCommand(
+                        param => this.DeleteImage("RedGreen")
+                        );
+                }
+                return _deleteImageCommandRedGreen;
+            }
+        }
+        public ICommand DeleteImageCommandRedYellow
+        {
+            get
+            {
+                if (_deleteImageCommandRedYellow == null)
+                {
+                    _deleteImageCommandRedYellow = new RelayCommand(
+                        param => this.DeleteImage("RedYellow")
+                        );
+                }
+                return _deleteImageCommandRedYellow;
+            }
+        }
+
+        public ICommand DeleteImageCommandGreenBlue
+        {
+            get
+            {
+                if (_deleteImageCommandGreenBlue == null)
+                {
+                    _deleteImageCommandGreenBlue = new RelayCommand(
+                        param => this.DeleteImage("GreenBlue")
+                        );
+                }
+                return _deleteImageCommandGreenBlue;
+            }
+        }
+        public ICommand DeleteImageCommandGreenRed
+        {
+            get
+            {
+                if (_deleteImageCommandGreenRed == null)
+                {
+                    _deleteImageCommandGreenRed = new RelayCommand(
+                        param => this.DeleteImage("GreenRed")
+                        );
+                }
+                return _deleteImageCommandGreenRed;
+            }
+        }
+        public ICommand DeleteImageCommandGreenGreen
+        {
+            get
+            {
+                if (_deleteImageCommandGreenGreen == null)
+                {
+                    _deleteImageCommandGreenGreen = new RelayCommand(
+                        param => this.DeleteImage("GreenGreen")
+                        );
+                }
+                return _deleteImageCommandGreenGreen;
+            }
+        }
+        public ICommand DeleteImageCommandGreenYellow
+        {
+            get
+            {
+                if (_deleteImageCommandGreenYellow == null)
+                {
+                    _deleteImageCommandGreenYellow = new RelayCommand(
+                        param => this.DeleteImage("GreenYellow")
+                        );
+                }
+                return _deleteImageCommandGreenYellow;
+            }
+        }
+
+        public ICommand DeleteImageCommandYellowBlue
+        {
+            get
+            {
+                if (_deleteImageCommandYellowBlue == null)
+                {
+                    _deleteImageCommandYellowBlue = new RelayCommand(
+                        param => this.DeleteImage("YellowBlue")
+                        );
+                }
+                return _deleteImageCommandYellowBlue;
+            }
+        }
+        public ICommand DeleteImageCommandYellowRed
+        {
+            get
+            {
+                if (_deleteImageCommandYellowRed == null)
+                {
+                    _deleteImageCommandYellowRed = new RelayCommand(
+                        param => this.DeleteImage("YellowRed")
+                        );
+                }
+                return _deleteImageCommandYellowRed;
+            }
+        }
+        public ICommand DeleteImageCommandYellowGreen
+        {
+            get
+            {
+                if (_deleteImageCommandYellowGreen == null)
+                {
+                    _deleteImageCommandYellowGreen = new RelayCommand(
+                        param => this.DeleteImage("YellowGreen")
+                        );
+                }
+                return _deleteImageCommandYellowGreen;
+            }
+        }
+        public ICommand DeleteImageCommandYellowYellow
+        {
+            get
+            {
+                if (_deleteImageCommandYellowYellow == null)
+                {
+                    _deleteImageCommandYellowYellow = new RelayCommand(
+                        param => this.DeleteImage("YellowYellow")
+                        );
+                }
+                return _deleteImageCommandYellowYellow;
+            }
+        }
+        #endregion
+
+        #region SaveImageCommands
+        public ICommand SaveImageCommandBlueBlue
+        {
+            get
+            {
+                if (_saveImageCommandBlueBlue == null)
+                {
+                    _saveImageCommandBlueBlue = new RelayCommand(
+                        param => this.SaveImage("BlueBlue")
+                        );
+                }
+                return _saveImageCommandBlueBlue;
+            }
+        }
+
+        
+
+        public ICommand SaveImageCommandBlueRed
+        {
+            get
+            {
+                if (_saveImageCommandBlueRed == null)
+                {
+                    _saveImageCommandBlueRed = new RelayCommand(
+                        param => this.SaveImage("BlueRed")
+                        );
+                }
+                return _saveImageCommandBlueRed;
+            }
+        }
+        public ICommand SaveImageCommandBlueGreen
+        {
+            get
+            {
+                if (_saveImageCommandBlueGreen == null)
+                {
+                    _saveImageCommandBlueGreen = new RelayCommand(
+                        param => this.SaveImage("BlueGreen")
+                        );
+                }
+                return _saveImageCommandBlueGreen;
+            }
+        }
+        public ICommand SaveImageCommandBlueYellow
+        {
+            get
+            {
+                if (_saveImageCommandBlueYellow == null)
+                {
+                    _saveImageCommandBlueYellow = new RelayCommand(
+                        param => this.SaveImage("BlueYellow")
+                        );
+                }
+                return _saveImageCommandBlueYellow;
+            }
+        }
+
+        public ICommand SaveImageCommandRedBlue
+        {
+            get
+            {
+                if (_saveImageCommandRedBlue == null)
+                {
+                    _saveImageCommandRedBlue = new RelayCommand(
+                        param => this.SaveImage("RedBlue")
+                        );
+                }
+                return _saveImageCommandRedBlue;
+            }
+        }
+        public ICommand SaveImageCommandRedRed
+        {
+            get
+            {
+                if (_saveImageCommandRedRed == null)
+                {
+                    _saveImageCommandRedRed = new RelayCommand(
+                        param => this.SaveImage("RedRed")
+                        );
+                }
+                return _saveImageCommandRedRed;
+            }
+        }
+        public ICommand SaveImageCommandRedGreen
+        {
+            get
+            {
+                if (_saveImageCommandRedGreen == null)
+                {
+                    _saveImageCommandRedGreen = new RelayCommand(
+                        param => this.SaveImage("RedGreen")
+                        );
+                }
+                return _saveImageCommandRedGreen;
+            }
+        }
+        public ICommand SaveImageCommandRedYellow
+        {
+            get
+            {
+                if (_saveImageCommandRedYellow == null)
+                {
+                    _saveImageCommandRedYellow = new RelayCommand(
+                        param => this.SaveImage("RedYellow")
+                        );
+                }
+                return _saveImageCommandRedYellow;
+            }
+        }
+
+        public ICommand SaveImageCommandGreenBlue
+        {
+            get
+            {
+                if (_saveImageCommandGreenBlue == null)
+                {
+                    _saveImageCommandGreenBlue = new RelayCommand(
+                        param => this.SaveImage("GreenBlue")
+                        );
+                }
+                return _saveImageCommandGreenBlue;
+            }
+        }
+        public ICommand SaveImageCommandGreenRed
+        {
+            get
+            {
+                if (_saveImageCommandGreenRed == null)
+                {
+                    _saveImageCommandGreenRed = new RelayCommand(
+                        param => this.SaveImage("GreenRed")
+                        );
+                }
+                return _saveImageCommandGreenRed;
+            }
+        }
+        public ICommand SaveImageCommandGreenGreen
+        {
+            get
+            {
+                if (_saveImageCommandGreenGreen == null)
+                {
+                    _saveImageCommandGreenGreen = new RelayCommand(
+                        param => this.SaveImage("GreenGreen")
+                        );
+                }
+                return _saveImageCommandGreenGreen;
+            }
+        }
+        public ICommand SaveImageCommandGreenYellow
+        {
+            get
+            {
+                if (_saveImageCommandGreenYellow == null)
+                {
+                    _saveImageCommandGreenYellow = new RelayCommand(
+                        param => this.SaveImage("GreenYellow")
+                        );
+                }
+                return _saveImageCommandGreenYellow;
+            }
+        }
+
+        public ICommand SaveImageCommandYellowBlue
+        {
+            get
+            {
+                if (_saveImageCommandYellowBlue == null)
+                {
+                    _saveImageCommandYellowBlue = new RelayCommand(
+                        param => this.SaveImage("YellowBlue")
+                        );
+                }
+                return _saveImageCommandYellowBlue;
+            }
+        }
+        public ICommand SaveImageCommandYellowRed
+        {
+            get
+            {
+                if (_saveImageCommandYellowRed == null)
+                {
+                    _saveImageCommandYellowRed = new RelayCommand(
+                        param => this.SaveImage("YellowRed")
+                        );
+                }
+                return _saveImageCommandYellowRed;
+            }
+        }
+        public ICommand SaveImageCommandYellowGreen
+        {
+            get
+            {
+                if (_saveImageCommandYellowGreen == null)
+                {
+                    _saveImageCommandYellowGreen = new RelayCommand(
+                        param => this.SaveImage("YellowGreen")
+                        );
+                }
+                return _saveImageCommandYellowGreen;
+            }
+        }
+        public ICommand SaveImageCommandYellowYellow
+        {
+            get
+            {
+                if (_saveImageCommandYellowYellow == null)
+                {
+                    _saveImageCommandYellowYellow = new RelayCommand(
+                        param => this.SaveImage("YellowYellow")
+                        );
+                }
+                return _saveImageCommandYellowYellow;
+            }
+        }
+
+        #endregion // SaveImageCommands
+        private void SaveImage(string v)
+        {
+
+        }
+
+        private void DeleteImage(string v)
+        {
+
+        }
     }
 }
