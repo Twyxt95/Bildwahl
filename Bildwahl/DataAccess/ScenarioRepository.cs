@@ -193,72 +193,120 @@ namespace Bildwahl.DataAccess
 
             string[] splittedPath;
 
-            XmlAttribute attributeBlueBlue = doc.CreateAttribute("blueblue"); 
-            splittedPath = blueBlue.Split('\\');
-            attributeBlueBlue.Value = splittedPath[splittedPath.Length - 1]; 
-            node.Attributes.Append(attributeBlueBlue); 
-            XmlAttribute attributeBlueRed = doc.CreateAttribute("bluered"); 
-            splittedPath = blueRed.Split('\\');
-            attributeBlueRed.Value = splittedPath[splittedPath.Length - 1]; 
+            XmlAttribute attributeBlueBlue = doc.CreateAttribute("blueblue");
+            if (!IsStringMissing(blueBlue))
+            {
+                splittedPath = blueBlue.Split('\\');            
+                attributeBlueBlue.Value = splittedPath[splittedPath.Length - 1];
+            }
+            node.Attributes.Append(attributeBlueBlue);
+            XmlAttribute attributeBlueRed = doc.CreateAttribute("bluered");
+            if (!IsStringMissing(blueRed))
+            {
+                splittedPath = blueRed.Split('\\');
+                attributeBlueRed.Value = splittedPath[splittedPath.Length - 1];
+            }
             node.Attributes.Append(attributeBlueRed); 
-            XmlAttribute attributeBlueGreen = doc.CreateAttribute("bluegreen"); 
-            splittedPath = blueGreen.Split('\\');
-            attributeBlueGreen.Value = splittedPath[splittedPath.Length - 1]; 
+            XmlAttribute attributeBlueGreen = doc.CreateAttribute("bluegreen");
+            if (!IsStringMissing(blueGreen))
+            {
+                splittedPath = blueGreen.Split('\\');
+                attributeBlueGreen.Value = splittedPath[splittedPath.Length - 1];
+            }
             node.Attributes.Append(attributeBlueGreen); 
-            XmlAttribute attributeBlueYellow = doc.CreateAttribute("blueyellow"); 
-            splittedPath = blueYellow.Split('\\');
-            attributeBlueYellow.Value = splittedPath[splittedPath.Length - 1];  
+            XmlAttribute attributeBlueYellow = doc.CreateAttribute("blueyellow");
+            if (!IsStringMissing(blueYellow))
+            {
+                splittedPath = blueYellow.Split('\\');
+                attributeBlueYellow.Value = splittedPath[splittedPath.Length - 1];
+            }
             node.Attributes.Append(attributeBlueYellow); 
 
-            XmlAttribute attributeRedBlue = doc.CreateAttribute("redblue"); 
-            splittedPath = redBlue.Split('\\');
-            attributeRedBlue.Value = splittedPath[splittedPath.Length - 1]; 
+            XmlAttribute attributeRedBlue = doc.CreateAttribute("redblue");
+            if (!IsStringMissing(redBlue))
+            {
+                splittedPath = redBlue.Split('\\');
+                attributeRedBlue.Value = splittedPath[splittedPath.Length - 1];
+            }
             node.Attributes.Append(attributeRedBlue); 
-            XmlAttribute attributeRedRed = doc.CreateAttribute("redred"); 
-            splittedPath = redRed.Split('\\');
-            attributeRedRed.Value = splittedPath[splittedPath.Length - 1]; 
+            XmlAttribute attributeRedRed = doc.CreateAttribute("redred");
+            if (!IsStringMissing(redRed))
+            {
+                splittedPath = redRed.Split('\\');
+                attributeRedRed.Value = splittedPath[splittedPath.Length - 1];
+            }
             node.Attributes.Append(attributeRedRed); 
-            XmlAttribute attributeRedGreen = doc.CreateAttribute("redgreen"); 
-            splittedPath = redGreen.Split('\\');
-            attributeRedGreen.Value = splittedPath[splittedPath.Length - 1]; 
+            XmlAttribute attributeRedGreen = doc.CreateAttribute("redgreen");
+            if (!IsStringMissing(redGreen))
+            {
+                splittedPath = redGreen.Split('\\');
+                attributeRedGreen.Value = splittedPath[splittedPath.Length - 1];
+            }
             node.Attributes.Append(attributeRedGreen);
-            XmlAttribute attributeRedYellow = doc.CreateAttribute("redyellow"); 
-            splittedPath = redYellow.Split('\\');
-            attributeRedYellow.Value = splittedPath[splittedPath.Length - 1]; 
+            XmlAttribute attributeRedYellow = doc.CreateAttribute("redyellow");
+            if (!IsStringMissing(redYellow))
+            {
+                splittedPath = redYellow.Split('\\');
+                attributeRedYellow.Value = splittedPath[splittedPath.Length - 1];
+            }
             node.Attributes.Append(attributeRedYellow); 
 
             XmlAttribute attributeGreenBlue = doc.CreateAttribute("greenblue");
-            splittedPath = greenBlue.Split('\\');
-            attributeGreenBlue.Value = splittedPath[splittedPath.Length - 1];
+            if (!IsStringMissing(greenBlue))
+            {
+                splittedPath = greenBlue.Split('\\');
+                attributeGreenBlue.Value = splittedPath[splittedPath.Length - 1];
+            }
             node.Attributes.Append(attributeGreenBlue);
             XmlAttribute attributeGreenRed = doc.CreateAttribute("greenred");
-            splittedPath = greenRed.Split('\\');
-            attributeGreenRed.Value = splittedPath[splittedPath.Length - 1]; 
+            if (!IsStringMissing(greenRed))
+            {
+                splittedPath = greenRed.Split('\\');
+                attributeGreenRed.Value = splittedPath[splittedPath.Length - 1];
+            }
             node.Attributes.Append(attributeGreenRed); 
-            XmlAttribute attributeGreenGreen = doc.CreateAttribute("greengreen"); 
-            splittedPath = greenGreen.Split('\\');
-            attributeGreenGreen.Value = splittedPath[splittedPath.Length - 1]; 
+            XmlAttribute attributeGreenGreen = doc.CreateAttribute("greengreen");
+            if (!IsStringMissing(greenGreen))
+            {
+                splittedPath = greenGreen.Split('\\');
+                attributeGreenGreen.Value = splittedPath[splittedPath.Length - 1];
+            }
             node.Attributes.Append(attributeGreenGreen);
-            XmlAttribute attributeGreenYellow = doc.CreateAttribute("greenyellow"); 
-            splittedPath = greenYellow.Split('\\');
-            attributeGreenYellow.Value = splittedPath[splittedPath.Length - 1]; 
+            XmlAttribute attributeGreenYellow = doc.CreateAttribute("greenyellow");
+            if (!IsStringMissing(greenYellow))
+            {
+                splittedPath = greenYellow.Split('\\');
+                attributeGreenYellow.Value = splittedPath[splittedPath.Length - 1];
+            }
             node.Attributes.Append(attributeGreenYellow); 
 
-            XmlAttribute attributeYellowBlue = doc.CreateAttribute("yellowblue"); 
-            splittedPath = yellowBlue.Split('\\');
-            attributeYellowBlue.Value = splittedPath[splittedPath.Length - 1]; 
+            XmlAttribute attributeYellowBlue = doc.CreateAttribute("yellowblue");
+            if (!IsStringMissing(yellowBlue))
+            {
+                splittedPath = yellowBlue.Split('\\');
+                attributeYellowBlue.Value = splittedPath[splittedPath.Length - 1];
+            }
             node.Attributes.Append(attributeYellowBlue); 
             XmlAttribute attributeYellowRed = doc.CreateAttribute("yellowred");
-            splittedPath = yellowRed.Split('\\');
-            attributeYellowRed.Value = splittedPath[splittedPath.Length - 1];
+            if (!IsStringMissing(yellowRed))
+            {
+                splittedPath = yellowRed.Split('\\');
+                attributeYellowRed.Value = splittedPath[splittedPath.Length - 1];
+            }
             node.Attributes.Append(attributeYellowRed); 
             XmlAttribute attributeYellowGreen = doc.CreateAttribute("yellowgreen");
-            splittedPath = yellowGreen.Split('\\');
-            attributeYellowGreen.Value = splittedPath[splittedPath.Length - 1]; 
+            if (!IsStringMissing(yellowGreen))
+            {
+                splittedPath = yellowGreen.Split('\\');
+                attributeYellowGreen.Value = splittedPath[splittedPath.Length - 1];
+            }
             node.Attributes.Append(attributeYellowGreen); 
-            XmlAttribute attributeYellowYellow = doc.CreateAttribute("yellowyellow"); 
-            splittedPath = yellowYellow.Split('\\');
-            attributeYellowYellow.Value = splittedPath[splittedPath.Length - 1]; 
+            XmlAttribute attributeYellowYellow = doc.CreateAttribute("yellowyellow");
+            if (!IsStringMissing(yellowYellow))
+            {
+                splittedPath = yellowYellow.Split('\\');
+                attributeYellowYellow.Value = splittedPath[splittedPath.Length - 1];
+            }
             node.Attributes.Append(attributeYellowYellow); 
 
             doc.DocumentElement.AppendChild(node);
@@ -277,8 +325,16 @@ namespace Bildwahl.DataAccess
             XmlNodeList node= doc.SelectNodes("//scenario[@titel='" + titel + "']");
             doc.SelectSingleNode("imagelinks").RemoveChild(node.Item(0));
             doc.Save(directory + filename);
-        } 
+        }
 
+        /// <summary> Überprüft ob ein String existiert </summary>
+        /// /// <param name="value">STring der überprüft werden soll</param>
+        static bool IsStringMissing(string value)
+        {
+            return
+                String.IsNullOrEmpty(value) ||
+                value.Trim() == String.Empty;
+        }
         #endregion // Private Helpers
     }
 }

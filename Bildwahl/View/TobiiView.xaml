@@ -940,7 +940,7 @@
                 <ColumnDefinition Width="1*" />
                 <ColumnDefinition Width="1.5*" />
             </Grid.ColumnDefinitions>
-            <Button x:Name="ResetButton" Template="{StaticResource TobiiButton}" BorderThickness="0" Content="Zurück" Visibility="Collapsed" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="2000" Grid.Column="1" Background="Aquamarine" Style="{StaticResource TobiiButtonStyle}">
+            <Button x:Name="ResetButton" Template="{StaticResource TobiiButton}" BorderThickness="0" Content="Zurück" Visibility="Collapsed" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="2000" Grid.Column="1" Background="#FC16FF" Style="{StaticResource TobiiButtonStyle}">
                 <Button.Triggers>
                     <EventTrigger RoutedEvent="Button.Click">
                         <BeginStoryboard Storyboard="{StaticResource Reset}" />
