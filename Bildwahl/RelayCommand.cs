@@ -8,6 +8,7 @@ using System.Windows.Input;
 
 namespace Bildwahl
 {
+    /// <summary> Ermöglich Kommunikation zwischen View und Viewmodel </summary>
     public class RelayCommand : ICommand
     {
         #region Fields 
@@ -18,9 +19,7 @@ namespace Bildwahl
         public RelayCommand(Action<object> execute) : this(execute, null) { }
         public RelayCommand(Action<object> execute, Predicate<object> canExecute)
         {
-            if (execute == null)
-                throw new ArgumentNullException("execute");
-            _execute = execute; _canExecute = canExecute;
+            _execute = execute ?? throw new ArgumentNullException("execute"); _canExecute = canExecute;
         }
         #endregion // Constructors 
         #region ICommand Members 

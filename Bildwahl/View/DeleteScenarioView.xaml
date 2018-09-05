@@ -2,522 +2,16 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Bildwahl.View"
-             xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
 
-        <Style x:Key="AddImageButtonStyle" TargetType="{x:Type Button}">
-            <Setter Property="Background" Value="#F8F9F7" />
-            <Setter Property="Foreground" Value="#14CC58"/>
-            <Setter Property="BorderBrush" Value="#14CC58"/>
-            <Setter Property="FontWeight" Value="ExtraBold" />
-        </Style>
-
-        <Style x:Key="DeleteImageButtonStyle" TargetType="{x:Type Button}">
-            <Setter Property="Background" Value="#F8F9F7" />
-            <Setter Property="Foreground" Value="#FF0109"/>
-            <Setter Property="BorderBrush" Value="#FF0109"/>
-            <Setter Property="FontWeight" Value="ExtraBold" />
-        </Style>
-
-        <Storyboard x:Key="AddBlueBlueStory">
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="AddBlueBlue" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="DeleteBlueBlue" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="ImageBlueBlue" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-            </ObjectAnimationUsingKeyFrames>
-        </Storyboard>
-        <Storyboard x:Key="DeleteBlueBlueStory">
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="AddBlueBlue" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="DeleteBlueBlue" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="ImageBlueBlue" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-            </ObjectAnimationUsingKeyFrames>
-        </Storyboard>
-        <Storyboard x:Key="AddBlueRedStory">
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="AddBlueRed" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="DeleteBlueRed" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="ImageBlueRed" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-            </ObjectAnimationUsingKeyFrames>
-        </Storyboard>
-        <Storyboard x:Key="DeleteBlueRedStory">
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="AddBlueRed" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="DeleteBlueRed" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="ImageBlueRed" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-            </ObjectAnimationUsingKeyFrames>
-        </Storyboard>
-        <Storyboard x:Key="AddBlueGreenStory">
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="AddBlueGreen" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="DeleteBlueGreen" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="ImageBlueGreen" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-            </ObjectAnimationUsingKeyFrames>
-        </Storyboard>
-        <Storyboard x:Key="DeleteBlueGreenStory">
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="AddBlueGreen" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="DeleteBlueGreen" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="ImageBlueGreen" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-            </ObjectAnimationUsingKeyFrames>
-        </Storyboard>
-        <Storyboard x:Key="AddBlueYellowStory">
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="AddBlueYellow" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="DeleteBlueYellow" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="ImageBlueYellow" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-            </ObjectAnimationUsingKeyFrames>
-        </Storyboard>
-        <Storyboard x:Key="DeleteBlueYellowStory">
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="AddBlueYellow" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="DeleteBlueYellow" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="ImageBlueYellow" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-            </ObjectAnimationUsingKeyFrames>
-        </Storyboard>
-
-        <Storyboard x:Key="AddRedBlueStory">
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="AddRedBlue" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="DeleteRedBlue" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="ImageRedBlue" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-            </ObjectAnimationUsingKeyFrames>
-        </Storyboard>
-        <Storyboard x:Key="DeleteRedBlueStory">
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="AddRedBlue" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="DeleteRedBlue" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="ImageRedBlue" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-            </ObjectAnimationUsingKeyFrames>
-        </Storyboard>
-        <Storyboard x:Key="AddRedRedStory">
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="AddRedRed" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="DeleteRedRed" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="ImageRedRed" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-            </ObjectAnimationUsingKeyFrames>
-        </Storyboard>
-        <Storyboard x:Key="DeleteRedRedStory">
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="AddRedRed" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="DeleteRedRed" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="ImageRedRed" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-            </ObjectAnimationUsingKeyFrames>
-        </Storyboard>
-        <Storyboard x:Key="AddRedGreenStory">
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="AddRedGreen" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="DeleteRedGreen" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="ImageRedGreen" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-            </ObjectAnimationUsingKeyFrames>
-        </Storyboard>
-        <Storyboard x:Key="DeleteRedGreenStory">
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="AddRedGreen" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="DeleteRedGreen" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="ImageRedGreen" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-            </ObjectAnimationUsingKeyFrames>
-        </Storyboard>
-        <Storyboard x:Key="AddRedYellowStory">
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="AddRedYellow" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="DeleteRedYellow" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="ImageRedYellow" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-            </ObjectAnimationUsingKeyFrames>
-        </Storyboard>
-        <Storyboard x:Key="DeleteRedYellowStory">
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="AddRedYellow" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="DeleteRedYellow" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="ImageRedYellow" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-            </ObjectAnimationUsingKeyFrames>
-        </Storyboard>
-
-        <Storyboard x:Key="AddGreenBlueStory">
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="AddGreenBlue" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="DeleteGreenBlue" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="ImageGreenBlue" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-            </ObjectAnimationUsingKeyFrames>
-        </Storyboard>
-        <Storyboard x:Key="DeleteGreenBlueStory">
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="AddGreenBlue" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="DeleteGreenBlue" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="ImageGreenBlue" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-            </ObjectAnimationUsingKeyFrames>
-        </Storyboard>
-        <Storyboard x:Key="AddGreenRedStory">
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="AddGreenRed" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="DeleteGreenRed" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="ImageGreenRed" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-            </ObjectAnimationUsingKeyFrames>
-        </Storyboard>
-        <Storyboard x:Key="DeleteGreenRedStory">
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="AddGreenRed" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="DeleteGreenRed" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="ImageGreenRed" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-            </ObjectAnimationUsingKeyFrames>
-        </Storyboard>
-        <Storyboard x:Key="AddGreenGreenStory">
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="AddGreenGreen" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="DeleteGreenGreen" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="ImageGreenGreen" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-            </ObjectAnimationUsingKeyFrames>
-        </Storyboard>
-        <Storyboard x:Key="DeleteGreenGreenStory">
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="AddGreenGreen" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="DeleteGreenGreen" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="ImageGreenGreen" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-            </ObjectAnimationUsingKeyFrames>
-        </Storyboard>
-        <Storyboard x:Key="AddGreenYellowStory">
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="AddGreenYellow" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="DeleteGreenYellow" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="ImageGreenYellow" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-            </ObjectAnimationUsingKeyFrames>
-        </Storyboard>
-        <Storyboard x:Key="DeleteGreenYellowStory">
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="AddGreenYellow" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="DeleteGreenYellow" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="ImageGreenYellow" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-            </ObjectAnimationUsingKeyFrames>
-        </Storyboard>
-
-        <Storyboard x:Key="AddYellowBlueStory">
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="AddYellowBlue" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="DeleteYellowBlue" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="ImageYellowBlue" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-            </ObjectAnimationUsingKeyFrames>
-        </Storyboard>
-        <Storyboard x:Key="DeleteYellowBlueStory">
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="AddYellowBlue" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="DeleteYellowBlue" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="ImageYellowBlue" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-            </ObjectAnimationUsingKeyFrames>
-        </Storyboard>
-        <Storyboard x:Key="AddYellowRedStory">
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="AddYellowRed" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="DeleteYellowRed" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="ImageYellowRed" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-            </ObjectAnimationUsingKeyFrames>
-        </Storyboard>
-        <Storyboard x:Key="DeleteYellowRedStory">
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="AddYellowRed" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="DeleteYellowRed" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="ImageYellowRed" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-            </ObjectAnimationUsingKeyFrames>
-        </Storyboard>
-        <Storyboard x:Key="AddYellowGreenStory">
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="AddYellowGreen" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="DeleteYellowGreen" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="ImageYellowGreen" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-            </ObjectAnimationUsingKeyFrames>
-        </Storyboard>
-        <Storyboard x:Key="DeleteYellowGreenStory">
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="AddYellowGreen" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="DeleteYellowGreen" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="ImageYellowGreen" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-            </ObjectAnimationUsingKeyFrames>
-        </Storyboard>
-        <Storyboard x:Key="AddYellowYellowStory">
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="AddYellowYellow" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="DeleteYellowYellow" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="ImageYellowYellow" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-            </ObjectAnimationUsingKeyFrames>
-        </Storyboard>
-        <Storyboard x:Key="DeleteYellowYellowStory">
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="AddYellowYellow" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="DeleteYellowYellow" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="ImageYellowYellow" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-            </ObjectAnimationUsingKeyFrames>
-        </Storyboard>
-
-
-        <CollectionViewSource x:Key="CustomerGroups" Source="{Binding Path=AllScenarios}">
-            <CollectionViewSource.GroupDescriptions>
-
-            </CollectionViewSource.GroupDescriptions>
-            <CollectionViewSource.SortDescriptions>
-                <!-- 
-        Sort descending by IsCompany so that the 'True' values appear first,
-        which means that companies will always be listed before people.
-        -->
-
-            </CollectionViewSource.SortDescriptions>
-        </CollectionViewSource>
-        
-        <GroupStyle x:Key="CustomerGroupStyle">
-            <GroupStyle.HeaderTemplate>
-                <DataTemplate>
-                    <TextBlock 
-            x:Name="txt" 
-            Background="Yellow"
-            FontWeight="Bold"
-            Foreground="Green"
-            Margin="1"
-            Padding="4,2,0,2"
-            Text="People" 
-            />
-                    
-                </DataTemplate>
-            </GroupStyle.HeaderTemplate>
-        </GroupStyle>
-        
-        <Style x:Key="CustomerItemStyle" TargetType="{x:Type ListViewItem}">
-            <!-- 
-      Stretch the content of each cell so that we can 
-      right-align text in the Total Sales column. 
-      -->
+        <Style x:Key="ItemStyle" TargetType="{x:Type ListViewItem}">
             <Setter Property="HorizontalContentAlignment" Value="Stretch" />
             <Setter Property="Foreground" Value="#5B5B5B"/>
             <Setter Property="Cursor" Value="Hand"/>
-            <!-- 
-      Bind the IsSelected property of a ListViewItem to the 
-      IsSelected property of a CustomerViewModel object.
-      -->
+
             <Setter Property="IsSelected" Value="{Binding Path=IsSelected, Mode=TwoWay}" />
             <Style.Triggers>
                 <MultiTrigger>
@@ -539,32 +33,6 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
-
-        <ControlTemplate x:Key="AddImageButtonTemplate"  TargetType="{x:Type ButtonBase}">
-            <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
-                <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-            </Border>
-            <ControlTemplate.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" TargetName="border" Value="#14CC58"/>
-                    <Setter Property="Foreground"  Value="#F8F9F7"/>
-                    <Setter Property="BorderBrush" TargetName="border" Value="#F8F9F7"/>
-                </Trigger>
-            </ControlTemplate.Triggers>
-        </ControlTemplate>
-
-        <ControlTemplate x:Key="DeleteImageButtonTemplate"  TargetType="{x:Type ButtonBase}">
-            <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
-                <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-            </Border>
-            <ControlTemplate.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" TargetName="border" Value="#FF0109"/>
-                    <Setter Property="Foreground"  Value="#F8F9F7"/>
-                    <Setter Property="BorderBrush" TargetName="border" Value="#F8F9F7"/>
-                </Trigger>
-            </ControlTemplate.Triggers>
-        </ControlTemplate>
 
         <ControlTemplate x:Key="DeleteButtonTemplate"  TargetType="{x:Type ButtonBase}">
             <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
@@ -628,7 +96,7 @@
             <RowDefinition Height="1*" />
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
-        <ListView Name="lv" Grid.Column="1" Grid.Row="1" Grid.RowSpan="6" AlternationCount="1" ItemContainerStyle="{StaticResource CustomerItemStyle}" ItemsSource="{Binding AllScenarios}">
+        <ListView Name="lv" Grid.Column="1" Grid.Row="1" Grid.RowSpan="6" AlternationCount="1" ItemContainerStyle="{StaticResource ItemStyle}" ItemsSource="{Binding AllScenarios}">
             <ListView.View>
                 <GridView ColumnHeaderContainerStyle="{StaticResource GridViewColumnHeaderStyle}">
                     <GridViewColumn Header="Titel" DisplayMemberBinding="{Binding Path=Titel}"/>
@@ -674,34 +142,6 @@
                 </Grid.RowDefinitions>
 
                 <Image x:Name="ImageBlueBlue" Grid.Row="1" Grid.Column="1" Source="{Binding Path=BlueBlue}" Stretch="Uniform"/>
-                <!--<Grid Grid.Row="1" Grid.Column="1">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*" />
-                        <ColumnDefinition Width="3*" />
-                        <ColumnDefinition Width="1*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="1*" />
-                        <RowDefinition Height="3*" />
-                        <RowDefinition Height="1*" />
-                    </Grid.RowDefinitions>
-                    <Button x:Name="AddBlueBlue" Template="{StaticResource AddImageButtonTemplate}" Grid.Row="0" Grid.Column="2" Command="{Binding Path=SaveImageCommandBlueBlue}" Visibility="Collapsed" Content="+" Style="{StaticResource AddImageButtonStyle}">
-                        <Button.Triggers>
-                            <EventTrigger RoutedEvent="Button.Click" >
-                                <BeginStoryboard  Storyboard="{StaticResource AddBlueBlueStory}">
-                                </BeginStoryboard>
-                            </EventTrigger>
-                        </Button.Triggers>
-                    </Button>
-                    <Button x:Name="DeleteBlueBlue" Template="{StaticResource DeleteImageButtonTemplate}" Grid.Row="0" Grid.Column="2" Command="{Binding Path=DeleteImageCommandBlueBlue}" Content="-" Style="{StaticResource DeleteImageButtonStyle}">
-                        <Button.Triggers>
-                            <EventTrigger RoutedEvent="Button.Click" >
-                                <BeginStoryboard  Storyboard="{StaticResource DeleteBlueBlueStory}">
-                                </BeginStoryboard>
-                            </EventTrigger>
-                        </Button.Triggers>
-                    </Button>
-                </Grid>-->
             </Grid>
 
             <Rectangle Grid.Row="1" Grid.Column="2" Fill="Red"/>
@@ -717,34 +157,6 @@
                     <RowDefinition Height="1*" />
                 </Grid.RowDefinitions>
                 <Image x:Name="ImageBlueRed" Grid.Row="1" Grid.Column="1" Source="{Binding Path=BlueRed}" Stretch="Uniform"/>
-                <!--<Grid Grid.Row="1" Grid.Column="1">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*" />
-                        <ColumnDefinition Width="3*" />
-                        <ColumnDefinition Width="1*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="1*" />
-                        <RowDefinition Height="3*" />
-                        <RowDefinition Height="1*" />
-                    </Grid.RowDefinitions>
-                    <Button x:Name="AddBlueRed" Template="{StaticResource AddImageButtonTemplate}" Visibility="Collapsed" Grid.Row="0" Grid.Column="2" Command="{Binding Path=SaveImageCommandBlueRed}" Content="+" Style="{StaticResource AddImageButtonStyle}">
-                        <Button.Triggers>
-                            <EventTrigger RoutedEvent="Button.Click" >
-                                <BeginStoryboard  Storyboard="{StaticResource AddBlueRedStory}">
-                                </BeginStoryboard>
-                            </EventTrigger>
-                        </Button.Triggers>
-                    </Button>
-                    <Button x:Name="DeleteBlueRed" Template="{StaticResource DeleteImageButtonTemplate}" Grid.Row="0" Grid.Column="2" Command="{Binding Path=DeleteImageCommandBlueRed}" Content="-" Style="{StaticResource DeleteImageButtonStyle}">
-                        <Button.Triggers>
-                            <EventTrigger RoutedEvent="Button.Click" >
-                                <BeginStoryboard  Storyboard="{StaticResource DeleteBlueRedStory}">
-                                </BeginStoryboard>
-                            </EventTrigger>
-                        </Button.Triggers>
-                    </Button>
-                </Grid>-->
             </Grid>
 
             <Rectangle Grid.Row="2" Grid.Column="1" Fill="Green"/>
@@ -760,34 +172,6 @@
                     <RowDefinition Height="1*" />
                 </Grid.RowDefinitions>
                 <Image x:Name="ImageBlueGreen" Grid.Row="1" Grid.Column="1" Source="{Binding Path=BlueGreen}" Stretch="Uniform"/>
-                <!--<Grid Grid.Row="1" Grid.Column="1">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*" />
-                        <ColumnDefinition Width="3*" />
-                        <ColumnDefinition Width="1*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="1*" />
-                        <RowDefinition Height="3*" />
-                        <RowDefinition Height="1*" />
-                    </Grid.RowDefinitions>
-                    <Button x:Name="AddBlueGreen" Template="{StaticResource AddImageButtonTemplate}" Grid.Row="0" Grid.Column="2"  Visibility="Collapsed" Command="{Binding Path=SaveImageCommandBlueGreen}" Content="+" Style="{StaticResource AddImageButtonStyle}">
-                        <Button.Triggers>
-                            <EventTrigger RoutedEvent="Button.Click" >
-                                <BeginStoryboard  Storyboard="{StaticResource AddBlueGreenStory}">
-                                </BeginStoryboard>
-                            </EventTrigger>
-                        </Button.Triggers>
-                    </Button>
-                    <Button x:Name="DeleteBlueGreen" Template="{StaticResource DeleteImageButtonTemplate}" Grid.Row="0" Grid.Column="2" Command="{Binding Path=DeleteImageCommandBlueGreen}" Content="-" Style="{StaticResource DeleteImageButtonStyle}">
-                        <Button.Triggers>
-                            <EventTrigger RoutedEvent="Button.Click" >
-                                <BeginStoryboard  Storyboard="{StaticResource DeleteBlueGreenStory}">
-                                </BeginStoryboard>
-                            </EventTrigger>
-                        </Button.Triggers>
-                    </Button>
-                </Grid>-->
             </Grid>
 
             <Rectangle Grid.Row="2" Grid.Column="2" Fill="Yellow"/>
@@ -803,34 +187,6 @@
                     <RowDefinition Height="1*" />
                 </Grid.RowDefinitions>
                 <Image x:Name="ImageBlueYellow" Grid.Row="1" Grid.Column="1" Source="{Binding Path=BlueYellow}" Stretch="Uniform"/>
-                <!--<Grid Grid.Row="1" Grid.Column="1">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*" />
-                        <ColumnDefinition Width="3*" />
-                        <ColumnDefinition Width="1*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="1*" />
-                        <RowDefinition Height="3*" />
-                        <RowDefinition Height="1*" />
-                    </Grid.RowDefinitions>
-                    <Button x:Name="AddBlueYellow" Template="{StaticResource AddImageButtonTemplate}" Grid.Row="0" Grid.Column="2" Command="{Binding Path=SaveImageCommandBlueYellow}"  Visibility="Collapsed" Content="+" Style="{StaticResource AddImageButtonStyle}">
-                        <Button.Triggers>
-                            <EventTrigger RoutedEvent="Button.Click" >
-                                <BeginStoryboard  Storyboard="{StaticResource AddBlueYellowStory}">
-                                </BeginStoryboard>
-                            </EventTrigger>
-                        </Button.Triggers>
-                    </Button>
-                    <Button x:Name="DeleteBlueYellow" Template="{StaticResource DeleteImageButtonTemplate}" Grid.Row="0" Grid.Column="2" Command="{Binding Path=DeleteImageCommandBlueYellow}" Content="-" Style="{StaticResource DeleteImageButtonStyle}">
-                        <Button.Triggers>
-                            <EventTrigger RoutedEvent="Button.Click" >
-                                <BeginStoryboard  Storyboard="{StaticResource DeleteBlueYellowStory}">
-                                </BeginStoryboard>
-                            </EventTrigger>
-                        </Button.Triggers>
-                    </Button>
-                </Grid>-->
             </Grid>
 
             <!--Red-->
@@ -847,34 +203,6 @@
                     <RowDefinition Height="1*" />
                 </Grid.RowDefinitions>
                 <Image x:Name="ImageRedBlue" Grid.Row="1" Grid.Column="1" Source="{Binding Path=RedBlue}" Stretch="Uniform"/>
-                <!--<Grid Grid.Row="1" Grid.Column="1">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*" />
-                        <ColumnDefinition Width="3*" />
-                        <ColumnDefinition Width="1*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="1*" />
-                        <RowDefinition Height="3*" />
-                        <RowDefinition Height="1*" />
-                    </Grid.RowDefinitions>
-                    <Button x:Name="AddRedBlue" Template="{StaticResource AddImageButtonTemplate}" Grid.Row="0" Grid.Column="2" Command="{Binding Path=SaveImageCommandRedBlue}" Visibility="Collapsed" Content="+" Style="{StaticResource AddImageButtonStyle}">
-                        <Button.Triggers>
-                            <EventTrigger RoutedEvent="Button.Click" >
-                                <BeginStoryboard  Storyboard="{StaticResource AddRedBlueStory}">
-                                </BeginStoryboard>
-                            </EventTrigger>
-                        </Button.Triggers>
-                    </Button>
-                    <Button x:Name="DeleteRedBlue" Template="{StaticResource DeleteImageButtonTemplate}" Grid.Row="0" Grid.Column="2" Command="{Binding Path=DeleteImageCommandRedBlue}" Content="-" Style="{StaticResource DeleteImageButtonStyle}">
-                        <Button.Triggers>
-                            <EventTrigger RoutedEvent="Button.Click" >
-                                <BeginStoryboard  Storyboard="{StaticResource DeleteRedBlueStory}">
-                                </BeginStoryboard>
-                            </EventTrigger>
-                        </Button.Triggers>
-                    </Button>
-                </Grid>-->
             </Grid>
 
             <Rectangle Grid.Row="1" Grid.Column="5" Fill="Red"/>
@@ -890,34 +218,6 @@
                     <RowDefinition Height="1*" />
                 </Grid.RowDefinitions>
                 <Image x:Name="ImageRedRed" Grid.Row="1" Grid.Column="1" Source="{Binding Path=RedRed}" Stretch="Uniform"/>
-                <!--<Grid Grid.Row="1" Grid.Column="1">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*" />
-                        <ColumnDefinition Width="3*" />
-                        <ColumnDefinition Width="1*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="1*" />
-                        <RowDefinition Height="3*" />
-                        <RowDefinition Height="1*" />
-                    </Grid.RowDefinitions>
-                    <Button x:Name="AddRedRed" Template="{StaticResource AddImageButtonTemplate}" Grid.Row="0" Grid.Column="2" Command="{Binding Path=SaveImageCommandRedRed}" Visibility="Collapsed" Content="+" Style="{StaticResource AddImageButtonStyle}">
-                        <Button.Triggers>
-                            <EventTrigger RoutedEvent="Button.Click" >
-                                <BeginStoryboard  Storyboard="{StaticResource AddRedRedStory}">
-                                </BeginStoryboard>
-                            </EventTrigger>
-                        </Button.Triggers>
-                    </Button>
-                    <Button x:Name="DeleteRedRed" Template="{StaticResource DeleteImageButtonTemplate}" Grid.Row="0" Grid.Column="2" Command="{Binding Path=DeleteImageCommandRedRed}" Content="-" Style="{StaticResource DeleteImageButtonStyle}">
-                        <Button.Triggers>
-                            <EventTrigger RoutedEvent="Button.Click" >
-                                <BeginStoryboard  Storyboard="{StaticResource DeleteRedRedStory}">
-                                </BeginStoryboard>
-                            </EventTrigger>
-                        </Button.Triggers>
-                    </Button>
-                </Grid>-->
             </Grid>
 
             <Rectangle Grid.Row="2" Grid.Column="4" Fill="Green"/>
@@ -933,34 +233,6 @@
                     <RowDefinition Height="1*" />
                 </Grid.RowDefinitions>
                 <Image x:Name="ImageRedGreen" Grid.Row="1" Grid.Column="1" Source="{Binding Path=RedGreen}" Stretch="Uniform"/>
-                <!--<Grid Grid.Row="1" Grid.Column="1">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*" />
-                        <ColumnDefinition Width="3*" />
-                        <ColumnDefinition Width="1*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="1*" />
-                        <RowDefinition Height="3*" />
-                        <RowDefinition Height="1*" />
-                    </Grid.RowDefinitions>
-                    <Button x:Name="AddRedGreen" Template="{StaticResource AddImageButtonTemplate}" Grid.Row="0" Grid.Column="2" Command="{Binding Path=SaveImageCommandRedGreen}" Visibility="Collapsed" Content="+" Style="{StaticResource AddImageButtonStyle}">
-                        <Button.Triggers>
-                            <EventTrigger RoutedEvent="Button.Click" >
-                                <BeginStoryboard  Storyboard="{StaticResource AddRedGreenStory}">
-                                </BeginStoryboard>
-                            </EventTrigger>
-                        </Button.Triggers>
-                    </Button>
-                    <Button x:Name="DeleteRedGreen" Template="{StaticResource DeleteImageButtonTemplate}" Grid.Row="0" Grid.Column="2" Command="{Binding Path=DeleteImageCommandRedGreen}" Content="-" Style="{StaticResource DeleteImageButtonStyle}">
-                        <Button.Triggers>
-                            <EventTrigger RoutedEvent="Button.Click" >
-                                <BeginStoryboard  Storyboard="{StaticResource DeleteRedGreenStory}">
-                                </BeginStoryboard>
-                            </EventTrigger>
-                        </Button.Triggers>
-                    </Button>
-                </Grid>-->
             </Grid>
 
             <Rectangle Grid.Row="2" Grid.Column="5" Fill="Yellow"/>
@@ -976,34 +248,6 @@
                     <RowDefinition Height="1*" />
                 </Grid.RowDefinitions>
                 <Image x:Name="ImageRedYellow" Grid.Row="1" Grid.Column="1" Source="{Binding Path=RedYellow}" Stretch="Uniform"/>
-                <!--<Grid Grid.Row="1" Grid.Column="1">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*" />
-                        <ColumnDefinition Width="3*" />
-                        <ColumnDefinition Width="1*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="1*" />
-                        <RowDefinition Height="3*" />
-                        <RowDefinition Height="1*" />
-                    </Grid.RowDefinitions>
-                    <Button x:Name="AddRedYellow" Template="{StaticResource AddImageButtonTemplate}" Grid.Row="0" Grid.Column="2" Command="{Binding Path=SaveImageCommandRedYellow}" Visibility="Collapsed" Content="+" Style="{StaticResource AddImageButtonStyle}">
-                        <Button.Triggers>
-                            <EventTrigger RoutedEvent="Button.Click" >
-                                <BeginStoryboard  Storyboard="{StaticResource AddRedYellowStory}">
-                                </BeginStoryboard>
-                            </EventTrigger>
-                        </Button.Triggers>
-                    </Button>
-                    <Button x:Name="DeleteRedYellow" Template="{StaticResource DeleteImageButtonTemplate}" Grid.Row="0" Grid.Column="2" Command="{Binding Path=DeleteImageCommandRedYellow}" Content="-" Style="{StaticResource DeleteImageButtonStyle}">
-                        <Button.Triggers>
-                            <EventTrigger RoutedEvent="Button.Click" >
-                                <BeginStoryboard  Storyboard="{StaticResource DeleteRedYellowStory}">
-                                </BeginStoryboard>
-                            </EventTrigger>
-                        </Button.Triggers>
-                    </Button>
-                </Grid>-->
             </Grid>
 
             <!--Green-->
@@ -1020,34 +264,6 @@
                     <RowDefinition Height="1*" />
                 </Grid.RowDefinitions>
                 <Image x:Name="ImageGreenBlue" Grid.Row="1" Grid.Column="1" Source="{Binding Path=GreenBlue}" Stretch="Uniform"/>
-                <!--<Grid Grid.Row="1" Grid.Column="1">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*" />
-                        <ColumnDefinition Width="3*" />
-                        <ColumnDefinition Width="1*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="1*" />
-                        <RowDefinition Height="3*" />
-                        <RowDefinition Height="1*" />
-                    </Grid.RowDefinitions>
-                    <Button x:Name="AddGreenBlue" Template="{StaticResource AddImageButtonTemplate}" Grid.Row="0" Grid.Column="2" Command="{Binding Path=SaveImageCommandGreenBlue}" Visibility="Collapsed" Content="+" Style="{StaticResource AddImageButtonStyle}">
-                        <Button.Triggers>
-                            <EventTrigger RoutedEvent="Button.Click" >
-                                <BeginStoryboard  Storyboard="{StaticResource AddGreenBlueStory}">
-                                </BeginStoryboard>
-                            </EventTrigger>
-                        </Button.Triggers>
-                    </Button>
-                    <Button x:Name="DeleteGreenBlue" Template="{StaticResource DeleteImageButtonTemplate}" Grid.Row="0" Grid.Column="2" Command="{Binding Path=DeleteImageCommandGreenBlue}" Content="-" Style="{StaticResource DeleteImageButtonStyle}">
-                        <Button.Triggers>
-                            <EventTrigger RoutedEvent="Button.Click" >
-                                <BeginStoryboard  Storyboard="{StaticResource DeleteGreenBlueStory}">
-                                </BeginStoryboard>
-                            </EventTrigger>
-                        </Button.Triggers>
-                    </Button>
-                </Grid>-->
             </Grid>
 
             <Rectangle Grid.Row="4" Grid.Column="2" Fill="Red"/>
@@ -1063,34 +279,6 @@
                     <RowDefinition Height="1*" />
                 </Grid.RowDefinitions>
                 <Image x:Name="ImageGreenRed" Grid.Row="1" Grid.Column="1" Source="{Binding Path=GreenRed}" Stretch="Uniform"/>
-                <!--<Grid Grid.Row="1" Grid.Column="1">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*" />
-                        <ColumnDefinition Width="3*" />
-                        <ColumnDefinition Width="1*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="1*" />
-                        <RowDefinition Height="3*" />
-                        <RowDefinition Height="1*" />
-                    </Grid.RowDefinitions>
-                    <Button x:Name="AddGreenRed" Template="{StaticResource AddImageButtonTemplate}" Grid.Row="0" Grid.Column="2" Command="{Binding Path=SaveImageCommandGreenRed}" Visibility="Collapsed" Content="+" Style="{StaticResource AddImageButtonStyle}">
-                        <Button.Triggers>
-                            <EventTrigger RoutedEvent="Button.Click" >
-                                <BeginStoryboard  Storyboard="{StaticResource AddGreenRedStory}">
-                                </BeginStoryboard>
-                            </EventTrigger>
-                        </Button.Triggers>
-                    </Button>
-                    <Button x:Name="DeleteGreenRed" Template="{StaticResource DeleteImageButtonTemplate}" Grid.Row="0" Grid.Column="2" Command="{Binding Path=DeleteImageCommandGreenRed}" Content="-" Style="{StaticResource DeleteImageButtonStyle}">
-                        <Button.Triggers>
-                            <EventTrigger RoutedEvent="Button.Click" >
-                                <BeginStoryboard  Storyboard="{StaticResource DeleteGreenRedStory}">
-                                </BeginStoryboard>
-                            </EventTrigger>
-                        </Button.Triggers>
-                    </Button>
-                </Grid>-->
             </Grid>
 
             <Rectangle Grid.Row="5" Grid.Column="1" Fill="Green"/>
@@ -1106,34 +294,6 @@
                     <RowDefinition Height="1*" />
                 </Grid.RowDefinitions>
                 <Image x:Name="ImageGreenGreen" Grid.Row="1" Grid.Column="1" Source="{Binding Path=GreenGreen}" Stretch="Uniform"/>
-                <!--<Grid Grid.Row="1" Grid.Column="1">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*" />
-                        <ColumnDefinition Width="3*" />
-                        <ColumnDefinition Width="1*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="1*" />
-                        <RowDefinition Height="3*" />
-                        <RowDefinition Height="1*" />
-                    </Grid.RowDefinitions>
-                    <Button x:Name="AddGreenGreen" Template="{StaticResource AddImageButtonTemplate}" Grid.Row="0" Grid.Column="2" Command="{Binding Path=SaveImageCommandGreenGreen}" Visibility="Collapsed" Content="+" Style="{StaticResource AddImageButtonStyle}">
-                        <Button.Triggers>
-                            <EventTrigger RoutedEvent="Button.Click" >
-                                <BeginStoryboard  Storyboard="{StaticResource AddGreenGreenStory}">
-                                </BeginStoryboard>
-                            </EventTrigger>
-                        </Button.Triggers>
-                    </Button>
-                    <Button x:Name="DeleteGreenGreen" Template="{StaticResource DeleteImageButtonTemplate}" Grid.Row="0" Grid.Column="2" Command="{Binding Path=DeleteImageCommandGreenGreen}" Content="-" Style="{StaticResource DeleteImageButtonStyle}">
-                        <Button.Triggers>
-                            <EventTrigger RoutedEvent="Button.Click" >
-                                <BeginStoryboard  Storyboard="{StaticResource DeleteGreenGreenStory}">
-                                </BeginStoryboard>
-                            </EventTrigger>
-                        </Button.Triggers>
-                    </Button>
-                </Grid>-->
             </Grid>
 
             <Rectangle Grid.Row="5" Grid.Column="2" Fill="Yellow"/>
@@ -1149,34 +309,6 @@
                     <RowDefinition Height="1*" />
                 </Grid.RowDefinitions>
                 <Image x:Name="ImageGreenYellow" Grid.Row="1" Grid.Column="1" Source="{Binding Path=GreenYellow}" Stretch="Uniform"/>
-                <!--<Grid Grid.Row="1" Grid.Column="1">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*" />
-                        <ColumnDefinition Width="3*" />
-                        <ColumnDefinition Width="1*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="1*" />
-                        <RowDefinition Height="3*" />
-                        <RowDefinition Height="1*" />
-                    </Grid.RowDefinitions>
-                    <Button x:Name="AddGreenYellow" Template="{StaticResource AddImageButtonTemplate}" Grid.Row="0" Grid.Column="2" Command="{Binding Path=SaveImageCommandGreenYellow}" Visibility="Collapsed" Content="+" Style="{StaticResource AddImageButtonStyle}">
-                        <Button.Triggers>
-                            <EventTrigger RoutedEvent="Button.Click" >
-                                <BeginStoryboard  Storyboard="{StaticResource AddGreenYellowStory}">
-                                </BeginStoryboard>
-                            </EventTrigger>
-                        </Button.Triggers>
-                    </Button>
-                    <Button x:Name="DeleteGreenYellow" Template="{StaticResource DeleteImageButtonTemplate}" Grid.Row="0" Grid.Column="2" Command="{Binding Path=DeleteImageCommandGreenYellow}" Content="-" Style="{StaticResource DeleteImageButtonStyle}">
-                        <Button.Triggers>
-                            <EventTrigger RoutedEvent="Button.Click" >
-                                <BeginStoryboard  Storyboard="{StaticResource DeleteGreenYellowStory}">
-                                </BeginStoryboard>
-                            </EventTrigger>
-                        </Button.Triggers>
-                    </Button>
-                </Grid>-->
             </Grid>
 
             <!--Yellow-->
@@ -1193,34 +325,6 @@
                     <RowDefinition Height="1*" />
                 </Grid.RowDefinitions>
                 <Image x:Name="ImageYellowBlue" Grid.Row="1" Grid.Column="1" Source="{Binding Path=YellowBlue}" Stretch="Uniform"/>
-                <!--<Grid Grid.Row="1" Grid.Column="1">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*" />
-                        <ColumnDefinition Width="3*" />
-                        <ColumnDefinition Width="1*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="1*" />
-                        <RowDefinition Height="3*" />
-                        <RowDefinition Height="1*" />
-                    </Grid.RowDefinitions>
-                    <Button x:Name="AddYellowBlue" Template="{StaticResource AddImageButtonTemplate}" Grid.Row="0" Grid.Column="2" Command="{Binding Path=SaveImageCommandYellowBlue}" Visibility="Collapsed" Content="+" Style="{StaticResource AddImageButtonStyle}">
-                        <Button.Triggers>
-                            <EventTrigger RoutedEvent="Button.Click" >
-                                <BeginStoryboard  Storyboard="{StaticResource AddYellowBlueStory}">
-                                </BeginStoryboard>
-                            </EventTrigger>
-                        </Button.Triggers>
-                    </Button>
-                    <Button x:Name="DeleteYellowBlue" Template="{StaticResource DeleteImageButtonTemplate}" Grid.Row="0" Grid.Column="2" Command="{Binding Path=DeleteImageCommandYellowBlue}" Content="-" Style="{StaticResource DeleteImageButtonStyle}">
-                        <Button.Triggers>
-                            <EventTrigger RoutedEvent="Button.Click" >
-                                <BeginStoryboard  Storyboard="{StaticResource DeleteYellowBlueStory}">
-                                </BeginStoryboard>
-                            </EventTrigger>
-                        </Button.Triggers>
-                    </Button>
-                </Grid>-->
             </Grid>
 
             <Rectangle Grid.Row="4" Grid.Column="5" Fill="Red"/>
@@ -1236,34 +340,6 @@
                     <RowDefinition Height="1*" />
                 </Grid.RowDefinitions>
                 <Image x:Name="ImageYellowRed" Grid.Row="1" Grid.Column="1" Source="{Binding Path=YellowRed}" Stretch="Uniform"/>
-                <!--<Grid Grid.Row="1" Grid.Column="1">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*" />
-                        <ColumnDefinition Width="3*" />
-                        <ColumnDefinition Width="1*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="1*" />
-                        <RowDefinition Height="3*" />
-                        <RowDefinition Height="1*" />
-                    </Grid.RowDefinitions>
-                    <Button x:Name="AddYellowRed" Template="{StaticResource AddImageButtonTemplate}" Grid.Row="0" Grid.Column="2" Command="{Binding Path=SaveImageCommandYellowRed}" Visibility="Collapsed" Content="+" Style="{StaticResource AddImageButtonStyle}">
-                        <Button.Triggers>
-                            <EventTrigger RoutedEvent="Button.Click" >
-                                <BeginStoryboard  Storyboard="{StaticResource AddYellowRedStory}">
-                                </BeginStoryboard>
-                            </EventTrigger>
-                        </Button.Triggers>
-                    </Button>
-                    <Button x:Name="DeleteYellowRed" Template="{StaticResource DeleteImageButtonTemplate}" Grid.Row="0" Grid.Column="2" Command="{Binding Path=DeleteImageCommandYellowRed}" Content="-" Style="{StaticResource DeleteImageButtonStyle}">
-                        <Button.Triggers>
-                            <EventTrigger RoutedEvent="Button.Click" >
-                                <BeginStoryboard  Storyboard="{StaticResource DeleteYellowRedStory}">
-                                </BeginStoryboard>
-                            </EventTrigger>
-                        </Button.Triggers>
-                    </Button>
-                </Grid>-->
             </Grid>
 
             <Rectangle Grid.Row="5" Grid.Column="4" Fill="Green"/>
@@ -1279,34 +355,6 @@
                     <RowDefinition Height="1*" />
                 </Grid.RowDefinitions>
                 <Image x:Name="ImageYellowGreen" Grid.Row="1" Grid.Column="1" Source="{Binding Path=YellowGreen}" Stretch="Uniform"/>
-                <!--<Grid Grid.Row="1" Grid.Column="1">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*" />
-                        <ColumnDefinition Width="3*" />
-                        <ColumnDefinition Width="1*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="1*" />
-                        <RowDefinition Height="3*" />
-                        <RowDefinition Height="1*" />
-                    </Grid.RowDefinitions>
-                    <Button x:Name="AddYellowGreen" Template="{StaticResource AddImageButtonTemplate}" Grid.Row="0" Grid.Column="2" Command="{Binding Path=SaveImageCommandYellowGreen}" Visibility="Collapsed" Content="+" Style="{StaticResource AddImageButtonStyle}">
-                        <Button.Triggers>
-                            <EventTrigger RoutedEvent="Button.Click" >
-                                <BeginStoryboard  Storyboard="{StaticResource AddYellowGreenStory}">
-                                </BeginStoryboard>
-                            </EventTrigger>
-                        </Button.Triggers>
-                    </Button>
-                    <Button x:Name="DeleteYellowGreen" Template="{StaticResource DeleteImageButtonTemplate}" Grid.Row="0" Grid.Column="2" Command="{Binding Path=DeleteImageCommandYellowGreen}" Content="-" Style="{StaticResource DeleteImageButtonStyle}">
-                        <Button.Triggers>
-                            <EventTrigger RoutedEvent="Button.Click" >
-                                <BeginStoryboard  Storyboard="{StaticResource DeleteYellowGreenStory}">
-                                </BeginStoryboard>
-                            </EventTrigger>
-                        </Button.Triggers>
-                    </Button>
-                </Grid>-->
             </Grid>
 
             <Rectangle Grid.Row="5" Grid.Column="5" Fill="Yellow"/>
@@ -1322,34 +370,6 @@
                     <RowDefinition Height="1*" />
                 </Grid.RowDefinitions>
                 <Image x:Name="ImageYellowYellow" Grid.Row="1" Grid.Column="1" Source="{Binding Path=YellowYellow}" Stretch="Uniform"/>
-                <!--<Grid Grid.Row="1" Grid.Column="1">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*" />
-                        <ColumnDefinition Width="3*" />
-                        <ColumnDefinition Width="1*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="1*" />
-                        <RowDefinition Height="3*" />
-                        <RowDefinition Height="1*" />
-                    </Grid.RowDefinitions>
-                    <Button x:Name="AddYellowYellow" Template="{StaticResource AddImageButtonTemplate}" Grid.Row="0" Grid.Column="2" Command="{Binding Path=SaveImageCommandYellowYellow}" Visibility="Collapsed" Content="+" Style="{StaticResource AddImageButtonStyle}">
-                        <Button.Triggers>
-                            <EventTrigger RoutedEvent="Button.Click" >
-                                <BeginStoryboard  Storyboard="{StaticResource AddYellowYellowStory}">
-                                </BeginStoryboard>
-                            </EventTrigger>
-                        </Button.Triggers>
-                    </Button>
-                    <Button x:Name="DeleteYellowYellow" Template="{StaticResource DeleteImageButtonTemplate}" Grid.Row="0" Grid.Column="2" Command="{Binding Path=DeleteImageCommandYellowYellow}" Content="-" Style="{StaticResource DeleteImageButtonStyle}">
-                        <Button.Triggers>
-                            <EventTrigger RoutedEvent="Button.Click" >
-                                <BeginStoryboard  Storyboard="{StaticResource DeleteYellowYellowStory}">
-                                </BeginStoryboard>
-                            </EventTrigger>
-                        </Button.Triggers>
-                    </Button>
-                </Grid>-->
             </Grid>
         </Grid>
         <Button x:Name="DeleteButton" Template="{StaticResource DeleteButtonTemplate}" Command="{Binding Path=DeleteScenario}"  Cursor="Hand" Background="#F8F9F7" BorderBrush="#5B5B5B" Content="Löschen" Grid.Row="8" Grid.Column="5" Grid.ColumnSpan="2">
@@ -1359,6 +379,9 @@
                     <Style.Triggers>
                         <DataTrigger Binding ="{Binding IsListItemSelected}" Value="True">
                             <Setter Property="Button.IsEnabled" Value="True"/>
+                        </DataTrigger>
+                        <DataTrigger Binding ="{Binding IsListItemSelected}" Value="False">
+                            <Setter Property="Button.IsEnabled" Value="False"/>
                         </DataTrigger>
                     </Style.Triggers>
                 </Style>

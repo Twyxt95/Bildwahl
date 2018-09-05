@@ -3,9 +3,7 @@ using System.Windows.Input;
 
 namespace Bildwahl.ViewModel
 {
-    /// <summary>
-    /// Represents an actionable item displayed by a View.
-    /// </summary>
+    /// <summary>Stellt ein aktivierbares Objekt dar, das von einer View angezeigt wird </summary>
     public class CommandViewModel : ViewModelBase
     {
         public CommandViewModel(string displayName, ICommand command)

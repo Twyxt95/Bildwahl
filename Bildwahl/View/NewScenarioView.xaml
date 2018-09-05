@@ -596,12 +596,6 @@
                     <RowDefinition Height="1*" />
                 </Grid.RowDefinitions>
                 <Button x:Name="AddBlueBlue" Template="{StaticResource AddImageButtonTemplate}" Grid.Row="0" Grid.Column="2" Command="{Binding Path=SaveImageCommandBlueBlue}" Content="+" Style="{StaticResource AddImageButtonStyle}">
-                    <Button.Triggers>
-                        <!--<EventTrigger RoutedEvent="Button.Click" >
-                            <BeginStoryboard  Storyboard="{StaticResource AddBlueBlueStory}">
-                            </BeginStoryboard>
-                        </EventTrigger>-->
-                    </Button.Triggers>
                     <i:Interaction.Triggers>
                         <ei:DataTrigger Binding="{Binding BlueBlueImage}" Value="True">
                             <ei:ControlStoryboardAction Storyboard="{StaticResource AddBlueBlueStory}"/>
@@ -609,13 +603,6 @@
                     </i:Interaction.Triggers>
                 </Button>
                 <Button x:Name="DeleteBlueBlue" Template="{StaticResource DeleteImageButtonTemplate}" Grid.Row="0" Grid.Column="2" Command="{Binding Path=DeleteImageCommandBlueBlue}" Visibility="Collapsed" Content="-" Style="{StaticResource DeleteImageButtonStyle}">
-                    <Button.Triggers>
-                       <!-- <EventTrigger RoutedEvent="Button.Click" >
-                            <BeginStoryboard  Storyboard="{StaticResource DeleteBlueBlueStory}">
-                            </BeginStoryboard>
-                        </EventTrigger>-->
-                        
-                    </Button.Triggers>
                     <i:Interaction.Triggers>
                         <ei:DataTrigger Binding="{Binding BlueBlueImage}" Value="False">
                             <ei:ControlStoryboardAction Storyboard="{StaticResource DeleteBlueBlueStory}"/>

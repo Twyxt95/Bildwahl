@@ -136,6 +136,8 @@ namespace Bildwahl.ViewModel
             YellowRed = null;
             YellowGreen = null;
             YellowYellow = null;
+            IsListItemSelected = false;
+            base.OnPropertyChanged("IsListItemSelected");
         }
 
         /// <summary> Titel des ausgewählten Szenarios </summary>
