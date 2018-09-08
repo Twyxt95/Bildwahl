@@ -14,17 +14,11 @@ namespace Bildwahl.ViewModel
         /// <summary>Name des Viewmodels </summary>
         public virtual string DisplayName { get; protected set; }
 
-        /// <summary>
-        /// Warns the developer if this object does not have
-        /// a public property with the specified name. This 
-        /// method does not exist in a Release build.
-        /// </summary>
+        /// <summary> Nur Debug, Überprüft ob Property existiert </summary>
         [Conditional("DEBUG")]
         [DebuggerStepThrough]
         public void VerifyPropertyName(string propertyName)
         {
-            // Verify that the property name matches a real,  
-            // public, instance property on this object.
             if (TypeDescriptor.GetProperties(this)[propertyName] == null)
             {
                 string msg = "Invalid property name: " + propertyName;
@@ -36,26 +30,16 @@ namespace Bildwahl.ViewModel
             }
         }
 
-        /// <summary>
-        /// Returns whether an exception is thrown, or if a Debug.Fail() is used
-        /// when an invalid property name is passed to the VerifyPropertyName method.
-        /// The default value is false, but subclasses used by unit tests might 
-        /// override this property's getter to return true.
-        /// </summary>
         protected virtual bool ThrowOnInvalidPropertyName { get; private set; }
 
 
         #region INotifyPropertyChanged Members
 
-        /// <summary>
-        /// Raised when a property on this object has a new value.
-        /// </summary>
+        /// <summary> Ausgelöst wenn eine Property dieses Objekts einen neuen Wert hat </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
-        /// <summary>
-        /// Raises this object's PropertyChanged event.
-        /// </summary>
-        /// <param name="propertyName">The property that has a new value.</param>
+        /// <summary>Löst PropertyChanged Event aus</summary>
+        /// <param name="propertyName"> Die Property, die einen neuen Namen hat </param>
         protected virtual void OnPropertyChanged(string propertyName)
         {
             this.VerifyPropertyName(propertyName);
@@ -72,27 +56,19 @@ namespace Bildwahl.ViewModel
 
         #region IDisposable Members
 
-        /// <summary>
-        /// Invoked when this object is being removed from the application
-        /// and will be subject to garbage collection.
-        /// </summary>
+        /// <summary>Ausgelöst, wenn das Objekt aus der Apllikation entfernt wird</summary>
         public void Dispose()
         {
             this.OnDispose();
         }
 
-        /// <summary>
-        /// Child classes can override this method to perform 
-        /// clean-up logic, such as removing event handlers.
-        /// </summary>
+        /// <summary> Logik, wenn Objekt entfernt wird </summary>
         protected virtual void OnDispose()
         {
         }
 
 #if DEBUG
-        /// <summary>
-        /// Useful for ensuring that ViewModel objects are properly garbage collected.
-        /// </summary>
+        /// <summary> Nützlich, um zu überprüfen ob ViewModel-Klassen gelöscht wurden </summary>
         ~ViewModelBase()
         {
             string msg = string.Format("{0} ({1}) ({2}) Finalized", this.GetType().Name, this.DisplayName, this.GetHashCode());

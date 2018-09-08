@@ -21,10 +21,7 @@ namespace Bildwahl.ViewModel
 
         #region CloseCommand
 
-        /// <summary>
-        /// Returns the command that, when invoked, attempts
-        /// to remove this workspace from the user interface.
-        /// </summary>
+        /// <summary>Schließt den aktuellen Workspace </summary>
         public ICommand CloseCommand
         {
             get
@@ -40,9 +37,7 @@ namespace Bildwahl.ViewModel
 
         #region RequestClose [event]
 
-        /// <summary>
-        /// Raised when this workspace should be removed from the UI.
-        /// </summary>
+        /// <summary>Ausgelöst, wenn der Workspace netfernt werden soll </summary>
         public event EventHandler RequestClose;
 
         void OnRequestClose()
