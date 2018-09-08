@@ -73,7 +73,7 @@ namespace Bildwahl.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge
+        ///   Sucht eine lokalisierte Zeichenfolge, die First name is missing ähnelt.
         /// </summary>
         public static string Scenario_Error_MissingTitel {
             get {
@@ -83,7 +83,7 @@ namespace Bildwahl.Properties {
         
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge
+        ///   Sucht eine lokalisierte Zeichenfolge, die Cannot save an invalid scenario. ähnelt.
         /// </summary>
         public static string NewScenarioViewModel_Exception_CannotSave {
             get {
@@ -92,7 +92,7 @@ namespace Bildwahl.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge
+        ///   Sucht eine lokalisierte Zeichenfolge, die Create new scenario ähnelt.
         /// </summary>
         public static string MainWindowViewModel_Command_CreateNewScenario {
             get {
@@ -112,7 +112,7 @@ namespace Bildwahl.Properties {
         }
 
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge
+        ///   Sucht eine lokalisierte Zeichenfolge, die MVVM Demo App ähnelt.
         /// </summary>
         public static string MainWindowViewModel_DisplayName {
             get {

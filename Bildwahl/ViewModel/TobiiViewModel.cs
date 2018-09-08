@@ -1,7 +1,11 @@
 ﻿using System;
+using System.ComponentModel;
+using System.Windows;
+using System.Windows.Controls;
 using Bildwahl.DataAccess;
 using Bildwahl.Model;
 using Bildwahl.Properties;
+using Tobii.Interaction.Wpf;
 
 namespace Bildwahl.ViewModel
 {

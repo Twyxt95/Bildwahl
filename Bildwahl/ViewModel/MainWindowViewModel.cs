@@ -137,7 +137,12 @@ namespace Bildwahl.ViewModel
         /// <summary> Für die Anzeige des Workspace, um ein Szenario zu löschen </summary>
         void DeleteScenario()
         {
-            if (!(this.Workspaces.FirstOrDefault(vm => vm is DeleteScenarioViewModel) is DeleteScenarioViewModel workspace))
+
+            DeleteScenarioViewModel workspace =
+                this.Workspaces.FirstOrDefault(vm => vm is DeleteScenarioViewModel)
+                as DeleteScenarioViewModel;
+
+            if (workspace == null)
             {
                 workspace = new DeleteScenarioViewModel(_scenarioRepository);
                 this.Workspaces.Add(workspace);

@@ -1,7 +1,10 @@
-﻿using Tobii.Interaction.Wpf;
+﻿using Tobii.Interaction.Framework;
+using Tobii.Interaction;
+using Tobii.Interaction.Wpf;
 using System.Windows.Controls;
 using System.Windows;
 using Bildwahl.ViewModel;
+using System;
 
 namespace Bildwahl.View
 {
@@ -12,16 +15,14 @@ namespace Bildwahl.View
             InitializeComponent();
         }
 
-        /// <summary> Eventhandler für hasGazeChanged </summary>
-        /// <param name="sender"> Objekt das das Event ausgelöst hat </param>
-        /// <param name="e"> Das Event </param>
         public void Instruction_OnHasGazeChanged(object sender, RoutedEventArgs e)
         {
-            if (!(e.Source is Button button)) { return; }
+            var textBlock = e.Source as Button;
+            if (null == textBlock) { return; }
 
             var model = (TobiiViewModel)DataContext;
-            var hasGaze = button.GetHasGaze();
-            model.NotifyHasGazeChanged(hasGaze,button.Name);
+            var hasGaze = textBlock.GetHasGaze();
+            model.NotifyHasGazeChanged(hasGaze,textBlock.Name);
         }
     }
 }
