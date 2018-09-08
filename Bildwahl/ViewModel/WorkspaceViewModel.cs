@@ -47,9 +47,7 @@ namespace Bildwahl.ViewModel
 
         void OnRequestClose()
         {
-            EventHandler handler = this.RequestClose;
-            if (handler != null)
-                handler(this, EventArgs.Empty);
+            this.RequestClose?.Invoke(this, EventArgs.Empty);
         }
 
         #endregion // RequestClose [event]

@@ -137,6 +137,6 @@
     <comment>Error message for when a Scenario is missing a titel.</comment>
   </data>
   <data name="TobiiViewModel_DisplayName" xml:space="preserve">
-    <value>Test</value>
+    <value>Blickwahl</value>
   </data>
 </root>
